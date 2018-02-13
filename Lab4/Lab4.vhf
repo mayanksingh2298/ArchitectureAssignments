@@ -192,7 +192,8 @@ begin
         FromMem(15) when "00101",
         FromMem(23) when "00110",
         FromMem(31) when "00111",
-        FromMem(23) when others;
+        FromMem(15) when "01100",
+        FromMem(31) when others;
     with ext select extall1 <=
         "111111111111111111111111" when '1',
         "000000000000000000000000" when others;
