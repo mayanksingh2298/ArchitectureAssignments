@@ -1,0 +1,2397 @@
+#-----------------------------------------------------------
+# Vivado v2016.4 (64-bit)
+# SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
+# IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+# Start of session at: Tue Feb 13 13:30:21 2018
+# Process ID: 4858
+# Current directory: /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4
+# Command line: vivado
+# Log file: /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/vivado.log
+# Journal file: /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/vivado.jou
+#-----------------------------------------------------------
+start_gui
+create_project lab4 . -part xc7a35tcpg236-1
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2016.4/data/ip'.
+create_project: Time (s): cpu = 00:00:12 ; elapsed = 00:00:09 . Memory (MB): peak = 5878.203 ; gain = 32.641 ; free physical = 2658 ; free virtual = 12918
+set_property target_language VHDL [current_project]
+add_files -norecurse /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf
+launch_simulation
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-37] Inspecting design source files for 'ALU' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+xvhdl -m64 --relax -prj ALU_vhdl.prj
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity ALU
+INFO: [VRFC 10-307] analyzing entity shifter
+INFO: [VRFC 10-307] analyzing entity multiplier
+INFO: [VRFC 10-307] analyzing entity RegisterFile
+INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+Vivado Simulator 2016.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2016.4/bin/unwrapped/lnx64.o/xelab -wto c583d4283bba4910b9413ca7d9fb7fda --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot ALU_behav xil_defaultlib.ALU -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture func1 of entity xil_defaultlib.alu
+Built simulation snapshot ALU_behav
+
+****** Webtalk v2016.4 (64-bit)
+  **** SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
+  **** IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav/xsim.dir/ALU_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Tue Feb 13 14:11:04 2018...
+run_program: Time (s): cpu = 00:00:02 ; elapsed = 00:00:09 . Memory (MB): peak = 5904.930 ; gain = 0.000 ; free physical = 2103 ; free virtual = 12795
+INFO: [USF-XSim-69] 'elaborate' step finished in '10' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "ALU_behav -key {Behavioral:sim_1:Functional:ALU} -tclbatch {ALU.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2016.4
+Time resolution is 1 ps
+source ALU.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'ALU_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:06 ; elapsed = 00:00:14 . Memory (MB): peak = 5950.852 ; gain = 45.922 ; free physical = 2078 ; free virtual = 12789
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+set_property top shifter [current_fileset]
+launch_simulation
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-37] Inspecting design source files for 'ALU' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+xvhdl -m64 --relax -prj ALU_vhdl.prj
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity ALU
+INFO: [VRFC 10-307] analyzing entity shifter
+INFO: [VRFC 10-307] analyzing entity multiplier
+INFO: [VRFC 10-307] analyzing entity RegisterFile
+INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath
+INFO: [USF-XSim-69] 'compile' step finished in '0' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+Vivado Simulator 2016.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2016.4/bin/unwrapped/lnx64.o/xelab -wto c583d4283bba4910b9413ca7d9fb7fda --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot ALU_behav xil_defaultlib.ALU -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture func1 of entity xil_defaultlib.alu
+Built simulation snapshot ALU_behav
+
+****** Webtalk v2016.4 (64-bit)
+  **** SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
+  **** IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav/xsim.dir/ALU_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Tue Feb 13 14:11:47 2018...
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "ALU_behav -key {Behavioral:sim_1:Functional:ALU} -tclbatch {ALU.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2016.4
+Time resolution is 1 ps
+source ALU.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'ALU_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-37] Inspecting design source files for 'ALU' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+xvhdl -m64 --relax -prj ALU_vhdl.prj
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity ALU
+INFO: [VRFC 10-307] analyzing entity shifter
+INFO: [VRFC 10-307] analyzing entity multiplier
+INFO: [VRFC 10-307] analyzing entity RegisterFile
+INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath
+INFO: [USF-XSim-69] 'compile' step finished in '0' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+Vivado Simulator 2016.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2016.4/bin/unwrapped/lnx64.o/xelab -wto c583d4283bba4910b9413ca7d9fb7fda --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot ALU_behav xil_defaultlib.ALU -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture func1 of entity xil_defaultlib.alu
+Built simulation snapshot ALU_behav
+
+****** Webtalk v2016.4 (64-bit)
+  **** SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
+  **** IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav/xsim.dir/ALU_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Tue Feb 13 14:12:51 2018...
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "ALU_behav -key {Behavioral:sim_1:Functional:ALU} -tclbatch {ALU.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2016.4
+Time resolution is 1 ps
+source ALU.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'ALU_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+set_property top shifter [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+launch_simulation
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-37] Inspecting design source files for 'shifter' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+xvhdl -m64 --relax -prj shifter_vhdl.prj
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity shifter
+INFO: [VRFC 10-307] analyzing entity ALU
+INFO: [VRFC 10-307] analyzing entity multiplier
+INFO: [VRFC 10-307] analyzing entity RegisterFile
+INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath
+INFO: [USF-XSim-69] 'compile' step finished in '0' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+Vivado Simulator 2016.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2016.4/bin/unwrapped/lnx64.o/xelab -wto c583d4283bba4910b9413ca7d9fb7fda --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot shifter_behav xil_defaultlib.shifter -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture func2 of entity xil_defaultlib.shifter
+Built simulation snapshot shifter_behav
+
+****** Webtalk v2016.4 (64-bit)
+  **** SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
+  **** IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav/xsim.dir/shifter_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Tue Feb 13 14:14:30 2018...
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "shifter_behav -key {Behavioral:sim_1:Functional:shifter} -tclbatch {shifter.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2016.4
+Time resolution is 1 ps
+source shifter.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+ERROR: Index 2147483647 out of bound 31 downto 0
+Time: 0 ps  Iteration: 0  Process: /shifter/line__19
+  File: /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf
+
+HDL Line: /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf:19
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'shifter_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+add_force {/shifter/a} -radix bin {11111111000000001111111100000000 0ns}
+run 1000 us
+ERROR: [Simulator 45-1] A fatal run-time error was detected.  Simulation cannot continue.
+add_bp {/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf} 19
+remove_bps -file {/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf} -line 19
+add_force {/shifter/a} -radix bin {111110000111100001111000011110000 0ns}
+ERROR: [Simtcl 6-179] Couldn't add force for the following reason: Illegal value '111110000111100001111000011110000': Object size 32 does not match size of given value 111110000111100001111000011110000.
+add_force {/shifter/a} -radix bin {11111111111111110000000000000000 0ns}
+add_force {/shifter/opcode} -radix bin {0000 0ns}
+add_force {/shifter/shiftAmount} -radix bin {00000000000000000000000000000001 0ns}
+add_force {/shifter/carryIn} -radix bin {0 0ns}
+run 1000 us
+ERROR: [Simulator 45-1] A fatal run-time error was detected.  Simulation cannot continue.
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-37] Inspecting design source files for 'shifter' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+xvhdl -m64 --relax -prj shifter_vhdl.prj
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity shifter
+INFO: [VRFC 10-307] analyzing entity ALU
+INFO: [VRFC 10-307] analyzing entity multiplier
+INFO: [VRFC 10-307] analyzing entity RegisterFile
+INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath
+INFO: [USF-XSim-69] 'compile' step finished in '0' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+Vivado Simulator 2016.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2016.4/bin/unwrapped/lnx64.o/xelab -wto c583d4283bba4910b9413ca7d9fb7fda --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot shifter_behav xil_defaultlib.shifter -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture func2 of entity xil_defaultlib.shifter
+Built simulation snapshot shifter_behav
+
+****** Webtalk v2016.4 (64-bit)
+  **** SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
+  **** IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav/xsim.dir/shifter_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Tue Feb 13 14:18:33 2018...
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "shifter_behav -key {Behavioral:sim_1:Functional:shifter} -tclbatch {shifter.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2016.4
+Time resolution is 1 ps
+source shifter.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'shifter_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-37] Inspecting design source files for 'shifter' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+xvhdl -m64 --relax -prj shifter_vhdl.prj
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity shifter
+INFO: [VRFC 10-307] analyzing entity ALU
+INFO: [VRFC 10-307] analyzing entity multiplier
+INFO: [VRFC 10-307] analyzing entity RegisterFile
+INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath
+INFO: [USF-XSim-69] 'compile' step finished in '0' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+Vivado Simulator 2016.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2016.4/bin/unwrapped/lnx64.o/xelab -wto c583d4283bba4910b9413ca7d9fb7fda --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot shifter_behav xil_defaultlib.shifter -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture func2 of entity xil_defaultlib.shifter
+Built simulation snapshot shifter_behav
+
+****** Webtalk v2016.4 (64-bit)
+  **** SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
+  **** IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav/xsim.dir/shifter_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Tue Feb 13 14:19:03 2018...
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "shifter_behav -key {Behavioral:sim_1:Functional:shifter} -tclbatch {shifter.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2016.4
+Time resolution is 1 ps
+source shifter.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'shifter_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+run 1000 us
+add_force {/shifter/a} -radix bin {11111111000000001111111100000000 0ns}
+add_force {/shifter/opcode} -radix bin {0000 0ns}
+add_force {/shifter/shiftAmount} -radix bin {000000000000000000000000000000001 0ns}
+add_force {/shifter/carryIn} -radix bin {0 0ns}
+run 1000 us
+add_force {/shifter/opcode} -radix bin {01 0ns}
+run 1000 us
+add_force {/shifter/opcode} -radix bin {10 0ns}
+run 1000 us
+add_force {/shifter/shiftAmount} -radix bin {00000000000000000000000000000011 0ns}
+run 1000 us
+add_force {/shifter/opcode} -radix bin {11 0ns}
+add_force {/shifter/shiftAmount} -radix unsigned {7 0ns}
+run 1000 us
+add_force {/shifter/a} -radix bin {11111111111111110000000000101010 0ns}
+run 1000 us
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-37] Inspecting design source files for 'shifter' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+xvhdl -m64 --relax -prj shifter_vhdl.prj
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity shifter
+INFO: [VRFC 10-307] analyzing entity ALU
+INFO: [VRFC 10-307] analyzing entity multiplier
+INFO: [VRFC 10-307] analyzing entity RegisterFile
+INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+Vivado Simulator 2016.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2016.4/bin/unwrapped/lnx64.o/xelab -wto c583d4283bba4910b9413ca7d9fb7fda --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot shifter_behav xil_defaultlib.shifter -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture func2 of entity xil_defaultlib.shifter
+Built simulation snapshot shifter_behav
+
+****** Webtalk v2016.4 (64-bit)
+  **** SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
+  **** IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav/xsim.dir/shifter_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Tue Feb 13 14:31:21 2018...
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "shifter_behav -key {Behavioral:sim_1:Functional:shifter} -tclbatch {shifter.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2016.4
+Time resolution is 1 ps
+source shifter.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+ERROR: Index 2147483647 out of bound 31 downto 0
+Time: 0 ps  Iteration: 0  Process: /shifter/line__22
+  File: /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf
+
+HDL Line: /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf:29
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'shifter_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+run 1000 us
+ERROR: [Simulator 45-1] A fatal run-time error was detected.  Simulation cannot continue.
+run 1000 us
+ERROR: [Simulator 45-1] A fatal run-time error was detected.  Simulation cannot continue.
+run 1000 us
+ERROR: [Simulator 45-1] A fatal run-time error was detected.  Simulation cannot continue.
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-37] Inspecting design source files for 'shifter' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+xvhdl -m64 --relax -prj shifter_vhdl.prj
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity shifter
+INFO: [VRFC 10-307] analyzing entity ALU
+INFO: [VRFC 10-307] analyzing entity multiplier
+INFO: [VRFC 10-307] analyzing entity RegisterFile
+INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath
+INFO: [USF-XSim-69] 'compile' step finished in '0' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+Vivado Simulator 2016.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2016.4/bin/unwrapped/lnx64.o/xelab -wto c583d4283bba4910b9413ca7d9fb7fda --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot shifter_behav xil_defaultlib.shifter -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture func2 of entity xil_defaultlib.shifter
+Built simulation snapshot shifter_behav
+
+****** Webtalk v2016.4 (64-bit)
+  **** SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
+  **** IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav/xsim.dir/shifter_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Tue Feb 13 14:32:51 2018...
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "shifter_behav -key {Behavioral:sim_1:Functional:shifter} -tclbatch {shifter.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2016.4
+Time resolution is 1 ps
+source shifter.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+ERROR: Index -2147483648 out of bound 31 downto 0
+Time: 0 ps  Iteration: 0  Process: /shifter/line__22
+  File: /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf
+
+HDL Line: /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf:29
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'shifter_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-37] Inspecting design source files for 'shifter' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+xvhdl -m64 --relax -prj shifter_vhdl.prj
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity shifter
+INFO: [VRFC 10-307] analyzing entity ALU
+INFO: [VRFC 10-307] analyzing entity multiplier
+INFO: [VRFC 10-307] analyzing entity RegisterFile
+INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+Vivado Simulator 2016.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2016.4/bin/unwrapped/lnx64.o/xelab -wto c583d4283bba4910b9413ca7d9fb7fda --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot shifter_behav xil_defaultlib.shifter -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture func2 of entity xil_defaultlib.shifter
+Built simulation snapshot shifter_behav
+
+****** Webtalk v2016.4 (64-bit)
+  **** SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
+  **** IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav/xsim.dir/shifter_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Tue Feb 13 14:33:23 2018...
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "shifter_behav -key {Behavioral:sim_1:Functional:shifter} -tclbatch {shifter.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2016.4
+Time resolution is 1 ps
+source shifter.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'shifter_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-37] Inspecting design source files for 'shifter' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+xvhdl -m64 --relax -prj shifter_vhdl.prj
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity shifter
+INFO: [VRFC 10-307] analyzing entity ALU
+INFO: [VRFC 10-307] analyzing entity multiplier
+INFO: [VRFC 10-307] analyzing entity RegisterFile
+INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+Vivado Simulator 2016.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2016.4/bin/unwrapped/lnx64.o/xelab -wto c583d4283bba4910b9413ca7d9fb7fda --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot shifter_behav xil_defaultlib.shifter -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture func2 of entity xil_defaultlib.shifter
+Built simulation snapshot shifter_behav
+
+****** Webtalk v2016.4 (64-bit)
+  **** SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
+  **** IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav/xsim.dir/shifter_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Tue Feb 13 14:33:39 2018...
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "shifter_behav -key {Behavioral:sim_1:Functional:shifter} -tclbatch {shifter.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2016.4
+Time resolution is 1 ps
+source shifter.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'shifter_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+add_force {/shifter/a} -radix bin {11110000101010101010101000000011 0ns}
+add_force {/shifter/opcode} -radix bin {00 0ns}
+add_force {/shifter/shiftAmount} -radix bin {7 0ns}
+ERROR: [Simtcl 6-179] Couldn't add force for the following reason: Illegal value '7': Character '7' is not a legal binary literal.
+add_force {/shifter/shiftAmount} -radix unsigned {7 0ns}
+add_force {/shifter/carryIn} -radix hex {0 0ns}
+run 1000 us
+add_force {/shifter/shiftAmount} -radix hex {1 0ns}
+run 1000 us
+set_property top multiplier [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+launch_simulation
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-37] Inspecting design source files for 'multiplier' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+xvhdl -m64 --relax -prj multiplier_vhdl.prj
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity shifter
+INFO: [VRFC 10-307] analyzing entity ALU
+INFO: [VRFC 10-307] analyzing entity multiplier
+INFO: [VRFC 10-307] analyzing entity RegisterFile
+INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath
+INFO: [USF-XSim-69] 'compile' step finished in '0' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+Vivado Simulator 2016.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2016.4/bin/unwrapped/lnx64.o/xelab -wto c583d4283bba4910b9413ca7d9fb7fda --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot multiplier_behav xil_defaultlib.multiplier -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture func3 of entity xil_defaultlib.multiplier
+Built simulation snapshot multiplier_behav
+
+****** Webtalk v2016.4 (64-bit)
+  **** SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
+  **** IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav/xsim.dir/multiplier_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Tue Feb 13 14:37:49 2018...
+run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:00:12 . Memory (MB): peak = 5979.258 ; gain = 0.000 ; free physical = 1831 ; free virtual = 12649
+INFO: [USF-XSim-69] 'elaborate' step finished in '11' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "multiplier_behav -key {Behavioral:sim_1:Functional:multiplier} -tclbatch {multiplier.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2016.4
+Time resolution is 1 ps
+source multiplier.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+ERROR: Array sizes do not match, left array has 32 elements, right array has 64 elements
+Time: 0 ps  Iteration: 0  Process: /multiplier/line__112
+  File: /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf
+
+HDL Line: /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf:112
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'multiplier_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:03 ; elapsed = 00:00:14 . Memory (MB): peak = 6011.070 ; gain = 31.812 ; free physical = 1825 ; free virtual = 12653
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-37] Inspecting design source files for 'multiplier' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+xvhdl -m64 --relax -prj multiplier_vhdl.prj
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity shifter
+INFO: [VRFC 10-307] analyzing entity ALU
+INFO: [VRFC 10-307] analyzing entity multiplier
+INFO: [VRFC 10-307] analyzing entity RegisterFile
+INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath
+INFO: [USF-XSim-69] 'compile' step finished in '0' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+Vivado Simulator 2016.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2016.4/bin/unwrapped/lnx64.o/xelab -wto c583d4283bba4910b9413ca7d9fb7fda --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot multiplier_behav xil_defaultlib.multiplier -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture func3 of entity xil_defaultlib.multiplier
+Built simulation snapshot multiplier_behav
+
+****** Webtalk v2016.4 (64-bit)
+  **** SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
+  **** IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav/xsim.dir/multiplier_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Tue Feb 13 14:38:17 2018...
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "multiplier_behav -key {Behavioral:sim_1:Functional:multiplier} -tclbatch {multiplier.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2016.4
+Time resolution is 1 ps
+source multiplier.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+ERROR: Array sizes do not match, left array has 32 elements, right array has 64 elements
+Time: 0 ps  Iteration: 0  Process: /multiplier/line__112
+  File: /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf
+
+HDL Line: /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf:112
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'multiplier_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+run 1000 us
+ERROR: [Simulator 45-1] A fatal run-time error was detected.  Simulation cannot continue.
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+close_sim: Time (s): cpu = 00:00:01 ; elapsed = 00:00:08 . Memory (MB): peak = 6011.086 ; gain = 0.000 ; free physical = 1699 ; free virtual = 12545
+launch_simulation
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-37] Inspecting design source files for 'multiplier' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+xvhdl -m64 --relax -prj multiplier_vhdl.prj
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity shifter
+INFO: [VRFC 10-307] analyzing entity ALU
+INFO: [VRFC 10-307] analyzing entity multiplier
+INFO: [VRFC 10-307] analyzing entity RegisterFile
+INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath
+INFO: [USF-XSim-69] 'compile' step finished in '0' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+Vivado Simulator 2016.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2016.4/bin/unwrapped/lnx64.o/xelab -wto c583d4283bba4910b9413ca7d9fb7fda --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot multiplier_behav xil_defaultlib.multiplier -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+ERROR: [VRFC 10-664] expression has 31 elements ; expected 32 [/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf:105]
+ERROR: [VRFC 10-664] expression has 31 elements ; expected 32 [/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf:106]
+ERROR: [XSIM 43-3321] Static elaboration of top level VHDL design unit multiplier in library work failed.
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-99] Step results log file:'/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav/elaborate.log'
+ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav/elaborate.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+launch_simulation
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-37] Inspecting design source files for 'multiplier' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+xvhdl -m64 --relax -prj multiplier_vhdl.prj
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity shifter
+INFO: [VRFC 10-307] analyzing entity ALU
+INFO: [VRFC 10-307] analyzing entity multiplier
+INFO: [VRFC 10-307] analyzing entity RegisterFile
+INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath
+INFO: [USF-XSim-69] 'compile' step finished in '0' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+Vivado Simulator 2016.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2016.4/bin/unwrapped/lnx64.o/xelab -wto c583d4283bba4910b9413ca7d9fb7fda --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot multiplier_behav xil_defaultlib.multiplier -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+ERROR: [VRFC 10-664] expression has 31 elements ; expected 32 [/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf:105]
+ERROR: [VRFC 10-664] expression has 31 elements ; expected 32 [/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf:106]
+ERROR: [XSIM 43-3321] Static elaboration of top level VHDL design unit multiplier in library work failed.
+INFO: [USF-XSim-69] 'elaborate' step finished in '0' seconds
+INFO: [USF-XSim-99] Step results log file:'/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav/elaborate.log'
+ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav/elaborate.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+run 1000 us
+launch_simulation
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-37] Inspecting design source files for 'multiplier' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+xvhdl -m64 --relax -prj multiplier_vhdl.prj
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity shifter
+INFO: [VRFC 10-307] analyzing entity ALU
+INFO: [VRFC 10-307] analyzing entity multiplier
+INFO: [VRFC 10-307] analyzing entity RegisterFile
+INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+Vivado Simulator 2016.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2016.4/bin/unwrapped/lnx64.o/xelab -wto c583d4283bba4910b9413ca7d9fb7fda --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot multiplier_behav xil_defaultlib.multiplier -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+ERROR: [VRFC 10-664] expression has 31 elements ; expected 32 [/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf:105]
+ERROR: [VRFC 10-664] expression has 31 elements ; expected 32 [/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf:106]
+ERROR: [XSIM 43-3321] Static elaboration of top level VHDL design unit multiplier in library work failed.
+INFO: [USF-XSim-69] 'elaborate' step finished in '0' seconds
+INFO: [USF-XSim-99] Step results log file:'/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav/elaborate.log'
+ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav/elaborate.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+launch_simulation
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-37] Inspecting design source files for 'multiplier' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+xvhdl -m64 --relax -prj multiplier_vhdl.prj
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity shifter
+INFO: [VRFC 10-307] analyzing entity ALU
+INFO: [VRFC 10-307] analyzing entity multiplier
+INFO: [VRFC 10-307] analyzing entity RegisterFile
+INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath
+INFO: [USF-XSim-69] 'compile' step finished in '0' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+Vivado Simulator 2016.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2016.4/bin/unwrapped/lnx64.o/xelab -wto c583d4283bba4910b9413ca7d9fb7fda --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot multiplier_behav xil_defaultlib.multiplier -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture func3 of entity xil_defaultlib.multiplier
+Built simulation snapshot multiplier_behav
+
+****** Webtalk v2016.4 (64-bit)
+  **** SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
+  **** IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav/xsim.dir/multiplier_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Tue Feb 13 14:43:48 2018...
+INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "multiplier_behav -key {Behavioral:sim_1:Functional:multiplier} -tclbatch {multiplier.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2016.4
+Time resolution is 1 ps
+source multiplier.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+ERROR: Array sizes do not match, left array has 32 elements, right array has 64 elements
+Time: 0 ps  Iteration: 0  Process: /multiplier/line__112
+  File: /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf
+
+HDL Line: /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf:112
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'multiplier_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 6011.086 ; gain = 0.000 ; free physical = 1700 ; free virtual = 12555
+add_force {/multiplier/a} -radix bin {0 0ns}
+add_force {/multiplier/b} -radix bin {0 0ns}
+run 1000 us
+ERROR: [Simulator 45-1] A fatal run-time error was detected.  Simulation cannot continue.
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-37] Inspecting design source files for 'multiplier' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+xvhdl -m64 --relax -prj multiplier_vhdl.prj
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity shifter
+INFO: [VRFC 10-307] analyzing entity ALU
+INFO: [VRFC 10-307] analyzing entity multiplier
+INFO: [VRFC 10-307] analyzing entity RegisterFile
+INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+Vivado Simulator 2016.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2016.4/bin/unwrapped/lnx64.o/xelab -wto c583d4283bba4910b9413ca7d9fb7fda --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot multiplier_behav xil_defaultlib.multiplier -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture func3 of entity xil_defaultlib.multiplier
+Built simulation snapshot multiplier_behav
+
+****** Webtalk v2016.4 (64-bit)
+  **** SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
+  **** IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav/xsim.dir/multiplier_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Tue Feb 13 14:48:23 2018...
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "multiplier_behav -key {Behavioral:sim_1:Functional:multiplier} -tclbatch {multiplier.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2016.4
+Time resolution is 1 ps
+source multiplier.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+ERROR: Array sizes do not match, left array has 32 elements, right array has 22 elements
+Time: 0 ps  Iteration: 0  Process: /multiplier/line__112
+  File: /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf
+
+HDL Line: /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf:112
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'multiplier_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+run 1000 us
+ERROR: [Simulator 45-1] A fatal run-time error was detected.  Simulation cannot continue.
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-37] Inspecting design source files for 'multiplier' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+xvhdl -m64 --relax -prj multiplier_vhdl.prj
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity shifter
+INFO: [VRFC 10-307] analyzing entity ALU
+INFO: [VRFC 10-307] analyzing entity multiplier
+INFO: [VRFC 10-307] analyzing entity RegisterFile
+INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath
+INFO: [USF-XSim-69] 'compile' step finished in '0' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+Vivado Simulator 2016.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2016.4/bin/unwrapped/lnx64.o/xelab -wto c583d4283bba4910b9413ca7d9fb7fda --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot multiplier_behav xil_defaultlib.multiplier -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture func3 of entity xil_defaultlib.multiplier
+Built simulation snapshot multiplier_behav
+
+****** Webtalk v2016.4 (64-bit)
+  **** SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
+  **** IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav/xsim.dir/multiplier_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Tue Feb 13 14:51:00 2018...
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "multiplier_behav -key {Behavioral:sim_1:Functional:multiplier} -tclbatch {multiplier.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2016.4
+Time resolution is 1 ps
+source multiplier.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'multiplier_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-37] Inspecting design source files for 'multiplier' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+xvhdl -m64 --relax -prj multiplier_vhdl.prj
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity shifter
+INFO: [VRFC 10-307] analyzing entity ALU
+INFO: [VRFC 10-307] analyzing entity multiplier
+INFO: [VRFC 10-307] analyzing entity RegisterFile
+INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath
+INFO: [USF-XSim-69] 'compile' step finished in '0' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+Vivado Simulator 2016.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2016.4/bin/unwrapped/lnx64.o/xelab -wto c583d4283bba4910b9413ca7d9fb7fda --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot multiplier_behav xil_defaultlib.multiplier -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture func3 of entity xil_defaultlib.multiplier
+Built simulation snapshot multiplier_behav
+
+****** Webtalk v2016.4 (64-bit)
+  **** SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
+  **** IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav/xsim.dir/multiplier_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Tue Feb 13 14:53:31 2018...
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "multiplier_behav -key {Behavioral:sim_1:Functional:multiplier} -tclbatch {multiplier.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2016.4
+Time resolution is 1 ps
+source multiplier.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'multiplier_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+add_force {/multiplier/a} -radix dec {5 0ns}
+add_force {/multiplier/b} -radix dec {7 0ns}
+run 1000 us
+add_force {/multiplier/b} -radix dec {-3 0ns}
+run 1000 us
+set_property top RegisterFile [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+launch_simulation
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-37] Inspecting design source files for 'RegisterFile' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+xvhdl -m64 --relax -prj RegisterFile_vhdl.prj
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity shifter
+INFO: [VRFC 10-307] analyzing entity ALU
+INFO: [VRFC 10-307] analyzing entity multiplier
+INFO: [VRFC 10-307] analyzing entity RegisterFile
+INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath
+INFO: [USF-XSim-69] 'compile' step finished in '0' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+Vivado Simulator 2016.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2016.4/bin/unwrapped/lnx64.o/xelab -wto c583d4283bba4910b9413ca7d9fb7fda --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot RegisterFile_behav xil_defaultlib.RegisterFile -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture func4 of entity xil_defaultlib.registerfile
+Built simulation snapshot RegisterFile_behav
+
+****** Webtalk v2016.4 (64-bit)
+  **** SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
+  **** IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav/xsim.dir/RegisterFile_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Tue Feb 13 14:55:33 2018...
+INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "RegisterFile_behav -key {Behavioral:sim_1:Functional:RegisterFile} -tclbatch {RegisterFile.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2016.4
+Time resolution is 1 ps
+source RegisterFile.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'RegisterFile_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 6050.711 ; gain = 39.625 ; free physical = 1716 ; free virtual = 12584
+add_force {/RegisterFile/reset} -radix hex {1 0ns} {0 50000ps} -repeat_every 100000ps -cancel_after 10ns
+run 1000 us
+add_force {/RegisterFile/reset} -radix bin {1 0ns}
+run 1000 us
+run 1000 us
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-37] Inspecting design source files for 'RegisterFile' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+xvhdl -m64 --relax -prj RegisterFile_vhdl.prj
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity shifter
+INFO: [VRFC 10-307] analyzing entity ALU
+INFO: [VRFC 10-307] analyzing entity multiplier
+INFO: [VRFC 10-307] analyzing entity RegisterFile
+INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath
+INFO: [USF-XSim-69] 'compile' step finished in '0' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+Vivado Simulator 2016.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2016.4/bin/unwrapped/lnx64.o/xelab -wto c583d4283bba4910b9413ca7d9fb7fda --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot RegisterFile_behav xil_defaultlib.RegisterFile -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture func4 of entity xil_defaultlib.registerfile
+Built simulation snapshot RegisterFile_behav
+
+****** Webtalk v2016.4 (64-bit)
+  **** SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
+  **** IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav/xsim.dir/RegisterFile_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Tue Feb 13 15:00:41 2018...
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "RegisterFile_behav -key {Behavioral:sim_1:Functional:RegisterFile} -tclbatch {RegisterFile.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2016.4
+Time resolution is 1 ps
+source RegisterFile.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'RegisterFile_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+add_force {/RegisterFile/reset} -radix hex {1 0ns} -cancel_after 10ns
+run 1000 us
+add_force {/RegisterFile/reset} -radix hex {1 0ns}
+run 1000 us
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-37] Inspecting design source files for 'RegisterFile' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+xvhdl -m64 --relax -prj RegisterFile_vhdl.prj
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity shifter
+INFO: [VRFC 10-307] analyzing entity ALU
+INFO: [VRFC 10-307] analyzing entity multiplier
+INFO: [VRFC 10-307] analyzing entity RegisterFile
+INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath
+INFO: [USF-XSim-69] 'compile' step finished in '0' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+Vivado Simulator 2016.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2016.4/bin/unwrapped/lnx64.o/xelab -wto c583d4283bba4910b9413ca7d9fb7fda --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot RegisterFile_behav xil_defaultlib.RegisterFile -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture func4 of entity xil_defaultlib.registerfile
+Built simulation snapshot RegisterFile_behav
+
+****** Webtalk v2016.4 (64-bit)
+  **** SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
+  **** IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav/xsim.dir/RegisterFile_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Tue Feb 13 15:06:40 2018...
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "RegisterFile_behav -key {Behavioral:sim_1:Functional:RegisterFile} -tclbatch {RegisterFile.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2016.4
+Time resolution is 1 ps
+source RegisterFile.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'RegisterFile_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+add_force {/RegisterFile/reset} -radix hex {1 0ns}
+run 1000 us
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-37] Inspecting design source files for 'RegisterFile' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+xvhdl -m64 --relax -prj RegisterFile_vhdl.prj
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity shifter
+INFO: [VRFC 10-307] analyzing entity ALU
+INFO: [VRFC 10-307] analyzing entity multiplier
+INFO: [VRFC 10-307] analyzing entity RegisterFile
+INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+Vivado Simulator 2016.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2016.4/bin/unwrapped/lnx64.o/xelab -wto c583d4283bba4910b9413ca7d9fb7fda --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot RegisterFile_behav xil_defaultlib.RegisterFile -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture func4 of entity xil_defaultlib.registerfile
+Built simulation snapshot RegisterFile_behav
+
+****** Webtalk v2016.4 (64-bit)
+  **** SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
+  **** IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav/xsim.dir/RegisterFile_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Tue Feb 13 15:07:50 2018...
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "RegisterFile_behav -key {Behavioral:sim_1:Functional:RegisterFile} -tclbatch {RegisterFile.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2016.4
+Time resolution is 1 ps
+source RegisterFile.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'RegisterFile_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+run 1000 us
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-37] Inspecting design source files for 'RegisterFile' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+xvhdl -m64 --relax -prj RegisterFile_vhdl.prj
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity shifter
+INFO: [VRFC 10-307] analyzing entity ALU
+INFO: [VRFC 10-307] analyzing entity multiplier
+INFO: [VRFC 10-307] analyzing entity RegisterFile
+INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath
+INFO: [USF-XSim-69] 'compile' step finished in '0' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+Vivado Simulator 2016.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2016.4/bin/unwrapped/lnx64.o/xelab -wto c583d4283bba4910b9413ca7d9fb7fda --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot RegisterFile_behav xil_defaultlib.RegisterFile -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture func4 of entity xil_defaultlib.registerfile
+Built simulation snapshot RegisterFile_behav
+
+****** Webtalk v2016.4 (64-bit)
+  **** SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
+  **** IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav/xsim.dir/RegisterFile_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Tue Feb 13 15:08:18 2018...
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "RegisterFile_behav -key {Behavioral:sim_1:Functional:RegisterFile} -tclbatch {RegisterFile.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2016.4
+Time resolution is 1 ps
+source RegisterFile.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'RegisterFile_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+run all
+run all
+run 1000 us
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-37] Inspecting design source files for 'RegisterFile' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+xvhdl -m64 --relax -prj RegisterFile_vhdl.prj
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity shifter
+INFO: [VRFC 10-307] analyzing entity ALU
+INFO: [VRFC 10-307] analyzing entity multiplier
+INFO: [VRFC 10-307] analyzing entity RegisterFile
+INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath
+INFO: [USF-XSim-69] 'compile' step finished in '0' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+Vivado Simulator 2016.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2016.4/bin/unwrapped/lnx64.o/xelab -wto c583d4283bba4910b9413ca7d9fb7fda --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot RegisterFile_behav xil_defaultlib.RegisterFile -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture func4 of entity xil_defaultlib.registerfile
+Built simulation snapshot RegisterFile_behav
+
+****** Webtalk v2016.4 (64-bit)
+  **** SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
+  **** IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav/xsim.dir/RegisterFile_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Tue Feb 13 15:09:16 2018...
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "RegisterFile_behav -key {Behavioral:sim_1:Functional:RegisterFile} -tclbatch {RegisterFile.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2016.4
+Time resolution is 1 ps
+source RegisterFile.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'RegisterFile_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-37] Inspecting design source files for 'RegisterFile' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+xvhdl -m64 --relax -prj RegisterFile_vhdl.prj
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity shifter
+INFO: [VRFC 10-307] analyzing entity ALU
+INFO: [VRFC 10-307] analyzing entity multiplier
+INFO: [VRFC 10-307] analyzing entity RegisterFile
+INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+Vivado Simulator 2016.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2016.4/bin/unwrapped/lnx64.o/xelab -wto c583d4283bba4910b9413ca7d9fb7fda --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot RegisterFile_behav xil_defaultlib.RegisterFile -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture func4 of entity xil_defaultlib.registerfile
+Built simulation snapshot RegisterFile_behav
+
+****** Webtalk v2016.4 (64-bit)
+  **** SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
+  **** IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav/xsim.dir/RegisterFile_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Tue Feb 13 15:10:38 2018...
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "RegisterFile_behav -key {Behavioral:sim_1:Functional:RegisterFile} -tclbatch {RegisterFile.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2016.4
+Time resolution is 1 ps
+source RegisterFile.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'RegisterFile_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-37] Inspecting design source files for 'RegisterFile' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+xvhdl -m64 --relax -prj RegisterFile_vhdl.prj
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity shifter
+INFO: [VRFC 10-307] analyzing entity ALU
+INFO: [VRFC 10-307] analyzing entity multiplier
+INFO: [VRFC 10-307] analyzing entity RegisterFile
+INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+Vivado Simulator 2016.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2016.4/bin/unwrapped/lnx64.o/xelab -wto c583d4283bba4910b9413ca7d9fb7fda --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot RegisterFile_behav xil_defaultlib.RegisterFile -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture func4 of entity xil_defaultlib.registerfile
+Built simulation snapshot RegisterFile_behav
+
+****** Webtalk v2016.4 (64-bit)
+  **** SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
+  **** IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav/xsim.dir/RegisterFile_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Tue Feb 13 15:11:20 2018...
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "RegisterFile_behav -key {Behavioral:sim_1:Functional:RegisterFile} -tclbatch {RegisterFile.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2016.4
+Time resolution is 1 ps
+source RegisterFile.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'RegisterFile_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-37] Inspecting design source files for 'RegisterFile' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+xvhdl -m64 --relax -prj RegisterFile_vhdl.prj
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity shifter
+INFO: [VRFC 10-307] analyzing entity ALU
+INFO: [VRFC 10-307] analyzing entity multiplier
+INFO: [VRFC 10-307] analyzing entity RegisterFile
+INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath
+INFO: [USF-XSim-69] 'compile' step finished in '0' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+Vivado Simulator 2016.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2016.4/bin/unwrapped/lnx64.o/xelab -wto c583d4283bba4910b9413ca7d9fb7fda --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot RegisterFile_behav xil_defaultlib.RegisterFile -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture func4 of entity xil_defaultlib.registerfile
+Built simulation snapshot RegisterFile_behav
+
+****** Webtalk v2016.4 (64-bit)
+  **** SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
+  **** IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav/xsim.dir/RegisterFile_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Tue Feb 13 15:11:59 2018...
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "RegisterFile_behav -key {Behavioral:sim_1:Functional:RegisterFile} -tclbatch {RegisterFile.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2016.4
+Time resolution is 1 ps
+source RegisterFile.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'RegisterFile_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+close_sim: Time (s): cpu = 00:00:00.91 ; elapsed = 00:00:13 . Memory (MB): peak = 6069.547 ; gain = 0.000 ; free physical = 1262 ; free virtual = 12235
+launch_simulation
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-37] Inspecting design source files for 'RegisterFile' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+xvhdl -m64 --relax -prj RegisterFile_vhdl.prj
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity shifter
+INFO: [VRFC 10-307] analyzing entity ALU
+INFO: [VRFC 10-307] analyzing entity multiplier
+INFO: [VRFC 10-307] analyzing entity RegisterFile
+INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath
+INFO: [USF-XSim-69] 'compile' step finished in '0' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+Vivado Simulator 2016.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2016.4/bin/unwrapped/lnx64.o/xelab -wto c583d4283bba4910b9413ca7d9fb7fda --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot RegisterFile_behav xil_defaultlib.RegisterFile -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture func4 of entity xil_defaultlib.registerfile
+Built simulation snapshot RegisterFile_behav
+
+****** Webtalk v2016.4 (64-bit)
+  **** SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
+  **** IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav/xsim.dir/RegisterFile_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Tue Feb 13 15:13:12 2018...
+run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 6069.547 ; gain = 0.000 ; free physical = 1284 ; free virtual = 12238
+INFO: [USF-XSim-69] 'elaborate' step finished in '6' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "RegisterFile_behav -key {Behavioral:sim_1:Functional:RegisterFile} -tclbatch {RegisterFile.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2016.4
+Time resolution is 1 ps
+source RegisterFile.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'RegisterFile_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:02 ; elapsed = 00:00:08 . Memory (MB): peak = 6069.547 ; gain = 0.000 ; free physical = 1274 ; free virtual = 12237
+add_force {/RegisterFile/reset} -radix hex {1 0ns}
+run 1000 us
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-37] Inspecting design source files for 'RegisterFile' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+xvhdl -m64 --relax -prj RegisterFile_vhdl.prj
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity shifter
+INFO: [VRFC 10-307] analyzing entity ALU
+INFO: [VRFC 10-307] analyzing entity multiplier
+INFO: [VRFC 10-307] analyzing entity RegisterFile
+INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+Vivado Simulator 2016.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2016.4/bin/unwrapped/lnx64.o/xelab -wto c583d4283bba4910b9413ca7d9fb7fda --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot RegisterFile_behav xil_defaultlib.RegisterFile -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture func4 of entity xil_defaultlib.registerfile
+Built simulation snapshot RegisterFile_behav
+
+****** Webtalk v2016.4 (64-bit)
+  **** SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
+  **** IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav/xsim.dir/RegisterFile_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Tue Feb 13 15:14:20 2018...
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "RegisterFile_behav -key {Behavioral:sim_1:Functional:RegisterFile} -tclbatch {RegisterFile.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2016.4
+Time resolution is 1 ps
+source RegisterFile.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'RegisterFile_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+add_force {/RegisterFile/clk} -radix hex {1 0ns} {0 50000ps} -repeat_every 100000ps
+add_force {/RegisterFile/reset} -radix hex {1 0ns}
+run 1000 us
+add_force {/RegisterFile/we} -radix hex {0 0ns}
+run 1000 us
+add_force {/RegisterFile/w1} -radix hex {0 0ns}
+run 1000 us
+run 1000 us
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-37] Inspecting design source files for 'RegisterFile' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+xvhdl -m64 --relax -prj RegisterFile_vhdl.prj
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity shifter
+INFO: [VRFC 10-307] analyzing entity ALU
+INFO: [VRFC 10-307] analyzing entity multiplier
+INFO: [VRFC 10-307] analyzing entity RegisterFile
+INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath
+INFO: [USF-XSim-69] 'compile' step finished in '0' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+Vivado Simulator 2016.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2016.4/bin/unwrapped/lnx64.o/xelab -wto c583d4283bba4910b9413ca7d9fb7fda --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot RegisterFile_behav xil_defaultlib.RegisterFile -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture func4 of entity xil_defaultlib.registerfile
+Built simulation snapshot RegisterFile_behav
+
+****** Webtalk v2016.4 (64-bit)
+  **** SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
+  **** IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav/xsim.dir/RegisterFile_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Tue Feb 13 15:18:40 2018...
+run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:00:10 . Memory (MB): peak = 6069.547 ; gain = 0.000 ; free physical = 1269 ; free virtual = 12220
+INFO: [USF-XSim-69] 'elaborate' step finished in '10' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "RegisterFile_behav -key {Behavioral:sim_1:Functional:RegisterFile} -tclbatch {RegisterFile.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2016.4
+Time resolution is 1 ps
+source RegisterFile.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'RegisterFile_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:03 ; elapsed = 00:00:12 . Memory (MB): peak = 6069.547 ; gain = 0.000 ; free physical = 1259 ; free virtual = 12220
+add_force {/RegisterFile/reset} -radix hex {1 0ns}
+run 1000 us
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-37] Inspecting design source files for 'RegisterFile' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+xvhdl -m64 --relax -prj RegisterFile_vhdl.prj
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity shifter
+INFO: [VRFC 10-307] analyzing entity ALU
+INFO: [VRFC 10-307] analyzing entity multiplier
+INFO: [VRFC 10-307] analyzing entity RegisterFile
+INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+Vivado Simulator 2016.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2016.4/bin/unwrapped/lnx64.o/xelab -wto c583d4283bba4910b9413ca7d9fb7fda --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot RegisterFile_behav xil_defaultlib.RegisterFile -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture func4 of entity xil_defaultlib.registerfile
+Built simulation snapshot RegisterFile_behav
+
+****** Webtalk v2016.4 (64-bit)
+  **** SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
+  **** IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav/xsim.dir/RegisterFile_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Tue Feb 13 15:20:31 2018...
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "RegisterFile_behav -key {Behavioral:sim_1:Functional:RegisterFile} -tclbatch {RegisterFile.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2016.4
+Time resolution is 1 ps
+source RegisterFile.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'RegisterFile_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+add_force {/RegisterFile/reset} -radix hex {1 0ns}
+run 1000 us
+run 1000 us
+run 1000 us
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+current_sim simulation_16
+launch_simulation
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-37] Inspecting design source files for 'RegisterFile' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+xvhdl -m64 --relax -prj RegisterFile_vhdl.prj
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity shifter
+INFO: [VRFC 10-307] analyzing entity ALU
+INFO: [VRFC 10-307] analyzing entity multiplier
+INFO: [VRFC 10-307] analyzing entity RegisterFile
+INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+Vivado Simulator 2016.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2016.4/bin/unwrapped/lnx64.o/xelab -wto c583d4283bba4910b9413ca7d9fb7fda --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot RegisterFile_behav xil_defaultlib.RegisterFile -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture func4 of entity xil_defaultlib.registerfile
+Built simulation snapshot RegisterFile_behav
+
+****** Webtalk v2016.4 (64-bit)
+  **** SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
+  **** IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav/xsim.dir/RegisterFile_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Tue Feb 13 15:23:33 2018...
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "RegisterFile_behav -key {Behavioral:sim_1:Functional:RegisterFile} -tclbatch {RegisterFile.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2016.4
+Time resolution is 1 ps
+source RegisterFile.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'RegisterFile_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+add_force {/RegisterFile/reset} -radix hex {1 0ns}
+run all
+run 1000 us
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-37] Inspecting design source files for 'RegisterFile' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+xvhdl -m64 --relax -prj RegisterFile_vhdl.prj
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity shifter
+INFO: [VRFC 10-307] analyzing entity ALU
+INFO: [VRFC 10-307] analyzing entity multiplier
+INFO: [VRFC 10-307] analyzing entity RegisterFile
+INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath
+INFO: [USF-XSim-69] 'compile' step finished in '0' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+Vivado Simulator 2016.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2016.4/bin/unwrapped/lnx64.o/xelab -wto c583d4283bba4910b9413ca7d9fb7fda --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot RegisterFile_behav xil_defaultlib.RegisterFile -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture func4 of entity xil_defaultlib.registerfile
+Built simulation snapshot RegisterFile_behav
+
+****** Webtalk v2016.4 (64-bit)
+  **** SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
+  **** IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav/xsim.dir/RegisterFile_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Tue Feb 13 15:27:25 2018...
+INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "RegisterFile_behav -key {Behavioral:sim_1:Functional:RegisterFile} -tclbatch {RegisterFile.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2016.4
+Time resolution is 1 ps
+source RegisterFile.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'RegisterFile_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 6069.547 ; gain = 0.000 ; free physical = 1234 ; free virtual = 12189
+add_force {/RegisterFile/reset} -radix hex {1 0ns}
+run 1000 us
+add_force {/RegisterFile/we} -radix hex {1 0ns}
+run 1000 us
+add_force {/RegisterFile/w1} -radix bin {0 0ns}
+add_force {/RegisterFile/a} -radix unsigned {5 0ns}
+run 1000 us
+add_force {/RegisterFile/clk} -radix hex {1 0ns} {0 50000ps} -repeat_every 100000ps
+run 1000 us
+add_force {/RegisterFile/r1} -radix bin {0 0ns}
+add_force {/RegisterFile/r2} -radix hex {0 0ns}
+run 1000 us
+add_force {/RegisterFile/a} -radix hex {7 0ns}
+add_force {/RegisterFile/w1} -radix hex {1 0ns}
+run 1000 us
+add_force {/RegisterFile/r2} -radix hex {1 0ns}
+run 1000 us
+add_force {/RegisterFile/w1} -radix hex {7 0ns}
+run 1000 us
+add_force {/RegisterFile/r2} -radix hex {7 0ns}
+run 1000 us
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-37] Inspecting design source files for 'RegisterFile' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+xvhdl -m64 --relax -prj RegisterFile_vhdl.prj
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity shifter
+INFO: [VRFC 10-307] analyzing entity ALU
+INFO: [VRFC 10-307] analyzing entity multiplier
+INFO: [VRFC 10-307] analyzing entity RegisterFile
+INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath
+INFO: [USF-XSim-69] 'compile' step finished in '0' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+Vivado Simulator 2016.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2016.4/bin/unwrapped/lnx64.o/xelab -wto c583d4283bba4910b9413ca7d9fb7fda --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot RegisterFile_behav xil_defaultlib.RegisterFile -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture func4 of entity xil_defaultlib.registerfile
+Built simulation snapshot RegisterFile_behav
+
+****** Webtalk v2016.4 (64-bit)
+  **** SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
+  **** IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav/xsim.dir/RegisterFile_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Tue Feb 13 15:36:18 2018...
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "RegisterFile_behav -key {Behavioral:sim_1:Functional:RegisterFile} -tclbatch {RegisterFile.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2016.4
+Time resolution is 1 ps
+source RegisterFile.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'RegisterFile_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+add_force {/RegisterFile/reset} -radix hex {1 0ns}
+run 1000 us
+set_property top ALU [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+launch_simulation
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-37] Inspecting design source files for 'ALU' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+xvhdl -m64 --relax -prj ALU_vhdl.prj
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/ass4.vhf" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity shifter
+INFO: [VRFC 10-307] analyzing entity ALU
+INFO: [VRFC 10-307] analyzing entity multiplier
+INFO: [VRFC 10-307] analyzing entity RegisterFile
+INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+Vivado Simulator 2016.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2016.4/bin/unwrapped/lnx64.o/xelab -wto c583d4283bba4910b9413ca7d9fb7fda --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot ALU_behav xil_defaultlib.ALU -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture func1 of entity xil_defaultlib.alu
+Built simulation snapshot ALU_behav
+
+****** Webtalk v2016.4 (64-bit)
+  **** SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
+  **** IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source /home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav/xsim.dir/ALU_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Tue Feb 13 15:45:05 2018...
+INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4/lab4.sim/sim_1/behav'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "ALU_behav -key {Behavioral:sim_1:Functional:ALU} -tclbatch {ALU.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2016.4
+Time resolution is 1 ps
+source ALU.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'ALU_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 6101.359 ; gain = 26.809 ; free physical = 1278 ; free virtual = 12266
+add_force {/ALU/a} -radix hex {1 0ns}
+add_force {/ALU/b} -radix hex {2 0ns}
+add_force {/ALU/opcode} -radix hex {0 0ns}
+add_force {/ALU/carry} -radix hex {0 0ns}
+run 1000 us
+add_force {/ALU/opcode} -radix hex {1 0ns}
+run 1000 us
+add_force {/ALU/opcode} -radix hex {2 0ns}
+run 1000 us
+add_force {/ALU/opcode} -radix hex {3 0ns}
+run 1000 us
+add_force {/ALU/opcode} -radix hex {4 0ns}
+run 1000 us
+add_force {/ALU/opcode} -radix hex {5 0ns}
+run 1000 us
+add_force {/ALU/carry} -radix hex {1 0ns}
+run 1000 us
+add_force {/ALU/opcode} -radix hex {6 0ns}
+run 1000 us
+add_force {/ALU/opcode} -radix hex {8 0ns}
+run 1000 us
+add_force {/ALU/opcode} -radix hex {12 0ns}
+ERROR: [Simtcl 6-179] Couldn't add force for the following reason: Illegal value '12': Object size 4 does not match size of given value 12.
+add_force {/ALU/opcode} -radix unsigned {12 0ns}
+run 1000 us
+add_force {/ALU/opcode} -radix hex {15 0ns}
+ERROR: [Simtcl 6-179] Couldn't add force for the following reason: Illegal value '15': Object size 4 does not match size of given value 15.
+add_force {/ALU/opcode} -radix hex {F 0ns}
+run 1000 us
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+current_sim simulation_32
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+close_sim: Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 6101.359 ; gain = 0.000 ; free physical = 1666 ; free virtual = 12530
+current_sim simulation_16
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+exit
+INFO: [Common 17-206] Exiting Vivado at Tue Feb 13 16:00:59 2018...
