@@ -239,3 +239,119 @@ begin
         "1111" when "00111",
         "0000" when others;	
 end func5;
+
+
+library ieee;
+use ieee.std_logic_1164.ALL;
+use ieee.numeric_std.ALL;
+entity MainDataPath is
+	port(
+        PW: in std_logic;
+        IorD: in std_logic;
+        MR: in std_logic;
+        MW: in std_logic;
+        IW: in std_logic;
+        DW: in std_logic;
+        Rsrc: in std_logic;
+        M2R: in std_logic;
+        RW: in std_logic;
+        BW: in std_logic;
+        AW: in std_logic;
+        Asrc1: in std_logic;
+        Asrc2: in std_logic_vector(2 downto 0);
+        Fset: in std_logic;
+        op: in std_logic_vector(3 downto 0);
+        ReW: in std_logic;
+        clk: in std_logic;     
+        
+        IR: out std_logic_vector(31 downto 0);
+        flags: out std_logic_vector(3 downto 0)
+);
+end MainDataPath;
+architecture DataPath of MainDataPath is
+signal Rn: std_logic_vector(3 downto 0); -- next 4 signals are for addresses to fetch as maybe they will be used to find value of read1 and read2
+signal Rd: std_logic_vector(3 downto 0);
+signal Rs: std_logic_vector(3 downto 0);
+signal Rm: std_logic_vector(3 downto 0);
+signal read1: std_logic_vector(3 downto 0); -- preferably address of Rn but still I have created above 4 signals for them separately
+signal read1RegVal: std_logic_vector(31 downto 0); -- preferably stores Rn value or desired value at that time step
+signal read2: std_logic_vector(3 downto 0); -- preferably address of Rm but still I have created above 4 signals for them separately
+signal read2RegVal: std_logic_vector(31 downto 0); -- stores Rm or desired value at that time step
+signal read3RegVal: std_logic_vector(31 downto 0); -- for Rs or to store value at Rs
+signal read4RegVal: std_logic_vector(31 downto 0); -- for Rd or to store value at Rd
+signal writeValReg: std_logic_vector(31 downto 0); -- value to be written in register in Reg file
+signal writeReg: std_logic_vector(3 downto 0); -- write register address
+signal resetReg: std_logic := '0';
+signal pc: std_logic_vector(31 downto 0);
+signal carry: std_logic; -- contains carry bit
+signal ALUresult: std_logic_vector(31 downto 0); -- contains ALU result
+signal Shiftresult: std_logic_vector(31 downto 0); -- contains Shift result
+signal Mulresult: std_logic_vector(31 downto 0); -- contains Multiply result
+signal FromMemoryVal: std_logic_vector(31 downto 0); -- contains value fetched from memory to be loaded by ldr
+signal ByteOffsetForRegister: std_logic_vector(31 downto 0); -- contains 0/1/2/3 value offset i.e after dividing by 4 left as remainder
+signal WriteValMem: std_logic_vector(31 downto 0); -- contains value to be written in memory
+signal mwe: std_logic_vector(3 downto 0); -- contains memory write enables
+begin
+
+-- Check when to set this flag bit. Condition to be written with opcode--
+flags(1) <= carry;
+-------------------------------------------------------------------------
+
+
+-------------------------------------------------------------------------
+-----------------------------Port Mappings-------------------------------
+-------------------------------------------------------------------------
+    P2MPath: entity work.ProcessorMemoryPath(func5) port map(
+        FromReg => read4RegVal,
+        FromMem => FromMemoryVal,
+        offset => ByteOffsetForRegister,
+        opcode => op,
+        
+        ToReg => writeValReg,
+        ToMem => writeValMem,
+        mwe => mwe
+    );
+    
+    Mul: entity work.multiplier(func3) port map(
+        a => read1RegVal,
+        b => read2RegVal,
+        c => Mulresult
+    );
+        
+    Shifter: entity work.shifter(func2) port map(
+        a => read2RegVal,
+        opcode => op,
+        shiftAmount => read3RegVal,
+        carryIn => carry,
+        
+        result => Shiftresult,
+        c => carry
+    );
+    
+    ALU_unit: entity work.ALU(func1) port map(
+        a => read1RegVal,
+        b => read2RegVal,
+        opcode => op,
+        carry => carry,
+        
+        result => ALUresult,
+        z => flags(3),
+        n => flags(2),
+        c => carry,
+        v => flags(0) 
+    );   
+    
+    RFile: entity work.RegisterFile(func4) port map(
+        a => writeValReg,
+        r1 => read1,
+        r2 => read2,
+        w1 => writeReg,
+        clk => clk,
+        reset => resetReg,
+        we => RW,
+        pc => pc,
+        o1 => read2RegVal,
+        o2 => read1RegVal 
+    );      
+end DataPath;
+
