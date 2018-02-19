@@ -258,13 +258,13 @@ entity MainDataPath is
         BW: in std_logic;
         AW: in std_logic;
         Asrc1: in std_logic;
-        Asrc2: in std_logic_vector(2 downto 0);
+        Asrc2: in std_logic_vector(1 downto 0);
         Fset: in std_logic;
         op: in std_logic_vector(3 downto 0);
         ReW: in std_logic;
         clk: in std_logic;     
         
-        IR: out std_logic_vector(31 downto 0);
+        IR_out: out std_logic_vector(31 downto 0);
         flags: out std_logic_vector(3 downto 0)
 );
 end MainDataPath;
@@ -283,27 +283,39 @@ signal read4RegVal: std_logic_vector(31 downto 0); -- for Rd or to store value a
 signal writeValReg: std_logic_vector(31 downto 0); -- value to be written in register in Reg file
 signal writeReg: std_logic_vector(3 downto 0); -- write register address
 signal resetReg: std_logic := '0';
-signal pc: std_logic_vector(31 downto 0);
-signal carry: std_logic; -- contains carry bit
+signal carry: std_logic; -- contains carry flag to give input to others
+
+--Mayank's signals
 signal ALUresult: std_logic_vector(31 downto 0); -- contains ALU result
+signal PCresult: std_logic_vector(31 downto 0); --PC result
+signal MemInputAd: std_logic_vector(31 downto 0); --ad for Mem
+signal MemInputWd: std_logic_vector(31 downto 0); --wd for Mem
+signal IR: std_logic_vector(31 downto 0);
+signal DR: std_logic_vector(31 downto 0);
+signal EXResult: std_logic_vector(31 downto 0);
+signal S2Result: std_logic_vector(31 downto 0);
+signal A : std_logic_vector(31 downto 0);
+signal B : std_logic_vector(31 downto 0);
+signal ALUInputA : std_logic_vector(31 downto 0);
+signal ALUInputB : std_logic_vector(31 downto 0);
+signal RESresult : std_logic_vector(31 downto 0);
+
 signal Shiftresult: std_logic_vector(31 downto 0); -- contains Shift result
 signal Mulresult: std_logic_vector(31 downto 0); -- contains Multiply result
-signal FromMemoryVal: std_logic_vector(31 downto 0); -- contains value fetched from memory to be loaded by ldr
+signal MemResult: std_logic_vector(31 downto 0); -- contains value fetched from memory to be loaded by ldr
 signal ByteOffsetForRegister: std_logic_vector(31 downto 0); -- contains 0/1/2/3 value offset i.e after dividing by 4 left as remainder
 signal WriteValMem: std_logic_vector(31 downto 0); -- contains value to be written in memory
 signal mwe: std_logic_vector(3 downto 0); -- contains memory write enables
 begin
 
     carry <= flagstemp(1) when Fset = '1'; -- To give carry flag as an input to ALU
-
+    IR_out <= IR;
 -------------------------------------------------------------------------
 -----------------------------Port Mappings-------------------------------
 -------------------------------------------------------------------------
-    flags <= flagsTemp when Fset = '1'; -- F Box
-    
     P2MPath: entity work.ProcessorMemoryPath(func5) port map(
         FromReg => read4RegVal,
-        FromMem => FromMemoryVal,
+        FromMem => MemResult,
         offset => ByteOffsetForRegister,
         opcode => op, -- this is wrong for now------------------------------------------------------
         
@@ -311,7 +323,6 @@ begin
         ToMem => writeValMem,
         mwe => mwe
     );
-    
     Mul: entity work.multiplier(func3) port map(
         a => read1RegVal,
         b => read2RegVal,
@@ -327,10 +338,78 @@ begin
         result => Shiftresult,
         c => flagstemp(1)
     );
+    --THE PROBLEM IS THAT SEPERATE COPIS OF REGESTERS FOR BOTH THE ENTITIES
+    --PC Box
+    PC: entity work.RegisterFile(func4) port map(
+        a => ALUresult,
+        r1 => "DUMMY",
+        r2 => "DUMMY",
+        w1 => "1111",
+        clk => clk,
+        reset => '0',
+        we => PW,
+        pc => PCresult,
+        o1 => "DUMMY",
+        o2 => "DUMMY" 
+    ); 
+    --IorD mux
+    MemInputAd <= PCresult when IorD = '0' ELSE
+               <= RESresult when others;
+
+    --IR Register
+    IR <= MemResult when IW = '1';
+
+    --DR Register
+    DR <= MemResult when DW = '1';
+
+    --M2R Mux
+    writeValReg <= DR when M2R = '1' ELSE
+    		 	<= RESresult when others;
+
+    --Rsrc Mux
+    read2 <= IR(3 downto 0) when Rsrc = '0' ELSE
+    	  <= IR(15 downto 12) when others;
+    --other inputs to Register file
+    read1 <= IR(19 downto 16);
+    writeReg <= IR(15 downto 12);
+    --Register File (RF)
+    RFile: entity work.RegisterFile(func4) port map(
+        a => writeValReg,
+        r1 => read1,
+        r2 => read2,
+        w1 => writeReg,
+        clk => clk,
+        reset => resetReg,
+        we => RW,
+        pc => "DUMMY",
+        o1 => read1RegVal,
+        o2 => read2RegVal 
+    );
+
+    --EX
+    EXResult <= IR(11)&IR(11)&IR(11)&IR(11)&IR(11)&IR(11)&IR(11)&IR(11)&IR(11)&IR(11)&IR(11)&IR(11)&IR(11)&IR(11)&IR(11)&IR(11)&IR(11)&IR(11)&IR(11)&IR(11)&IR(11 downto 0);
     
+    --S2
+    S2Result <= IR(23)&IR(23)&IR(23)&IR(23)&IR(23)&IR(23)&IR(23)&IR(23)&IR(23 downto 0);
+    
+    --A Register
+    A <= read1RegVal when AW = '1';
+    --B Register
+    B <= read2RegVal when BW = '1';
+
+    --Asrc1 mux
+    ALUInputA <= PCresult when Asrc = '1' ELSE
+    		  <= A when others;
+    --Asrc2 mux
+    ALUInputB <= B when Asrc2 = "00" ELSE
+    			 "00000000000000000000000000000100" when Asrc2 = "01" ELSE
+    			 EXResult when Asrc2 = "11" ELSE
+    			 S2Result when others;
+   
+    --ALU Box
     ALU_unit: entity work.ALU(func1) port map(
-        a => read1RegVal,
-        b => read2RegVal,
+        a => ALUInputA,
+        b => ALUInputB,
         opcode => op,
         carry => carry,
         
@@ -340,18 +419,11 @@ begin
         c => flagsTemp(1),
         v => flagsTemp(0) 
     );   
-    
-    RFile: entity work.RegisterFile(func4) port map(
-        a => writeValReg,
-        r1 => read1,
-        r2 => read2,
-        w1 => writeReg,
-        clk => clk,
-        reset => resetReg,
-        we => RW,
-        pc => pc,
-        o1 => read1RegVal,
-        o2 => read2RegVal 
-    );      
+
+    --F box
+    flags <= flagsTemp when Fset = '1'; 
+
+    RESresult <= ALUresult when ReW = '1';
+          
 end DataPath;
 

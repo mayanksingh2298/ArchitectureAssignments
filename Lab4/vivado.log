@@ -2,8 +2,8 @@
 # Vivado v2016.4 (64-bit)
 # SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
 # IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
-# Start of session at: Tue Feb 13 16:01:29 2018
-# Process ID: 17128
+# Start of session at: Mon Feb 19 18:08:40 2018
+# Process ID: 17533
 # Current directory: /home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4
 # Command line: vivado
 # Log file: /home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/vivado.log
@@ -11,74 +11,12 @@
 #-----------------------------------------------------------
 start_gui
 open_project /home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/lab4.xpr
-INFO: [Project 1-313] Project file moved from '/home/mayanksingh2298/IIT_Course/sem4/col216/Lab4' since last save.
+CRITICAL WARNING: [Project 1-19] Could not find the file '/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/ass4.vhf'.
 Scanning sources...
 Finished scanning sources
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2016.4/data/ip'.
-launch_simulation
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [USF-XSim-37] Inspecting design source files for 'ALU' in fileset 'sim_1'...
-INFO: [USF-XSim-97] Finding global include files...
-INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
-INFO: [USF-XSim-2] XSim::Compile design
-INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/lab4.sim/sim_1/behav'
-xvhdl -m64 --relax -prj ALU_vhdl.prj
-INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/ass4.vhf" into library xil_defaultlib
-INFO: [VRFC 10-307] analyzing entity shifter
-INFO: [VRFC 10-307] analyzing entity ALU
-INFO: [VRFC 10-307] analyzing entity multiplier
-INFO: [VRFC 10-307] analyzing entity RegisterFile
-INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath
-INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
-INFO: [USF-XSim-3] XSim::Elaborate design
-INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/lab4.sim/sim_1/behav'
-Vivado Simulator 2016.4
-Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
-Running: /opt/Xilinx/Vivado/2016.4/bin/unwrapped/lnx64.o/xelab -wto c583d4283bba4910b9413ca7d9fb7fda --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot ALU_behav xil_defaultlib.ALU -log elaborate.log 
-Using 8 slave threads.
-Starting static elaboration
-Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling package std.standard
-Compiling package std.textio
-Compiling package ieee.std_logic_1164
-Compiling package ieee.numeric_std
-Compiling architecture func1 of entity xil_defaultlib.alu
-Built simulation snapshot ALU_behav
-
-****** Webtalk v2016.4 (64-bit)
-  **** SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
-  **** IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
-    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
-
-source /home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/lab4.sim/sim_1/behav/xsim.dir/ALU_behav/webtalk/xsim_webtalk.tcl -notrace
-INFO: [Common 17-206] Exiting Webtalk at Tue Feb 13 16:02:01 2018...
-INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
-INFO: [USF-XSim-4] XSim::Simulate design
-INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/lab4.sim/sim_1/behav'
-INFO: [USF-XSim-98] *** Running xsim
-   with args "ALU_behav -key {Behavioral:sim_1:Functional:ALU} -tclbatch {ALU.tcl} -log {simulate.log}"
-INFO: [USF-XSim-8] Loading simulator feature
-Vivado Simulator 2016.4
-Time resolution is 1 ps
-source ALU.tcl
-# set curr_wave [current_wave_config]
-# if { [string length $curr_wave] == 0 } {
-#   if { [llength [get_objects]] > 0} {
-#     add_wave /
-#     set_property needs_save false [current_wave_config]
-#   } else {
-#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
-#   }
-# }
-# run 1000ns
-INFO: [USF-XSim-96] XSim completed. Design snapshot 'ALU_behav' loaded.
-INFO: [USF-XSim-97] XSim simulation ran for 1000ns
-close_sim
-INFO: [Simtcl 6-16] Simulation closed
+open_project: Time (s): cpu = 00:00:11 ; elapsed = 00:00:07 . Memory (MB): peak = 5900.816 ; gain = 59.395 ; free physical = 128 ; free virtual = 10794
 exit
-INFO: [Common 17-206] Exiting Vivado at Tue Feb 13 16:02:10 2018...
+INFO: [Common 17-206] Exiting Vivado at Mon Feb 19 18:10:01 2018...
