@@ -269,6 +269,7 @@ entity MainDataPath is
 );
 end MainDataPath;
 architecture DataPath of MainDataPath is
+signal flagsTemp: std_logic_vector(3 downto 0);
 signal Rn: std_logic_vector(3 downto 0); -- next 4 signals are for addresses to fetch as maybe they will be used to find value of read1 and read2
 signal Rd: std_logic_vector(3 downto 0);
 signal Rs: std_logic_vector(3 downto 0);
@@ -293,19 +294,18 @@ signal WriteValMem: std_logic_vector(31 downto 0); -- contains value to be writt
 signal mwe: std_logic_vector(3 downto 0); -- contains memory write enables
 begin
 
--- Check when to set this flag bit. Condition to be written with opcode--
-flags(1) <= carry;
--------------------------------------------------------------------------
-
+    carry <= flagstemp(1) when Fset = '1'; -- To give carry flag as an input to ALU
 
 -------------------------------------------------------------------------
 -----------------------------Port Mappings-------------------------------
 -------------------------------------------------------------------------
+    flags <= flagsTemp when Fset = '1'; -- F Box
+    
     P2MPath: entity work.ProcessorMemoryPath(func5) port map(
         FromReg => read4RegVal,
         FromMem => FromMemoryVal,
         offset => ByteOffsetForRegister,
-        opcode => op,
+        opcode => op, -- this is wrong for now------------------------------------------------------
         
         ToReg => writeValReg,
         ToMem => writeValMem,
@@ -325,7 +325,7 @@ flags(1) <= carry;
         carryIn => carry,
         
         result => Shiftresult,
-        c => carry
+        c => flagstemp(1)
     );
     
     ALU_unit: entity work.ALU(func1) port map(
@@ -335,10 +335,10 @@ flags(1) <= carry;
         carry => carry,
         
         result => ALUresult,
-        z => flags(3),
-        n => flags(2),
-        c => carry,
-        v => flags(0) 
+        z => flagsTemp(3),
+        n => flagsTemp(2),
+        c => flagsTemp(1),
+        v => flagsTemp(0) 
     );   
     
     RFile: entity work.RegisterFile(func4) port map(
@@ -350,8 +350,8 @@ flags(1) <= carry;
         reset => resetReg,
         we => RW,
         pc => pc,
-        o1 => read2RegVal,
-        o2 => read1RegVal 
+        o1 => read1RegVal,
+        o2 => read2RegVal 
     );      
 end DataPath;
 
