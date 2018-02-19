@@ -338,7 +338,11 @@ begin
         result => Shiftresult,
         c => flagstemp(1)
     );
-    --THE PROBLEM IS THAT SEPERATE COPIS OF REGESTERS FOR BOTH THE ENTITIES
+    --THE PROBLEM IS THAT SEPERATE COPIS OF REGESTERS FOR BOTH THE ENTITIES... SO TRY TO DO IN ONE
+    --TRY TO THINK OF SOMETHING GENERIC BY THINKING OF A NEWER WIRE STRUCTURE
+    --BL
+    --SHIFT
+    --MUL/MLA
     --PC Box
     PC: entity work.RegisterFile(func4) port map(
         a => ALUresult,
@@ -386,9 +390,19 @@ begin
         o2 => read2RegVal 
     );
 
-    --EX
+    --EX : THIS IS THE SHIFTED CONSTANT
     EXResult <= IR(11)&IR(11)&IR(11)&IR(11)&IR(11)&IR(11)&IR(11)&IR(11)&IR(11)&IR(11)&IR(11)&IR(11)&IR(11)&IR(11)&IR(11)&IR(11)&IR(11)&IR(11)&IR(11)&IR(11)&IR(11 downto 0);
     
+    --Shifter: entity work.shifter(func2) port map(
+    --    a => IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7 downto 0),
+    --    opcode => "11",
+    --    shiftAmount => "000000000000000000000000000"&IR(11 downto 8)&"0",
+    --    carryIn => carry,
+        
+    --    result => EXResult,
+    --    c => flagstemp(1)
+    --);
+
     --S2
     S2Result <= IR(23)&IR(23)&IR(23)&IR(23)&IR(23)&IR(23)&IR(23)&IR(23)&IR(23 downto 0);
     
@@ -396,6 +410,15 @@ begin
     A <= read1RegVal when AW = '1';
     --B Register
     B <= read2RegVal when BW = '1';
+    --Shifter2_B: entity work.shifter(func2) port map(
+    --    a => read2RegVal,
+    --    opcode => "11",
+    --    shiftAmount => "000000000000000000000000000"&IR(11 downto 8)&"0",
+    --    carryIn => carry,
+        
+    --    result => EXResult,
+    --    c => flagstemp(1)
+    --);
 
     --Asrc1 mux
     ALUInputA <= PCresult when Asrc = '1' ELSE
