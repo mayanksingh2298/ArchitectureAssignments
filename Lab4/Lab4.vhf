@@ -112,7 +112,7 @@ begin
 	--working on flags
 	n <= tempResult(31);
 	with tempResult(31 downto 0) select z <=
-        '1' when "00000000000000000000000000000000"
+        '1' when "00000000000000000000000000000000",
         '0' when others;
     c <= c32;
 	v <= c31 xor c32;
@@ -369,7 +369,7 @@ begin
     --); 
     --IorD mux
     MemInputAd <= PCresult when IorD = '0' ELSE
-               <= RESresult when others;
+               RESresult;
 
     --IR Register
     IR <= MemResult when IW = '1';
@@ -379,22 +379,22 @@ begin
 
     --M2R Mux, originally 1 bit but now 2 bit, 00 when DR, 01 when RESresult, 10 when PC
     writeValReg <= DR when M2R = "00" ELSE
-    		 	<= RESresult when M2R = "01" ELSE
-    		 	<= PCresult when others;
+    		 	RESresult when M2R = "01" ELSE
+    		 	PCresult;
 
     --Rsrc Mux
     read2 <= IR(3 downto 0) when Rsrc = '0' ELSE
-    	  <= IR(15 downto 12) when others;
+    	  IR(15 downto 12);
     --other inputs to Register file
     --NEW CONTROL SIGNAL read1Sig is 0 when ins[19-16], 1 when ins[11-8]
-    read1 <= IR(19 downto 16) when read1Sig = '0' ELSE
-    		 IR1(11 downto 8) when others;
+    read1 <= IR(19 downto 16) when (read1Sig = '0') ELSE
+    		 IR1(11 downto 8);
     
     --NEW CONTROL SIGNAL writeAddSig is 00 when input is ins[15-12], 01 when input is 14, 10 when input is 15  
     writeReg <= IR(15 downto 12) when writeAddSig = "00" ELSE
     			"1110" when writeAddSig = "01" ELSE
     			IR(19 downto 16) when writeAddSig = "10" ELSE --for mul
-    			"1111" when others;
+    			"1111";
     --Register File (RF)
     RFile: entity work.RegisterFile(func4) port map(
         a => writeValReg,
@@ -438,8 +438,8 @@ begin
     
     --NEW CONTROL SIGNAL shiftAmtSig is 00 when read1, 01 when EXresult, 10 when no shift
     shiftAmt <= A when shiftAmtSig = "00" ELSE
-    		 <= EXResult when shiftAmtSig = "01" ELSE
-    		 <= "00000000000000000000000000000000" when others;
+    		 EXResult when shiftAmtSig = "01" ELSE
+    		 "00000000000000000000000000000000";
     
     --Shifter NEW CONTROL SIGNAL shiftTypeSig
     Shifter: entity work.shifter(func2) port map(
@@ -455,14 +455,14 @@ begin
 
     --Asrc1 mux NEW CONTROL SIGNAL 00 PCresult, 01 A, 10 MulResult
     ALUInputA <= PCresult when Asrc = "00" ELSE
-    		  <= A when Asrc = "01" ELSE
-    		  <= Mulresult when others;
+    		  A when Asrc = "01" ELSE
+    		  Mulresult when others;
     --Asrc2 mux NEW CONTROL SIGNAL Shiftresult when 000, 4 when 001, ExResult when 010, S2Result 011, 0 when others
     ALUInputB <= Shiftresult when Asrc2 = "000" ELSE
     			 "00000000000000000000000000000100" when Asrc2 = "001" ELSE
     			 EXResult when Asrc2 = "010" ELSE
     			 S2Result when Asrc= "011" ELSE
-    			 "0000000000000000000000" when others;
+    			 "0000000000000000000000";
    
     --ALU Box
     ALU_unit: entity work.ALU(func1) port map(
