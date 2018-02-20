@@ -57,42 +57,66 @@ entity ALU is
 end ALU;
 architecture func1 of ALU is
 --signals
-signal tempResult : std_logic_vector(31 downto 0);
+signal tempResult : std_logic_vector(32 downto 0);
+signal tempa : std_logic_vector(32 downto 0);
+signal tempb : std_logic_vector(32 downto 0);
 signal carry1or0 :integer;
 signal c31 : std_logic;
 signal c32 : std_logic;
 begin
-    result <= tempResult;
-	c31 <= a(31) xor b(31) xor tempResult(31);
-	c32 <= (a(31) and b(31)) or (a(31) and tempResult(31)) or (tempResult(31) and b(31));
+    result <= tempResult(31 downto 0);
+	c31 <= tempa(31) xor tempb(31) xor tempResult(31);
+    c32 <= tempResult(32);
+	----c32 <= (a(31) and b(31)) or (a(31) and tempResult(31)) or (tempResult(31) and b(31));
+    tempa <= '0' & a; 
+    tempb <= '0' & b; 
 	with carry select carry1or0 <=
 		1 when '1',
 		0 when others;
 	--This one changes the result, see slides 7 and 9 of lec9....implemented slide 7 only
-	with opcode select tempResult <=
-	    a and b when "0000", --and
-	    a xor b when "0001", --xor
-	    std_logic_vector(signed(a)+1+signed(not b)) when "0010", --sub
-	    std_logic_vector(signed(not a)+1+signed(b)) when "0011", --rsb
-	    std_logic_vector(signed(a)+signed(b)) when "0100", --add
-	    std_logic_vector(signed(a)+carry1or0+signed(b)) when "0101", --adc
-	    std_logic_vector(signed(a)+carry1or0+signed(not b)) when "0110", --sbc
-	    std_logic_vector(signed(not a)+carry1or0+signed(b)) when "0111", --rsc
-	    a and b when "1000", --tst
-	    a xor b when "1001", --teq
-	    std_logic_vector(signed(a)+1+signed(not b)) when "1010", --cmp
-	    std_logic_vector(signed(a)+signed(b)) when "1011", --cmn
-	    a or b when "1100", --orr
-	    b when "1101", --mov
-	    a and (not b) when "1110", --bic
-	    not b when others; --mvn
+    with opcode select tempResult <=
+        tempa and tempb when "0000", --and
+        tempa xor tempb when "0001", --xor
+        std_logic_vector(signed(tempa)+1+signed(not tempb)) when "0010", --sub
+        std_logic_vector(signed(not tempa)+1+signed(tempb)) when "0011", --rsb
+        std_logic_vector(signed(tempa)+signed(tempb)) when "0100", --add
+        std_logic_vector(signed(tempa)+carry1or0+signed(tempb)) when "0101", --adc
+        std_logic_vector(signed(tempa)+carry1or0+signed(not tempb)) when "0110", --sbc
+        std_logic_vector(signed(not tempa)+carry1or0+signed(tempb)) when "0111", --rsc
+        tempa and tempb when "1000", --tst
+        tempa xor tempb when "1001", --teq
+        std_logic_vector(signed(tempa)+1+signed(not tempb)) when "1010", --cmp
+        std_logic_vector(signed(tempa)+signed(tempb)) when "1011", --cmn
+        tempa or tempb when "1100", --orr
+        tempb when "1101", --mov
+        tempa and (not tempb) when "1110", --bic
+        not tempb when others; --mvn
+
+	--with opcode select tempResult <=
+	--    a and b when "0000", --and
+	--    a xor b when "0001", --xor
+	--    std_logic_vector(signed(a)+1+signed(not b)) when "0010", --sub
+	--    std_logic_vector(signed(not a)+1+signed(b)) when "0011", --rsb
+	--    std_logic_vector(signed(a)+signed(b)) when "0100", --add
+	--    std_logic_vector(signed(a)+carry1or0+signed(b)) when "0101", --adc
+	--    std_logic_vector(signed(a)+carry1or0+signed(not b)) when "0110", --sbc
+	--    std_logic_vector(signed(not a)+carry1or0+signed(b)) when "0111", --rsc
+	--    a and b when "1000", --tst
+	--    a xor b when "1001", --teq
+	--    std_logic_vector(signed(a)+1+signed(not b)) when "1010", --cmp
+	--    std_logic_vector(signed(a)+signed(b)) when "1011", --cmn
+	--    a or b when "1100", --orr
+	--    b when "1101", --mov
+	--    a and (not b) when "1110", --bic
+	--    not b when others; --mvn
 	--working on flags
 	n <= tempResult(31);
-	z <= tempResult(31) and tempResult(30) and tempResult(29) and tempResult(28) and tempResult(27) and tempResult(26) and tempResult(25) and tempResult(24) and tempResult(23) and tempResult(22) and tempResult(21) and tempResult(20) and tempResult(19) and tempResult(18) and tempResult(17) and tempResult(16) and tempResult(15) and tempResult(14) and tempResult(13) and tempResult(12) and tempResult(11) and tempResult(10) and tempResult(9) and tempResult(8) and tempResult(7) and tempResult(6) and tempResult(5) and tempResult(4) and tempResult(3) and tempResult(2) and tempResult(1) and tempResult(0);
-	c <= c31;
+	with tempResult(31 downto 0) select z <=
+        '1' when "00000000000000000000000000000000"
+        '0' when others;
+    c <= c32;
 	v <= c31 xor c32;
 end func1;
-
 
 
 
@@ -323,39 +347,26 @@ begin
         ToMem => writeValMem,
         mwe => mwe
     );
-    Mul: entity work.multiplier(func3) port map(
-        a => read1RegVal,
-        b => read2RegVal,
-        c => Mulresult
-    );
-        
-    Shifter: entity work.shifter(func2) port map(
-        a => read2RegVal,
-        opcode => op,
-        shiftAmount => read3RegVal,
-        carryIn => carry,
-        
-        result => Shiftresult,
-        c => flagstemp(1)
-    );
+    
+    
     --THE PROBLEM IS THAT SEPERATE COPIS OF REGESTERS FOR BOTH THE ENTITIES... SO TRY TO DO IN ONE
     --TRY TO THINK OF SOMETHING GENERIC BY THINKING OF A NEWER WIRE STRUCTURE
     --BL
     --SHIFT
     --MUL/MLA
     --PC Box
-    PC: entity work.RegisterFile(func4) port map(
-        a => ALUresult,
-        r1 => "DUMMY",
-        r2 => "DUMMY",
-        w1 => "1111",
-        clk => clk,
-        reset => '0',
-        we => PW,
-        pc => PCresult,
-        o1 => "DUMMY",
-        o2 => "DUMMY" 
-    ); 
+    --PC: entity work.RegisterFile(func4) port map(
+    --    a => ALUresult,
+    --    r1 => "DUMMY",
+    --    r2 => "DUMMY",
+    --    w1 => "1111",
+    --    clk => clk,
+    --    reset => '0',
+    --    we => PW,
+    --    pc => PCresult,
+    --    o1 => "DUMMY",
+    --    o2 => "DUMMY" 
+    --); 
     --IorD mux
     MemInputAd <= PCresult when IorD = '0' ELSE
                <= RESresult when others;
@@ -366,16 +377,24 @@ begin
     --DR Register
     DR <= MemResult when DW = '1';
 
-    --M2R Mux
-    writeValReg <= DR when M2R = '1' ELSE
-    		 	<= RESresult when others;
+    --M2R Mux, originally 1 bit but now 2 bit, 00 when DR, 01 when RESresult, 10 when PC
+    writeValReg <= DR when M2R = "00" ELSE
+    		 	<= RESresult when M2R = "01" ELSE
+    		 	<= PCresult when others;
 
     --Rsrc Mux
     read2 <= IR(3 downto 0) when Rsrc = '0' ELSE
     	  <= IR(15 downto 12) when others;
     --other inputs to Register file
-    read1 <= IR(19 downto 16);
-    writeReg <= IR(15 downto 12);
+    --NEW CONTROL SIGNAL read1Sig is 0 when ins[19-16], 1 when ins[11-8]
+    read1 <= IR(19 downto 16) when read1Sig = '0' ELSE
+    		 IR1(11 downto 8) when others;
+    
+    --NEW CONTROL SIGNAL writeAddSig is 00 when input is ins[15-12], 01 when input is 14, 10 when input is 15  
+    writeReg <= IR(15 downto 12) when writeAddSig = "00" ELSE
+    			"1110" when writeAddSig = "01" ELSE
+    			IR(19 downto 16) when writeAddSig = "10" ELSE --for mul
+    			"1111" when others;
     --Register File (RF)
     RFile: entity work.RegisterFile(func4) port map(
         a => writeValReg,
@@ -385,13 +404,19 @@ begin
         clk => clk,
         reset => resetReg,
         we => RW,
-        pc => "DUMMY",
+        pc => PCresult,
         o1 => read1RegVal,
         o2 => read2RegVal 
     );
 
+    Mul: entity work.multiplier(func3) port map(
+        a => A,
+        b => B,
+        c => Mulresult
+    );
+
     --EX : THIS IS THE SHIFTED CONSTANT
-    EXResult <= IR(11)&IR(11)&IR(11)&IR(11)&IR(11)&IR(11)&IR(11)&IR(11)&IR(11)&IR(11)&IR(11)&IR(11)&IR(11)&IR(11)&IR(11)&IR(11)&IR(11)&IR(11)&IR(11)&IR(11)&IR(11 downto 0);
+    EXResult <= "00000000000000000000"&IR(11 downto 0);
     
     --Shifter: entity work.shifter(func2) port map(
     --    a => IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7 downto 0),
@@ -404,30 +429,40 @@ begin
     --);
 
     --S2
-    S2Result <= IR(23)&IR(23)&IR(23)&IR(23)&IR(23)&IR(23)&IR(23)&IR(23)&IR(23 downto 0);
+    S2Result <= IR(23)&IR(23)&IR(23)&IR(23)&IR(23)&IR(23)&IR(23 downto 0)&"00";
     
     --A Register
     A <= read1RegVal when AW = '1';
     --B Register
     B <= read2RegVal when BW = '1';
-    --Shifter2_B: entity work.shifter(func2) port map(
-    --    a => read2RegVal,
-    --    opcode => "11",
-    --    shiftAmount => "000000000000000000000000000"&IR(11 downto 8)&"0",
-    --    carryIn => carry,
+    
+    --NEW CONTROL SIGNAL shiftAmtSig is 00 when read1, 01 when EXresult, 10 when no shift
+    shiftAmt <= A when shiftAmtSig = "00" ELSE
+    		 <= EXResult when shiftAmtSig = "01" ELSE
+    		 <= "00000000000000000000000000000000" when others;
+    
+    --Shifter NEW CONTROL SIGNAL shiftTypeSig
+    Shifter: entity work.shifter(func2) port map(
+        a => B,
+        opcode => IR(6 downto 5),
+        shiftAmount => A,
+        carryIn => carry,
         
-    --    result => EXResult,
-    --    c => flagstemp(1)
-    --);
+        result => Shiftresult,
+        c => flagstemp(1)
+    );
 
-    --Asrc1 mux
-    ALUInputA <= PCresult when Asrc = '1' ELSE
-    		  <= A when others;
-    --Asrc2 mux
-    ALUInputB <= B when Asrc2 = "00" ELSE
-    			 "00000000000000000000000000000100" when Asrc2 = "01" ELSE
-    			 EXResult when Asrc2 = "11" ELSE
-    			 S2Result when others;
+
+    --Asrc1 mux NEW CONTROL SIGNAL 00 PCresult, 01 A, 10 MulResult
+    ALUInputA <= PCresult when Asrc = "00" ELSE
+    		  <= A when Asrc = "01" ELSE
+    		  <= Mulresult when others;
+    --Asrc2 mux NEW CONTROL SIGNAL Shiftresult when 000, 4 when 001, ExResult when 010, S2Result 011, 0 when others
+    ALUInputB <= Shiftresult when Asrc2 = "000" ELSE
+    			 "00000000000000000000000000000100" when Asrc2 = "001" ELSE
+    			 EXResult when Asrc2 = "010" ELSE
+    			 S2Result when Asrc= "011" ELSE
+    			 "0000000000000000000000" when others;
    
     --ALU Box
     ALU_unit: entity work.ALU(func1) port map(
