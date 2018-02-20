@@ -2,8 +2,8 @@
 # Vivado v2016.4 (64-bit)
 # SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
 # IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
-# Start of session at: Mon Feb 19 18:08:40 2018
-# Process ID: 17533
+# Start of session at: Tue Feb 20 15:32:32 2018
+# Process ID: 6473
 # Current directory: /home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4
 # Command line: vivado
 # Log file: /home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/vivado.log
@@ -11,3 +11,28 @@
 #-----------------------------------------------------------
 start_gui
 open_project /home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/lab4.xpr
+remove_files  /home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/ass4.vhf
+add_files -norecurse /home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/Lab4.vhf
+update_compile_order -fileset sources_1
+update_compile_order -fileset sim_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top ALU [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top MainDataPath [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+launch_simulation
+launch_simulation
+launch_simulation
+launch_simulation
+launch_simulation
+launch_simulation
+launch_simulation
+launch_simulation
+source MainDataPath.tcl
+close_sim
+launch_simulation

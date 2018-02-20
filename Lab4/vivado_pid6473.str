@@ -1,0 +1,1007 @@
+/*
+
+Vivado v2016.4 (64-bit)
+SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
+Process ID: 6473
+
+Current time: 	2/20/18 3:33:15 PM IST
+Time zone: 	India Standard Time (Asia/Kolkata)
+
+OS: NAME="Ubuntu"
+Version: 4.13.0-26-generic
+Architecture: amd64
+Available processors (cores): 4
+
+DISPLAY: :0
+Screen size: 1920x1080
+Screen resolution (DPI): 96
+Available screens: 1
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+
+Java version: 	1.8.0_66 64-bit
+Java home: 	/opt/Xilinx/Vivado/2016.4/tps/lnx64/jre
+
+User name: 	mayanksingh2298
+User home directory: /home/mayanksingh2298
+User working directory: /home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI base root directory: /opt/Xilinx/Vivado
+RDI data directory: /opt/Xilinx/Vivado/2016.4/data
+RDI bin directory: /opt/Xilinx/Vivado/2016.4/bin
+
+Vivado preferences path: /home/mayanksingh2298/.Xilinx/Vivado/2016.4/vivado.ini
+Vivado layouts directory: /home/mayanksingh2298/.Xilinx/Vivado/2016.4/layouts
+
+GUI allocated memory:	133 MB
+GUI max memory:		3,052 MB
+Engine allocated memory: 732 MB
+
+*/
+
+// TclEventType: START_GUI
+// [GUI Memory]: 42 MB (+41497kb) [00:00:11]
+// [Engine Memory]: 711 MB (+593730kb) [00:00:11]
+// Tcl Message: start_gui 
+// HMemoryUtils.trashcanNow. Engine heap size: 742 MB. GUI used memory: 21 MB. Current time: 2/20/18 3:33:17 PM IST
+selectList(PAResourceEtoH.GettingStartedView_RECENT_PROJECTS, "/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/lab4.xpr", 0); // q:k (JViewport:JComponent, cd:JFrame)
+// bt:g (cd:JFrame):  Open Project : addNotify
+// Opening Vivado Project: /home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/lab4.xpr. Version: Vivado v2016.4 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 48 MB (+4504kb) [00:00:31]
+// [Engine Memory]: 780 MB (+35724kb) [00:00:31]
+// Tcl Message: open_project /home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/lab4.xpr 
+// HMemoryUtils.trashcanNow. Engine heap size: 781 MB. GUI used memory: 22 MB. Current time: 2/20/18 3:33:32 PM IST
+// Tcl Message: open_project /home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/lab4.xpr 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified 
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 53 MB (+2073kb) [00:00:39]
+// Tcl Message: INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2016.4/data/ip'. 
+// [Engine Memory]: 825 MB (+5777kb) [00:00:40]
+// Project name: lab4; location: /home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4; part: xc7a35tcpg236-1
+// Tcl Message: open_project: Time (s): cpu = 00:00:10 ; elapsed = 00:00:09 . Memory (MB): peak = 5863.684 ; gain = 67.605 ; free physical = 2916 ; free virtual = 13297 
+// Elapsed time: 10 seconds
+dismissDialog("Open Project"); // bt:g (cd:JFrame)
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// a:a (cd:JFrame): Critical Messages: addNotify
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f:a (JPanel:JComponent, a:a)
+dismissDialog("Critical Messages"); // a:a (cd:JFrame)
+// [GUI Memory]: 59 MB (+3688kb) [00:00:46]
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files]", 1); // y:i (D:JPanel, cd:JFrame)
+// PAPropertyPanels.initPanels (ass4.vhf) elapsed time: 0.2s
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, ass4.vhf]", 2, false); // y:i (D:JPanel, cd:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, ass4.vhf]", 2, false); // y:i (D:JPanel, cd:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, ass4.vhf]", 2, false, false, false, false, true, false); // y:i (D:JPanel, cd:JFrame) - Popup Trigger
+selectMenuItem(RDIResourceCommand.RDICommands_DELETE, "Remove File from Project..."); // ab:JMenuItem (ah:JPopupMenu, cd:JFrame)
+// Run Command: RDIResourceCommand.RDICommands_DELETE
+// ar:g (cd:JFrame): Remove Sources: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a:JButton (JPanel:JComponent, ar:g)
+// TclEventType: DG_GRAPH_STALE
+dismissDialog("Remove Sources"); // ar:g (cd:JFrame)
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: remove_files  /home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/ass4.vhf 
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Project Manager, Add Sources]", 2, false); // u:K (t:D, cd:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+// b:g (cd:JFrame): Add Sources: addNotify
+selectButton("NEXT", "Next >"); // JButton:AbstractButton (ButtonPanel:JPanel, b:g)
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files"); // a:JButton (C:JPanel, b:g)
+setFileChooser("/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/Lab4.vhf");
+// HMemoryUtils.trashcanNow. Engine heap size: 864 MB. GUI used memory: 31 MB. Current time: 2/20/18 3:34:02 PM IST
+selectButton("FINISH", "Finish"); // JButton:AbstractButton (ButtonPanel:JPanel, b:g)
+// 'h' command handler elapsed time: 9 seconds
+// TclEventType: DG_GRAPH_STALE
+dismissDialog("Add Sources"); // b:g (cd:JFrame)
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: add_files -norecurse /home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/Lab4.vhf 
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// Tcl Message: update_compile_order -fileset sources_1 
+// Tcl Message: update_compile_order -fileset sim_1 
+// TclEventType: DG_UPDATE_GRAPH
+// Elapsed time: 16 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, MainDataPath - DataPath (Lab4.vhf)]", 2, true); // y:i (D:JPanel, cd:JFrame) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, MainDataPath - DataPath (Lab4.vhf)]", 2, true, false, false, false, false, true); // y:i (D:JPanel, cd:JFrame) - Double Click - Node
+// [GUI Memory]: 62 MB (+405kb) [00:01:20]
+selectCodeEditor("Lab4.vhf", 145, 181); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 145, 181); // bF:I (JPanel:JComponent, cd:JFrame)
+// Elapsed time: 12 seconds
+selectCodeEditor("Lab4.vhf", 576, 168); // bF:I (JPanel:JComponent, cd:JFrame)
+// Elapsed time: 16 seconds
+selectCodeEditor("Lab4.vhf", 465, 285); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 465, 285); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 465, 285); // bF:I (JPanel:JComponent, cd:JFrame)
+// [GUI Memory]: 68 MB (+2645kb) [00:01:58]
+// Elapsed time: 20 seconds
+selectCodeEditor("Lab4.vhf", 142, 197); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 286, 197); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 286, 197, false, false, false, false, true); // bF:I (JPanel:JComponent, cd:JFrame) - Double Click
+// [GUI Memory]: 72 MB (+275kb) [00:08:00]
+// HMemoryUtils.trashcanNow. Engine heap size: 865 MB. GUI used memory: 31 MB. Current time: 2/20/18 4:04:02 PM IST
+// [Engine Memory]: 868 MB (+1795kb) [00:31:07]
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// HMemoryUtils.trashcanNow. Engine heap size: 886 MB. GUI used memory: 30 MB. Current time: 2/20/18 4:17:51 PM IST
+// Elapsed time: 2553 seconds
+selectButton(PAResourceAtoD.AbstractFileView_RELOAD, "Reload"); // h:k (JPanel:JComponent, cd:JFrame)
+selectButton(PAResourceAtoD.AbstractFileView_RELOAD, "Reload"); // h:k
+selectCodeEditor("Lab4.vhf", 178, 158); // bF:I (JPanel:JComponent, cd:JFrame)
+// Elapsed time: 62 seconds
+selectCodeEditor("Lab4.vhf", 278, 361); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 274, 340); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 274, 340); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 274, 340); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 274, 346); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 444, 479); // bF:I (JPanel:JComponent, cd:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// Elapsed time: 19 seconds
+selectCodeEditor("Lab4.vhf", 114, 219); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 114, 219, false, false, false, false, true); // bF:I (JPanel:JComponent, cd:JFrame) - Double Click
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "writeValReg", true); // l:ak (au:e, cd:JFrame)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "writeValReg"); // l:ak (au:e, cd:JFrame)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "writeValReg"); // l:ak (au:e, cd:JFrame)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "writeValReg"); // l:ak (au:e, cd:JFrame)
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "writeValReg"); // l:ak (au:e, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 266, 484); // bF:I (JPanel:JComponent, cd:JFrame)
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "m2r", true); // l:ak (au:e, cd:JFrame)
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "m2r", true); // l:ak (au:e, cd:JFrame)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "m2r"); // l:ak (au:e, cd:JFrame)
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "m2r", true); // l:ak (au:e, cd:JFrame)
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "m2r", true); // l:ak (au:e, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 201, 176); // bF:I (JPanel:JComponent, cd:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// Elapsed time: 21 seconds
+selectCodeEditor("Lab4.vhf", 302, 186); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 128, 331); // bF:I (JPanel:JComponent, cd:JFrame)
+// Elapsed time: 14 seconds
+selectCodeEditor("Lab4.vhf", 239, 379); // bF:I (JPanel:JComponent, cd:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// Elapsed time: 16 seconds
+selectCodeEditor("Lab4.vhf", 316, 199); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 258, 265); // bF:I (JPanel:JComponent, cd:JFrame)
+typeControlKey((HResource) null, "Lab4.vhf", 'c'); // bF:I (JPanel:JComponent, cd:JFrame)
+// [GUI Memory]: 77 MB (+2156kb) [00:48:04]
+typeControlKey((HResource) null, "Lab4.vhf", 'v'); // bF:I (JPanel:JComponent, cd:JFrame)
+typeControlKey(null, null, 'z');
+typeControlKey((HResource) null, "Lab4.vhf", 'v'); // bF:I (JPanel:JComponent, cd:JFrame)
+typeControlKey((HResource) null, "Lab4.vhf", 'v'); // bF:I (JPanel:JComponent, cd:JFrame)
+// Elapsed time: 11 seconds
+selectCodeEditor("Lab4.vhf", 306, 372); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 264, 383); // bF:I (JPanel:JComponent, cd:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+selectCodeEditor("Lab4.vhf", 264, 383); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 262, 437); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 263, 437); // bF:I (JPanel:JComponent, cd:JFrame)
+// Elapsed time: 21 seconds
+selectCodeEditor("Lab4.vhf", 243, 289); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 243, 289, false, false, false, false, true); // bF:I (JPanel:JComponent, cd:JFrame) - Double Click
+selectCodeEditor("Lab4.vhf", 231, 280); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 231, 280, false, false, false, false, true); // bF:I (JPanel:JComponent, cd:JFrame) - Double Click
+// [GUI Memory]: 82 MB (+1283kb) [00:49:07]
+typeControlKey((HResource) null, "Lab4.vhf", 'c'); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 228, 264); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 228, 264); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 229, 233); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 234, 228); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 234, 219); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 438, 283); // bF:I (JPanel:JComponent, cd:JFrame)
+typeControlKey((HResource) null, "Lab4.vhf", 'v'); // bF:I (JPanel:JComponent, cd:JFrame)
+typeControlKey(null, null, 'z');
+typeControlKey((HResource) null, "Lab4.vhf", 'v'); // bF:I (JPanel:JComponent, cd:JFrame)
+// Elapsed time: 26 seconds
+selectCodeEditor("Lab4.vhf", 234, 366); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 234, 366); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 234, 366); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 403, 276); // bF:I (JPanel:JComponent, cd:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// Elapsed time: 12 seconds
+selectCodeEditor("Lab4.vhf", 403, 276); // bF:I (JPanel:JComponent, cd:JFrame)
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// Elapsed time: 10 seconds
+selectCodeEditor("Lab4.vhf", 419, 455); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 419, 455); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 419, 455); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 419, 455); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 419, 455); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 411, 451); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 398, 227); // bF:I (JPanel:JComponent, cd:JFrame)
+typeControlKey((HResource) null, "Lab4.vhf", 'c'); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 204, 246); // bF:I (JPanel:JComponent, cd:JFrame)
+typeControlKey((HResource) null, "Lab4.vhf", 'v'); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 128, 252); // bF:I (JPanel:JComponent, cd:JFrame)
+// Elapsed time: 113 seconds
+selectCodeEditor("Lab4.vhf", 283, 148); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 283, 148); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 283, 156); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 283, 156); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 286, 117); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 201, 351); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 201, 351); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 385, 198); // bF:I (JPanel:JComponent, cd:JFrame)
+typeControlKey((HResource) null, "Lab4.vhf", 'c'); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 232, 174); // bF:I (JPanel:JComponent, cd:JFrame)
+typeControlKey((HResource) null, "Lab4.vhf", 'v'); // bF:I (JPanel:JComponent, cd:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+selectCodeEditor("Lab4.vhf", 176, 237); // bF:I (JPanel:JComponent, cd:JFrame)
+// Elapsed time: 14 seconds
+selectCodeEditor("Lab4.vhf", 215, 176); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 215, 176); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 212, 171); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 177, 72); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 185, 72); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 185, 72); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 185, 72); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 284, 394); // bF:I (JPanel:JComponent, cd:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// Elapsed time: 15 seconds
+selectCodeEditor("Lab4.vhf", 281, 183); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 147, 212); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 147, 212, false, false, false, false, true); // bF:I (JPanel:JComponent, cd:JFrame) - Double Click
+typeControlKey((HResource) null, "Lab4.vhf", 'c'); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 294, 311); // bF:I (JPanel:JComponent, cd:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// Elapsed time: 20 seconds
+selectCodeEditor("Lab4.vhf", 870, 436); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 870, 436); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 870, 436); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 870, 436); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 870, 436); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 870, 436); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 870, 436); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 870, 436); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 870, 436); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 870, 436); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 861, 411); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 850, 392); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 850, 392); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 850, 392); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 850, 387); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 850, 387); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 850, 387); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 684, 462); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 684, 462); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 684, 462); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 684, 462); // bF:I (JPanel:JComponent, cd:JFrame)
+// Elapsed time: 10 seconds
+selectCodeEditor("Lab4.vhf", 173, 450); // bF:I (JPanel:JComponent, cd:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// Elapsed time: 746 seconds
+selectButton(PAResourceAtoD.AbstractFileView_RELOAD, "Reload"); // h:k (JPanel:JComponent, cd:JFrame)
+selectButton(PAResourceAtoD.AbstractFileView_RELOAD, "Reload"); // h:k
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Simulation Settings]", 10, false); // u:K (t:D, cd:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_SETTINGS
+// Project Settings: addNotify
+// TclEventType: FILE_SET_CHANGE
+selectButton(PAResourceOtoP.ProjectSettingsSimulationPanel_SELECT_TESTBENCH_TOP_MODULE, (String) null); // q:a (ae:s, i:aA)
+selectButton(PAResourceOtoP.ProjectSettingsSimulationPanel_SELECT_TESTBENCH_TOP_MODULE, (String) null); // q:a (ae:s, i:aA)
+// bt:g (i:aA):  Analyze source files for top modules : addNotify
+// P:q (i:aA): Select Top Module: addNotify
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a:JButton (JPanel:JComponent, P:q)
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a:JButton (JPanel:JComponent, P:q)
+dismissDialog("Select Top Module"); // P:q (i:aA)
+selectButton("CANCEL", "Cancel"); // JButton:AbstractButton (ButtonPanel:JPanel, i:aA)
+dismissDialog("Project Settings"); // i:aA (cd:JFrame)
+// [GUI Memory]: 87 MB (+709kb) [01:06:47]
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources]", 0, true); // y:i (D:JPanel, cd:JFrame) - Node
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, MainDataPath - DataPath (Lab4.vhf)]", 1); // y:i (D:JPanel, cd:JFrame)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, MainDataPath - DataPath (Lab4.vhf)]", 1); // y:i (D:JPanel, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 141, 266); // bF:I (JPanel:JComponent, cd:JFrame)
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "MainData", true); // l:ak (au:e, cd:JFrame)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "MainData"); // l:ak (au:e, cd:JFrame)
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "MainData", true); // l:ak (au:e, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 92, 115); // bF:I (JPanel:JComponent, cd:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, MainDataPath - DataPath (Lab4.vhf), ALU_unit - ALU - func1 (Lab4.vhf)]", 6, false); // y:i (D:JPanel, cd:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, MainDataPath - DataPath (Lab4.vhf), ALU_unit - ALU - func1 (Lab4.vhf)]", 6, false, false, false, false, true, false); // y:i (D:JPanel, cd:JFrame) - Popup Trigger
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // Y:JMenu (ah:JPopupMenu, cd:JFrame)
+selectMenu(PAResourceQtoS.SrcMenu_IP_HIERARCHY, "IP Hierarchy"); // Y:JMenu (ah:JPopupMenu, cd:JFrame)
+selectMenuItem(PAResourceCommand.PACommandNames_SET_AS_TOP, "Set as Top"); // ab:JMenuItem (ah:JPopupMenu, cd:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_SET_AS_TOP
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: set_property top ALU [current_fileset] 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: DG_UPDATE_GRAPH
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Simulation Settings]", 10, false); // u:K (t:D, cd:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_SETTINGS
+// Project Settings: addNotify
+selectButton(PAResourceOtoP.ProjectSettingsSimulationPanel_SELECT_TESTBENCH_TOP_MODULE, (String) null); // q:a (ae:s, i:aA)
+// bt:g (i:aA):  Analyze source files for top modules : addNotify
+// P:q (i:aA): Select Top Module: addNotify
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a:JButton (JPanel:JComponent, P:q)
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a:JButton (JPanel:JComponent, P:q)
+dismissDialog("Select Top Module"); // P:q (i:aA)
+setText(PAResourceOtoP.ProjectSettingsSimulationPanel_SELECT_TESTBENCH_TOP_MODULE, (String) null); // ak:JTextField (ae:s, i:aA)
+setText(PAResourceOtoP.ProjectSettingsSimulationPanel_SELECT_TESTBENCH_TOP_MODULE, (String) null); // ak:JTextField (ae:s, i:aA)
+selectButton(PAResourceOtoP.ProjectSettingsSimulationPanel_SELECT_TESTBENCH_TOP_MODULE, (String) null); // q:a (ae:s, i:aA)
+// bt:g (i:aA):  Analyze source files for top modules : addNotify
+// P:q (i:aA): Select Top Module: addNotify
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a:JButton (JPanel:JComponent, P:q)
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a:JButton (JPanel:JComponent, P:q)
+dismissDialog("Select Top Module"); // P:q (i:aA)
+selectComboBox(PAResourceOtoP.ProjectSettingsSimulationPanel_SIMULATOR_LANGUAGE, "VHDL", 0); // e:JComboBox (JPanel:JComponent, i:aA)
+selectButton(PAResourceOtoP.ProjectSettingsSimulationPanel_SELECT_TESTBENCH_TOP_MODULE, (String) null); // q:a (ae:s, i:aA)
+// bt:g (i:aA):  Analyze source files for top modules : addNotify
+// P:q (i:aA): Select Top Module: addNotify
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a:JButton (JPanel:JComponent, P:q)
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a:JButton (JPanel:JComponent, P:q)
+dismissDialog("Select Top Module"); // P:q (i:aA)
+selectButton("CANCEL", "Cancel"); // JButton:AbstractButton (ButtonPanel:JPanel, i:aA)
+dismissDialog("Project Settings"); // i:aA (cd:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, MainDataPath - DataPath (Lab4.vhf), ALU_unit - ALU - func1 (Lab4.vhf)]", 6, false); // y:i (D:JPanel, cd:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, MainDataPath - DataPath (Lab4.vhf), ALU_unit - ALU - func1 (Lab4.vhf)]", 6, false); // y:i (D:JPanel, cd:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, MainDataPath - DataPath (Lab4.vhf), ALU_unit - ALU - func1 (Lab4.vhf)]", 6, false, false, false, false, false, true); // y:i (D:JPanel, cd:JFrame) - Double Click
+// Elapsed time: 22 seconds
+selectCodeEditor("Lab4.vhf", 316, 494); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 316, 494); // bF:I (JPanel:JComponent, cd:JFrame)
+// Elapsed time: 26 seconds
+selectCodeEditor("Lab4.vhf", 1015, 348); // bF:I (JPanel:JComponent, cd:JFrame)
+// Elapsed time: 122 seconds
+selectCodeEditor("Lab4.vhf", 166, 312); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 166, 312, false, false, false, false, true); // bF:I (JPanel:JComponent, cd:JFrame) - Double Click
+selectCodeEditor("Lab4.vhf", 106, 313); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 104, 313, false, false, false, false, true); // bF:I (JPanel:JComponent, cd:JFrame) - Double Click
+selectCodeEditor("Lab4.vhf", 113, 194); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 113, 194, false, false, false, false, true); // bF:I (JPanel:JComponent, cd:JFrame) - Double Click
+selectCodeEditor("Lab4.vhf", 113, 194); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 115, 193); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 115, 193, false, false, false, false, true); // bF:I (JPanel:JComponent, cd:JFrame) - Double Click
+selectCodeEditor("Lab4.vhf", 122, 193); // bF:I (JPanel:JComponent, cd:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// Elapsed time: 28 seconds
+selectCodeEditor("Lab4.vhf", 231, 280); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 231, 280, false, false, false, false, true); // bF:I (JPanel:JComponent, cd:JFrame) - Double Click
+selectCodeEditor("Lab4.vhf", 231, 280); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 231, 280, false, false, false, false, true); // bF:I (JPanel:JComponent, cd:JFrame) - Double Click
+selectCodeEditor("Lab4.vhf", 208, 274); // bF:I (JPanel:JComponent, cd:JFrame)
+// Elapsed time: 23 seconds
+selectCodeEditor("Lab4.vhf", 200, 164); // bF:I (JPanel:JComponent, cd:JFrame)
+// Elapsed time: 47 seconds
+selectCodeEditor("Lab4.vhf", 29, 147); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 29, 147); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 29, 147); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 29, 147); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 29, 147); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 29, 147); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 29, 147); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 29, 147); // bF:I (JPanel:JComponent, cd:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, MainDataPath - DataPath (Lab4.vhf)]", 1, true, false, false, false, true, false); // y:i (D:JPanel, cd:JFrame) - Popup Trigger - Node
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // Y:JMenu (ah:JPopupMenu, cd:JFrame)
+selectMenuItem(PAResourceCommand.PACommandNames_SET_GLOBAL_INCLUDE, "Set Global Include"); // ab:JMenuItem (ah:JPopupMenu, cd:JFrame)
+selectMenu(PAResourceQtoS.SrcMenu_IP_HIERARCHY, "IP Hierarchy"); // Y:JMenu (ah:JPopupMenu, cd:JFrame)
+selectMenuItem(PAResourceQtoS.SrcMenu_REFRESH_HIERARCHY, "Refresh Hierarchy"); // ab:JMenuItem (ah:JPopupMenu, cd:JFrame)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, MainDataPath - DataPath (Lab4.vhf)]", 1, true, false, false, false, true, false); // y:i (D:JPanel, cd:JFrame) - Popup Trigger - Node
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // Y:JMenu (ah:JPopupMenu, cd:JFrame)
+selectMenu(PAResourceQtoS.SrcMenu_IP_HIERARCHY, "IP Hierarchy"); // Y:JMenu (ah:JPopupMenu, cd:JFrame)
+selectMenuItem(PAResourceCommand.PACommandNames_SET_AS_TOP, "Set as Top"); // ab:JMenuItem (ah:JPopupMenu, cd:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_SET_AS_TOP
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// [Engine Memory]: 916 MB (+5362kb) [01:12:28]
+// TclEventType: DG_GRAPH_STALE
+// Tcl Message: set_property top MainDataPath [current_fileset] 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: DG_UPDATE_GRAPH
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 11, false); // u:K (t:D, cd:JFrame)
+// HMemoryUtils.trashcanNow. Engine heap size: 916 MB. GUI used memory: 31 MB. Current time: 2/20/18 4:45:32 PM IST
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ab:JMenuItem (ah:JPopupMenu, cd:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+// TclEventType: FILE_SET_CHANGE
+// e:bt (cd:JFrame):  Run Simulation : addNotify
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: launch_simulation 
+// Tcl Message: INFO: [SIM-utils-51] Simulation object is 'sim_1' INFO: [USF-XSim-37] Inspecting design source files for 'MainDataPath' in fileset 'sim_1'... INFO: [USF-XSim-97] Finding global include files... INFO: [USF-XSim-98] Fetching design files from 'sim_1'... INFO: [USF-XSim-2] XSim::Compile design INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/lab4.sim/sim_1/behav' 
+// TclEventType: LAUNCH_SIM_LOG
+// Tcl Message: xvhdl -m64 --relax -prj MainDataPath_vhdl.prj INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/Lab4.vhf" into library xil_defaultlib INFO: [VRFC 10-307] analyzing entity shifter INFO: [VRFC 10-307] analyzing entity ALU INFO: [VRFC 10-307] analyzing entity multiplier INFO: [VRFC 10-307] analyzing entity RegisterFile INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath INFO: [VRFC 10-307] analyzing entity MainDataPath 
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '2' seconds INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/lab4.sim/sim_1/behav' 
+// TclEventType: LAUNCH_SIM
+// Tcl Message: INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds INFO: [USF-XSim-99] Step results log file:'/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/lab4.sim/sim_1/behav/elaborate.log' 
+// Tcl Message: ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or '/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/lab4.sim/sim_1/behav/elaborate.log' file for more information. ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation. 
+// Tcl Message: ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors. 
+// HOptionPane Error: " ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.<br> (Run Simulation)"
+// a:a (cd:JFrame): Critical Messages: addNotify
+// 'd' command handler elapsed time: 5 seconds
+selectButton("RDIResource.ProgressDialog_ERROR_ENCOUNTERED_PLEASE_SEE_TCL_OK", "OK"); // JButton:AbstractButton (JPanel:JComponent, F:JDialog)
+// Elapsed time: 34 seconds
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f:a (JPanel:JComponent, a:a)
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f:a (JPanel:JComponent, a:a)
+dismissDialog("Critical Messages"); // a:a (cd:JFrame)
+selectCodeEditor("Lab4.vhf", 331, 276); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 331, 276); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 331, 276); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 331, 276); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 331, 276); // bF:I (JPanel:JComponent, cd:JFrame)
+// Elapsed time: 17 seconds
+selectCodeEditor("Lab4.vhf", 246, 127); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 246, 127, false, false, false, false, true); // bF:I (JPanel:JComponent, cd:JFrame) - Double Click
+// Elapsed time: 10 seconds
+selectCodeEditor("Lab4.vhf", 103, 247); // bF:I (JPanel:JComponent, cd:JFrame)
+// Elapsed time: 23 seconds
+selectCodeEditor("Lab4.vhf", 76, 276); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 400, 409); // bF:I (JPanel:JComponent, cd:JFrame)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 11, false); // u:K (t:D, cd:JFrame)
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ab:JMenuItem (ah:JPopupMenu, cd:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+// TclEventType: FILE_SET_CHANGE
+// e:bt (cd:JFrame):  Run Simulation : addNotify
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// TclEventType: LAUNCH_SIM_LOG
+// TclEventType: LAUNCH_SIM
+// Tcl Message: launch_simulation 
+// Tcl Message: INFO: [SIM-utils-51] Simulation object is 'sim_1' INFO: [USF-XSim-37] Inspecting design source files for 'MainDataPath' in fileset 'sim_1'... INFO: [USF-XSim-97] Finding global include files... INFO: [USF-XSim-98] Fetching design files from 'sim_1'... INFO: [USF-XSim-2] XSim::Compile design INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/lab4.sim/sim_1/behav' 
+// Tcl Message: xvhdl -m64 --relax -prj MainDataPath_vhdl.prj INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/Lab4.vhf" into library xil_defaultlib INFO: [VRFC 10-307] analyzing entity shifter INFO: [VRFC 10-307] analyzing entity ALU INFO: [VRFC 10-307] analyzing entity multiplier INFO: [VRFC 10-307] analyzing entity RegisterFile INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath INFO: [VRFC 10-307] analyzing entity MainDataPath 
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '0' seconds INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/lab4.sim/sim_1/behav' 
+// Tcl Message: INFO: [USF-XSim-69] 'elaborate' step finished in '0' seconds INFO: [USF-XSim-99] Step results log file:'/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/lab4.sim/sim_1/behav/elaborate.log' 
+// Tcl Message: ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or '/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/lab4.sim/sim_1/behav/elaborate.log' file for more information. ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation. 
+// Tcl Message: ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors. 
+// HOptionPane Error: " ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.<br> (Run Simulation)"
+// a:a (cd:JFrame): Critical Messages: addNotify
+selectButton("RDIResource.ProgressDialog_ERROR_ENCOUNTERED_PLEASE_SEE_TCL_OK", "OK"); // JButton:AbstractButton (JPanel:JComponent, F:JDialog)
+selectList(PAResourceAtoD.CmdMsgDialog_MESSAGES, "[Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.", 1); // b:a (D:JPanel, a:a)
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f:a (JPanel:JComponent, a:a)
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f:a (JPanel:JComponent, a:a)
+dismissDialog("Critical Messages"); // a:a (cd:JFrame)
+selectCodeEditor("Lab4.vhf", 291, 381); // bF:I (JPanel:JComponent, cd:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 11, false); // u:K (t:D, cd:JFrame)
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ab:JMenuItem (ah:JPopupMenu, cd:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+// TclEventType: FILE_SET_CHANGE
+// e:bt (cd:JFrame):  Run Simulation : addNotify
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// TclEventType: LAUNCH_SIM_LOG
+// TclEventType: LAUNCH_SIM
+// Tcl Message: launch_simulation 
+// Tcl Message: INFO: [SIM-utils-51] Simulation object is 'sim_1' INFO: [USF-XSim-37] Inspecting design source files for 'MainDataPath' in fileset 'sim_1'... INFO: [USF-XSim-97] Finding global include files... INFO: [USF-XSim-98] Fetching design files from 'sim_1'... INFO: [USF-XSim-2] XSim::Compile design INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/lab4.sim/sim_1/behav' 
+// Tcl Message: xvhdl -m64 --relax -prj MainDataPath_vhdl.prj INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/Lab4.vhf" into library xil_defaultlib INFO: [VRFC 10-307] analyzing entity shifter INFO: [VRFC 10-307] analyzing entity ALU INFO: [VRFC 10-307] analyzing entity multiplier INFO: [VRFC 10-307] analyzing entity RegisterFile INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath INFO: [VRFC 10-307] analyzing entity MainDataPath 
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '0' seconds INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/lab4.sim/sim_1/behav' 
+// Tcl Message: INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds INFO: [USF-XSim-99] Step results log file:'/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/lab4.sim/sim_1/behav/elaborate.log' 
+// Tcl Message: ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or '/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/lab4.sim/sim_1/behav/elaborate.log' file for more information. ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation. 
+// Tcl Message: ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors. 
+// HOptionPane Error: " ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.<br> (Run Simulation)"
+// a:a (cd:JFrame): Critical Messages: addNotify
+selectButton("RDIResource.ProgressDialog_ERROR_ENCOUNTERED_PLEASE_SEE_TCL_OK", "OK"); // JButton:AbstractButton (JPanel:JComponent, F:JDialog)
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f:a (JPanel:JComponent, a:a)
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f:a (JPanel:JComponent, a:a)
+dismissDialog("Critical Messages"); // a:a (cd:JFrame)
+selectCodeEditor("Lab4.vhf", 139, 251); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 139, 251); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 139, 251); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 139, 251); // bF:I (JPanel:JComponent, cd:JFrame)
+// Elapsed time: 25 seconds
+selectCodeEditor("Lab4.vhf", 178, 258); // bF:I (JPanel:JComponent, cd:JFrame)
+// Elapsed time: 29 seconds
+selectCodeEditor("Lab4.vhf", 216, 304); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 216, 304); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 280, 230); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 317, 271); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 317, 271); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 317, 271); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 317, 271); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 317, 271); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 317, 271); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 317, 271); // bF:I (JPanel:JComponent, cd:JFrame)
+// Elapsed time: 32 seconds
+selectCodeEditor("Lab4.vhf", 233, 441); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 233, 441, false, false, false, false, true); // bF:I (JPanel:JComponent, cd:JFrame) - Double Click
+selectCodeEditor("Lab4.vhf", 226, 443); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 226, 443, false, false, false, false, true); // bF:I (JPanel:JComponent, cd:JFrame) - Double Click
+typeControlKey((HResource) null, "Lab4.vhf", 'c'); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 174, 367); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 174, 383); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 174, 383, false, false, false, false, true); // bF:I (JPanel:JComponent, cd:JFrame) - Double Click
+typeControlKey((HResource) null, "Lab4.vhf", 'v'); // bF:I (JPanel:JComponent, cd:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 11, false); // u:K (t:D, cd:JFrame)
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ab:JMenuItem (ah:JPopupMenu, cd:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+// TclEventType: FILE_SET_CHANGE
+// e:bt (cd:JFrame):  Run Simulation : addNotify
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: launch_simulation 
+// Tcl Message: INFO: [SIM-utils-51] Simulation object is 'sim_1' INFO: [USF-XSim-37] Inspecting design source files for 'MainDataPath' in fileset 'sim_1'... INFO: [USF-XSim-97] Finding global include files... INFO: [USF-XSim-98] Fetching design files from 'sim_1'... INFO: [USF-XSim-2] XSim::Compile design INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/lab4.sim/sim_1/behav' 
+// TclEventType: LAUNCH_SIM_LOG
+// TclEventType: LAUNCH_SIM
+// Tcl Message: xvhdl -m64 --relax -prj MainDataPath_vhdl.prj INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/Lab4.vhf" into library xil_defaultlib INFO: [VRFC 10-307] analyzing entity shifter INFO: [VRFC 10-307] analyzing entity ALU INFO: [VRFC 10-307] analyzing entity multiplier INFO: [VRFC 10-307] analyzing entity RegisterFile INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath INFO: [VRFC 10-307] analyzing entity MainDataPath 
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '0' seconds INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/lab4.sim/sim_1/behav' 
+// Tcl Message: INFO: [USF-XSim-69] 'elaborate' step finished in '0' seconds INFO: [USF-XSim-99] Step results log file:'/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/lab4.sim/sim_1/behav/elaborate.log' 
+// Tcl Message: ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or '/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/lab4.sim/sim_1/behav/elaborate.log' file for more information. ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation. 
+// Tcl Message: ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors. 
+// HOptionPane Error: " ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.<br> (Run Simulation)"
+// a:a (cd:JFrame): Critical Messages: addNotify
+selectButton("RDIResource.ProgressDialog_ERROR_ENCOUNTERED_PLEASE_SEE_TCL_OK", "OK"); // JButton:AbstractButton (JPanel:JComponent, F:JDialog)
+selectList(PAResourceAtoD.CmdMsgDialog_MESSAGES, "[USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or '/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/lab4.sim/sim_1/behav/elaborate.log' file for more information.", 0); // b:a (D:JPanel, a:a)
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f:a (JPanel:JComponent, a:a)
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f:a (JPanel:JComponent, a:a)
+dismissDialog("Critical Messages"); // a:a (cd:JFrame)
+selectCodeEditor("Lab4.vhf", 202, 394); // bF:I (JPanel:JComponent, cd:JFrame)
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+selectCodeEditor("Lab4.vhf", 202, 393); // bF:I (JPanel:JComponent, cd:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// Elapsed time: 13 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 11, false); // u:K (t:D, cd:JFrame)
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ab:JMenuItem (ah:JPopupMenu, cd:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+// TclEventType: FILE_SET_CHANGE
+// e:bt (cd:JFrame):  Run Simulation : addNotify
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// TclEventType: LAUNCH_SIM_LOG
+// Tcl Message: launch_simulation 
+// Tcl Message: INFO: [SIM-utils-51] Simulation object is 'sim_1' INFO: [USF-XSim-37] Inspecting design source files for 'MainDataPath' in fileset 'sim_1'... INFO: [USF-XSim-97] Finding global include files... INFO: [USF-XSim-98] Fetching design files from 'sim_1'... INFO: [USF-XSim-2] XSim::Compile design INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/lab4.sim/sim_1/behav' 
+// Tcl Message: xvhdl -m64 --relax -prj MainDataPath_vhdl.prj INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/Lab4.vhf" into library xil_defaultlib INFO: [VRFC 10-307] analyzing entity shifter INFO: [VRFC 10-307] analyzing entity ALU INFO: [VRFC 10-307] analyzing entity multiplier INFO: [VRFC 10-307] analyzing entity RegisterFile INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath INFO: [VRFC 10-307] analyzing entity MainDataPath 
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '0' seconds INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/lab4.sim/sim_1/behav' 
+// TclEventType: LAUNCH_SIM
+// Tcl Message: INFO: [USF-XSim-69] 'elaborate' step finished in '0' seconds INFO: [USF-XSim-99] Step results log file:'/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/lab4.sim/sim_1/behav/elaborate.log' 
+// Tcl Message: ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or '/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/lab4.sim/sim_1/behav/elaborate.log' file for more information. ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation. 
+// Tcl Message: ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors. 
+// HOptionPane Error: " ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.<br> (Run Simulation)"
+// a:a (cd:JFrame): Critical Messages: addNotify
+selectButton("RDIResource.ProgressDialog_ERROR_ENCOUNTERED_PLEASE_SEE_TCL_OK", "OK"); // JButton:AbstractButton (JPanel:JComponent, F:JDialog)
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f:a (JPanel:JComponent, a:a)
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f:a (JPanel:JComponent, a:a)
+dismissDialog("Critical Messages"); // a:a (cd:JFrame)
+selectCodeEditor("Lab4.vhf", 437, 365); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 437, 365); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 437, 365); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 437, 365); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 437, 365); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 437, 365); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 437, 365); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 437, 365); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 437, 365); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 437, 344); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 437, 344); // bF:I (JPanel:JComponent, cd:JFrame)
+// Elapsed time: 214 seconds
+selectCodeEditor("Lab4.vhf", 307, 335); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 307, 335, false, false, false, false, true); // bF:I (JPanel:JComponent, cd:JFrame) - Double Click
+// Elapsed time: 28 seconds
+selectCodeEditor("Lab4.vhf", 307, 335); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 307, 335); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 168, 350); // bF:I (JPanel:JComponent, cd:JFrame)
+// Elapsed time: 19 seconds
+selectCodeEditor("Lab4.vhf", 80, 350); // bF:I (JPanel:JComponent, cd:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// Elapsed time: 26 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 11, false); // u:K (t:D, cd:JFrame)
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ab:JMenuItem (ah:JPopupMenu, cd:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+// TclEventType: FILE_SET_CHANGE
+// e:bt (cd:JFrame):  Run Simulation : addNotify
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: launch_simulation 
+// Tcl Message: INFO: [SIM-utils-51] Simulation object is 'sim_1' INFO: [USF-XSim-37] Inspecting design source files for 'MainDataPath' in fileset 'sim_1'... INFO: [USF-XSim-97] Finding global include files... INFO: [USF-XSim-98] Fetching design files from 'sim_1'... INFO: [USF-XSim-2] XSim::Compile design INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/lab4.sim/sim_1/behav' 
+// TclEventType: LAUNCH_SIM_LOG
+// TclEventType: LAUNCH_SIM
+// Tcl Message: xvhdl -m64 --relax -prj MainDataPath_vhdl.prj INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/Lab4.vhf" into library xil_defaultlib INFO: [VRFC 10-307] analyzing entity shifter INFO: [VRFC 10-307] analyzing entity ALU INFO: [VRFC 10-307] analyzing entity multiplier INFO: [VRFC 10-307] analyzing entity RegisterFile INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath INFO: [VRFC 10-307] analyzing entity MainDataPath 
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '0' seconds INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/lab4.sim/sim_1/behav' 
+// Tcl Message: INFO: [USF-XSim-69] 'elaborate' step finished in '0' seconds INFO: [USF-XSim-99] Step results log file:'/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/lab4.sim/sim_1/behav/elaborate.log' 
+// Tcl Message: ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or '/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/lab4.sim/sim_1/behav/elaborate.log' file for more information. ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation. 
+// Tcl Message: ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors. 
+// HOptionPane Error: " ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.<br> (Run Simulation)"
+// a:a (cd:JFrame): Critical Messages: addNotify
+selectButton("RDIResource.ProgressDialog_ERROR_ENCOUNTERED_PLEASE_SEE_TCL_OK", "OK"); // JButton:AbstractButton (JPanel:JComponent, F:JDialog)
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f:a (JPanel:JComponent, a:a)
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f:a (JPanel:JComponent, a:a)
+dismissDialog("Critical Messages"); // a:a (cd:JFrame)
+// Elapsed time: 15 seconds
+selectCodeEditor("Lab4.vhf", 390, 317); // bF:I (JPanel:JComponent, cd:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// Elapsed time: 13 seconds
+selectCodeEditor("Lab4.vhf", 394, 315); // bF:I (JPanel:JComponent, cd:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 11, false); // u:K (t:D, cd:JFrame)
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ab:JMenuItem (ah:JPopupMenu, cd:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+// TclEventType: FILE_SET_CHANGE
+// e:bt (cd:JFrame):  Run Simulation : addNotify
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// TclEventType: LAUNCH_SIM_LOG
+// Tcl Message: launch_simulation 
+// Tcl Message: INFO: [SIM-utils-51] Simulation object is 'sim_1' INFO: [USF-XSim-37] Inspecting design source files for 'MainDataPath' in fileset 'sim_1'... INFO: [USF-XSim-97] Finding global include files... INFO: [USF-XSim-98] Fetching design files from 'sim_1'... INFO: [USF-XSim-2] XSim::Compile design INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/lab4.sim/sim_1/behav' 
+// Tcl Message: xvhdl -m64 --relax -prj MainDataPath_vhdl.prj INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/Lab4.vhf" into library xil_defaultlib INFO: [VRFC 10-307] analyzing entity shifter INFO: [VRFC 10-307] analyzing entity ALU INFO: [VRFC 10-307] analyzing entity multiplier INFO: [VRFC 10-307] analyzing entity RegisterFile INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath INFO: [VRFC 10-307] analyzing entity MainDataPath 
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '0' seconds INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/lab4.sim/sim_1/behav' 
+// TclEventType: LAUNCH_SIM
+// Tcl Message: Vivado Simulator 2016.4 Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved. Running: /opt/Xilinx/Vivado/2016.4/bin/unwrapped/lnx64.o/xelab -wto c583d4283bba4910b9413ca7d9fb7fda --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot MainDataPath_behav xil_defaultlib.MainDataPath -log elaborate.log  Using 8 slave threads. Starting static elaboration ERROR: [VRFC 10-664] expression has 20 elements ; expected 32 [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/Lab4.vhf:331] ERROR: [XSIM 43-3321] Static elaboration of top level VHDL design unit maindatapath in library work failed. 
+// Tcl Message: INFO: [USF-XSim-69] 'elaborate' step finished in '0' seconds INFO: [USF-XSim-99] Step results log file:'/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/lab4.sim/sim_1/behav/elaborate.log' 
+// Tcl Message: ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or '/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/lab4.sim/sim_1/behav/elaborate.log' file for more information. ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation. 
+// Tcl Message: ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors. 
+// HOptionPane Error: " ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.<br> (Run Simulation)"
+// a:a (cd:JFrame): Critical Messages: addNotify
+selectButton("RDIResource.ProgressDialog_ERROR_ENCOUNTERED_PLEASE_SEE_TCL_OK", "OK"); // JButton:AbstractButton (JPanel:JComponent, F:JDialog)
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f:a (JPanel:JComponent, a:a)
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f:a (JPanel:JComponent, a:a)
+dismissDialog("Critical Messages"); // a:a (cd:JFrame)
+// Elapsed time: 13 seconds
+selectCodeEditor("Lab4.vhf", 350, 161); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 433, 162); // bF:I (JPanel:JComponent, cd:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// Elapsed time: 21 seconds
+selectCodeEditor("Lab4.vhf", 142, 277); // bF:I (JPanel:JComponent, cd:JFrame)
+// Elapsed time: 10 seconds
+selectCodeEditor("Lab4.vhf", 118, 366); // bF:I (JPanel:JComponent, cd:JFrame)
+// Elapsed time: 12 seconds
+selectCodeEditor("Lab4.vhf", 111, 271); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 146, 145); // bF:I (JPanel:JComponent, cd:JFrame)
+// Elapsed time: 18 seconds
+selectCodeEditor("Lab4.vhf", 149, 201); // bF:I (JPanel:JComponent, cd:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 17 seconds
+selectCodeEditor("Lab4.vhf", 157, 205); // bF:I (JPanel:JComponent, cd:JFrame)
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+selectCodeEditor("Lab4.vhf", 157, 205); // bF:I (JPanel:JComponent, cd:JFrame)
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+selectCodeEditor("Lab4.vhf", 157, 205); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 157, 205); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 393, 240); // bF:I (JPanel:JComponent, cd:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 11, false); // u:K (t:D, cd:JFrame)
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ab:JMenuItem (ah:JPopupMenu, cd:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+// TclEventType: FILE_SET_CHANGE
+// e:bt (cd:JFrame):  Run Simulation : addNotify
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// TclEventType: LAUNCH_SIM_LOG
+// Tcl Message: launch_simulation 
+// Tcl Message: INFO: [SIM-utils-51] Simulation object is 'sim_1' INFO: [USF-XSim-37] Inspecting design source files for 'MainDataPath' in fileset 'sim_1'... INFO: [USF-XSim-97] Finding global include files... INFO: [USF-XSim-98] Fetching design files from 'sim_1'... INFO: [USF-XSim-2] XSim::Compile design INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/lab4.sim/sim_1/behav' 
+// Tcl Message: xvhdl -m64 --relax -prj MainDataPath_vhdl.prj INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/Lab4.vhf" into library xil_defaultlib INFO: [VRFC 10-307] analyzing entity shifter INFO: [VRFC 10-307] analyzing entity ALU INFO: [VRFC 10-307] analyzing entity multiplier INFO: [VRFC 10-307] analyzing entity RegisterFile INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath INFO: [VRFC 10-307] analyzing entity MainDataPath 
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '0' seconds INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/lab4.sim/sim_1/behav' 
+// Tcl Message: Built simulation snapshot MainDataPath_behav 
+// TclEventType: LAUNCH_SIM
+// TclEventType: LOAD_FEATURE
+// Tcl Message:  ****** Webtalk v2016.4 (64-bit)   **** SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017   **** IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017     ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.  source /home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/lab4.sim/sim_1/behav/xsim.dir/MainDataPath_behav/webtalk/xsim_webtalk.tcl -notrace INFO: [Common 17-206] Exiting Webtalk at Tue Feb 20 16:58:07 2018... 
+// Tcl Message: run_program: Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 5937.613 ; gain = 0.000 ; free physical = 1690 ; free virtual = 12798 
+// Tcl Message: INFO: [USF-XSim-69] 'elaborate' step finished in '6' seconds INFO: [USF-XSim-4] XSim::Simulate design INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/lab4.sim/sim_1/behav' INFO: [USF-XSim-98] *** Running xsim 
+// Tcl Message:    with args "MainDataPath_behav -key {Behavioral:sim_1:Functional:MainDataPath} -tclbatch {MainDataPath.tcl} -log {simulate.log}" 
+// Tcl Message: INFO: [USF-XSim-8] Loading simulator feature 
+// Tcl Message: Vivado Simulator 2016.4 
+// TclEventType: SIMULATION_CREATE_SIMULATION_OBJECT
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// Tcl Message: Time resolution is 1 ps 
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// Waveform: addNotify
+// TclEventType: WAVEFORM_MODEL_EVENT
+// Tcl Message: source MainDataPath.tcl 
+// Tcl Message: # set curr_wave [current_wave_config] # if { [string length $curr_wave] == 0 } { #   if { [llength [get_objects]] > 0} { #     add_wave / #     set_property needs_save false [current_wave_config] #   } else { #      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console." #   } # } 
+// Waveform: addNotify
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: # run 1000ns 
+// Tcl Message: INFO: [USF-XSim-96] XSim completed. Design snapshot 'MainDataPath_behav' loaded. INFO: [USF-XSim-97] XSim simulation ran for 1000ns 
+// Tcl Message: launch_simulation: Time (s): cpu = 00:00:07 ; elapsed = 00:00:10 . Memory (MB): peak = 5984.820 ; gain = 47.207 ; free physical = 1652 ; free virtual = 12787 
+// 'd' command handler elapsed time: 9 seconds
+// Elapsed time: 10 seconds
+dismissDialog("Run Simulation"); // e:bt (cd:JFrame)
+// HMemoryUtils.trashcanNow. Engine heap size: 954 MB. GUI used memory: 37 MB. Current time: 2/20/18 4:58:12 PM IST
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Lab4.vhf", 0); // k:TdiGroup (j:CodeEditorDocumentPane, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 82, 473); // bF:I (JPanel:JComponent, cd:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 11, false); // u:K (t:D, cd:JFrame)
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ab:JMenuItem (ah:JPopupMenu, cd:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: WAVEFORM_CLOSE_WCFG
+// TclEventType: SIMULATION_CLOSE_SIMULATION
+// e:bt (cd:JFrame):  Run Simulation : addNotify
+// TclEventType: FILE_SET_CHANGE
+selectButton("PAResourceQtoS.SimulationRun_SIMULATION_ALREADY_RUNNING_DO_YOU_Yes", "Yes"); // JButton:AbstractButton (JPanel:JComponent, F:JDialog)
+// Tcl Message: close_sim 
+// Tcl Message: INFO: [Simtcl 6-16] Simulation closed 
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: launch_simulation 
+// Tcl Message: INFO: [SIM-utils-51] Simulation object is 'sim_1' INFO: [USF-XSim-37] Inspecting design source files for 'MainDataPath' in fileset 'sim_1'... INFO: [USF-XSim-97] Finding global include files... INFO: [USF-XSim-98] Fetching design files from 'sim_1'... INFO: [USF-XSim-2] XSim::Compile design INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/lab4.sim/sim_1/behav' 
+// TclEventType: LAUNCH_SIM_LOG
+// TclEventType: LAUNCH_SIM
+// Tcl Message: xvhdl -m64 --relax -prj MainDataPath_vhdl.prj INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/Lab4.vhf" into library xil_defaultlib INFO: [VRFC 10-307] analyzing entity shifter INFO: [VRFC 10-307] analyzing entity ALU INFO: [VRFC 10-307] analyzing entity multiplier INFO: [VRFC 10-307] analyzing entity RegisterFile INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath INFO: [VRFC 10-307] analyzing entity MainDataPath 
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '0' seconds INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/lab4.sim/sim_1/behav' 
+// Tcl Message: INFO: [USF-XSim-69] 'elaborate' step finished in '0' seconds INFO: [USF-XSim-99] Step results log file:'/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/lab4.sim/sim_1/behav/elaborate.log' 
+// Tcl Message: ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or '/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/lab4.sim/sim_1/behav/elaborate.log' file for more information. ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation. 
+// Tcl Message: ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors. 
+// HOptionPane Error: " ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.<br> (Run Simulation)"
+// a:a (cd:JFrame): Critical Messages: addNotify
+// 'd' command handler elapsed time: 7 seconds
+selectButton("RDIResource.ProgressDialog_ERROR_ENCOUNTERED_PLEASE_SEE_TCL_OK", "OK"); // JButton:AbstractButton (JPanel:JComponent, F:JDialog)
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f:a (JPanel:JComponent, a:a)
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f:a (JPanel:JComponent, a:a)
+dismissDialog("Critical Messages"); // a:a (cd:JFrame)
+// Elapsed time: 131 seconds
+selectCodeEditor("Lab4.vhf", 328, 225); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 329, 260); // bF:I (JPanel:JComponent, cd:JFrame)
+// Elapsed time: 79 seconds
+selectCodeEditor("Lab4.vhf", 328, 260); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("Lab4.vhf", 328, 260); // bF:I (JPanel:JComponent, cd:JFrame)
+// Elapsed time: 61 seconds
+selectCodeEditor("Lab4.vhf", 158, 218); // bF:I (JPanel:JComponent, cd:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH

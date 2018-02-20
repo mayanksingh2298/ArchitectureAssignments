@@ -68,8 +68,8 @@ begin
 	c31 <= tempa(31) xor tempb(31) xor tempResult(31);
     c32 <= tempResult(32);
 	----c32 <= (a(31) and b(31)) or (a(31) and tempResult(31)) or (tempResult(31) and b(31));
-    tempa <= '0' & a; 
-    tempb <= '0' & b; 
+    tempa <= a(31) & a; 
+    tempb <= b(31) & b; 
 	with carry select carry1or0 <=
 		1 when '1',
 		0 when others;
@@ -277,16 +277,21 @@ entity MainDataPath is
         IW: in std_logic;
         DW: in std_logic;
         Rsrc: in std_logic;
-        M2R: in std_logic;
+        M2R: in std_logic_vector(1 downto 0);
         RW: in std_logic;
         BW: in std_logic;
         AW: in std_logic;
-        Asrc1: in std_logic;
-        Asrc2: in std_logic_vector(1 downto 0);
+        Asrc1: in std_logic_vector(1 downto 0);
+        Asrc2: in std_logic_vector(2 downto 0);
         Fset: in std_logic;
         op: in std_logic_vector(3 downto 0);
         ReW: in std_logic;
+        read1Sig: in std_logic;
+        writeAddSig: in std_logic_vector(1 downto 0);            
+        shiftAmtSig: in std_logic_vector(1 downto 0);
         clk: in std_logic;     
+        shiftHoldSig: in std_logic;
+        mulHoldSig: in std_logic;
         
         IR_out: out std_logic_vector(31 downto 0);
         flags: out std_logic_vector(3 downto 0)
@@ -323,9 +328,12 @@ signal B : std_logic_vector(31 downto 0);
 signal ALUInputA : std_logic_vector(31 downto 0);
 signal ALUInputB : std_logic_vector(31 downto 0);
 signal RESresult : std_logic_vector(31 downto 0);
+signal shiftAmt: std_logic_vector(31 downto 0);
 
 signal Shiftresult: std_logic_vector(31 downto 0); -- contains Shift result
+signal ShiftresultHolder: std_logic_vector(31 downto 0); -- contains Shift result
 signal Mulresult: std_logic_vector(31 downto 0); -- contains Multiply result
+signal MulresultHolder: std_logic_vector(31 downto 0); -- contains Multiply result
 signal MemResult: std_logic_vector(31 downto 0); -- contains value fetched from memory to be loaded by ldr
 signal ByteOffsetForRegister: std_logic_vector(31 downto 0); -- contains 0/1/2/3 value offset i.e after dividing by 4 left as remainder
 signal WriteValMem: std_logic_vector(31 downto 0); -- contains value to be written in memory
@@ -355,18 +363,18 @@ begin
     --SHIFT
     --MUL/MLA
     --PC Box
-    --PC: entity work.RegisterFile(func4) port map(
-    --    a => ALUresult,
-    --    r1 => "DUMMY",
-    --    r2 => "DUMMY",
-    --    w1 => "1111",
-    --    clk => clk,
-    --    reset => '0',
-    --    we => PW,
-    --    pc => PCresult,
-    --    o1 => "DUMMY",
-    --    o2 => "DUMMY" 
-    --); 
+--    PC: entity work.RegisterFile(func4) port map(
+--        a => ALUresult,
+--        r1 => "DUMMY",
+--        r2 => "DUMMY",
+--        w1 => "1111",
+--        clk => clk,
+--        reset => '0',
+--        we => PW,
+--        pc => PCresult,
+--        o1 => "DUMMY",
+--        o2 => "DUMMY" 
+--    ); 
     --IorD mux
     MemInputAd <= PCresult when IorD = '0' ELSE
                RESresult;
@@ -388,13 +396,13 @@ begin
     --other inputs to Register file
     --NEW CONTROL SIGNAL read1Sig is 0 when ins[19-16], 1 when ins[11-8]
     read1 <= IR(19 downto 16) when (read1Sig = '0') ELSE
-    		 IR1(11 downto 8);
+    		 IR(11 downto 8);
     
     --NEW CONTROL SIGNAL writeAddSig is 00 when input is ins[15-12], 01 when input is 14, 10 when input is 15  
     writeReg <= IR(15 downto 12) when writeAddSig = "00" ELSE
-    			"1110" when writeAddSig = "01" ELSE
+    			"1110" when writeAddSig = "01" ELSE    --for LR
     			IR(19 downto 16) when writeAddSig = "10" ELSE --for mul
-    			"1111";
+    			"1111";  --for PC
     --Register File (RF)
     RFile: entity work.RegisterFile(func4) port map(
         a => writeValReg,
@@ -409,11 +417,7 @@ begin
         o2 => read2RegVal 
     );
 
-    Mul: entity work.multiplier(func3) port map(
-        a => A,
-        b => B,
-        c => Mulresult
-    );
+    
 
     --EX : THIS IS THE SHIFTED CONSTANT
     EXResult <= "00000000000000000000"&IR(11 downto 0);
@@ -436,6 +440,14 @@ begin
     --B Register
     B <= read2RegVal when BW = '1';
     
+    Mul: entity work.multiplier(func3) port map(
+        a => A,
+        b => B,
+        c => Mulresult
+    );
+
+    --NEW CONTROL SIGNAL, which tells when to hold the value of mulResult
+    MulresultHolder <= MulResult when mulHoldSig = '1';
     --NEW CONTROL SIGNAL shiftAmtSig is 00 when read1, 01 when EXresult, 10 when no shift
     shiftAmt <= A when shiftAmtSig = "00" ELSE
     		 EXResult when shiftAmtSig = "01" ELSE
@@ -451,18 +463,19 @@ begin
         result => Shiftresult,
         c => flagstemp(1)
     );
-
+    --NEW CONTROL SIGNAL, which tells when to hold the value of shiftResult
+    ShiftresultHolder <= shiftResult when shiftHoldSig = '1';
 
     --Asrc1 mux NEW CONTROL SIGNAL 00 PCresult, 01 A, 10 MulResult
-    ALUInputA <= PCresult when Asrc = "00" ELSE
-    		  A when Asrc = "01" ELSE
-    		  Mulresult when others;
+    ALUInputA <= PCresult when Asrc1 = "00" ELSE
+    		  A when Asrc1 = "01" ELSE
+    		  MulresultHolder ;
     --Asrc2 mux NEW CONTROL SIGNAL Shiftresult when 000, 4 when 001, ExResult when 010, S2Result 011, 0 when others
-    ALUInputB <= Shiftresult when Asrc2 = "000" ELSE
+    ALUInputB <= ShiftresultHolder when Asrc2 = "000" ELSE
     			 "00000000000000000000000000000100" when Asrc2 = "001" ELSE
     			 EXResult when Asrc2 = "010" ELSE
-    			 S2Result when Asrc= "011" ELSE
-    			 "0000000000000000000000";
+    			 S2Result when Asrc2= "011" ELSE
+    			 "00000000000000000000000000000000";
    
     --ALU Box
     ALU_unit: entity work.ALU(func1) port map(
