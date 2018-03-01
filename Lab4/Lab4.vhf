@@ -1,3 +1,172 @@
+-- offset is 0 when rightmost byte is considered
+-- offset should be 00 in case of word load, 00/01 in case of half word and 00/01/10/11 for byte else wrong results
+-- 000 -> ldrb
+-- 001 -> ldrb signed
+-- 010 -> ldrhw
+-- 011 -> ldrhw signed
+-- 100 -> ldr
+-- 101 -> strb
+-- 110 -> strhw
+-- 111 -> str
+library ieee;
+use ieee.std_logic_1164.ALL;
+use ieee.numeric_std.ALL;
+entity ProcessorMemoryPath is
+	port(
+		FromReg : in std_logic_vector(31 downto 0);
+		FromMem: in std_logic_vector(31 downto 0);
+		offset: in std_logic_vector(1 downto 0);
+		opcode: in std_logic_vector(2 downto 0);
+		
+		ToReg : out std_logic_vector(31 downto 0);
+		ToMem : out std_logic_vector(31 downto 0);
+		mwe : out std_logic_vector(3 downto 0) 
+);
+end ProcessorMemoryPath;
+architecture func5 of ProcessorMemoryPath is
+signal ext: std_logic;
+signal extall1: std_logic_vector(23 downto 0);
+signal extall2: std_logic_vector(15 downto 0);
+begin
+    with (opcode & offset) select ext <=
+        FromMem(7) when "00100",
+        FromMem(15) when "00101",
+        FromMem(23) when "00110",
+        FromMem(31) when "00111",
+        FromMem(15) when "01100",
+        FromMem(31) when others;
+    with ext select extall1 <=
+        "111111111111111111111111" when '1',
+        "000000000000000000000000" when others;
+    with ext select extall2 <=
+            "1111111111111111" when '1',
+            "0000000000000000" when others;
+            
+	with (offset & opcode) select ToReg <=
+-- Load instruction		
+		"000000000000000000000000" & FromMem(7 downto 0) when "00000", -- unsigned byte load
+		"000000000000000000000000" & FromMem(15 downto 8) when "01000", -- unsigned byte load
+		"000000000000000000000000" & FromMem(23 downto 16) when "10000", -- unsigned byte load
+		"000000000000000000000000" & FromMem(31 downto 24) when "11000", -- unsigned byte load
+        "0000000000000000"  & FromMem(15 downto 0)when "00010", -- unsigned halfWord load
+        "0000000000000000"  & FromMem(31 downto 16)when "01010", -- unsigned halfWord load
+		extall1 & FromMem(7 downto 0)when "00001", -- signed byte load
+		extall1 & FromMem(15 downto 8)when "01001", -- signed byte load
+		extall1 & FromMem(23 downto 16)when "10001", -- signed byte load
+		extall1 & FromMem(31 downto 24)when "11001", -- signed byte load
+		extall2 & FromMem(15 downto 0)when "00011", -- signed halfWord load
+		extall2 & FromMem(31 downto 16)when "01011", -- signed halfWord load
+		FromMem when "00100", -- word load
+		FromReg when others;
+        
+    with (offset & opcode) select ToMem <=    
+-- store instructions
+        (("111111111111111111111111" & (FromReg(7 downto 0))) and (FromMem(31 downto 8) & "11111111")) when "00101", -- byte store
+        (("1111111111111111" & FromReg(7 downto 0) & "11111111") and (FromMem(31 downto 16) & "11111111" & FromMem(7 downto 0))) when "01101", -- byte store
+        (("11111111" & FromReg(7 downto 0) & "1111111111111111") and (FromMem(31 downto 24) & "11111111" & FromMem(15 downto 0))) when "10101", -- byte store
+        ((FromReg(7 downto 0) & "111111111111111111111111") and ("11111111" & FromMem(23 downto 0))) when "11101", -- byte store
+		(("1111111111111111" & FromReg(15 downto 0)) and (FromMem(31 downto 16) & "1111111111111111")) when "00110", -- halfWord store
+        ((FromReg(15 downto 0) & "1111111111111111") and ("1111111111111111" & FromMem(15 downto 0))) when "01110", -- halfword store
+		FromMem when others; -- word store
+-- set ToReg or ToMem from result
+
+	with (offset & opcode(2 downto 0)) select mwe <=
+        "0001" when "00101",
+        "0010" when "01101",
+        "0100" when "10101",
+        "1000" when "11101",
+        "0011" when "00110",
+        "1100" when "01110",
+        "1111" when "00111",
+        "0000" when others;	
+end func5;
+
+
+-- MR and MW are of 3 bits each
+
+-- MR = 101 and MW = 000 -> ldrb
+-- MR = 001 and MW = 000 -> ldrb signed
+-- MR = 010 and MW = 000 -> ldrhw
+-- MR = 011 and MW = 000 -> ldrhw signed
+-- MR = 100 and MW = 000 -> ldr
+-- MR = 000 and MW = 001 -> strb
+-- MR = 000 and MW = 010 -> strhw
+-- MR = 000 and MW = 011 -> str
+
+-- 000 -> ldrb
+-- 001 -> ldrb signed
+-- 010 -> ldrhw
+-- 011 -> ldrhw signed
+-- 100 -> ldr
+-- 101 -> strb
+-- 110 -> strhw
+-- 111 -> str
+library ieee;
+use ieee.std_logic_1164.ALL;
+use ieee.numeric_std.ALL;
+entity MemoryModule is
+	port(
+		address : in std_logic_vector(31 downto 0);
+		WriteData: in std_logic_vector(31 downto 0);
+		MR: in std_logic_vector(2 downto 0);
+		MW: in std_logic_vector(2 downto 0);
+		clk: in std_logic;
+
+		RD : out std_logic_vector(31 downto 0) 
+);
+end MemoryModule;
+architecture func0 of MemoryModule is
+--Registers
+type arraytype is array (0 to 1000) of std_logic_vector(31 downto 0);
+signal memory : arraytype;
+
+signal op : std_logic_vector(2 downto 0);
+signal ByteOffsetForRegister : std_logic_vector(1 downto 0);
+signal mwe : std_logic_vector(3 downto 0);
+signal ProcReg : std_logic_vector(31 downto 0);
+signal MemReg : std_logic_vector(31 downto 0);
+signal ToProcReg : std_logic_vector(31 downto 0);
+signal ToMemReg : std_logic_vector(31 downto 0);
+signal ArrayIndex : integer;
+begin
+	op <= "000" when ((MR = "101") and (MW = "000")) else
+		"001" when ((MR = "001") and (MW = "000")) else
+		"010" when ((MR = "010") and (MW = "000")) else
+		"011" when ((MR = "011") and (MW = "000")) else
+		"100" when ((MR = "100") and (MW = "000")) else
+		"101" when ((MR = "000") and (MW = "001")) else
+		"110" when ((MR = "000") and (MW = "010")) else
+		"111";
+	ByteOffsetForRegister <= address(1 downto 0);
+	ArrayIndex <= to_integer(unsigned("00" & unsigned(address(31 downto 2))));
+	
+	MemReg <= memory(ArrayIndex);
+	--memory(ArrayIndex) <= ToMemReg;
+
+	ProcReg <= WriteData when (MW /= "000");
+	RD <= ToProcReg when (MR /= "000");
+	
+	process(clk)
+	begin
+        if (clk = '1' and clk'EVENT) then
+	    	if (MW /= "000") then
+	      		memory(ArrayIndex) <= ToMemReg;
+	    	end if;
+	    end if;	
+	end process;
+
+	P2MPath: entity work.ProcessorMemoryPath(func5) port map(
+        FromReg => ProcReg,
+        FromMem => MemReg,
+        offset => ByteOffsetForRegister,
+        opcode => op,
+        
+        ToReg => ToProcReg,
+        ToMem => ToMemReg,
+        mwe => mwe
+    );
+end func0;
+
 library ieee;
 use ieee.std_logic_1164.ALL;
 use ieee.numeric_std.ALL;
@@ -92,24 +261,6 @@ begin
         tempa and (not tempb) when "1110", --bic
         not tempb when others; --mvn
 
-	--with opcode select tempResult <=
-	--    a and b when "0000", --and
-	--    a xor b when "0001", --xor
-	--    std_logic_vector(signed(a)+1+signed(not b)) when "0010", --sub
-	--    std_logic_vector(signed(not a)+1+signed(b)) when "0011", --rsb
-	--    std_logic_vector(signed(a)+signed(b)) when "0100", --add
-	--    std_logic_vector(signed(a)+carry1or0+signed(b)) when "0101", --adc
-	--    std_logic_vector(signed(a)+carry1or0+signed(not b)) when "0110", --sbc
-	--    std_logic_vector(signed(not a)+carry1or0+signed(b)) when "0111", --rsc
-	--    a and b when "1000", --tst
-	--    a xor b when "1001", --teq
-	--    std_logic_vector(signed(a)+1+signed(not b)) when "1010", --cmp
-	--    std_logic_vector(signed(a)+signed(b)) when "1011", --cmn
-	--    a or b when "1100", --orr
-	--    b when "1101", --mov
-	--    a and (not b) when "1110", --bic
-	--    not b when others; --mvn
-	--working on flags
 	n <= tempResult(31);
 	with tempResult(31 downto 0) select z <=
         '1' when "00000000000000000000000000000000",
@@ -117,8 +268,6 @@ begin
     c <= c32;
 	v <= c31 xor c32;
 end func1;
-
-
 
 
 library ieee;
@@ -181,90 +330,6 @@ begin
 	end process;
 end func4;
 
--- offset is 0 when rightmost byte is considered
--- offset should be 00 in case of word load, 00/01 in case of half word and 00/01/10/11 for byte else wrong results
--- 000 -> ldrb
--- 001 -> ldrb signed
--- 010 -> ldrhw
--- 011 -> ldrhw signed
--- 100 -> ldr
--- 101 -> strb
--- 110 -> strhw
--- 111 -> str
-library ieee;
-use ieee.std_logic_1164.ALL;
-use ieee.numeric_std.ALL;
-entity ProcessorMemoryPath is
-	port(
-		FromReg : in std_logic_vector(31 downto 0);
-		FromMem: in std_logic_vector(31 downto 0);
-		offset: in std_logic_vector(1 downto 0);
-		opcode: in std_logic_vector(2 downto 0);
-		
-		ToReg : out std_logic_vector(31 downto 0);
-		ToMem : out std_logic_vector(31 downto 0);
-		mwe : out std_logic_vector(3 downto 0) 
-);
-end ProcessorMemoryPath;
-architecture func5 of ProcessorMemoryPath is
-signal ext: std_logic;
-signal extall1: std_logic_vector(23 downto 0);
-signal extall2: std_logic_vector(15 downto 0);
-begin
-    with (opcode & offset) select ext <=
-        FromMem(7) when "00100",
-        FromMem(15) when "00101",
-        FromMem(23) when "00110",
-        FromMem(31) when "00111",
-        FromMem(15) when "01100",
-        FromMem(31) when others;
-    with ext select extall1 <=
-        "111111111111111111111111" when '1',
-        "000000000000000000000000" when others;
-    with ext select extall2 <=
-            "1111111111111111" when '1',
-            "0000000000000000" when others;
-            
-	with (offset & opcode) select ToReg <=
--- Load instruction		
-		"000000000000000000000000" & FromMem(7 downto 0) when "00000", -- unsigned byte load
-		"000000000000000000000000" & FromMem(15 downto 8) when "01000", -- unsigned byte load
-		"000000000000000000000000" & FromMem(23 downto 16) when "10000", -- unsigned byte load
-		"000000000000000000000000" & FromMem(31 downto 24) when "11000", -- unsigned byte load
-        "0000000000000000"  & FromMem(15 downto 0)when "00010", -- unsigned halfWord load
-        "0000000000000000"  & FromMem(31 downto 16)when "01010", -- unsigned halfWord load
-		extall1 & FromMem(7 downto 0)when "00001", -- signed byte load
-		extall1 & FromMem(15 downto 8)when "01001", -- signed byte load
-		extall1 & FromMem(23 downto 16)when "10001", -- signed byte load
-		extall1 & FromMem(31 downto 24)when "11001", -- signed byte load
-		extall2 & FromMem(15 downto 0)when "00011", -- signed halfWord load
-		extall2 & FromMem(31 downto 16)when "01011", -- signed halfWord load
-		FromMem when "00100", -- word load
-		FromReg when others;
-        
-    with (offset & opcode) select ToMem <=    
--- store instructions
-        (("111111111111111111111111" & (FromReg(7 downto 0))) and (FromMem(31 downto 8) & "11111111")) when "00101", -- byte store
-        (("1111111111111111" & FromReg(7 downto 0) & "11111111") and (FromMem(31 downto 16) & "11111111" & FromMem(7 downto 0))) when "01101", -- byte store
-        (("11111111" & FromReg(7 downto 0) & "1111111111111111") and (FromMem(31 downto 24) & "11111111" & FromMem(15 downto 0))) when "10101", -- byte store
-        ((FromReg(7 downto 0) & "111111111111111111111111") and ("11111111" & FromMem(23 downto 0))) when "11101", -- byte store
-		(("1111111111111111" & FromReg(15 downto 0)) and (FromMem(31 downto 16) & "1111111111111111")) when "00110", -- halfWord store
-        ((FromReg(15 downto 0) & "1111111111111111") and ("1111111111111111" & FromMem(15 downto 0))) when "01110", -- halfword store
-		FromMem when others; -- word store
--- set ToReg or ToMem from result
-
-	with (offset & opcode(2 downto 0)) select mwe <=
-        "0001" when "00101",
-        "0010" when "01101",
-        "0100" when "10101",
-        "1000" when "11101",
-        "0011" when "00110",
-        "1100" when "01110",
-        "1111" when "00111",
-        "0000" when others;	
-end func5;
-
-
 library ieee;
 use ieee.std_logic_1164.ALL;
 use ieee.numeric_std.ALL;
@@ -272,8 +337,8 @@ entity MainDataPath is
 	port(
         PW: in std_logic;
         IorD: in std_logic;
-        MR: in std_logic;
-        MW: in std_logic;
+        MR: in std_logic_vector(2 downto 0);
+        MW: in std_logic_vector(2 downto 0);
         IW: in std_logic;
         DW: in std_logic;
         Rsrc: in std_logic;
@@ -345,36 +410,18 @@ begin
 -------------------------------------------------------------------------
 -----------------------------Port Mappings-------------------------------
 -------------------------------------------------------------------------
-    P2MPath: entity work.ProcessorMemoryPath(func5) port map(
-        FromReg => read4RegVal,
-        FromMem => MemResult,
-        offset => ByteOffsetForRegister,
-        opcode => op, -- this is wrong for now------------------------------------------------------
-        
-        ToReg => writeValReg,
-        ToMem => writeValMem,
-        mwe => mwe
+    
+    -- Memory Port Mapping. For now I have put B into Write Data. Maybe ShiftResultHolder is also a possibility.    
+    Memory: entity work.MemoryModule(func0) port map(
+		address => MemInputAd,
+		WriteData =>  B,
+		clk => clk,
+		MR =>  MR,
+		MW =>  MW,
+		
+		RD =>  MemResult
     );
-    
-    
-    --THE PROBLEM IS THAT SEPERATE COPIS OF REGESTERS FOR BOTH THE ENTITIES... SO TRY TO DO IN ONE
-    --TRY TO THINK OF SOMETHING GENERIC BY THINKING OF A NEWER WIRE STRUCTURE
-    --BL
-    --SHIFT
-    --MUL/MLA
-    --PC Box
---    PC: entity work.RegisterFile(func4) port map(
---        a => ALUresult,
---        r1 => "DUMMY",
---        r2 => "DUMMY",
---        w1 => "1111",
---        clk => clk,
---        reset => '0',
---        we => PW,
---        pc => PCresult,
---        o1 => "DUMMY",
---        o2 => "DUMMY" 
---    ); 
+
     --IorD mux
     MemInputAd <= PCresult when IorD = '0' ELSE
                RESresult;
@@ -422,16 +469,6 @@ begin
     --EX : THIS IS THE SHIFTED CONSTANT
     EXResult <= "00000000000000000000"&IR(11 downto 0);
     
-    --Shifter: entity work.shifter(func2) port map(
-    --    a => IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7)&IR(7 downto 0),
-    --    opcode => "11",
-    --    shiftAmount => "000000000000000000000000000"&IR(11 downto 8)&"0",
-    --    carryIn => carry,
-        
-    --    result => EXResult,
-    --    c => flagstemp(1)
-    --);
-
     --S2
     S2Result <= IR(23)&IR(23)&IR(23)&IR(23)&IR(23)&IR(23)&IR(23 downto 0)&"00";
     
