@@ -494,7 +494,7 @@ begin
     Shifter: entity work.shifter(func2) port map(
         a => B,
         opcode => IR(6 downto 5),
-        shiftAmount => A,
+        shiftAmount => shiftAmt,
         carryIn => carry,
         
         result => Shiftresult,
