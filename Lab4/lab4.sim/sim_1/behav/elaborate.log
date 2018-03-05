@@ -3,6 +3,20 @@ Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
 Running: /opt/Xilinx/Vivado/2016.4/bin/unwrapped/lnx64.o/xelab -wto c583d4283bba4910b9413ca7d9fb7fda --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot MainDataPath_behav xil_defaultlib.MainDataPath -log elaborate.log 
 Using 8 slave threads.
 Starting static elaboration
-ERROR: [VRFC 10-665] expression has 32 elements ; formal offset expects 2 [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/Lab4.vhf:347]
-ERROR: [VRFC 10-665] expression has 4 elements ; formal opcode expects 3 [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/Lab4.vhf:348]
-ERROR: [XSIM 43-3321] Static elaboration of top level VHDL design unit maindatapath in library work failed.
+WARNING: [VRFC 10-516] comparison between unequal length arrays always returns FALSE [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/Lab4.vhf:488]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture func5 of entity xil_defaultlib.ProcessorMemoryPath [processormemorypath_default]
+Compiling architecture func0 of entity xil_defaultlib.MemoryModule [memorymodule_default]
+Compiling architecture func4 of entity xil_defaultlib.RegisterFile [registerfile_default]
+Compiling architecture func3 of entity xil_defaultlib.multiplier [multiplier_default]
+Compiling architecture func2 of entity xil_defaultlib.shifter [shifter_default]
+Compiling architecture func1 of entity xil_defaultlib.ALU [alu_default]
+Compiling architecture datapath of entity xil_defaultlib.maindatapath
+Built simulation snapshot MainDataPath_behav

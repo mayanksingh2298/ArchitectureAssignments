@@ -1,7 +1,8 @@
 INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/Lab4.vhf" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath
+INFO: [VRFC 10-307] analyzing entity MemoryModule
 INFO: [VRFC 10-307] analyzing entity shifter
 INFO: [VRFC 10-307] analyzing entity ALU
 INFO: [VRFC 10-307] analyzing entity multiplier
 INFO: [VRFC 10-307] analyzing entity RegisterFile
-INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath
 INFO: [VRFC 10-307] analyzing entity MainDataPath

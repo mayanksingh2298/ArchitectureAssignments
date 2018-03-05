@@ -127,7 +127,7 @@ signal ProcReg : std_logic_vector(31 downto 0);
 signal MemReg : std_logic_vector(31 downto 0);
 signal ToProcReg : std_logic_vector(31 downto 0);
 signal ToMemReg : std_logic_vector(31 downto 0);
-signal ArrayIndex : integer;
+signal ArrayIndex : integer :=0;
 begin
 	op <= "000" when ((MR = "101") and (MW = "000")) else
 		"001" when ((MR = "001") and (MW = "000")) else
