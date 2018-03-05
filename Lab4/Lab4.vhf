@@ -335,7 +335,6 @@ use ieee.std_logic_1164.ALL;
 use ieee.numeric_std.ALL;
 entity MainDataPath is
 	port(
-        PW: in std_logic;
         IorD: in std_logic;
         MR: in std_logic_vector(2 downto 0);
         MW: in std_logic_vector(2 downto 0);
@@ -486,9 +485,8 @@ begin
     --NEW CONTROL SIGNAL, which tells when to hold the value of mulResult
     MulresultHolder <= MulResult when mulHoldSig = '1';
     --NEW CONTROL SIGNAL shiftAmtSig is 00 when read1, 01 when EXresult, 10 when no shift
-    shiftAmt <= A when shiftAmtSig = "00" ELSE
-    		 EXResult when shiftAmtSig = "01" ELSE
-    		 "00000000000000000000000000000000";
+    shiftAmt <= A when shiftAmtSig = "0" ELSE
+    		 EXResult;
     
     --Shifter NEW CONTROL SIGNAL shiftTypeSig
     Shifter: entity work.shifter(func2) port map(
@@ -512,7 +510,8 @@ begin
     			 "00000000000000000000000000000100" when Asrc2 = "001" ELSE
     			 EXResult when Asrc2 = "010" ELSE
     			 S2Result when Asrc2= "011" ELSE
-    			 "00000000000000000000000000000000";
+                 "00000000000000000000000000000000" when Asrc2= "100" ELSE
+    			 B;
    
     --ALU Box
     ALU_unit: entity work.ALU(func1) port map(
