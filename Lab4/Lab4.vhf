@@ -111,23 +111,24 @@ entity MemoryModule is
 		MR: in std_logic_vector(2 downto 0);
 		MW: in std_logic_vector(2 downto 0);
 		clk: in std_logic;
-
+        rst: in std_logic;
+        
 		RD : out std_logic_vector(31 downto 0) 
 );
 end MemoryModule;
 architecture func0 of MemoryModule is
---Registers
-type arraytype is array (0 to 1000) of std_logic_vector(31 downto 0);
-signal memory : arraytype;
-
 signal op : std_logic_vector(2 downto 0);
 signal ByteOffsetForRegister : std_logic_vector(1 downto 0);
 signal mwe : std_logic_vector(3 downto 0);
+signal MemWE : std_logic_vector(3 downto 0);
 signal ProcReg : std_logic_vector(31 downto 0);
 signal MemReg : std_logic_vector(31 downto 0);
 signal ToProcReg : std_logic_vector(31 downto 0);
 signal ToMemReg : std_logic_vector(31 downto 0);
-signal ArrayIndex : integer :=0;
+signal InputToBram : std_logic_vector(31 downto 0);
+signal ArrayIndex : std_logic_vector(31 downto 0);
+signal enable : std_logic;
+
 begin
 	op <= "000" when ((MR = "101") and (MW = "000")) else
 		"001" when ((MR = "001") and (MW = "000")) else
@@ -137,24 +138,15 @@ begin
 		"101" when ((MR = "000") and (MW = "001")) else
 		"110" when ((MR = "000") and (MW = "010")) else
 		"111";
+	enable <= '0' when (MW = "000" and MR="000") else '1';	
 	ByteOffsetForRegister <= address(1 downto 0);
-	ArrayIndex <= to_integer(unsigned("00" & unsigned(address(31 downto 2))));
-	
-	MemReg <= memory(ArrayIndex);
-	--memory(ArrayIndex) <= ToMemReg;
+	ArrayIndex <= "00" & address(31 downto 2);
+	MemWE <= mwe when (MR = "000") else "0000";
 
-	ProcReg <= WriteData when (MW /= "000");
-	RD <= ToProcReg when (MR /= "000");
+	ProcReg <= WriteData when (MW /= "000") else "00000000000000000000000000000000";
+	RD <= ToProcReg when (MR /= "000") else "00000000000000000000000000000000";
+	inputToBram <= ToMemReg when (MW /= "000") else "00000000000000000000000000000000";
 	
-	process(clk)
-	begin
-        if (clk = '1' and clk'EVENT) then
-	    	if (MW /= "000") then
-	      		memory(ArrayIndex) <= ToMemReg;
-	    	end if;
-	    end if;	
-	end process;
-
 	P2MPath: entity work.ProcessorMemoryPath(func5) port map(
         FromReg => ProcReg,
         FromMem => MemReg,
@@ -164,6 +156,16 @@ begin
         ToReg => ToProcReg,
         ToMem => ToMemReg,
         mwe => mwe
+    );
+    
+    BRAM: entity work.BRAM_wrapper(STRUCTURE) port map(
+        BRAM_PORTA_addr(31 downto 0) => ArrayIndex,
+        BRAM_PORTA_clk => clk,
+        BRAM_PORTA_din(31 downto 0) => inputToBram,
+        BRAM_PORTA_dout(31 downto 0) => MemReg,
+        BRAM_PORTA_en => enable,
+        BRAM_PORTA_rst => rst,
+        BRAM_PORTA_we(3 downto 0) => MemWE
     );
 end func0;
 
@@ -357,6 +359,8 @@ entity MainDataPath is
         shiftHoldSig: in std_logic;
         mulHoldSig: in std_logic;
         
+        Memrst : in std_logic;
+        
         IR_out: out std_logic_vector(31 downto 0);
         flags: out std_logic_vector(3 downto 0)
 );
@@ -417,6 +421,7 @@ begin
 		clk => clk,
 		MR =>  MR,
 		MW =>  MW,
+		rst => Memrst,
 		
 		RD =>  MemResult
     );
