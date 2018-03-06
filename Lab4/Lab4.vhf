@@ -377,7 +377,8 @@ signal writeValReg: std_logic_vector(31 downto 0); -- value to be written in reg
 signal writeReg: std_logic_vector(3 downto 0); -- write register address
 signal resetReg: std_logic := '0';
 signal carry: std_logic; -- contains carry flag to give input to others
-
+signal ALUCarryOut: std_logic;
+signal ShifterCarryOut: std_logic;
 --Mayank's signals
 signal ALUresult: std_logic_vector(31 downto 0); -- contains ALU result
 signal PCresult: std_logic_vector(31 downto 0); --PC result
@@ -406,6 +407,7 @@ begin
 
     carry <= flagstemp(1) when Fset = '1'; -- To give carry flag as an input to ALU
     IR_out <= IR;
+    flagstemp(1) <= ALUCarryOut or ShifterCarryOut;
 -------------------------------------------------------------------------
 -----------------------------Port Mappings-------------------------------
 -------------------------------------------------------------------------
@@ -496,7 +498,7 @@ begin
         carryIn => carry,
         
         result => Shiftresult,
-        c => flagstemp(1)
+        c => ShifterCarryOut
     );
     --NEW CONTROL SIGNAL, which tells when to hold the value of shiftResult
     ShiftresultHolder <= shiftResult when shiftHoldSig = '1';
@@ -523,7 +525,7 @@ begin
         result => ALUresult,
         z => flagsTemp(3),
         n => flagsTemp(2),
-        c => flagsTemp(1),
+        c => ALUCarryOut,
         v => flagsTemp(0) 
     );   
 
