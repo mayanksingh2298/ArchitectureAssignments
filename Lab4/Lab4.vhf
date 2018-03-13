@@ -355,6 +355,7 @@ entity MainDataPath is
         Asrc2: in std_logic_vector(2 downto 0);
         Fset: in std_logic;
         op: in std_logic_vector(3 downto 0);
+        opShift: in std_logic_vector(1 downto 0);
         ReW: in std_logic;
         read1Sig: in std_logic;
         writeAddSig: in std_logic_vector(1 downto 0);            
@@ -502,7 +503,7 @@ begin
     --Shifter NEW CONTROL SIGNAL shiftTypeSig
     Shifter: entity work.shifter(func2) port map(
         a => B,
-        opcode => IR(6 downto 5),
+        opcode => opShift,
         shiftAmount => shiftAmt,
         carryIn => carry,
         
