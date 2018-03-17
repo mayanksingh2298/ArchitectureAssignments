@@ -50,7 +50,6 @@ begin
             elsif (Currstate = Branch) then
                     state <= BranchRf;
                     -- store pc in rf                    
-                end if ;
             elsif (Currstate = LRW) then
                     state <= Branch;
             elsif ((Currstate = BranchRf) or (Currstate = wrF) or (Currstate = M2RF) or (Currstate = Post1)) then
