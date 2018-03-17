@@ -1,5 +1,5 @@
 package Global is 
-    TYPE mystate IS (InitialState,ReadMemory, ReadOpAndPcinReg, arith);
+    TYPE mystate IS (InitialState, fetch, rdAB, Branch, BranchRf, rdMul, multiply, MulAc, MulWaste, Shift, shiftRegRd, shiftReg, shiftRead, NoneState1, NoneState2, arith , wrF, WriteMem, ReadMem, post2, Post1, M2RF);
 end Global;
 
 library ieee;
@@ -10,6 +10,7 @@ entity StateController is
     port(
         clk : in std_logic;
         IR : in std_logic_vector(31 downto 0);
+        Currstate: in mystate;
 
         state: out mystate
     );
@@ -18,7 +19,82 @@ architecture StateFSM of StateController is
 begin
     process(clk)
     begin
-
+        if (clk = '1' and clk'EVENT) then
+            if (Currstate = InitialState) then
+                state <= fetch;         
+                -- IR = mem(PC)
+                -- Pc = Pc+4
+            elsif (Currstate = fetch) then
+                state <= rdAB;
+                -- A = IR(19-16)
+                -- B = IR(3-0)
+            elsif (Currstate = rdAB) then
+                if (SomeCondition) then
+                    state <= shiftRegRd;
+                elsif (SomeCondition) then
+                    state <= Shift;
+                elsif (SomeCondition) then
+                    state <= rdMul;
+                else state <= Branch;
+                end if ;
+            elsif (Currstate = Branch) then
+                state <= BranchRf;
+            elsif ((Currstate = BranchRf) or (Currstate = wrF) or (Currstate = M2RF) or (Currstate = Post1)) then
+                state <= InitialState;
+            elsif (Currstate = WriteMem) then
+                if (SomeCondition) then
+                    state <= InitialState;
+                elsif (SomeCondition) then
+                    state <= Post1;
+                end if;
+            elsif (Currstate = rdMul) then
+                state <= multiply;
+            elsif (Currstate = multiply) then
+                if (SomeCondition) then
+                    state <= MulAc;
+                elsif (SomeCondition) then
+                    state <= MulWaste; -- To add 0 to multiply answer. Basically a waste cycle to bring it equivalent to MLA op                                                      
+                end if;
+            elsif ((Currstate = MulAc) or (Currstate = MulWaste)) then
+                    state <= wrF;
+            elsif ((Currstate = Shift) or (Currstate = shiftRead)) then
+                    state <= NoneState1;
+            elsif (Currstate = shiftRegRd) then
+                    state <= shiftReg;
+            elsif (Currstate = shiftReg) then
+                    state <= shiftRead;
+            elsif (Currstate = NoneState1) then
+                if (SomeCondition) then
+                    state <= arith;
+                elsif (SomeCondition) then
+                    state <= NoneState2;
+                end if;
+            elsif (Currstate = arith) then
+                state <= NoneState2;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+            elsif (Currstate = NoneState2) then
+                if (SomeCondition) then
+                    state <= WriteMem;
+                elsif (SomeCondition) then
+                    state <= ReadMem;
+                elsif (SomeCondition) then
+                    state <= wrF;
+                end if ;    
+            elsif (Currstate = WriteMem) then
+                if (SomeCondition) then
+                    state <= Post1;
+                elsif (SomeCondition) then
+                    state <= InitialState;
+                end if ;
+            elsif (Currstate = ReadMem) then
+                if (SomeCondition) then
+                    state <= post2;
+                elsif (SomeCondition) then
+                    state <= M2RF;
+                end if ;
+            elsif (Currstate = post2) then
+                state <= M2RF;
+            end if;
+        end if;
     end process;
 end StateFSM; -- MasterControl
 
@@ -58,8 +134,8 @@ end MainController;
 architecture MainControl of MainController is
 begin
 --    if(mystate = InitialState)then
---        controlState <= ReadMemory;
---    elsif (mystate = ReadMemory) then
+--        controlState <= ReadMem;
+--    elsif (mystate = ReadMem) then
 --        MR <= "100";        
 --        IorD <= '0';
 --        Asrc1 <= "00";
@@ -143,7 +219,8 @@ entity MasterController is
     );
 end MasterController;
 architecture MasterControl of MasterController is
-signal state : mystate := InitialState;
+signal Currstate : mystate := InitialState;
+signal Nextstate : mystate := InitialState;
 signal IR : std_logic_vector(31 downto 0);
 signal flags : std_logic_vector(3 downto 0);
 signal predicate : std_logic;
@@ -181,12 +258,13 @@ begin
 Fset <= predicate and FsetTemp;
 RW <= predicate and RWTemp;
 MW <= MWTemp when (predicate = '1') else "000";
+Currstate <= Nextstate;
 --PW <= p and PWTemp;
 --------------------------------------------------
 ------------------Port Mappings ------------------
 --------------------------------------------------
 CONTROL: entity work.MainController(MainControl) port map(
-    state => state,
+    state => Currstate,
     IR => IR, 
 
     IorD => IorD,
@@ -228,8 +306,9 @@ FLAGSET: entity work.FlagCtrl(Bctrl) port map(
 FSM: entity work.StateController(StateFSM) port map(
     clk => clk,
     IR => IR,
+    Currstate => Currstate,
 
-    state => state
+    state => Nextstate
 );
 
 Data: entity work.MainDataPath(DataPath) port map(
