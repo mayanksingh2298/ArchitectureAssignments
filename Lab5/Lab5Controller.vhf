@@ -1,5 +1,5 @@
 package Global is 
-    TYPE mystate IS (InitialState, fetch, rdAB, Branch, BranchRf, rdMul, multiply, MulAc, MulWaste, Shift, shiftRegRd, shiftReg, shiftRead, NoneState1, NoneState2, arith , wrF, WriteMem, ReadMem, post2, Post1, M2RF);
+    TYPE mystate IS (InitialState, fetch, rdAB, Branch, BranchRf, rdMul, multiply, MulAc, mulAcRd, MulWaste, Shift, shiftRegRd, shiftReg, shiftRead, NoneState1, NoneState2, arith , wrF, WriteMem, ReadMem, post2, Post1, M2RF, LRW);
 end Global;
 
 library ieee;
@@ -31,68 +31,92 @@ begin
             elsif (Currstate = rdAB) then
                 if (SomeCondition) then
                     state <= shiftRegRd;
+                    -- A = IR(11-8)
                 elsif (SomeCondition) then
                     state <= Shift;
+                    -- perform shift on B with IR or 
                 elsif (SomeCondition) then
                     state <= rdMul;
-                else state <= Branch;
+                    -- read A = IR(11-8)
+                elsif (SomeCondition) then
+                    state <= NoneState1;
+                    -- just a common state to partition states
+                elsif (IR(27 downto 26) = "10") then
+                    state <= Branch;
+                    -- do pc + s2
+                elsif (SomeCondition) then
+                    state <= LRW;
                 end if ;
             elsif (Currstate = Branch) then
-                state <= BranchRf;
+                    state <= BranchRf;
+                    -- store pc in rf                    
+                end if ;
+            elsif (Currstate = LRW) then
+                    state <= Branch;
             elsif ((Currstate = BranchRf) or (Currstate = wrF) or (Currstate = M2RF) or (Currstate = Post1)) then
                 state <= InitialState;
-            elsif (Currstate = WriteMem) then
-                if (SomeCondition) then
-                    state <= InitialState;
-                elsif (SomeCondition) then
-                    state <= Post1;
-                end if;
+                -- do nithing but unconditionally proceed to fetch or maybe check terminating condition of program
             elsif (Currstate = rdMul) then
                 state <= multiply;
+                -- multiply B and A
+            elsif (Currstate = mulAcRd) then
+                state <= MulAc;
+                -- add multiply result to new fetched value
             elsif (Currstate = multiply) then
-                if (SomeCondition) then
-                    state <= MulAc;
-                elsif (SomeCondition) then
-                    state <= MulWaste; -- To add 0 to multiply answer. Basically a waste cycle to bring it equivalent to MLA op                                                      
+                if (IR(24 downto 21) = "0001") then
+                    state <= mulAcRd;
+                    -- read B = IR(19-16)
+                elsif (IR(24 downto 21) = "0000") then
+                    state <= MulWaste; 
+                    -- To add 0 to multiply answer. Basically a waste cycle to bring it equivalent to MLA op                                                      
                 end if;
             elsif ((Currstate = MulAc) or (Currstate = MulWaste)) then
                     state <= wrF;
+                    -- write in reg file
             elsif ((Currstate = Shift) or (Currstate = shiftRead)) then
                     state <= NoneState1;
+                    -- just some conditions to partition state diagram
             elsif (Currstate = shiftRegRd) then
                     state <= shiftReg;
+                    -- perform shifting with B and A
             elsif (Currstate = shiftReg) then
                     state <= shiftRead;
+                    -- read 1st operand A = IR(19-16)
             elsif (Currstate = NoneState1) then
-                if (SomeCondition) then
-                    state <= arith;
-                elsif (SomeCondition) then
-                    state <= NoneState2;
-                end if;
+                state <= arith;
+                -- perform arith for dp 
+                -- calc offset for pre addressing
+                -- for post addressing just add 0 in A so to give alu result in address in next cycle
             elsif (Currstate = arith) then
-                state <= NoneState2;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+                state <= NoneState2;   
+                -- another empty state                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
             elsif (Currstate = NoneState2) then
                 if (SomeCondition) then
                     state <= WriteMem;
+                    -- write in mem
                 elsif (SomeCondition) then
                     state <= ReadMem;
+                    -- read from mem
                 elsif (SomeCondition) then
                     state <= wrF;
+                    -- write in reg file
                 end if ;    
             elsif (Currstate = WriteMem) then
-                if (SomeCondition) then
+                if (IR(24) = '1') then
                     state <= Post1;
-                elsif (SomeCondition) then
-                    state <= InitialState;
+                    --ALU operation of calculating new offset
+                else state <= InitialState;
                 end if ;
             elsif (Currstate = ReadMem) then
-                if (SomeCondition) then
+                if (IR(24) = '1') then
                     state <= post2;
-                elsif (SomeCondition) then
-                    state <= M2RF;
+                    -- Alu to calc new value of address to be stored in reg file
+                else state <= M2RF;
+                    -- store in reg file
                 end if ;
             elsif (Currstate = post2) then
                 state <= M2RF;
+                -- store in reg file
             end if;
         end if;
     end process;
