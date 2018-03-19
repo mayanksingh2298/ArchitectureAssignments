@@ -1,0 +1,4 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/Lab4/Processor_4/Processor_4.ip_user_files/bd/BRAM/ip/BRAM_blk_mem_gen_0_0/sim/BRAM_blk_mem_gen_0_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module BRAM_blk_mem_gen_0_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/Lab4/Processor_4/Processor_4.sim/sim_1/behav/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl

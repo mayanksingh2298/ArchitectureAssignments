@@ -1,0 +1,17 @@
+<<<<<<< HEAD:Lab4/lab4.sim/sim_1/behav/xsim.dir/MainDataPath_behav/xsimkernel.log
+Running: xsim.dir/MainDataPath_behav/xsimk -simmode gui -wdb MainDataPath_behav.wdb -simrunnum 0 -socket 53785
+Design successfully loaded
+Design Loading Memory Usage: 49844 KB (Peak: 49932 KB)
+Design Loading CPU Usage: 40 ms
+Simulation completed
+Simulation Memory Usage: 139680 KB (Peak: 197116 KB)
+Simulation CPU Usage: 690 ms
+=======
+Running: xsim.dir/MainDataPath_behav/xsimk -simmode gui -wdb MainDataPath_behav.wdb -simrunnum 0 -socket 36685
+Design successfully loaded
+Design Loading Memory Usage: 50068 KB (Peak: 50272 KB)
+Design Loading CPU Usage: 10 ms
+Simulation completed
+Simulation Memory Usage: 140004 KB (Peak: 197340 KB)
+Simulation CPU Usage: 30 ms
+>>>>>>> 9a3bf2e7bb7f4aa82434f17d59168e178a0ed3e3:Lab4/Processor_4/Processor_4.sim/sim_1/behav/xsim.dir/MainDataPath_behav/xsimkernel.log
