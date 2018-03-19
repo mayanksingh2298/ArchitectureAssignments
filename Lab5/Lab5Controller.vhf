@@ -168,28 +168,6 @@ end MainController;
 
 architecture MainControl of MainController is
 begin
---    if(mystate = InitialState)then
---        controlState <= ReadMem;
---    elsif (mystate = ReadMem) then
---        MR <= "100";        
---        IorD <= '0';
---        Asrc1 <= "00";
---        Asrc2 <= "001";
---        op <= "0100";
-
---        controlState <= ReadOpAndPcinReg;
---    elsif (mystate = ReadOpAndPcinReg) then
---        IW <= '1'; -- to close in next state
---        M2R <= "10";
---        ReW <= '1'; -- to close in next state
---        writeAddSig <= "1111";
---        read1Sig <= '0';
---        Rsrc <= '0';
---        RW <= '1'; -- to be switched off in next state
---        if () then
---            controlState <= arith;
---        end if ;        
---    end if;
 --correct in this form
 	--IorD <= --when?
  --   MR <= --how?
@@ -218,17 +196,16 @@ begin
      --shiftRead, NoneState1, NoneState2, arith , wrF, WriteMem,
       --ReadMem, post2, Post1, M2RF, LRW);
 
-      --WHAT IS THE USE OF IorD if we are inputting using PC always
 		case state is
 			when InitialState =>
 			 --do nothing
 			when fetch =>
 				IorD <= '0';
-				--HOW TO SET MR AND MW
+				MR <= "100";
+				MW <= "000";
 				IW <= '1';
 				Asrc1 <= "00";
 				Asrc2 <= "001";
-				--change opcode to addition
 				Fset <= '0';
 				ReW <= '1';
 				
@@ -244,7 +221,6 @@ begin
 			when Branch =>
 				Asrc1 <= "00";
 				Asrc2 <= "011";
-				--set opcode
 				Fset <= '0';
 				ReW <= '1';
 
@@ -258,7 +234,6 @@ begin
 			when multiply =>
 				mulHoldSig <= '1';
 			when MulAc =>
-				--set opcode to addition
 				Asrc1 <= "11";
 				Asrc2 <= "111";
 				Fset <= '0';
@@ -267,12 +242,10 @@ begin
 				Rsrc <= '1'; 
 				BW <= '1';
 			when MulWaste =>
-				--set opcode to addition
 				Asrc1 <= "11";
 				Asrc2 <= "100";
 				Fset <= '0';
 				ReW <= '1';
-	--to add shifter opcode (maybe)
 			when Shift =>
 				shiftAmtSig <= '1';
 				shiftHoldSig <= '1';
@@ -290,7 +263,6 @@ begin
 			when NoneState2 =>
 				--doing nothing
 			when arith =>
-				--set the opcode
 				Asrc<="01";
 				if(shifting has been done) then
 					Asrc2<= "111"; --when no shift
@@ -314,22 +286,72 @@ begin
 					writeAddSig<="00";
 				end if;
 			when WriteMem =>
-				--set the MR and MW
+				IorD <= '1';
+				if(strb) then
+					MR<="000";
+					MW<="001";
+				elsif(strhw) then
+					MR<="000";
+					MW<="010";
+				else --str
+					MR<="000";
+					MW<="011";
+				end if;
 			when ReadMem => 
-				--set the MR and MW
-				IW <= '1';
+                DR <= '1';
+				if(ldrb) then
+					MR<="101";
+					MW<="000";
+				elsif(ldrb signed) then
+					MR<="001";
+					MW<="000";
+				elsif(ldrhw) then
+					MR<="010";
+					MW<="000";
+				elsif(ldrhw signed) then
+					MR<="011";
+					MW<="000";	
+				else --ldr
+					MR<="100";
+					MW<="000";
+				end if;
 			when post2 =>
-			--what is this
+                Asrc<="01";
+                if(shifting has been done) then
+                    Asrc2<= "111"; --when no shift
+                elsif(s) then
+                    Asrc2<= "000"; --when offset data in shift
+                else 
+                    Arsc2<= "010";
+                end if;
+                ReW <= '1';
 			when post1 =>
+                Asrc<="01";
+                if(shifting has been done) then
+                    Asrc2<= "111"; --when no shift
+                elsif(s) then
+                    Asrc2<= "000"; --when offset data in shift
+                else 
+                    Arsc2<= "010";
+                end if;
+                ReW <= '1';
 			when M2RF =>
-				DR <= '1';
 				M2R <= "00";
-				--where to store
+                writeAddSig <= "00";
 				RW <= '1';
+			when WrBack1 =>
+				M2R <="01";
+				writeAddSig <="10";
+				RW <= '1';
+			when WrBack2 =>
+                M2R <="01";
+                writeAddSig <="10";
+                RW <= '1';
 			when others => --LRW
 				M2R <= "11";
 				writeAddSig <= "01";
 				RW <= '1';
+
 		end case;
 	end process;
 
@@ -397,14 +419,16 @@ begin
     			op <= "0100";
     		when MulWaste =>
     			op <= "0100";
-    		when others=>--arith
-    			if(some condition) then--offset addition
+    		when arith=>
+    			if((IR[27 downto 26]="01" or (IR[27 downto 26]="00" and IR[25]='0' and IR[7]='1' and IR[5]='1' and IR[6 downto 5]/="00")) and IR[23]='1') then--offset addition
 	    			op <= "0100";
-	    		elsif (some codition) then --subtraction
-	    			op <= "0100";
+	    		elsif ((IR[27 downto 26]="01" or (IR[27 downto 26]="00" and IR[25]='0' and IR[7]='1' and IR[5]='1' and IR[6 downto 5]/="00")) and IR[23]='0') then --subtraction
+	    			op <= "0010";
 	    		else --ALU operation
 	    			op <= IR(24 downto 21);
 	    		end if;
+            when others=>
+                ;--do nothing
     	end case;
     end process;
 end Actrl;
