@@ -1,5 +1,5 @@
 package Global is 
-    TYPE mystate IS (InitialState, fetch, rdAB, Branch, BranchRf, rdMul, multiply, MulAc, mulAcRd, MulWaste, Shift, shiftRegRd, shiftReg, shiftRead, NoneState1, NoneState2, arith , wrF, WriteMem, ReadMem, post2, Post1, M2RF, LRW);
+    TYPE mystate IS (InitialState, fetch, rdAB, Branch, BranchRf, rdMul, multiply, MulAc, mulAcRd, MulWaste, Shift, shiftRegRd, shiftReg, shiftRead, NoneState1, NoneState2, arith , wrF, WriteMem, ReadMem, post2, Post1, M2RF, LRW, WrBack1, WrBack2);
 end Global;
 --falst state, goes to next state immediately | IR PC | get them from registers | 
 library ieee;
@@ -53,7 +53,7 @@ begin
                     -- store pc in rf                    
             elsif (Currstate = LRW) then
                     state <= Branch;
-            elsif ((Currstate = BranchRf) or (Currstate = wrF) or (Currstate = M2RF) or (Currstate = Post1)) then
+            elsif ((Currstate = BranchRf) or (Currstate = wrF) or (Currstate = M2RF) or (Currstate = WrBack1)) then
                 state <= InitialState;
                 -- do nithing but unconditionally proceed to fetch or maybe check terminating condition of program
             elsif (Currstate = rdMul) then
@@ -89,7 +89,7 @@ begin
                 -- for post addressing just add 0 in A so to give alu result in address in next cycle
             elsif (Currstate = arith) then
                 state <= NoneState2;   
-                -- another empty state                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+                -- another empty state                              
             elsif (Currstate = NoneState2) then
                 if (SomeCondition) then
                     state <= WriteMem;
@@ -105,18 +105,29 @@ begin
                 if (IR(24) = '1') then
                     state <= Post1;
                     --ALU operation of calculating new offset
+                elsif (SomeCondition) then
+                    state <= WrBack1;
+                    -- write offset i.e Resresult(ALUresult) in reg file
                 else state <= InitialState;
                 end if ;
             elsif (Currstate = ReadMem) then
                 if (IR(24) = '1') then
                     state <= post2;
                     -- Alu to calc new value of address to be stored in reg file
+                elsif (SomeCondition) then
+                    state <= wrBack2;
                 else state <= M2RF;
                     -- store in reg file
                 end if ;
             elsif (Currstate = post2) then
+                state <= WrBack2;
+                -- store in reg file the offset or alu result
+            elsif (Currstate = post1) then
+                state <= WrBack1;
+                -- store in reg file the alu result or offset
+            elsif (Currstate = WrBack2) then
                 state <= M2RF;
-                -- store in reg file
+                -- store in reg file the DR or loaded memory value
             end if;
         end if;
     end process;
