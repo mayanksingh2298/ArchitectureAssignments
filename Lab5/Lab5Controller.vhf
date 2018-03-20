@@ -80,7 +80,7 @@ begin
                 if ((IR(27 downto 25) = "000") and (IR(11 downto 8) /= "1111") and (IR(7) = '0') and (IR(4) = '1')) then
                     state <= shiftRegRd;
                     -- A = IR(11-8)
-                elsif (((IR(27 downto 25) = "000") and (IR(4) = '0') and (IR(11 downto 7) /= "00000") or ((IR(27 downto 25) = "011") and (IR(4) = '0') and (IR(11 downto 7) /= "00000"))) then
+                elsif (((IR(27 downto 25) = "000") and (IR(4) = '0') and (IR(11 downto 7) /= "00000")) or ((IR(27 downto 25) = "011") and (IR(4) = '0') and (IR(11 downto 7) /= "00000"))) then
                     state <= Shift;
                     -- perform shift on B with IR or | CONSTANT SHIFT
                 elsif ((IR(27 downto 23) = "00000") and (IR(7) = '1') and (IR(4) = '1')) then

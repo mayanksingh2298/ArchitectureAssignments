@@ -1,8 +1,0 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/Lab4.vhf" into library xil_defaultlib
-INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath
-INFO: [VRFC 10-307] analyzing entity MemoryModule
-ERROR: [VRFC 10-149] 'bram_wrapper' is not compiled in library xil_defaultlib [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/Lab4.vhf:164]
-ERROR: [VRFC 10-1504] unit func0 ignored due to previous errors [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/Lab4.vhf:122]
-INFO: [VRFC 10-307] analyzing entity shifter
-ERROR: [VRFC 10-1504] unit shifter ignored due to previous errors [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/Lab4.vhf:179]
-INFO: [VRFC 10-240] VHDL file /home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4/Lab4.vhf ignored due to errors
