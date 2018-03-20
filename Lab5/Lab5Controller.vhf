@@ -240,7 +240,16 @@ begin
      --multiply, MulAc, mulAcRd, MulWaste, Shift, shiftRegRd, shiftReg, 
      --shiftRead, NoneState1, NoneState2, arith , wrF, WriteMem,
       --ReadMem, post2, Post1, M2RF, LRW);
-
+            Fset<='0';
+            ReW<='0';
+            shiftHoldSig<='0';
+            mulHoldSig<='0';
+            AW<='0';
+            BW<='0';
+            RW<='0';
+            DW<='0';
+            IW<='0';
+            MW<="000";
 		case state is
 			when InitialState =>
 			 --do nothing
@@ -251,8 +260,9 @@ begin
 				IW <= '1';
 				Asrc1 <= "00";
 				Asrc2 <= "001";
-				Fset <= '0';
 				ReW <= '1';
+             
+             
 				
 			when rdAB =>
 				read1Sig <= '0';
@@ -309,11 +319,16 @@ begin
 				--doing nothing
 			when arith =>
 				Asrc<="01";
-				if(s) then
+				if((IR(27 downto 25)="000" and IR(11 downto 7)/="00000" and IR(4)='0') or (IR(27 downto 25)="000" and IR(7)='0' and IR(4)='1') or (IR(27 downto 25)="011" and IR(4)='0')) then
 					Asrc2<= "000"; --when offset data in shift
-				elsif (SomeCondition) then
-					Arsc2<= "010"; -- constant offset in DT
-				else Asrc2<= "111"; --when no shift
+				elsif (IR(27 downto 25)="010") then
+					Asrc2<= "010"; -- constant offset in DT
+                elsif(IR(27 downto 25)="000" and IR(22)='1' and IR(7)='1' and IR(4)='1' and IR(6 downto 5)/="00") then
+                    Asrc2<= "101"; --halfWordConstantShift
+                elsif(IR(27 downto 25)="001") then
+                    Asrc2<= "110"; --specialDoubleEggRole
+				else
+                    Asrc2<= "111"; --when no shift
 				end if;
 				ReW <= '1';
 				--atishya wrote somethings
@@ -347,13 +362,13 @@ begin
 				if((IR(27 downto 26) = "01") and (IR(22) = '1') and (IR(20) = '1')) then
 					MR<="101";
 					MW<="000";
-				elsif(ldrb signed) then
+				elsif((IR(27 downto 26) = "01") and (IR(22) = '1') and (IR(20) = '1')) then
 					MR<="001";
 					MW<="000";
-				elsif(ldrhw) then
+				elsif((IR(27 downto 26) = "01") and (IR(22) = '1') and (IR(20) = '1')) then
 					MR<="010";
 					MW<="000";
-				elsif(ldrhw signed) then
+				elsif((IR(27 downto 26) = "01") and (IR(22) = '1') and (IR(20) = '1')) then
 					MR<="011";
 					MW<="000";	
 				else --ldr
@@ -362,22 +377,30 @@ begin
 				end if;
 			when post2 =>
                 Asrc<="01";
-                if(shifting has been done) then
-                    Asrc2<= "111"; --when no shift
-                elsif(s) then
+                if((IR(27 downto 25)="000" and IR(11 downto 7)/="00000" and IR(4)='0') or (IR(27 downto 25)="000" and IR(7)='0' and IR(4)='1') or (IR(27 downto 25)="011" and IR(4)='0')) then
                     Asrc2<= "000"; --when offset data in shift
-                else 
-                    Arsc2<= "010";
+                elsif (IR(27 downto 25)="010") then
+                    Asrc2<= "010"; -- constant offset in DT
+                elsif(IR(27 downto 25)="000" and IR(22)='1' and IR(7)='1' and IR(4)='1' and IR(6 downto 5)/="00") then
+                    Asrc2<= "101"; --halfWordConstantShift
+                elsif(IR(27 downto 25)="001") then
+                    Asrc2<= "110"; --specialDoubleEggRole
+                else
+                    Asrc2<= "111"; --when no shift
                 end if;
                 ReW <= '1';
 			when post1 =>
                 Asrc<="01";
-                if(shifting has been done) then
-                    Asrc2<= "111"; --when no shift
-                elsif(s) then
+                if((IR(27 downto 25)="000" and IR(11 downto 7)/="00000" and IR(4)='0') or (IR(27 downto 25)="000" and IR(7)='0' and IR(4)='1') or (IR(27 downto 25)="011" and IR(4)='0')) then
                     Asrc2<= "000"; --when offset data in shift
-                else 
-                    Arsc2<= "010";
+                elsif (IR(27 downto 25)="010") then
+                    Asrc2<= "010"; -- constant offset in DT
+                elsif(IR(27 downto 25)="000" and IR(22)='1' and IR(7)='1' and IR(4)='1' and IR(6 downto 5)/="00") then
+                    Asrc2<= "101"; --halfWordConstantShift
+                elsif(IR(27 downto 25)="001") then
+                    Asrc2<= "110"; --specialDoubleEggRole
+                else
+                    Asrc2<= "111"; --when no shift
                 end if;
                 ReW <= '1';
 			when M2RF =>
@@ -465,10 +488,12 @@ begin
     		when MulWaste =>
     			op <= "0100";
     		when arith=>
-    			if((IR(27 downto 26)="01" or (IR(27 downto 26)="00" and IR(25)='0' and IR(7)='1' and IR(5)='1' and IR(6 downto 5)/="00")) and IR(23)='1') then--offset addition
+    			if((IR(27 downto 26)="01" or (IR(27 downto 26)="00" and IR(25)='0' and IR(7)='1' and IR(4)='1' and IR(6 downto 5)/="00")) and IR(23)='1') then--offset addition
 	    			op <= "0100";
-	    		elsif ((IR(27 downto 26)="01" or (IR(27 downto 26)="00" and IR(25)='0' and IR(7)='1' and IR(5)='1' and IR(6 downto 5)/="00")) and IR(23)='0') then --subtraction
+	    		elsif ((IR(27 downto 26)="01" or (IR(27 downto 26)="00" and IR(25)='0' and IR(7)='1' and IR(4)='1' and IR(6 downto 5)/="00")) and IR(23)='0') then --subtraction
 	    			op <= "0010";
+                elsif(IR(27 downto 26)="00" and I(25)='1')
+                    op <= "0100";
 	    		else --ALU operation
 	    			op <= IR(24 downto 21);
 	    		end if;
