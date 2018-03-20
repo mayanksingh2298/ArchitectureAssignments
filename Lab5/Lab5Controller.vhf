@@ -1,6 +1,53 @@
 package Global is 
     TYPE mystate IS (InitialState, fetch, rdAB, Branch, BranchRf, rdMul, multiply, MulAc, mulAcRd, MulWaste, Shift, shiftRegRd, shiftReg, shiftRead, NoneState1, NoneState2, arith , wrF, WriteMem, ReadMem, post2, Post1, M2RF, LRW, WrBack1, WrBack2);
 end Global;
+
+--library ieee;
+--use ieee.std_logic_1164.ALL;
+--use ieee.numeric_std.ALL;
+--use work.Global.all;
+--entity InstDecode is
+--    port(
+--        IR : in std_logic_vector(3 downto 0);
+
+--        IShiftReg : out std_logic;
+--        IShiftConst : out std_logic;
+--        INoShift : out std_logic;
+--        IMult : out std_logic;
+--        IMultAc : out std_logic;
+--        IBranch : out std_logic;
+--        IBranchLnk : out std_logic;
+--        IWriteMem : out std_logic;
+--        IReadMem : out std_logic;
+--        IPost : out std_logic;
+--        IWriteBack : out std_logic;
+--        IDT : out std_logic;
+--        ILdrDT : out std_logic;
+--        IStrDt : out std_logic;
+--        IWrongInst : out std_logic
+--    );
+--end InstDecode;
+
+--architecture Idecode of InstDecode is
+--begin
+--	IShiftReg <= '1' when () else '0';
+--	IShiftConst <= '1' when () else '0';
+--	INoShift <= '1' when () else '0';
+--	IMult <= '1' when () else '0';
+--	IMultAc <= '1' when () else '0';
+--	IBranch <= '1' when (IR(27 downto 24) = "1010") else '0';
+--	IBranchLnk <= '1' when (IR(27 downto 24) = "1011") else '0';
+--	IWriteMem <= '1' when () else '0';
+--	IReadMem <= '1' when () else '0';
+--	IPost <= '1' when (IR(24) = '1') else '0';
+--	IWriteBack <= '1' when (IR(21) = '1') else '0';
+--	IDT <= '1' when () else '0';
+--	ILdrDT <= '1' when () else '0';
+--	IStrDt <= '1' when () else '0';
+--	IWrongInst <= '1' when ((IPost = '1') and (IWriteBack = '0'))
+
+--end Idecode;
+
 --falst state, goes to next state immediately | IR PC | get them from registers | 
 library ieee;
 use ieee.std_logic_1164.ALL;
@@ -30,23 +77,22 @@ begin
                 -- B = IR(3-0)
                 -- write pc in register file
             elsif (Currstate = rdAB) then
-                if (SomeCondition) then
+                if ((IR(27 downto 25) = "000") and (IR(11 downto 8) /= "1111") and (IR(7) = '0') and (IR(4) = '1')) then
                     state <= shiftRegRd;
                     -- A = IR(11-8)
-                elsif (SomeCondition) then
+                elsif (((IR(27 downto 25) = "000") and (IR(4) = '0') and (IR(11 downto 7) /= "00000") or ((IR(27 downto 25) = "011") and (IR(4) = '0') and (IR(11 downto 7) /= "00000"))) then
                     state <= Shift;
                     -- perform shift on B with IR or | CONSTANT SHIFT
-                elsif (SomeCondition) then
+                elsif ((IR(27 downto 23) = "00000") and (IR(7) = '1') and (IR(4) = '1')) then
                     state <= rdMul;
                     -- read A = IR(11-8)
-                elsif (SomeCondition) then
-                    state <= NoneState1;
-                    -- just a common state to partition states
-                elsif (IR(27 downto 26) = "10") then
+                elsif (IR(27 downto 24) = "1010") then
                     state <= Branch;
                     -- do pc + s2
-                elsif (SomeCondition) then
+                elsif (IR(27 downto 24) = "1011") then
                     state <= LRW; --pc is stored in link register
+                else state <= NoneState1;
+                    -- just a common state to partition states
                 end if ;
             elsif (Currstate = Branch) then
                     state <= BranchRf;
@@ -63,10 +109,10 @@ begin
                 state <= MulAc;
                 -- add multiply result to new fetched value
             elsif (Currstate = multiply) then
-                if (IR(24 downto 21) = "0001") then
+                if (IR(21) = '1') then
                     state <= mulAcRd;
                     -- read B = IR(15-12)
-                elsif (IR(24 downto 21) = "0000") then
+                elsif (IR(21) = '0') then
                     state <= MulWaste; 
                     -- To add 0 to multiply answer. Basically a waste cycle to bring it equivalent to MLA op                                                      
                 end if;
@@ -91,30 +137,29 @@ begin
                 state <= NoneState2;   
                 -- another empty state                              
             elsif (Currstate = NoneState2) then
-                if (SomeCondition) then
+                if (((IR(27 downto 26) = "01") and (IR(20) = '0')) or ((IR(27 downto 25) = "000") and (IR(20) = '0') and (IR(7) = '1') and (IR(4) = '1'))) then
                     state <= WriteMem;
                     -- write in mem
-                elsif (SomeCondition) then
+                elsif (((IR(27 downto 26) = "01") and (IR(20) = '1')) or ((IR(27 downto 25) = "000") and (IR(20) = '1') and (IR(7) = '1') and (IR(4) = '1'))) then
                     state <= ReadMem;
                     -- read from mem
-                elsif (SomeCondition) then
-                    state <= wrF;
+                else state <= wrF;
                     -- write in reg file
                 end if ;    
             elsif (Currstate = WriteMem) then
-                if (IR(24) = '1') then
+                if (IR(24) = '0') then
                     state <= Post1;
                     --ALU operation of calculating new offset
-                elsif (SomeCondition) then
+                elsif (IR(21) = '1') then
                     state <= WrBack1;
                     -- write offset i.e Resresult(ALUresult) in reg file
                 else state <= InitialState;
                 end if ;
             elsif (Currstate = ReadMem) then
-                if (IR(24) = '1') then
+                if (IR(24) = '0') then
                     state <= post2;
                     -- Alu to calc new value of address to be stored in reg file
-                elsif (SomeCondition) then
+                elsif (IR(21) = '1') then
                     state <= wrBack2;
                 else state <= M2RF;
                     -- store in reg file
@@ -264,33 +309,33 @@ begin
 				--doing nothing
 			when arith =>
 				Asrc<="01";
-				if(shifting has been done) then
-					Asrc2<= "111"; --when no shift
-				elsif(s) then
+				if(s) then
 					Asrc2<= "000"; --when offset data in shift
-				else 
-					Arsc2<= "010";
+				elsif (SomeCondition) then
+					Arsc2<= "010"; -- constant offset in DT
+				else Asrc2<= "111"; --when no shift
 				end if;
 				ReW <= '1';
 				--atishya wrote somethings
 			when wrF => 
 				RW <= '1';
 				--what to write in register file
-				if(dp writing) then --only dp writing is done here
-					M2R <= "01";
-				end if;
+				M2R <= "01";
+
 				--where to write in register file
-				if(multiply write) then
+				if((IR(27 downto 23) = "00000") and (IR(7) = '1') and (IR(4) = '1')) then
+					-- multiply address
 					writeAddSig<="10";
 				else
+					-- normal DP
 					writeAddSig<="00";
 				end if;
 			when WriteMem =>
 				IorD <= '1';
-				if(strb) then
+				if((IR(27 downto 26) = "01") and (IR(22) = '1') and (IR(20) = '0')) then
 					MR<="000";
 					MW<="001";
-				elsif(strhw) then
+				elsif((IR(27 downto 26) = "00") and (IR(20) = '0')) then
 					MR<="000";
 					MW<="010";
 				else --str
@@ -299,7 +344,7 @@ begin
 				end if;
 			when ReadMem => 
                 DR <= '1';
-				if(ldrb) then
+				if((IR(27 downto 26) = "01") and (IR(22) = '1') and (IR(20) = '1')) then
 					MR<="101";
 					MW<="000";
 				elsif(ldrb signed) then
@@ -422,7 +467,7 @@ begin
     		when arith=>
     			if((IR[27 downto 26]="01" or (IR[27 downto 26]="00" and IR[25]='0' and IR[7]='1' and IR[5]='1' and IR[6 downto 5]/="00")) and IR[23]='1') then--offset addition
 	    			op <= "0100";
-	    		elsif ((IR[27 downto 26]="01" or (IR[27 downto 26]="00" and IR[25]='0' and IR[7]='1' and IR[5]='1' and IR[6 downto 5]/="00")) and IR[23]='0') then --subtraction
+	    		elsif ((IR(27 downto 26)="01" or (IR[27 downto 26]="00" and IR[25]='0' and IR[7]='1' and IR[5]='1' and IR[6 downto 5]/="00")) and IR[23]='0') then --subtraction
 	    			op <= "0010";
 	    		else --ALU operation
 	    			op <= IR(24 downto 21);
