@@ -359,7 +359,7 @@ entity MainDataPath is
         ReW: in std_logic;
         read1Sig: in std_logic;
         writeAddSig: in std_logic_vector(1 downto 0);            
-        shiftAmtSig: in std_logic_vector(1 downto 0);
+        shiftAmtSig: in std_logic;
         clk: in std_logic;     
         shiftHoldSig: in std_logic;
         mulHoldSig: in std_logic;
@@ -499,7 +499,7 @@ begin
     --NEW CONTROL SIGNAL, which tells when to hold the value of mulResult
     MulresultHolder <= MulResult when mulHoldSig = '1';
     --NEW CONTROL SIGNAL shiftAmtSig is 00 when read1, 01 when EXresult, 10 when no shift
-    shiftAmt <= A when shiftAmtSig = "0" ELSE
+    shiftAmt <= A when shiftAmtSig = '0' ELSE
              EXResult;
     
     --Shifter NEW CONTROL SIGNAL shiftTypeSig

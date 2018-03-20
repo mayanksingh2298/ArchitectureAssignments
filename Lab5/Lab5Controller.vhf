@@ -204,7 +204,7 @@ entity MainController is
         ReW: out std_logic;
         read1Sig: out std_logic;
         writeAddSig: out std_logic_vector(1 downto 0);            
-        shiftAmtSig: out std_logic_vector(1 downto 0);
+        shiftAmtSig: out std_logic;
         shiftHoldSig: out std_logic;
         mulHoldSig: out std_logic;
         Memrst: out std_logic
@@ -312,13 +312,13 @@ begin
 				shiftHoldSig <= '1';
 			when shiftRead =>
 				read1Sig <= '0';
-				AW<='1'
+				AW<='1';
 			when NoneState1 =>
 				--doing nothing
 			when NoneState2 =>
 				--doing nothing
 			when arith =>
-				Asrc<="01";
+				Asrc1<="01";
 				if((IR(27 downto 25)="000" and IR(11 downto 7)/="00000" and IR(4)='0') or (IR(27 downto 25)="000" and IR(7)='0' and IR(4)='1') or (IR(27 downto 25)="011" and IR(4)='0')) then
 					Asrc2<= "000"; --when offset data in shift
 				elsif (IR(27 downto 25)="010") then
@@ -358,7 +358,7 @@ begin
 					MW<="011";
 				end if;
 			when ReadMem => 
-                DR <= '1';
+                DW <= '1';
 				if((IR(27 downto 26) = "01") and (IR(22) = '1') and (IR(20) = '1')) then
 					MR<="101";
 					MW<="000";
@@ -376,7 +376,7 @@ begin
 					MW<="000";
 				end if;
 			when post2 =>
-                Asrc<="01";
+                Asrc1<="01";
                 if((IR(27 downto 25)="000" and IR(11 downto 7)/="00000" and IR(4)='0') or (IR(27 downto 25)="000" and IR(7)='0' and IR(4)='1') or (IR(27 downto 25)="011" and IR(4)='0')) then
                     Asrc2<= "000"; --when offset data in shift
                 elsif (IR(27 downto 25)="010") then
@@ -390,7 +390,7 @@ begin
                 end if;
                 ReW <= '1';
 			when post1 =>
-                Asrc<="01";
+                Asrc1<="01";
                 if((IR(27 downto 25)="000" and IR(11 downto 7)/="00000" and IR(4)='0') or (IR(27 downto 25)="000" and IR(7)='0' and IR(4)='1') or (IR(27 downto 25)="011" and IR(4)='0')) then
                     Asrc2<= "000"; --when offset data in shift
                 elsif (IR(27 downto 25)="010") then
@@ -492,13 +492,13 @@ begin
 	    			op <= "0100";
 	    		elsif ((IR(27 downto 26)="01" or (IR(27 downto 26)="00" and IR(25)='0' and IR(7)='1' and IR(4)='1' and IR(6 downto 5)/="00")) and IR(23)='0') then --subtraction
 	    			op <= "0010";
-                elsif(IR(27 downto 26)="00" and I(25)='1')
+                elsif(IR(27 downto 26)="00" and IR(25)='1') then
                     op <= "0100";
 	    		else --ALU operation
 	    			op <= IR(24 downto 21);
 	    		end if;
             when others=>
-                ;--do nothing
+                --do nothing
     	end case;
     end process;
 end Actrl;
@@ -537,7 +537,7 @@ signal Fset: std_logic;
 signal ReW: std_logic;
 signal read1Sig: std_logic;
 signal writeAddSig: std_logic_vector(1 downto 0);            
-signal shiftAmtSig: std_logic_vector(1 downto 0);
+signal shiftAmtSig: std_logic;
 signal shiftHoldSig: std_logic;
 signal mulHoldSig: std_logic;
 signal Memrst: std_logic;
@@ -585,7 +585,7 @@ CONTROL: entity work.MainController(MainControl) port map(
 
 OPCODESET: entity work.OpcodeGen(Actrl) port map(
     IR => IR,
-
+    state => Currstate,
     op => op,
     opShift => opShift
 );
