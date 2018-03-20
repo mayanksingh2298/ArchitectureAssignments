@@ -27,7 +27,7 @@ eval( EAInclude(ISEJScriptLib) );
 
 
 ISEStep( "vivado",
-         "-log MemoryModule.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source MemoryModule.tcl" );
+         "-log MasterController.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source MasterController.tcl" );
 
 
 

@@ -1,0 +1,637 @@
+#-----------------------------------------------------------
+# Vivado v2016.4 (64-bit)
+# SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
+# IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+# Start of session at: Tue Mar 20 16:24:28 2018
+# Process ID: 11377
+# Current directory: /home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4And5/Processor_4/Processor_4.runs/synth_1
+# Command line: vivado -log MasterController.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source MasterController.tcl
+# Log file: /home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4And5/Processor_4/Processor_4.runs/synth_1/MasterController.vds
+# Journal file: /home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4And5/Processor_4/Processor_4.runs/synth_1/vivado.jou
+#-----------------------------------------------------------
+source MasterController.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2016.4/data/ip'.
+Command: synth_design -top MasterController -part xc7a35tcpg236-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 11386 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1065.547 ; gain = 135.086 ; free physical = 128 ; free virtual = 11917
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'MasterController' [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab5/Lab5Controller.vhf:515]
+INFO: [Synth 8-638] synthesizing module 'MainController' [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab5/Lab5Controller.vhf:214]
+WARNING: [Synth 8-614] signal 'IR' is read in the process but is not in the sensitivity list [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab5/Lab5Controller.vhf:237]
+WARNING: [Synth 8-3848] Net Memrst in module/entity MainController does not have driver. [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab5/Lab5Controller.vhf:210]
+INFO: [Synth 8-256] done synthesizing module 'MainController' (1#1) [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab5/Lab5Controller.vhf:214]
+INFO: [Synth 8-638] synthesizing module 'OpcodeGen' [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab5/Lab5Controller.vhf:475]
+WARNING: [Synth 8-614] signal 'IR' is read in the process but is not in the sensitivity list [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab5/Lab5Controller.vhf:479]
+INFO: [Synth 8-256] done synthesizing module 'OpcodeGen' (2#1) [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab5/Lab5Controller.vhf:475]
+INFO: [Synth 8-638] synthesizing module 'FlagCtrl' [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab5/Lab5Controller.vhf:443]
+INFO: [Synth 8-256] done synthesizing module 'FlagCtrl' (3#1) [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab5/Lab5Controller.vhf:443]
+INFO: [Synth 8-638] synthesizing module 'StateController' [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab5/Lab5Controller.vhf:65]
+INFO: [Synth 8-256] done synthesizing module 'StateController' (4#1) [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab5/Lab5Controller.vhf:65]
+INFO: [Synth 8-638] synthesizing module 'MainDataPath' [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4And5/Lab4.vhf:377]
+INFO: [Synth 8-638] synthesizing module 'MemoryModule' [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4And5/Lab4.vhf:122]
+INFO: [Synth 8-638] synthesizing module 'ProcessorMemoryPath' [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4And5/Lab4.vhf:26]
+INFO: [Synth 8-256] done synthesizing module 'ProcessorMemoryPath' (5#1) [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4And5/Lab4.vhf:26]
+INFO: [Synth 8-638] synthesizing module 'BRAM_wrapper' [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4And5/Processor_4/Processor_4.srcs/sources_1/imports/hdl/BRAM_wrapper.vhd:26]
+INFO: [Synth 8-3491] module 'BRAM' declared at '/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4And5/Processor_4/Processor_4.srcs/sources_1/bd/BRAM/hdl/BRAM.vhd:14' bound to instance 'BRAM_i' of component 'BRAM' [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4And5/Processor_4/Processor_4.srcs/sources_1/imports/hdl/BRAM_wrapper.vhd:39]
+INFO: [Synth 8-638] synthesizing module 'BRAM' [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4And5/Processor_4/Processor_4.srcs/sources_1/bd/BRAM/hdl/BRAM.vhd:30]
+INFO: [Synth 8-3491] module 'BRAM_blk_mem_gen_0_0' declared at '/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4And5/Processor_4/Processor_4.runs/synth_1/.Xil/Vivado-11377-Archer-PC/realtime/BRAM_blk_mem_gen_0_0_stub.vhdl:5' bound to instance 'blk_mem_gen_0' of component 'BRAM_blk_mem_gen_0_0' [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4And5/Processor_4/Processor_4.srcs/sources_1/bd/BRAM/hdl/BRAM.vhd:57]
+INFO: [Synth 8-638] synthesizing module 'BRAM_blk_mem_gen_0_0' [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4And5/Processor_4/Processor_4.runs/synth_1/.Xil/Vivado-11377-Archer-PC/realtime/BRAM_blk_mem_gen_0_0_stub.vhdl:18]
+INFO: [Synth 8-256] done synthesizing module 'BRAM' (6#1) [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4And5/Processor_4/Processor_4.srcs/sources_1/bd/BRAM/hdl/BRAM.vhd:30]
+INFO: [Synth 8-256] done synthesizing module 'BRAM_wrapper' (7#1) [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4And5/Processor_4/Processor_4.srcs/sources_1/imports/hdl/BRAM_wrapper.vhd:26]
+INFO: [Synth 8-256] done synthesizing module 'MemoryModule' (8#1) [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4And5/Lab4.vhf:122]
+INFO: [Synth 8-638] synthesizing module 'RegisterFile' [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4And5/Lab4.vhf:319]
+INFO: [Synth 8-256] done synthesizing module 'RegisterFile' (9#1) [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4And5/Lab4.vhf:319]
+INFO: [Synth 8-638] synthesizing module 'multiplier' [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4And5/Lab4.vhf:293]
+INFO: [Synth 8-256] done synthesizing module 'multiplier' (10#1) [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4And5/Lab4.vhf:293]
+INFO: [Synth 8-638] synthesizing module 'shifter' [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4And5/Lab4.vhf:189]
+INFO: [Synth 8-256] done synthesizing module 'shifter' (11#1) [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4And5/Lab4.vhf:189]
+INFO: [Synth 8-638] synthesizing module 'ALU' [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4And5/Lab4.vhf:234]
+INFO: [Synth 8-256] done synthesizing module 'ALU' (12#1) [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4And5/Lab4.vhf:234]
+INFO: [Synth 8-256] done synthesizing module 'MainDataPath' (13#1) [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4And5/Lab4.vhf:377]
+INFO: [Synth 8-256] done synthesizing module 'MasterController' (14#1) [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab5/Lab5Controller.vhf:515]
+WARNING: [Synth 8-3331] design shifter has unconnected port shiftAmount[31]
+WARNING: [Synth 8-3331] design shifter has unconnected port shiftAmount[30]
+WARNING: [Synth 8-3331] design shifter has unconnected port shiftAmount[29]
+WARNING: [Synth 8-3331] design shifter has unconnected port shiftAmount[28]
+WARNING: [Synth 8-3331] design shifter has unconnected port shiftAmount[27]
+WARNING: [Synth 8-3331] design shifter has unconnected port shiftAmount[26]
+WARNING: [Synth 8-3331] design shifter has unconnected port shiftAmount[25]
+WARNING: [Synth 8-3331] design shifter has unconnected port shiftAmount[24]
+WARNING: [Synth 8-3331] design shifter has unconnected port shiftAmount[23]
+WARNING: [Synth 8-3331] design shifter has unconnected port shiftAmount[22]
+WARNING: [Synth 8-3331] design shifter has unconnected port shiftAmount[21]
+WARNING: [Synth 8-3331] design shifter has unconnected port shiftAmount[20]
+WARNING: [Synth 8-3331] design shifter has unconnected port shiftAmount[19]
+WARNING: [Synth 8-3331] design shifter has unconnected port shiftAmount[18]
+WARNING: [Synth 8-3331] design shifter has unconnected port shiftAmount[17]
+WARNING: [Synth 8-3331] design shifter has unconnected port shiftAmount[16]
+WARNING: [Synth 8-3331] design shifter has unconnected port shiftAmount[15]
+WARNING: [Synth 8-3331] design shifter has unconnected port shiftAmount[14]
+WARNING: [Synth 8-3331] design shifter has unconnected port shiftAmount[13]
+WARNING: [Synth 8-3331] design shifter has unconnected port shiftAmount[12]
+WARNING: [Synth 8-3331] design shifter has unconnected port shiftAmount[11]
+WARNING: [Synth 8-3331] design shifter has unconnected port shiftAmount[10]
+WARNING: [Synth 8-3331] design shifter has unconnected port shiftAmount[9]
+WARNING: [Synth 8-3331] design shifter has unconnected port shiftAmount[8]
+WARNING: [Synth 8-3331] design shifter has unconnected port shiftAmount[7]
+WARNING: [Synth 8-3331] design shifter has unconnected port shiftAmount[6]
+WARNING: [Synth 8-3331] design shifter has unconnected port shiftAmount[5]
+WARNING: [Synth 8-3331] design StateController has unconnected port IR[31]
+WARNING: [Synth 8-3331] design StateController has unconnected port IR[30]
+WARNING: [Synth 8-3331] design StateController has unconnected port IR[29]
+WARNING: [Synth 8-3331] design StateController has unconnected port IR[28]
+WARNING: [Synth 8-3331] design StateController has unconnected port IR[22]
+WARNING: [Synth 8-3331] design StateController has unconnected port IR[19]
+WARNING: [Synth 8-3331] design StateController has unconnected port IR[18]
+WARNING: [Synth 8-3331] design StateController has unconnected port IR[17]
+WARNING: [Synth 8-3331] design StateController has unconnected port IR[16]
+WARNING: [Synth 8-3331] design StateController has unconnected port IR[15]
+WARNING: [Synth 8-3331] design StateController has unconnected port IR[14]
+WARNING: [Synth 8-3331] design StateController has unconnected port IR[13]
+WARNING: [Synth 8-3331] design StateController has unconnected port IR[12]
+WARNING: [Synth 8-3331] design StateController has unconnected port IR[6]
+WARNING: [Synth 8-3331] design StateController has unconnected port IR[5]
+WARNING: [Synth 8-3331] design StateController has unconnected port IR[3]
+WARNING: [Synth 8-3331] design StateController has unconnected port IR[2]
+WARNING: [Synth 8-3331] design StateController has unconnected port IR[1]
+WARNING: [Synth 8-3331] design StateController has unconnected port IR[0]
+WARNING: [Synth 8-3331] design OpcodeGen has unconnected port IR[31]
+WARNING: [Synth 8-3331] design OpcodeGen has unconnected port IR[30]
+WARNING: [Synth 8-3331] design OpcodeGen has unconnected port IR[29]
+WARNING: [Synth 8-3331] design OpcodeGen has unconnected port IR[28]
+WARNING: [Synth 8-3331] design OpcodeGen has unconnected port IR[20]
+WARNING: [Synth 8-3331] design OpcodeGen has unconnected port IR[19]
+WARNING: [Synth 8-3331] design OpcodeGen has unconnected port IR[18]
+WARNING: [Synth 8-3331] design OpcodeGen has unconnected port IR[17]
+WARNING: [Synth 8-3331] design OpcodeGen has unconnected port IR[16]
+WARNING: [Synth 8-3331] design OpcodeGen has unconnected port IR[15]
+WARNING: [Synth 8-3331] design OpcodeGen has unconnected port IR[14]
+WARNING: [Synth 8-3331] design OpcodeGen has unconnected port IR[13]
+WARNING: [Synth 8-3331] design OpcodeGen has unconnected port IR[12]
+WARNING: [Synth 8-3331] design OpcodeGen has unconnected port IR[11]
+WARNING: [Synth 8-3331] design OpcodeGen has unconnected port IR[10]
+WARNING: [Synth 8-3331] design OpcodeGen has unconnected port IR[9]
+WARNING: [Synth 8-3331] design OpcodeGen has unconnected port IR[8]
+WARNING: [Synth 8-3331] design OpcodeGen has unconnected port IR[3]
+WARNING: [Synth 8-3331] design OpcodeGen has unconnected port IR[2]
+WARNING: [Synth 8-3331] design OpcodeGen has unconnected port IR[1]
+WARNING: [Synth 8-3331] design OpcodeGen has unconnected port IR[0]
+WARNING: [Synth 8-3331] design MainController has unconnected port Memrst
+WARNING: [Synth 8-3331] design MainController has unconnected port IR[31]
+WARNING: [Synth 8-3331] design MainController has unconnected port IR[30]
+WARNING: [Synth 8-3331] design MainController has unconnected port IR[29]
+WARNING: [Synth 8-3331] design MainController has unconnected port IR[28]
+WARNING: [Synth 8-3331] design MainController has unconnected port IR[21]
+WARNING: [Synth 8-3331] design MainController has unconnected port IR[19]
+WARNING: [Synth 8-3331] design MainController has unconnected port IR[18]
+WARNING: [Synth 8-3331] design MainController has unconnected port IR[17]
+WARNING: [Synth 8-3331] design MainController has unconnected port IR[16]
+WARNING: [Synth 8-3331] design MainController has unconnected port IR[15]
+WARNING: [Synth 8-3331] design MainController has unconnected port IR[14]
+WARNING: [Synth 8-3331] design MainController has unconnected port IR[13]
+WARNING: [Synth 8-3331] design MainController has unconnected port IR[12]
+WARNING: [Synth 8-3331] design MainController has unconnected port IR[3]
+WARNING: [Synth 8-3331] design MainController has unconnected port IR[2]
+WARNING: [Synth 8-3331] design MainController has unconnected port IR[1]
+WARNING: [Synth 8-3331] design MainController has unconnected port IR[0]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1107.016 ; gain = 176.555 ; free physical = 132 ; free virtual = 11876
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1107.016 ; gain = 176.555 ; free physical = 132 ; free virtual = 11876
+---------------------------------------------------------------------------------
+WARNING: [Project 1-486] Could not resolve non-primitive black box cell 'BRAM_blk_mem_gen_0_0' instantiated as 'Data/Memory/BRAM/BRAM_i/blk_mem_gen_0' [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4And5/Processor_4/Processor_4.srcs/sources_1/bd/BRAM/hdl/BRAM.vhd:57]
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4And5/Processor_4/Processor_4.runs/synth_1/.Xil/Vivado-11377-Archer-PC/dcp/BRAM_blk_mem_gen_0_0_in_context.xdc] for cell 'Data/Memory/BRAM/BRAM_i/blk_mem_gen_0'
+Finished Parsing XDC File [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4And5/Processor_4/Processor_4.runs/synth_1/.Xil/Vivado-11377-Archer-PC/dcp/BRAM_blk_mem_gen_0_0_in_context.xdc] for cell 'Data/Memory/BRAM/BRAM_i/blk_mem_gen_0'
+Parsing XDC File [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4And5/Processor_4/Processor_4.runs/synth_1/dont_touch.xdc]
+Finished Parsing XDC File [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4And5/Processor_4/Processor_4.runs/synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.02 . Memory (MB): peak = 1432.953 ; gain = 0.000 ; free physical = 144 ; free virtual = 11759
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 1432.953 ; gain = 502.492 ; free physical = 144 ; free virtual = 11759
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tcpg236-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 1432.953 ; gain = 502.492 ; free physical = 144 ; free virtual = 11759
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property DONT_TOUCH = true for Data/Memory/BRAM/BRAM_i. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for Data/Memory/BRAM/BRAM_i/blk_mem_gen_0. (constraint file  auto generated constraint, line ).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 1432.953 ; gain = 502.492 ; free physical = 144 ; free virtual = 11759
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5544] ROM "Asrc2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "op" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5587] ROM size for "mwe" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5544] ROM "registers_reg[0]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "registers_reg[1]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "registers_reg[2]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "registers_reg[3]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "registers_reg[4]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "registers_reg[5]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "registers_reg[6]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "registers_reg[7]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "registers_reg[8]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "registers_reg[9]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "registers_reg[10]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "registers_reg[11]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "registers_reg[12]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "registers_reg[13]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "registers_reg[14]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4And5/Lab4.vhf:246]
+INFO: [Synth 8-5545] ROM "z" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+WARNING: [Synth 8-327] inferring latch for variable 'IorD_reg' [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab5/Lab5Controller.vhf:257]
+WARNING: [Synth 8-327] inferring latch for variable 'MR_reg' [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab5/Lab5Controller.vhf:258]
+WARNING: [Synth 8-327] inferring latch for variable 'Rsrc_reg' [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab5/Lab5Controller.vhf:269]
+WARNING: [Synth 8-327] inferring latch for variable 'M2R_reg' [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab5/Lab5Controller.vhf:272]
+WARNING: [Synth 8-327] inferring latch for variable 'Asrc1_reg' [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab5/Lab5Controller.vhf:261]
+WARNING: [Synth 8-327] inferring latch for variable 'Asrc2_reg' [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab5/Lab5Controller.vhf:262]
+WARNING: [Synth 8-327] inferring latch for variable 'read1Sig_reg' [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab5/Lab5Controller.vhf:268]
+WARNING: [Synth 8-327] inferring latch for variable 'writeAddSig_reg' [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab5/Lab5Controller.vhf:273]
+WARNING: [Synth 8-327] inferring latch for variable 'shiftAmtSig_reg' [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab5/Lab5Controller.vhf:305]
+WARNING: [Synth 8-327] inferring latch for variable 'op_reg' [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab5/Lab5Controller.vhf:483]
+WARNING: [Synth 8-327] inferring latch for variable 'IR_reg' [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4And5/Lab4.vhf:426]
+WARNING: [Synth 8-327] inferring latch for variable 'flags_reg' [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4And5/Lab4.vhf:555]
+WARNING: [Synth 8-327] inferring latch for variable 'RESresult_reg' [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4And5/Lab4.vhf:557]
+WARNING: [Synth 8-327] inferring latch for variable 'B_reg' [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4And5/Lab4.vhf:436]
+WARNING: [Synth 8-327] inferring latch for variable 'A_reg' [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4And5/Lab4.vhf:496]
+WARNING: [Synth 8-327] inferring latch for variable 'MulresultHolder_reg' [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4And5/Lab4.vhf:507]
+WARNING: [Synth 8-327] inferring latch for variable 'ShiftresultHolder_reg' [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4And5/Lab4.vhf:523]
+WARNING: [Synth 8-327] inferring latch for variable 'carry_reg' [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4And5/Lab4.vhf:423]
+WARNING: [Synth 8-327] inferring latch for variable 'overflow_reg' [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4And5/Lab4.vhf:424]
+WARNING: [Synth 8-327] inferring latch for variable 'DR_reg' [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4And5/Lab4.vhf:453]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1432.953 ; gain = 502.492 ; free physical = 121 ; free virtual = 11736
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     33 Bit       Adders := 1     
+	   4 Input     33 Bit       Adders := 1     
+	   2 Input     32 Bit       Adders := 2     
++---XORs : 
+	   2 Input     33 Bit         XORs := 1     
+	   2 Input      1 Bit         XORs := 1     
+	   4 Input      1 Bit         XORs := 1     
++---Registers : 
+	               32 Bit    Registers := 16    
+	                5 Bit    Registers := 1     
++---Multipliers : 
+	                32x32  Multipliers := 1     
++---Muxes : 
+	  16 Input     33 Bit        Muxes := 4     
+	  14 Input     32 Bit        Muxes := 1     
+	   2 Input     32 Bit        Muxes := 11    
+	   4 Input     32 Bit        Muxes := 1     
+	   8 Input      5 Bit        Muxes := 1     
+	  21 Input      5 Bit        Muxes := 1     
+	   6 Input      5 Bit        Muxes := 1     
+	   3 Input      5 Bit        Muxes := 3     
+	  10 Input      5 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 4     
+	   4 Input      5 Bit        Muxes := 1     
+	   5 Input      5 Bit        Muxes := 1     
+	   6 Input      4 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 7     
+	   8 Input      4 Bit        Muxes := 1     
+	   4 Input      4 Bit        Muxes := 1     
+	  27 Input      3 Bit        Muxes := 1     
+	   4 Input      3 Bit        Muxes := 1     
+	  26 Input      3 Bit        Muxes := 1     
+	   5 Input      3 Bit        Muxes := 1     
+	   8 Input      3 Bit        Muxes := 2     
+	  28 Input      2 Bit        Muxes := 1     
+	  26 Input      2 Bit        Muxes := 2     
+	  27 Input      2 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	   6 Input      2 Bit        Muxes := 1     
+	  26 Input      1 Bit        Muxes := 10    
+	   6 Input      1 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 21    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module MainController 
+Detailed RTL Component Info : 
++---Muxes : 
+	  27 Input      3 Bit        Muxes := 1     
+	   4 Input      3 Bit        Muxes := 1     
+	  26 Input      3 Bit        Muxes := 1     
+	  28 Input      2 Bit        Muxes := 1     
+	  26 Input      2 Bit        Muxes := 2     
+	  27 Input      2 Bit        Muxes := 1     
+	  26 Input      1 Bit        Muxes := 10    
+Module OpcodeGen 
+Detailed RTL Component Info : 
++---Muxes : 
+	   6 Input      4 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 3     
+	   6 Input      1 Bit        Muxes := 1     
+Module FlagCtrl 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
+Module StateController 
+Detailed RTL Component Info : 
++---Registers : 
+	                5 Bit    Registers := 1     
++---Muxes : 
+	   8 Input      5 Bit        Muxes := 1     
+	  21 Input      5 Bit        Muxes := 1     
+	   6 Input      5 Bit        Muxes := 1     
+	   3 Input      5 Bit        Muxes := 3     
+	  10 Input      5 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 4     
+	   4 Input      5 Bit        Muxes := 1     
+	   5 Input      5 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 1     
+	   5 Input      3 Bit        Muxes := 1     
+Module ProcessorMemoryPath 
+Detailed RTL Component Info : 
++---Muxes : 
+	  14 Input     32 Bit        Muxes := 1     
+	   8 Input      4 Bit        Muxes := 1     
+	   8 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	   6 Input      2 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+Module MemoryModule 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 3     
+	   2 Input      4 Bit        Muxes := 1     
+	   8 Input      3 Bit        Muxes := 1     
+Module RegisterFile 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 16    
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 17    
+Module multiplier 
+Detailed RTL Component Info : 
++---Multipliers : 
+	                32x32  Multipliers := 1     
+Module shifter 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 2     
++---Muxes : 
+	   4 Input     32 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
+Module ALU 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     33 Bit       Adders := 1     
+	   4 Input     33 Bit       Adders := 1     
++---XORs : 
+	   2 Input     33 Bit         XORs := 1     
+	   4 Input      1 Bit         XORs := 1     
++---Muxes : 
+	  16 Input     33 Bit        Muxes := 4     
+	   2 Input      1 Bit        Muxes := 1     
+Module MainDataPath 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 6     
+	   2 Input      4 Bit        Muxes := 2     
+	   4 Input      4 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5587] ROM size for "P2MPath/mwe" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5545] ROM "z" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4And5/Lab4.vhf:296]
+DSP Report: Generating DSP Mul/tmpMultiply, operation Mode is: A*B.
+DSP Report: operator Mul/tmpMultiply is absorbed into DSP Mul/tmpMultiply.
+DSP Report: operator Mul/tmpMultiply is absorbed into DSP Mul/tmpMultiply.
+DSP Report: Generating DSP Mul/tmpMultiply, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator Mul/tmpMultiply is absorbed into DSP Mul/tmpMultiply.
+DSP Report: operator Mul/tmpMultiply is absorbed into DSP Mul/tmpMultiply.
+DSP Report: Generating DSP Mul/tmpMultiply, operation Mode is: A*B.
+DSP Report: operator Mul/tmpMultiply is absorbed into DSP Mul/tmpMultiply.
+DSP Report: operator Mul/tmpMultiply is absorbed into DSP Mul/tmpMultiply.
+DSP Report: Generating DSP Mul/tmpMultiply, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator Mul/tmpMultiply is absorbed into DSP Mul/tmpMultiply.
+DSP Report: operator Mul/tmpMultiply is absorbed into DSP Mul/tmpMultiply.
+WARNING: [Synth 8-3331] design shifter has unconnected port shiftAmount[31]
+WARNING: [Synth 8-3331] design shifter has unconnected port shiftAmount[30]
+WARNING: [Synth 8-3331] design shifter has unconnected port shiftAmount[29]
+WARNING: [Synth 8-3331] design shifter has unconnected port shiftAmount[28]
+WARNING: [Synth 8-3331] design shifter has unconnected port shiftAmount[27]
+WARNING: [Synth 8-3331] design shifter has unconnected port shiftAmount[26]
+WARNING: [Synth 8-3331] design shifter has unconnected port shiftAmount[25]
+WARNING: [Synth 8-3331] design shifter has unconnected port shiftAmount[24]
+WARNING: [Synth 8-3331] design shifter has unconnected port shiftAmount[23]
+WARNING: [Synth 8-3331] design shifter has unconnected port shiftAmount[22]
+WARNING: [Synth 8-3331] design shifter has unconnected port shiftAmount[21]
+WARNING: [Synth 8-3331] design shifter has unconnected port shiftAmount[20]
+WARNING: [Synth 8-3331] design shifter has unconnected port shiftAmount[19]
+WARNING: [Synth 8-3331] design shifter has unconnected port shiftAmount[18]
+WARNING: [Synth 8-3331] design shifter has unconnected port shiftAmount[17]
+INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+WARNING: [Synth 8-3332] Sequential element (IR_reg[31]) is unused and will be removed from module MainDataPath.
+WARNING: [Synth 8-3332] Sequential element (IR_reg[30]) is unused and will be removed from module MainDataPath.
+WARNING: [Synth 8-3332] Sequential element (IR_reg[29]) is unused and will be removed from module MainDataPath.
+WARNING: [Synth 8-3332] Sequential element (IR_reg[28]) is unused and will be removed from module MainDataPath.
+WARNING: [Synth 8-3332] Sequential element (flags_reg[3]) is unused and will be removed from module MainDataPath.
+WARNING: [Synth 8-3332] Sequential element (flags_reg[2]) is unused and will be removed from module MainDataPath.
+WARNING: [Synth 8-3332] Sequential element (flags_reg[1]) is unused and will be removed from module MainDataPath.
+WARNING: [Synth 8-3332] Sequential element (flags_reg[0]) is unused and will be removed from module MainDataPath.
+WARNING: [Synth 8-3332] Sequential element (overflow_reg) is unused and will be removed from module MainDataPath.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 1432.953 ; gain = 502.492 ; free physical = 136 ; free virtual = 11714
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+ROM:
++-----------------+-------------+---------------+----------------+
+|Module Name      | RTL Object  | Depth x Width | Implemented As | 
++-----------------+-------------+---------------+----------------+
+|MainController   | RW          | 32x1          | LUT            | 
+|MainController   | ReW         | 32x1          | LUT            | 
+|MasterController | CONTROL/RW  | 32x1          | LUT            | 
+|MasterController | CONTROL/ReW | 32x1          | LUT            | 
++-----------------+-------------+---------------+----------------+
+
+
+DSP: Preliminary Mapping  Report (see note below)
++-------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name  | DSP Mapping    | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++-------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|MainDataPath | A*B            | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|MainDataPath | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|MainDataPath | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|MainDataPath | (PCIN>>17)+A*B | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
++-------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:35 ; elapsed = 00:00:38 . Memory (MB): peak = 1466.953 ; gain = 536.492 ; free physical = 132 ; free virtual = 11643
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:35 ; elapsed = 00:00:38 . Memory (MB): peak = 1466.953 ; gain = 536.492 ; free physical = 132 ; free virtual = 11643
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-3332] Sequential element (CONTROL/MR_reg[1]) is unused and will be removed from module MasterController.
+WARNING: [Synth 8-3332] Sequential element (Data/carry_reg) is unused and will be removed from module MasterController.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:36 ; elapsed = 00:00:39 . Memory (MB): peak = 1522.172 ; gain = 591.711 ; free physical = 151 ; free virtual = 11657
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-3295] tying undriven pin Data/Memory/BRAM/BRAM_i:BRAM_PORTA_rst to constant 0
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:37 ; elapsed = 00:00:39 . Memory (MB): peak = 1522.172 ; gain = 591.711 ; free physical = 151 ; free virtual = 11657
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:37 ; elapsed = 00:00:40 . Memory (MB): peak = 1522.172 ; gain = 591.711 ; free physical = 151 ; free virtual = 11657
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:37 ; elapsed = 00:00:40 . Memory (MB): peak = 1522.172 ; gain = 591.711 ; free physical = 151 ; free virtual = 11657
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:37 ; elapsed = 00:00:40 . Memory (MB): peak = 1522.172 ; gain = 591.711 ; free physical = 151 ; free virtual = 11657
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:37 ; elapsed = 00:00:40 . Memory (MB): peak = 1522.172 ; gain = 591.711 ; free physical = 151 ; free virtual = 11657
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:37 ; elapsed = 00:00:40 . Memory (MB): peak = 1522.172 ; gain = 591.711 ; free physical = 151 ; free virtual = 11657
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+---------------------+----------+
+|      |BlackBox name        |Instances |
++------+---------------------+----------+
+|1     |BRAM_blk_mem_gen_0_0 |         1|
++------+---------------------+----------+
+
+Report Cell Usage: 
++------+--------------------------+------+
+|      |Cell                      |Count |
++------+--------------------------+------+
+|1     |BRAM_blk_mem_gen_0_0_bbox |     1|
+|2     |BUFG                      |     7|
+|3     |CARRY4                    |    20|
+|4     |DSP48E1                   |     3|
+|5     |LUT1                      |     2|
+|6     |LUT2                      |    24|
+|7     |LUT3                      |   110|
+|8     |LUT4                      |    69|
+|9     |LUT5                      |   478|
+|10    |LUT6                      |   771|
+|11    |MUXF7                     |   163|
+|12    |MUXF8                     |    64|
+|13    |FDRE                      |   517|
+|14    |LD                        |   240|
+|15    |IBUF                      |     1|
++------+--------------------------+------+
+
+Report Instance Areas: 
++------+---------------+----------------+------+
+|      |Instance       |Module          |Cells |
++------+---------------+----------------+------+
+|1     |top            |                |  2501|
+|2     |  CONTROL      |MainController  |    42|
+|3     |  Data         |MainDataPath    |  2123|
+|4     |    Memory     |MemoryModule    |    88|
+|5     |      BRAM     |BRAM_wrapper    |    88|
+|6     |        BRAM_i |BRAM            |    32|
+|7     |    Mul        |multiplier      |    23|
+|8     |    RFile      |RegisterFile    |  1249|
+|9     |  FSM          |StateController |    50|
+|10    |  OPCODESET    |OpcodeGen       |   278|
++------+---------------+----------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:37 ; elapsed = 00:00:40 . Memory (MB): peak = 1522.172 ; gain = 591.711 ; free physical = 151 ; free virtual = 11657
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 59 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 1522.172 ; gain = 185.684 ; free physical = 151 ; free virtual = 11657
+Synthesis Optimization Complete : Time (s): cpu = 00:00:37 ; elapsed = 00:00:40 . Memory (MB): peak = 1522.180 ; gain = 591.719 ; free physical = 151 ; free virtual = 11657
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 264 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 240 instances were transformed.
+  LD => LDCE: 240 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+74 Infos, 136 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:36 ; elapsed = 00:00:39 . Memory (MB): peak = 1522.180 ; gain = 524.215 ; free physical = 151 ; free virtual = 11659
+INFO: [Common 17-1381] The checkpoint '/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4And5/Processor_4/Processor_4.runs/synth_1/MasterController.dcp' has been generated.
+report_utilization: Time (s): cpu = 00:00:00.10 ; elapsed = 00:00:00.13 . Memory (MB): peak = 1546.184 ; gain = 0.000 ; free physical = 150 ; free virtual = 11659
+INFO: [Common 17-206] Exiting Vivado at Tue Mar 20 16:25:17 2018...

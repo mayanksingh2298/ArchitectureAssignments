@@ -9,4 +9,4 @@ then
 exit $RETVAL
 fi
 }
-ExecStep $xv_path/bin/xsim MainDataPath_behav -key {Behavioral:sim_1:Functional:MainDataPath} -tclbatch MainDataPath.tcl -log simulate.log
+ExecStep $xv_path/bin/xsim MasterController_behav -key {Behavioral:sim_1:Functional:MasterController} -tclbatch MasterController.tcl -log simulate.log

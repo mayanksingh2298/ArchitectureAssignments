@@ -222,6 +222,7 @@ entity ALU is
       b : in std_logic_vector (31 downto 0);
       opcode : in std_logic_vector (3 downto 0);
       carry : in std_logic;
+      overflow : in std_logic;
 
       result : out std_logic_vector (31 downto 0);
       z : out std_logic;
@@ -238,7 +239,10 @@ signal tempb : std_logic_vector(32 downto 0);
 signal carry1or0 :integer;
 signal c31 : std_logic;
 signal c32 : std_logic;
+signal boolSetCV: std_logic;
 begin
+
+	boolSetCV <= '1' when (opcode = "0010" or opcode = "0011" or opcode = "0100" or opcode = "0101" or opcode = "0110" or opcode = "0111" or opcode = "1010" or opcode = "1011" ) ELSE '0';
     result <= tempResult(31 downto 0);
     c31 <= tempa(31) xor tempb(31) xor tempResult(31);
     c32 <= tempResult(32);
@@ -271,8 +275,8 @@ begin
     with tempResult(31 downto 0) select z <=
         '1' when "00000000000000000000000000000000",
         '0' when others;
-    c <= c32;
-    v <= c31 xor c32;
+    c <= (c32 and boolSetCV) or (carry and (not boolSetCV));
+    v <= ((c31 xor c32) and boolSetCV) or (overflow and (not boolSetCV));
 end func1;
 
 
@@ -386,6 +390,7 @@ signal writeValReg: std_logic_vector(31 downto 0); -- value to be written in reg
 signal writeReg: std_logic_vector(3 downto 0); -- write register address
 signal resetReg: std_logic := '0';
 signal carry: std_logic; -- contains carry flag to give input to others
+signal overflow: std_logic;-- contains overlow flag to give input to others
 signal ALUCarryOut: std_logic;
 signal ShifterCarryOut: std_logic;
 --Mayank's signals
@@ -416,6 +421,8 @@ signal mwe: std_logic_vector(3 downto 0); -- contains memory write enables
 begin
 
     carry <= flagstemp(1) when Fset = '1'; -- To give carry flag as an input to ALU
+    overflow <= flagstemp(0) when Fset = '1'; -- To give carry flag as an input to ALU
+
     IR_out <= IR;
     flagstemp(1) <= ALUCarryOut or ShifterCarryOut;
     specialDoubleRotate<= std_logic_vector(rotate_right(unsigned("000000000000000000000000"&IR(7 downto 0)), 2*to_integer(unsigned(IR(11 downto 8)))));
@@ -535,6 +542,7 @@ begin
         b => ALUInputB,
         opcode => op,
         carry => carry,
+        overflow => overflow,
         
         result => ALUresult,
         z => flagsTemp(3),

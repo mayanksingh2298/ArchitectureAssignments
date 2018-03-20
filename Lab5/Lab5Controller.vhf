@@ -465,7 +465,7 @@ use ieee.numeric_std.ALL;
 use work.Global.all;
 entity OpcodeGen is
     port(
-        IR : in std_logic_vector(3 downto 0);
+        IR : in std_logic_vector(31 downto 0);
         state : in mystate; 
         op : out std_logic_vector(3 downto 0);
         opShift : out std_logic_vector(1 downto 0)

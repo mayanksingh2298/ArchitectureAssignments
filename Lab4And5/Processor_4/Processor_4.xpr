@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="17" Path="/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Processor_4/Processor_4.xpr">
+<Project Version="7" Minor="17" Path="/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4And5/Processor_4/Processor_4.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="259efc0b753d4284a9a547a77ae4cefa"/>
@@ -29,7 +29,7 @@
     <Option Name="IPStaticSourceDir" Val="$PPRDIR/Processor_4.ip_user_files/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
     <Option Name="DSANumComputeUnits" Val="16"/>
-    <Option Name="WTXSimLaunchSim" Val="27"/>
+    <Option Name="WTXSimLaunchSim" Val="30"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
@@ -59,12 +59,12 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
         <CompFileExtendedInfo CompFileName="BRAM.bd" FileRelPathName="hdl/BRAM.hwdef"/>
-        <CompFileExtendedInfo CompFileName="BRAM.bd" FileRelPathName="ip/BRAM_blk_mem_gen_0_0/BRAM_blk_mem_gen_0_0.xci">
-          <Proxy FileSetName="BRAM_blk_mem_gen_0_0"/>
-        </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="BRAM.bd" FileRelPathName="hdl/BRAM.vhd"/>
         <CompFileExtendedInfo CompFileName="BRAM.bd" FileRelPathName="hw_handoff/BRAM_bd.tcl"/>
         <CompFileExtendedInfo CompFileName="BRAM.bd" FileRelPathName="BRAM_ooc.xdc"/>
+        <CompFileExtendedInfo CompFileName="BRAM.bd" FileRelPathName="ip/BRAM_blk_mem_gen_0_0/BRAM_blk_mem_gen_0_0.xci">
+          <Proxy FileSetName="BRAM_blk_mem_gen_0_0"/>
+        </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="BRAM.bd" FileRelPathName="hw_handoff/BRAM.hwh"/>
       </File>
       <File Path="$PSRCDIR/sources_1/imports/hdl/BRAM_wrapper.vhd">
@@ -83,14 +83,13 @@
       </File>
       <File Path="$PPRDIR/../../Lab5/Lab5Controller.vhf">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="MemoryModule"/>
+        <Option Name="TopModule" Val="MasterController"/>
       </Config>
     </FileSet>
     <FileSet Name="constrs_1" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
@@ -103,7 +102,7 @@
       <Filter Type="Srcs"/>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="MainDataPath"/>
+        <Option Name="TopModule" Val="MasterController"/>
         <Option Name="TopLib" Val="xil_defaultlib"/>
         <Option Name="TransportPathDelay" Val="0"/>
         <Option Name="TransportIntDelay" Val="0"/>

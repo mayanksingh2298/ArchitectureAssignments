@@ -1,9 +1,8 @@
 Vivado Simulator 2016.4
 Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
-Running: /opt/Xilinx/Vivado/2016.4/bin/unwrapped/lnx64.o/xelab -wto 259efc0b753d4284a9a547a77ae4cefa --debug typical --relax --mt 8 -L blk_mem_gen_v8_3_5 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot MainDataPath_behav xil_defaultlib.MainDataPath xil_defaultlib.glbl -log elaborate.log 
+Running: /opt/Xilinx/Vivado/2016.4/bin/unwrapped/lnx64.o/xelab -wto 259efc0b753d4284a9a547a77ae4cefa --debug typical --relax --mt 8 -L blk_mem_gen_v8_3_5 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot MasterController_behav xil_defaultlib.MasterController xil_defaultlib.glbl -log elaborate.log 
 Using 8 slave threads.
 Starting static elaboration
-WARNING: [VRFC 10-516] comparison between unequal length arrays always returns FALSE [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/Lab4/Lab4.vhf:499]
 WARNING: [VRFC 10-1783] select index 62 into current_contents is out of bounds [/wrk/2016.4/nightly/2017_01_23_1756540/packages/customer/vivado/data/ip/xilinx/blk_mem_gen_v8_3/simulation/blk_mem_gen_v8_3.v:2420]
 Completed static elaboration
 Starting simulation data flow analysis
@@ -13,9 +12,14 @@ Compiling package std.standard
 Compiling package std.textio
 Compiling package ieee.std_logic_1164
 Compiling package ieee.numeric_std
+Compiling package xil_defaultlib.global
 Compiling package unisim.vcomponents
 Compiling package vl.vl_types
 Compiling module xil_defaultlib.glbl
+Compiling architecture maincontrol of entity xil_defaultlib.MainController [maincontroller_default]
+Compiling architecture actrl of entity xil_defaultlib.OpcodeGen [opcodegen_default]
+Compiling architecture bctrl of entity xil_defaultlib.FlagCtrl [flagctrl_default]
+Compiling architecture statefsm of entity xil_defaultlib.StateController [statecontroller_default]
 Compiling architecture func5 of entity xil_defaultlib.ProcessorMemoryPath [processormemorypath_default]
 Compiling module blk_mem_gen_v8_3_5.blk_mem_gen_v8_3_5_output_stage(...
 Compiling module blk_mem_gen_v8_3_5.blk_mem_gen_v8_3_5_output_stage(...
@@ -30,5 +34,6 @@ Compiling architecture func4 of entity xil_defaultlib.RegisterFile [registerfile
 Compiling architecture func3 of entity xil_defaultlib.multiplier [multiplier_default]
 Compiling architecture func2 of entity xil_defaultlib.shifter [shifter_default]
 Compiling architecture func1 of entity xil_defaultlib.ALU [alu_default]
-Compiling architecture datapath of entity xil_defaultlib.maindatapath
-Built simulation snapshot MainDataPath_behav
+Compiling architecture datapath of entity xil_defaultlib.MainDataPath [maindatapath_default]
+Compiling architecture mastercontrol of entity xil_defaultlib.mastercontroller
+Built simulation snapshot MasterController_behav
