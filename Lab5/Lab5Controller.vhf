@@ -465,9 +465,9 @@ begin
     		when MulWaste =>
     			op <= "0100";
     		when arith=>
-    			if((IR[27 downto 26]="01" or (IR[27 downto 26]="00" and IR[25]='0' and IR[7]='1' and IR[5]='1' and IR[6 downto 5]/="00")) and IR[23]='1') then--offset addition
+    			if((IR(27 downto 26)="01" or (IR(27 downto 26)="00" and IR(25)='0' and IR(7)='1' and IR(5)='1' and IR(6 downto 5)/="00")) and IR(23)='1') then--offset addition
 	    			op <= "0100";
-	    		elsif ((IR(27 downto 26)="01" or (IR[27 downto 26]="00" and IR[25]='0' and IR[7]='1' and IR[5]='1' and IR[6 downto 5]/="00")) and IR[23]='0') then --subtraction
+	    		elsif ((IR(27 downto 26)="01" or (IR(27 downto 26)="00" and IR(25)='0' and IR(7)='1' and IR(5)='1' and IR(6 downto 5)/="00")) and IR(23)='0') then --subtraction
 	    			op <= "0010";
 	    		else --ALU operation
 	    			op <= IR(24 downto 21);
