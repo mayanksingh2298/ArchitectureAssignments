@@ -403,6 +403,7 @@ signal ALUInputA : std_logic_vector(31 downto 0);
 signal ALUInputB : std_logic_vector(31 downto 0);
 signal RESresult : std_logic_vector(31 downto 0);
 signal shiftAmt: std_logic_vector(31 downto 0);
+signal specialDoubleRotate: std_logic_vector(31 downto 0);
 
 signal Shiftresult: std_logic_vector(31 downto 0); -- contains Shift result
 signal ShiftresultHolder: std_logic_vector(31 downto 0); -- contains Shift result
@@ -417,6 +418,7 @@ begin
     carry <= flagstemp(1) when Fset = '1'; -- To give carry flag as an input to ALU
     IR_out <= IR;
     flagstemp(1) <= ALUCarryOut or ShifterCarryOut;
+    specialDoubleRotate<= std_logic_vector(rotate_right(unsigned("000000000000000000000000"&IR(7 downto 0)), 2*to_integer(unsigned(IR(11 downto 8)))));
 -------------------------------------------------------------------------
 -----------------------------Port Mappings-------------------------------
 -------------------------------------------------------------------------
@@ -523,7 +525,9 @@ begin
                  EXResult when Asrc2 = "010" ELSE
                  S2Result when Asrc2= "011" ELSE
                  "00000000000000000000000000000000" when Asrc2= "100" ELSE
-                 B;
+                 "000000000000000000000000"&IR(11 downto 8)&IR(3 downto 0) when Asrc2="101"
+                 specialDoubleRotate when Asrc2="110" ELSE
+                 B;--111
    
     --ALU Box
     ALU_unit: entity work.ALU(func1) port map(
