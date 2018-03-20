@@ -359,16 +359,20 @@ begin
 				end if;
 			when ReadMem => 
                 DW <= '1';
-				if((IR(27 downto 26) = "01") and (IR(22) = '1') and (IR(20) = '1')) then
+				if((IR(27 downto 26) = "01") and (IR(22) = '1') and (IR(20) = '1') and (IR(6 downto 5) = "00")) then
+					--ldrb
 					MR<="101";
 					MW<="000";
-				elsif((IR(27 downto 26) = "01") and (IR(22) = '1') and (IR(20) = '1')) then
+				elsif((IR(27 downto 25) = "000") and (IR(7) = '1') and (IR(4) = '1') and (IR(6 downto 5) = "10")) then
+					--ldrsb
 					MR<="001";
 					MW<="000";
-				elsif((IR(27 downto 26) = "01") and (IR(22) = '1') and (IR(20) = '1')) then
+				elsif((IR(27 downto 25) = "000") and (IR(7) = '1') and (IR(4) = '1') and (IR(6 downto 5) = "01")) then
+					--ldrh
 					MR<="010";
 					MW<="000";
-				elsif((IR(27 downto 26) = "01") and (IR(22) = '1') and (IR(20) = '1')) then
+				elsif((IR(27 downto 25) = "000") and (IR(7) = '1') and (IR(4) = '1') and (IR(6 downto 5) = "11")) then
+					--ldrsh
 					MR<="011";
 					MW<="000";	
 				else --ldr
@@ -382,9 +386,9 @@ begin
                 elsif (IR(27 downto 25)="010") then
                     Asrc2<= "010"; -- constant offset in DT
                 elsif(IR(27 downto 25)="000" and IR(22)='1' and IR(7)='1' and IR(4)='1' and IR(6 downto 5)/="00") then
-                    Asrc2<= "101"; --halfWordConstantShift
+                    Asrc2<= "101"; --halfWordConstantOffset
                 elsif(IR(27 downto 25)="001") then
-                    Asrc2<= "110"; --specialDoubleEggRole
+                    Asrc2<= "110"; --specialDoubleEggRole, register value rotated by 2*shamt
                 else
                     Asrc2<= "111"; --when no shift
                 end if;
