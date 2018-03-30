@@ -1,0 +1,23 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4Test/Lab4_Testbench/ip/blk_mem_gen_0/sim/blk_mem_gen_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module blk_mem_gen_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4Test/Lab4_Testbench/lab4test.sim/sim_1/behav/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4Test/Lab4_Testbench/uart_vhdl.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity uart
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4Test/Lab4_Testbench/memory.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity memory_uart
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4Test/Lab4_Testbench/Lab4.vhf" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath
+INFO: [VRFC 10-307] analyzing entity MemoryModule
+ERROR: [VRFC 10-149] 'bram_wrapper' is not compiled in library xil_defaultlib [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4Test/Lab4_Testbench/Lab4.vhf:164]
+ERROR: [VRFC 10-1504] unit func0 ignored due to previous errors [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4Test/Lab4_Testbench/Lab4.vhf:122]
+INFO: [VRFC 10-307] analyzing entity shifter
+ERROR: [VRFC 10-1504] unit shifter ignored due to previous errors [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4Test/Lab4_Testbench/Lab4.vhf:179]
+INFO: [VRFC 10-240] VHDL file /home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4Test/Lab4_Testbench/Lab4.vhf ignored due to errors
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4Test/Lab4_Testbench/Lab4_TB.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity tb
+ERROR: [VRFC 10-91] nibble is not declared [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4Test/Lab4_Testbench/Lab4_TB.vhd:115]
+ERROR: [VRFC 10-91] flags_out is not declared [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4Test/Lab4_Testbench/Lab4_TB.vhd:131]
+ERROR: [VRFC 10-283] actual of formal out port flags cannot be an expression [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4Test/Lab4_Testbench/Lab4_TB.vhd:131]
+ERROR: [VRFC 10-1504] unit behavioral ignored due to previous errors [/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4Test/Lab4_Testbench/Lab4_TB.vhd:28]
+INFO: [VRFC 10-240] VHDL file /home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4Test/Lab4_Testbench/Lab4_TB.vhd ignored due to errors
