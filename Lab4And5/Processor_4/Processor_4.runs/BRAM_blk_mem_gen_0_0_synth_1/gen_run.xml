@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="BRAM_blk_mem_gen_0_0_synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1520331002">
-  <File Type="RDS-UTIL" Name="BRAM_blk_mem_gen_0_0_utilization_synth.rpt"/>
+  <File Type="PA-TCL" Name="BRAM_blk_mem_gen_0_0.tcl"/>
+  <File Type="RDS-RDS" Name="BRAM_blk_mem_gen_0_0.vds"/>
   <File Type="RDS-PROPCONSTRS" Name="BRAM_blk_mem_gen_0_0_drc_synth.rpt"/>
+  <File Type="RDS-UTIL" Name="BRAM_blk_mem_gen_0_0_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="BRAM_blk_mem_gen_0_0_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="BRAM_blk_mem_gen_0_0.dcp"/>
   <File Type="VDS-TIMINGSUMMARY" Name="BRAM_blk_mem_gen_0_0_timing_summary_synth.rpt"/>
   <File Type="VDS-TIMING-PB" Name="BRAM_blk_mem_gen_0_0_timing_summary_synth.pb"/>
-  <File Type="RDS-RDS" Name="BRAM_blk_mem_gen_0_0.vds"/>
-  <File Type="PA-TCL" Name="BRAM_blk_mem_gen_0_0.tcl"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/BRAM_blk_mem_gen_0_0">
     <File Path="$PSRCDIR/sources_1/bd/BRAM/ip/BRAM_blk_mem_gen_0_0/BRAM_blk_mem_gen_0_0.xci">
       <FileInfo>
