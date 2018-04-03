@@ -513,43 +513,42 @@ use ieee.numeric_std.ALL;
 use work.Global.all;
 entity MasterController is
     port(
-        clk : in std_logic
+        clk : in std_logic;
+        IR : in std_logic_vector(31 downto 0);
+        flags : in std_logic_vector(3 downto 0);
+
+        IorD : out std_logic;
+        MR : out std_logic_vector(2 downto 0);
+        MW : out std_logic_vector(2 downto 0);
+        IW : out std_logic;
+        DW : out std_logic;
+        Rsrc : out std_logic;
+        M2R : out std_logic_vector(1 downto 0);
+        RW : out std_logic;
+        BW : out std_logic;
+        AW : out std_logic;
+        Asrc1 : out std_logic_vector(1 downto 0);
+        Asrc2 : out std_logic_vector(2 downto 0);
+        Fset : out std_logic;
+        op : out std_logic_vector(3 downto 0);
+        ReW : out std_logic;
+        read1Sig : out std_logic;
+        writeAddSig : out std_logic_vector(1 downto 0);            
+        shiftAmtSig : out std_logic;
+        shiftHoldSig : out std_logic;
+        mulHoldSig : out std_logic;
+        opShift : out std_logic_vector(1 downto 0);
+        Memrst : out std_logic
     );
 end MasterController;
 architecture MasterControl of MasterController is
 signal Currstate : mystate := InitialState;
 signal Nextstate : mystate := InitialState;
-signal IR : std_logic_vector(31 downto 0);
-signal flags : std_logic_vector(3 downto 0);
 signal predicate : std_logic;
-
-signal IorD: std_logic;
-signal MR: std_logic_vector(2 downto 0);
-signal MW: std_logic_vector(2 downto 0);
-signal IW: std_logic;
-signal DW: std_logic;
-signal Rsrc: std_logic;
-signal M2R: std_logic_vector(1 downto 0);
-signal RW: std_logic;
-signal BW: std_logic;
-signal AW: std_logic;
-signal Asrc1: std_logic_vector(1 downto 0);
-signal Asrc2: std_logic_vector(2 downto 0);
-signal op: std_logic_vector(3 downto 0);
-signal opShift: std_logic_vector(1 downto 0);
-signal Fset: std_logic;
-signal ReW: std_logic;
-signal read1Sig: std_logic;
-signal writeAddSig: std_logic_vector(1 downto 0);            
-signal shiftAmtSig: std_logic;
-signal shiftHoldSig: std_logic;
-signal mulHoldSig: std_logic;
-signal Memrst: std_logic;
 
 signal FsetTemp: std_logic;
 signal RWTemp: std_logic;
 signal MWTemp: std_logic_vector(2 downto 0);
---signal predicate: std_logic;
 
 begin
 
@@ -590,6 +589,7 @@ CONTROL: entity work.MainController(MainControl) port map(
 OPCODESET: entity work.OpcodeGen(Actrl) port map(
     IR => IR,
     state => Currstate,
+
     op => op,
     opShift => opShift
 );
@@ -609,33 +609,4 @@ FSM: entity work.StateController(StateFSM) port map(
     state => Nextstate
 );
 
-Data: entity work.MainDataPath(DataPath) port map(
-    IorD => IorD,
-    MR => MR,
-    MW => MWTemp,
-    IW => IW,
-    DW => DW,
-    Rsrc => Rsrc,
-    M2R => M2R,
-    RW => RWTemp,
-    BW => BW,
-    AW => AW,
-    Asrc1 => Asrc1,
-    Asrc2 => Asrc2,
-    Fset => FsetTemp,
-    op => op,
-    ReW => ReW,
-    read1Sig => read1Sig,
-    writeAddSig => writeAddSig,            
-    shiftAmtSig => shiftAmtSig,
-    clk => clk,
-    shiftHoldSig => shiftHoldSig,
-    mulHoldSig => mulHoldSig,
-    opShift => opShift,
-    Memrst => Memrst,
-
-    IR_out => IR,
-    flags => flags
-
-);
 end MasterControl; -- MasterControl
