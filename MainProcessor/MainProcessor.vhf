@@ -4,7 +4,8 @@ use ieee.numeric_std.ALL;
 use work.Global.all;
 entity MainProcessor is
     port(
-        clk : in std_logic
+        clk : in std_logic;
+        resetReg : in std_logic
     );
 end MainProcessor;
 
@@ -35,6 +36,9 @@ signal mulHoldSig : std_logic;
 signal opShift : std_logic_vector(1 downto 0);
 signal Memrst : std_logic;
 
+signal B : std_logic_vector(31 downto 0);
+signal MemInputAd : std_logic_vector(31 downto 0);
+signal MemResult : std_logic_vector(31 downto 0);
 
 begin
 
@@ -94,8 +98,25 @@ Data: entity work.MainDataPath(DataPath) port map(
     mulHoldSig => mulHoldSig,
     opShift => opShift,
     Memrst => Memrst,
-
+    resetReg => resetReg,
+    
     IR_out => IR,
-    flags => flags
+    flags => flags,
+    
+    MemResult => MemResult,
+    BOut => B,
+    MemInputAd => MemInputAd
 );
+
+Memory: entity work.MemoryModule(func0) port map(
+    address => MemInputAd,
+    WriteData =>  B,
+    clk => clk,
+    MR =>  MR,
+    MW =>  MW,
+    rst => Memrst,
+    
+    RD =>  MemResult
+);
+
 end MasterProcessor;

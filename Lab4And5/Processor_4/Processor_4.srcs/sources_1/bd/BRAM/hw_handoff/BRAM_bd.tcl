@@ -155,7 +155,7 @@ proc create_root_design { parentCell } {
   # Create interface ports
   set BRAM_PORTA [ create_bd_intf_port -mode Slave -vlnv xilinx.com:interface:bram_rtl:1.0 BRAM_PORTA ]
   set_property -dict [ list \
-CONFIG.MASTER_TYPE {BRAM_CTRL} \
+CONFIG.MASTER_TYPE {OTHER} \
  ] $BRAM_PORTA
 
   # Create ports
@@ -163,12 +163,14 @@ CONFIG.MASTER_TYPE {BRAM_CTRL} \
   # Create instance: blk_mem_gen_0, and set properties
   set blk_mem_gen_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:blk_mem_gen:8.3 blk_mem_gen_0 ]
   set_property -dict [ list \
-CONFIG.use_bram_block {BRAM_Controller} \
- ] $blk_mem_gen_0
-
-  # Need to retain value_src of defaults
-  set_property -dict [ list \
-CONFIG.use_bram_block.VALUE_SRC {DEFAULT} \
+CONFIG.Byte_Size {8} \
+CONFIG.Coe_File {../../../../../../../../InitFile/bram.coe} \
+CONFIG.Enable_32bit_Address {true} \
+CONFIG.Load_Init_File {true} \
+CONFIG.Register_PortA_Output_of_Memory_Primitives {true} \
+CONFIG.Use_Byte_Write_Enable {true} \
+CONFIG.Use_RSTA_Pin {true} \
+CONFIG.use_bram_block {Stand_Alone} \
  ] $blk_mem_gen_0
 
   # Create interface connections
@@ -178,6 +180,16 @@ CONFIG.use_bram_block.VALUE_SRC {DEFAULT} \
 
   # Create address segments
 
+  # Perform GUI Layout
+  regenerate_bd_layout -layout_string {
+   guistr: "# # String gsaved with Nlview 6.6.5b  2016-09-06 bk=1.3687 VDI=39 GEI=35 GUI=JA:1.6
+#  -string -flagsOSRD
+preplace port BRAM_PORTA -pg 1 -y 50 -defaultsOSRD
+preplace inst blk_mem_gen_0 -pg 1 -lvl 1 -y 50 -defaultsOSRD
+preplace netloc BRAM_PORTA_1 1 0 1 NJ
+levelinfo -pg 1 0 130 240 -top 0 -bot 220
+",
+}
 
   # Restore current instance
   current_bd_instance $oldCurInst

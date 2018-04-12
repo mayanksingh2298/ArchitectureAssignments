@@ -369,9 +369,14 @@ entity MainDataPath is
         mulHoldSig: in std_logic;
         
         Memrst : in std_logic;
-
+        resetReg : in std_logic;
+        
+        MemResult : in std_logic_vector(31 downto 0);
+        
         IR_out: out std_logic_vector(31 downto 0);
-        flags: out std_logic_vector(3 downto 0)
+        flags: out std_logic_vector(3 downto 0);
+        MemInputAd: out std_logic_vector(31 downto 0);
+        BOut : out std_logic_vector(31 downto 0)
 );
 end MainDataPath;
 architecture DataPath of MainDataPath is
@@ -388,7 +393,7 @@ signal read3RegVal: std_logic_vector(31 downto 0); -- for Rs or to store value a
 signal read4RegVal: std_logic_vector(31 downto 0); -- for Rd or to store value at Rd
 signal writeValReg: std_logic_vector(31 downto 0); -- value to be written in register in Reg file
 signal writeReg: std_logic_vector(3 downto 0); -- write register address
-signal resetReg: std_logic := '0';
+--signal resetReg: std_logic := '0';
 signal carry: std_logic; -- contains carry flag to give input to others
 signal overflow: std_logic;-- contains overlow flag to give input to others
 signal ALUCarryOut: std_logic;
@@ -396,7 +401,7 @@ signal ShifterCarryOut: std_logic;
 --Mayank's signals
 signal ALUresult: std_logic_vector(31 downto 0); -- contains ALU result
 signal PCresult: std_logic_vector(31 downto 0); --PC result
-signal MemInputAd: std_logic_vector(31 downto 0); --ad for Mem
+--signal MemInputAd: std_logic_vector(31 downto 0); --ad for Mem
 signal MemInputWd: std_logic_vector(31 downto 0); --wd for Mem
 signal IR: std_logic_vector(31 downto 0);
 signal DR: std_logic_vector(31 downto 0);
@@ -414,7 +419,7 @@ signal Shiftresult: std_logic_vector(31 downto 0); -- contains Shift result
 signal ShiftresultHolder: std_logic_vector(31 downto 0); -- contains Shift result
 signal Mulresult: std_logic_vector(31 downto 0); -- contains Multiply result
 signal MulresultHolder: std_logic_vector(31 downto 0); -- contains Multiply result
-signal MemResult: std_logic_vector(31 downto 0); -- contains value fetched from memory to be loaded by ldr
+--signal MemResult: std_logic_vector(31 downto 0); -- contains value fetched from memory to be loaded by ldr
 signal ByteOffsetForRegister: std_logic_vector(31 downto 0); -- contains 0/1/2/3 value offset i.e after dividing by 4 left as remainder
 signal WriteValMem: std_logic_vector(31 downto 0); -- contains value to be written in memory
 signal mwe: std_logic_vector(3 downto 0); -- contains memory write enables
@@ -422,7 +427,8 @@ begin
 
     carry <= flagstemp(1) when Fset = '1'; -- To give carry flag as an input to ALU
     overflow <= flagstemp(0) when Fset = '1'; -- To give carry flag as an input to ALU
-
+    
+    BOut <= B;
     IR_out <= IR;
     flagstemp(1) <= ALUCarryOut or ShifterCarryOut;
     specialDoubleRotate<= std_logic_vector(rotate_right(unsigned("000000000000000000000000"&IR(7 downto 0)), 2*to_integer(unsigned(IR(11 downto 8)))));
@@ -431,16 +437,16 @@ begin
 -------------------------------------------------------------------------
     
     -- Memory Port Mapping. For now I have put B into Write Data. Maybe ShiftResultHolder is also a possibility.    
-    Memory: entity work.MemoryModule(func0) port map(
-        address => MemInputAd,
-        WriteData =>  B,
-        clk => clk,
-        MR =>  MR,
-        MW =>  MW,
-        rst => Memrst,
+--    Memory: entity work.MemoryModule(func0) port map(
+--        address => MemInputAd,
+--        WriteData =>  B,
+--        clk => clk,
+--        MR =>  MR,
+--        MW =>  MW,
+--        rst => Memrst,
         
-        RD =>  MemResult
-    );
+--        RD =>  MemResult
+--    );
 
     --IorD mux
     MemInputAd <= PCresult when IorD = '0' ELSE

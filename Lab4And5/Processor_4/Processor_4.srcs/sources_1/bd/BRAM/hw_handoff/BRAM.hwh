@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Mar  6 15:39:58 2018" VIVADOVERSION="2016.4">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Apr 12 17:26:35 2018" VIVADOVERSION="2016.4">
 
   <SYSTEMINFO ARCH="artix7" DEVICE="7a35t" NAME="BRAM" PACKAGE="cpg236" SPEEDGRADE="-1"/>
 
@@ -9,8 +9,8 @@
     <PORT DIR="I" LEFT="31" NAME="BRAM_PORTA_din" RIGHT="0" SIGIS="undef"/>
     <PORT DIR="O" LEFT="31" NAME="BRAM_PORTA_dout" RIGHT="0" SIGIS="undef"/>
     <PORT DIR="I" NAME="BRAM_PORTA_en" SIGIS="undef"/>
-    <PORT DIR="I" NAME="BRAM_PORTA_rst" SIGIS="undef"/>
     <PORT DIR="I" LEFT="3" NAME="BRAM_PORTA_we" RIGHT="0" SIGIS="undef"/>
+    <PORT DIR="I" NAME="BRAM_PORTA_rst" SIGIS="undef"/>
   </EXTERNALPORTS>
 
   <EXTERNALINTERFACES>
@@ -18,7 +18,7 @@
       <PARAMETER NAME="MEM_SIZE" VALUE="8192"/>
       <PARAMETER NAME="MEM_WIDTH" VALUE="32"/>
       <PARAMETER NAME="MEM_ECC" VALUE="NONE"/>
-      <PARAMETER NAME="MASTER_TYPE" VALUE="BRAM_CTRL"/>
+      <PARAMETER NAME="MASTER_TYPE" VALUE="OTHER"/>
       <PARAMETER NAME="READ_WRITE_MODE" VALUE="READ_WRITE"/>
       <PORTMAPS>
         <PORTMAP LOGICAL="ADDR" PHYSICAL="BRAM_PORTA_addr"/>
@@ -26,8 +26,8 @@
         <PORTMAP LOGICAL="DIN" PHYSICAL="BRAM_PORTA_din"/>
         <PORTMAP LOGICAL="DOUT" PHYSICAL="BRAM_PORTA_dout"/>
         <PORTMAP LOGICAL="EN" PHYSICAL="BRAM_PORTA_en"/>
-        <PORTMAP LOGICAL="RST" PHYSICAL="BRAM_PORTA_rst"/>
         <PORTMAP LOGICAL="WE" PHYSICAL="BRAM_PORTA_we"/>
+        <PORTMAP LOGICAL="RST" PHYSICAL="BRAM_PORTA_rst"/>
       </PORTMAPS>
     </BUSINTERFACE>
   </EXTERNALINTERFACES>
@@ -44,7 +44,7 @@
         <PARAMETER NAME="C_INTERFACE_TYPE" VALUE="0"/>
         <PARAMETER NAME="C_AXI_TYPE" VALUE="1"/>
         <PARAMETER NAME="C_AXI_SLAVE_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_USE_BRAM_BLOCK" VALUE="1"/>
+        <PARAMETER NAME="C_USE_BRAM_BLOCK" VALUE="0"/>
         <PARAMETER NAME="C_ENABLE_32BIT_ADDRESS" VALUE="1"/>
         <PARAMETER NAME="C_CTRL_ECC_ALGO" VALUE="NONE"/>
         <PARAMETER NAME="C_HAS_AXI_ID" VALUE="0"/>
@@ -53,8 +53,8 @@
         <PARAMETER NAME="C_BYTE_SIZE" VALUE="8"/>
         <PARAMETER NAME="C_ALGORITHM" VALUE="1"/>
         <PARAMETER NAME="C_PRIM_TYPE" VALUE="1"/>
-        <PARAMETER NAME="C_LOAD_INIT_FILE" VALUE="0"/>
-        <PARAMETER NAME="C_INIT_FILE_NAME" VALUE="no_coe_file_loaded"/>
+        <PARAMETER NAME="C_LOAD_INIT_FILE" VALUE="1"/>
+        <PARAMETER NAME="C_INIT_FILE_NAME" VALUE="BRAM_blk_mem_gen_0_0.mif"/>
         <PARAMETER NAME="C_INIT_FILE" VALUE="NONE"/>
         <PARAMETER NAME="C_USE_DEFAULT_DATA" VALUE="0"/>
         <PARAMETER NAME="C_DEFAULT_DATA" VALUE="0"/>
@@ -86,7 +86,7 @@
         <PARAMETER NAME="C_WRITE_DEPTH_B" VALUE="2048"/>
         <PARAMETER NAME="C_READ_DEPTH_B" VALUE="2048"/>
         <PARAMETER NAME="C_ADDRB_WIDTH" VALUE="32"/>
-        <PARAMETER NAME="C_HAS_MEM_OUTPUT_REGS_A" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_MEM_OUTPUT_REGS_A" VALUE="1"/>
         <PARAMETER NAME="C_HAS_MEM_OUTPUT_REGS_B" VALUE="0"/>
         <PARAMETER NAME="C_HAS_MUX_OUTPUT_REGS_A" VALUE="0"/>
         <PARAMETER NAME="C_HAS_MUX_OUTPUT_REGS_B" VALUE="0"/>
@@ -145,7 +145,7 @@
         <PARAMETER NAME="Read_Width_B" VALUE="32"/>
         <PARAMETER NAME="Operating_Mode_B" VALUE="WRITE_FIRST"/>
         <PARAMETER NAME="Enable_B" VALUE="Always_Enabled"/>
-        <PARAMETER NAME="Register_PortA_Output_of_Memory_Primitives" VALUE="false"/>
+        <PARAMETER NAME="Register_PortA_Output_of_Memory_Primitives" VALUE="true"/>
         <PARAMETER NAME="Register_PortA_Output_of_Memory_Core" VALUE="false"/>
         <PARAMETER NAME="Use_REGCEA_Pin" VALUE="false"/>
         <PARAMETER NAME="Register_PortB_Output_of_Memory_Primitives" VALUE="false"/>
@@ -154,8 +154,8 @@
         <PARAMETER NAME="register_porta_input_of_softecc" VALUE="false"/>
         <PARAMETER NAME="register_portb_output_of_softecc" VALUE="false"/>
         <PARAMETER NAME="Pipeline_Stages" VALUE="0"/>
-        <PARAMETER NAME="Load_Init_File" VALUE="false"/>
-        <PARAMETER NAME="Coe_File" VALUE="no_coe_file_loaded"/>
+        <PARAMETER NAME="Load_Init_File" VALUE="true"/>
+        <PARAMETER NAME="Coe_File" VALUE="../../../../../../../../InitFile/bram.coe"/>
         <PARAMETER NAME="Fill_Remaining_Memory_Locations" VALUE="false"/>
         <PARAMETER NAME="Remaining_Memory_Locations" VALUE="0"/>
         <PARAMETER NAME="Use_RSTA_Pin" VALUE="true"/>
@@ -177,7 +177,7 @@
         <PARAMETER NAME="Collision_Warnings" VALUE="ALL"/>
         <PARAMETER NAME="Disable_Collision_Warnings" VALUE="false"/>
         <PARAMETER NAME="Disable_Out_of_Range_Warnings" VALUE="false"/>
-        <PARAMETER NAME="use_bram_block" VALUE="BRAM_Controller"/>
+        <PARAMETER NAME="use_bram_block" VALUE="Stand_Alone"/>
         <PARAMETER NAME="MEM_FILE" VALUE="NONE"/>
         <PARAMETER NAME="CTRL_ECC_ALGO" VALUE="NONE"/>
         <PARAMETER NAME="EN_SAFETY_CKT" VALUE="false"/>
@@ -197,7 +197,7 @@
           <PARAMETER NAME="MEM_SIZE" VALUE="8192"/>
           <PARAMETER NAME="MEM_WIDTH" VALUE="32"/>
           <PARAMETER NAME="MEM_ECC" VALUE="NONE"/>
-          <PARAMETER NAME="MASTER_TYPE" VALUE="BRAM_CTRL"/>
+          <PARAMETER NAME="MASTER_TYPE" VALUE="OTHER"/>
           <PARAMETER NAME="READ_WRITE_MODE" VALUE="READ_WRITE"/>
           <PORTMAPS>
             <PORTMAP LOGICAL="ADDR" PHYSICAL="addra"/>
