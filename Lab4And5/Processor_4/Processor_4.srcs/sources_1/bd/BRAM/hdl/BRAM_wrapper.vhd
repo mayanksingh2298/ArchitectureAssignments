@@ -1,7 +1,7 @@
 --Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2016.4 (lin64) Build 1756540 Mon Jan 23 19:11:19 MST 2017
---Date        : Thu Apr 12 17:26:35 2018
+--Date        : Thu Apr 12 19:08:11 2018
 --Host        : atishya-HP-Pavilion-Notebook running 64-bit Ubuntu 16.04.4 LTS
 --Command     : generate_target BRAM_wrapper.bd
 --Design      : BRAM_wrapper
@@ -31,8 +31,8 @@ architecture STRUCTURE of BRAM_wrapper is
     BRAM_PORTA_din : in STD_LOGIC_VECTOR ( 31 downto 0 );
     BRAM_PORTA_dout : out STD_LOGIC_VECTOR ( 31 downto 0 );
     BRAM_PORTA_en : in STD_LOGIC;
-    BRAM_PORTA_we : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    BRAM_PORTA_rst : in STD_LOGIC
+    BRAM_PORTA_rst : in STD_LOGIC;
+    BRAM_PORTA_we : in STD_LOGIC_VECTOR ( 3 downto 0 )
   );
   end component BRAM;
 begin

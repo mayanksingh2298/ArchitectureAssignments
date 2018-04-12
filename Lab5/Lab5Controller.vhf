@@ -496,7 +496,7 @@ begin
 	    			op <= "0100";
 	    		elsif ((IR(27 downto 26)="01" or (IR(27 downto 26)="00" and IR(25)='0' and IR(7)='1' and IR(4)='1' and IR(6 downto 5)/="00")) and IR(23)='0') then --subtraction
 	    			op <= "0010";
-                elsif(IR(27 downto 26)="00" and IR(25)='1') then
+                elsif(IR(27 downto 26)="00" and IR(25)='1' and (IR(24 downto 21)/="1101" and IR(24 downto 21)/="1111") ) then
                     op <= "0100";
 	    		else --ALU operation
 	    			op <= IR(24 downto 21);

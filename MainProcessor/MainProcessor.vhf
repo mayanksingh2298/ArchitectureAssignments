@@ -11,7 +11,7 @@ end MainProcessor;
 
 architecture MasterProcessor of MainProcessor is
 signal IR : std_logic_vector(31 downto 0);
-signal flags : std_logic_vector(3 downto 0);
+signal flags : std_logic_vector(3 downto 0) := "0000";
 
 signal IorD : std_logic;
 signal MR : std_logic_vector(2 downto 0);

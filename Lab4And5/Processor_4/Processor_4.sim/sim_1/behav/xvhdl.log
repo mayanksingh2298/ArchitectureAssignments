@@ -2,6 +2,12 @@ INFO: [VRFC 10-163] Analyzing VHDL file "/media/atishya/New_Volume1/books_and_pa
 INFO: [VRFC 10-307] analyzing entity BRAM
 INFO: [VRFC 10-163] Analyzing VHDL file "/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Processor_4/Processor_4.srcs/sources_1/imports/hdl/BRAM_wrapper.vhd" into library xil_defaultlib
 INFO: [VRFC 10-307] analyzing entity BRAM_wrapper
+INFO: [VRFC 10-163] Analyzing VHDL file "/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab5/Lab5Controller.vhf" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity StateController
+INFO: [VRFC 10-307] analyzing entity MainController
+INFO: [VRFC 10-307] analyzing entity FlagCtrl
+INFO: [VRFC 10-307] analyzing entity OpcodeGen
+INFO: [VRFC 10-307] analyzing entity MasterController
 INFO: [VRFC 10-163] Analyzing VHDL file "/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Lab4.vhf" into library xil_defaultlib
 INFO: [VRFC 10-307] analyzing entity ProcessorMemoryPath
 INFO: [VRFC 10-307] analyzing entity MemoryModule
@@ -10,11 +16,5 @@ INFO: [VRFC 10-307] analyzing entity ALU
 INFO: [VRFC 10-307] analyzing entity multiplier
 INFO: [VRFC 10-307] analyzing entity RegisterFile
 INFO: [VRFC 10-307] analyzing entity MainDataPath
-INFO: [VRFC 10-163] Analyzing VHDL file "/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab5/Lab5Controller.vhf" into library xil_defaultlib
-INFO: [VRFC 10-307] analyzing entity StateController
-INFO: [VRFC 10-307] analyzing entity MainController
-INFO: [VRFC 10-307] analyzing entity FlagCtrl
-INFO: [VRFC 10-307] analyzing entity OpcodeGen
-INFO: [VRFC 10-307] analyzing entity MasterController
 INFO: [VRFC 10-163] Analyzing VHDL file "/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/MainProcessor/MainProcessor.vhf" into library xil_defaultlib
 INFO: [VRFC 10-307] analyzing entity MainProcessor
