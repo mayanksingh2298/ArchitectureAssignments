@@ -166,6 +166,7 @@ CONFIG.MASTER_TYPE {OTHER} \
 CONFIG.Byte_Size {8} \
 CONFIG.Coe_File {../../../../../../../../InitFile/bram.coe} \
 CONFIG.Enable_32bit_Address {true} \
+CONFIG.Fill_Remaining_Memory_Locations {true} \
 CONFIG.Load_Init_File {true} \
 CONFIG.Register_PortA_Output_of_Memory_Primitives {true} \
 CONFIG.Use_Byte_Write_Enable {true} \
