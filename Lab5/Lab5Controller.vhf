@@ -63,15 +63,22 @@ entity StateController is --takes current state and clock and returns next state
     );
 end StateController;
 architecture StateFSM of StateController is
+signal count1: integer := 0;
+signal count2: integer := 0;
+signal count3: integer := 0;
 begin
     process(clk)
     begin
         if (clk = '1' and clk'EVENT) then
+        
             if (Currstate = InitialState) then
                 state <= fetch;         
                 -- IR = mem(PC)
                 -- Pc = Pc+4
-            elsif (Currstate = fetch) then
+            elsif ((Currstate = fetch) and (count1 /= 2)) then
+                    count1 <= count1 + 1;
+            elsif ((Currstate = fetch) and (count1 = 2)) then
+                count1 <= 0;
                 state <= rdAB;
                 -- A = IR(19-16)
                 -- B = IR(3-0)
@@ -146,7 +153,10 @@ begin
                 else state <= wrF;
                     -- write in reg file
                 end if ;    
-            elsif (Currstate = WriteMem) then
+            elsif ((Currstate = WriteMem) and (count2 /= 2)) then
+                    count2 <= count2 + 1;
+            elsif ((Currstate = WriteMem) and (count2 = 2)) then
+                count2 <= 0;
                 if (IR(24) = '0') then
                     state <= Post1;
                     --ALU operation of calculating new offset
@@ -155,7 +165,10 @@ begin
                     -- write offset i.e Resresult(ALUresult) in reg file
                 else state <= InitialState;
                 end if ;
-            elsif (Currstate = ReadMem) then
+            elsif ((Currstate = ReadMem) and (count3 /= 2)) then
+                    count3 <= count3 + 1;
+            elsif ((Currstate = ReadMem) and (count3 = 2)) then
+                count3 <= 0;
                 if (IR(24) = '0') then
                     state <= post2;
                     -- Alu to calc new value of address to be stored in reg file
@@ -330,7 +343,25 @@ begin
 				else
                     Asrc2<= "111"; --when no shift
 				end if;
+				
+				if((IR(27 downto 26) = "01") and IR(20) = '0') then
+				    Rsrc <= '1';
+				    Bw <= '1';
+				elsif((IR(27 downto 25) = "000") and (IR(22)='0') and (IR(20) = '0') and (IR(11 downto 8) = "0000") and (IR(7) = '1') and (IR(4) = '1')) then
+				    Rsrc <= '1';
+				    BW <= '1';
+				end if;
+--				if(IR(27 downto 25)="001" and Ir(20)='1') then
+--				    fset<='1'; 
+--				elsif((IR(27 downto 25) = "000") and (IR(20) = '1') and (IR(4) = '0')) then 
+--				    fset <= '1';
+--                elsif((IR(27 downto 25) = "000") and (IR(20) = '1') and (IR(11 downto 8) /= "1111") and (IR(7) = '0') and (IR(4) = '1')) then 
+--                    fset <= '1';
+--                elsif((IR(27 downto 23) = "00000") and (IR(20) = '1') and (IR(7 downto 4) = "1001")) then
+--                    fset <= '1';
+--				end if;
 				ReW <= '1';
+				
 				--atishya wrote somethings
 			when wrF => 
 				RW <= '1';
@@ -347,6 +378,7 @@ begin
 				end if;
 			when WriteMem =>
 				IorD <= '1';
+--				BW <= '1'; -- doubt
 				if((IR(27 downto 26) = "01") and (IR(22) = '1') and (IR(20) = '0')) then
 					MR<="000";
 					MW<="001";
@@ -358,6 +390,7 @@ begin
 					MW<="011";
 				end if;
 			when ReadMem => 
+                IorD <= '1';
                 DW <= '1';
 				if((IR(27 downto 26) = "01") and (IR(22) = '1') and (IR(20) = '1') and (IR(6 downto 5) = "00")) then
 					--ldrb

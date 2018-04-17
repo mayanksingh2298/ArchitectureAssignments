@@ -70,6 +70,7 @@ begin
         ((FromReg(7 downto 0) & "111111111111111111111111") and ("11111111" & FromMem(23 downto 0))) when "11101", -- byte store
         (("1111111111111111" & FromReg(15 downto 0)) and (FromMem(31 downto 16) & "1111111111111111")) when "00110", -- halfWord store
         ((FromReg(15 downto 0) & "1111111111111111") and ("1111111111111111" & FromMem(15 downto 0))) when "01110", -- halfword store
+        FromReg when "00111",
         FromMem when others; -- word store
 -- set ToReg or ToMem from result
 
@@ -143,7 +144,7 @@ begin
         "111";
     enable <= '0' when (MW = "000" and MR="000") else '1';  
     ByteOffsetForRegister <= address(1 downto 0);
-    ArrayIndex <= "00" & address(31 downto 2);
+    ArrayIndex <= address(31 downto 2) & "00";
     MemWE <= mwe when (MR = "000") else "0000";
 
     ProcReg <= WriteData when (MW /= "000") else "00000000000000000000000000000000";
@@ -374,7 +375,7 @@ entity MainDataPath is
         MemResult : in std_logic_vector(31 downto 0);
         
         IR_out: out std_logic_vector(31 downto 0);
-        flags: out std_logic_vector(3 downto 0);
+        flags: out std_logic_vector(3 downto 0):="0000";
         MemInputAd: out std_logic_vector(31 downto 0);
         BOut : out std_logic_vector(31 downto 0)
 );
@@ -513,7 +514,7 @@ begin
     MulresultHolder <= MulResult when mulHoldSig = '1';
     --NEW CONTROL SIGNAL shiftAmtSig is 00 when read1, 01 when EXresult, 10 when no shift
     shiftAmt <= A when shiftAmtSig = '0' ELSE
-             EXResult;
+             "0000000"&EXResult(31 downto 7);
     
     --Shifter NEW CONTROL SIGNAL shiftTypeSig
     Shifter: entity work.shifter(func2) port map(
