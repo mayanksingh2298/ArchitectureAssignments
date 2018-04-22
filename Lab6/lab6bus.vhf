@@ -129,6 +129,122 @@ process(clock2)
   end process;
 end segment;
 ----------------------TILL HERE----------------- is the code for SSD
+-- haddr(15 downto 14) = 00 for memory, 01 for SSD
+
+
+library ieee;
+use ieee.std_logic_1164.ALL;
+use ieee.numeric_std.ALL;
+entity MasterInterfaceProc is
+    port(
+        hready: in std_logic;
+        hclk : in std_logic;
+        enable: in std_logic;
+        resetReg : in std_logic;
+        hrdata : in std_logic_vector(31 downto 0);
+--        dataToWrite: in std_logic_vector(15 downto 0);
+        haddr: out std_logic_vector(15 downto 0);
+        hwrite: out std_logic;
+        hsize: out std_logic_vector(2 downto 0);
+        htrans: out std_logic;  -- '0' idle | '1' nonseq
+        hwdata: out std_logic_vector(31 downto 0);
+        resetMem: out std_logic
+    );
+end MasterInterfaceProc;
+architecture masterProc of MasterInterfaceProc is
+    TYPE mystateProc IS (idle,rdAddr,rdDat,wrAddr,wrDat);
+    signal state: mystateProc:= idle;
+    signal tempMR: std_logic_vector(2 downto 0);
+    signal tempMW: std_logic_vector(2 downto 0);
+    signal haddrTemp: std_logic_vector(31 downto 0);
+    signal dataToWrite: std_logic_vector(31 downto 0);
+begin
+     process(hclk)
+     begin
+     	if(hclk='1' and hclk'event) then
+     	case state is
+     		when idle=>
+     			htrans<='0';
+     			if(enable='0') then --neither reading nor writing
+     				state <= idle;
+     			elsif(tempMR /= "000") then
+     			    state <= rdAddr;
+     			else --writing
+     				state <= wrAddr;
+     			end if;
+     		when rdAddr=>
+                haddr <=  "00" & haddrTemp(13 downto 0);
+     			htrans <= '1';
+     			hwrite <= '0';
+     			--get the address which the processor has to read and save it in haddr
+     			state <= rdDat;
+     		when rdDat=>
+     			htrans<='0';
+				 if(tempMR = "101") then
+                     hsize <= "000"; --ldrb
+                 elsif(tempMR = "001") then
+                     hsize <= "100"; -- ldrb signed
+                 elsif(tempMR = "010") then
+                     hsize <= "001";
+                 elsif(tempMR = "010") then
+                     hsize <= "101";
+                 elsif(tempMR = "010") then
+                     hsize <= "010";
+                 else
+                     hsize <= "111"; -- disable memory
+                 end if;
+
+     			if(hready='1') then
+     				--store hrdata at its appropriate location
+     				
+     				state <= idle;
+     			else
+     				state <= rdDat;
+     			end if;
+     		when wrAddr=>
+                haddr <=  "00" & haddrTemp(13 downto 0);
+     			htrans<='1';
+		  		hwrite <= '1';
+--     			--get the address/data where/which the processor has to write and save them in haddr/hwdata
+          		hwdata <= dataToWrite;
+     			state <= wrDat;
+     		when wrDat=>
+     			htrans<='0';
+                 if(tempMW = "001") then
+                     hsize <= "000"; --strb
+                 elsif(tempMW = "010") then
+                     hsize <= "001"; --strhw
+                 elsif(tempMW = "011") then
+                     hsize <= "010";
+                 else
+                     hsize <= "111"; -- disable memory
+                 end if;
+
+     			if(hready='1') then
+     				--when the slave has successfully written the data in the memory
+     				state <= idle;
+     			else
+     				state <= wrDat;
+     			end if;
+     		when others=>
+     		     
+     	end case;
+     	end if;
+     end process; 
+     
+Processor: entity work.MainProcessor(MasterProcessor) port map(
+        clk => hclk,
+        resetReg => resetReg,
+        MemResult => hrdata,
+        
+        MemInputAd => haddrTemp,
+        B => dataToWrite,
+        MR => tempMR,
+        MW => tempMW,
+        Memrst => resetMem
+     );         
+end masterProc;
+
 
 library ieee;
 use ieee.std_logic_1164.ALL;
@@ -162,25 +278,13 @@ begin
      			else --writing
      				state <= wrAddr;
      			end if;
---     		when rdAddr=>
---     			trans='1';
---     			hwrite = '0';
---     			--get the address which the processor has to read and save it in haddr
---     			state = rdDat;
---     		when rdDat=>
---     			trans='0';
---     			if(hready='1') then
---     				--store hrdata at its appropriate location
---     				state = idle;
---     			else
---     				state = rdDat;
---     			end if;
      		when wrAddr=>
      			htrans<='1';
 		  		hwrite <= '1';
 --     			--get the address/data where/which the processor has to write and save them in haddr/hwdata
---                haddr<="";
-          hwdata <= dataToWrite;
+                haddr<= std_logic_vector(to_unsigned(4000, 16));
+          		hwdata <= dataToWrite;
+          		hsize <= ("010");
      			state <= wrDat;
      		when wrDat=>
      			htrans<='0';
@@ -208,7 +312,6 @@ entity SlaveInterfaceLed is
         hwrite: in std_logic;
         hsize: in std_logic_vector(2 downto 0);
         htrans: in std_logic;
-        --hselx: in std_logic;
         --hready: in std_logic; --let's forget this one, shall we?
         hwdata: in std_logic_vector(15 downto 0);
         hclk : in std_logic;
@@ -236,17 +339,6 @@ begin
 						state<=wrAddr;
 					end if;
 				end if;
---			when rdaddr=>
---				hreadyout<='0';
---				--begin fetching from the memory using haddr
---				state=rd1;
---			when rd1=>
---				state=rd2;
---			when rd2=>
---				state=rd3;
---			when rd3=>
---				hreadyout<='1'; --assumed that by the time control reaches here, hrdata is set correctly
---				state=waiting;
 			when wraddr=>
 				hreadyout<='0';
 				--begin writing the memory using haddr and hwdata
@@ -257,7 +349,7 @@ begin
 				state<=wr3;
 			when wr3=>
 				hreadyout<='1'; --assumed that by the time control reaches here, hwdata is set correctly
-        dataToReturn<=hwdata;
+        		dataToReturn<=hwdata;
 				state<=waiting;
 			when others=>
                                   
@@ -266,21 +358,207 @@ begin
 	end process;    
 end slaveLed;
 
+library ieee;
+use ieee.std_logic_1164.ALL;
+use ieee.numeric_std.ALL;
+--use work.Global.all;
+entity SlaveInterfaceSSD is
+    port(
+        enable: in std_logic;
+        htrans: in std_logic;
+        hwdata: in std_logic_vector(15 downto 0);
+        hclk : in std_logic;
+
+        hreadyout: out std_logic;
+        anode: out std_logic_vector(3 downto 0);
+        cathode: out std_logic_vector(6 downto 0)
+    );
+end SlaveInterfaceSSD;
+architecture slaveSSD of SlaveInterfaceSSD is
+	TYPE mystateSSD IS (waiting,rdAddr,rd1,rd2,rd3,wrAddr,wr1,wr2,wr3);
+    signal state: mystateSSD:= waiting;
+    signal a         : integer := 0;
+    signal b         : integer := 0;
+    signal c         : integer := 0;
+    signal d         : integer := 0;
+    signal anodeTemp : std_logic_vector(3 downto 0);
+    signal cathodeTemp : std_logic_vector(6 downto 0);
+begin
+
+	process(hclk)
+	begin
+		if (hclk='1' and hclk'event) then
+		case state is
+			when waiting=>
+				if(htrans='0') then
+					state <= waiting;
+				else
+                    state <= wrAddr;
+				end if;
+			when wraddr=>
+				hreadyout<='0';
+                a<=to_integer(unsigned(hwdata(15 downto 12)));
+                b<=to_integer(unsigned(hwdata(11 downto 8)));
+                c<=to_integer(unsigned(hwdata(7 downto 4)));
+                d<=to_integer(unsigned(hwdata(3 downto 0)));
+				state<=wr1;
+			when wr1=>
+				state<=wr2;
+			when wr2=>
+				state<=wr3;
+			when wr3=>
+				hreadyout<='1'; --assumed that by the time control reaches here, hwdata is set correctly
+        		anode <= anodeTemp;
+        		cathode <= cathodeTemp;
+        		state<=waiting;
+			when others=>
+                                  
+		end case;
+		end if;
+	end process; 
+    
+    Displaying: entity work.Display(segment) port map(
+        int1    => a,
+        int2    => b,
+        int3    => c,
+        int4    => d,
+        clock2  => hclk,
+        anode   => anodeTemp, 
+        cathode => cathodeTemp
+    );   
+end slaveSSD;
+
+
+library ieee;
+use ieee.std_logic_1164.ALL;
+use ieee.numeric_std.ALL;
+
+entity SlaveInterfaceMemory is
+    port(
+        haddr: in std_logic_vector(15 downto 0);
+        hwrite: in std_logic;
+        hsize: in std_logic_vector(2 downto 0);
+        htrans: in std_logic;
+        hreset: in std_logic;
+        hwdata: in std_logic_vector(15 downto 0);
+        hclk : in std_logic;
+
+        hreadyout: out std_logic;
+        dataToReturn: out std_logic_vector(15 downto 0)
+    );
+end SlaveInterfaceMemory;
+architecture slaveMemory of SlaveInterfaceMemory is
+	TYPE mystateMem IS (waiting,rdAddr,rd1,rd2,rd3,wrAddr,wr1,wr2,wr3);
+    signal state: mystateMem:= waiting;
+    signal MemInputAd: std_logic_vector(31 downto 0);
+    signal MW: std_logic_vector(2 downto 0);
+    signal MR: std_logic_vector(2 downto 0);
+begin
+	process(hclk)
+	begin
+		if (hclk='1' and hclk'event) then
+		case state is
+			when waiting=>
+				if(htrans='0') then
+					state<=waiting;
+				else
+					if(hwrite='0') then
+						state<=rdAddr;
+					else
+						state<=wrAddr;
+					end if;
+				end if;
+			when rdaddr=>
+				hreadyout<='0';
+				MemInputAd <= "000000000000000000" & haddr(13 downto 0);
+				MW <= "000";
+				if(hsize = "000") then
+				    MR <= "101"; -- ldrb
+				elsif(hsize = "100") then
+				    MR <= "001"; -- ldrb signed
+				elsif(hsize = "001") then
+                    MR <= "010"; -- ldrhw
+				elsif(hsize = "101") then
+                    MR <= "011"; -- ldrhw signed                        
+				elsif(hsize = "010") then
+                    MR <= "100"; -- ldr
+				else
+				    MR <= "000"; -- disable memory
+				end if;
+			
+				--begin fetching from the memory using haddr
+				state<=rd1;
+			when rd1=>
+				state<=rd2;
+			when rd2=>
+				state<=rd3;
+			when rd3=>
+				hreadyout<='1'; --assumed that by the time control reaches here, hrdata is set correctly
+				state<=waiting;
+			when wraddr=>
+				hreadyout<='0';
+				--begin writing the memory using haddr and hwdata
+				MemInputAd <= "000000000000000000" & haddr(13 downto 0);
+                MR <= "000";
+                if(hsize = "000") then
+                    MW <= "001"; -- strb
+                elsif(hsize = "001") then
+                    MW <= "010"; -- strhw
+                elsif(hsize = "010") then
+                    MW <= "011"; -- str
+                else
+                    MW <= "000"; -- disable memory
+                end if;
+				state<=wr1;
+			when wr1=>
+				state<=wr2;
+			when wr2=>
+				state<=wr3;
+			when wr3=>
+				hreadyout<='1'; --assumed that by the time control reaches here, hwdata is set correctly
+        		state<=waiting;
+			when others=>
+                        
+		end case;
+		end if;
+	end process;    
+
+Memory: entity work.MemoryModule(func0) port map(
+    address => MemInputAd,
+    WriteData =>  hwdata,
+    clk => hclk,
+    MR =>  MR,
+    MW =>  MW,
+    rst => hreset,
+    
+    RD =>  dataToReturn
+);
+
+end slaveMemory;
+
+
 
 library ieee;
 use ieee.std_logic_1164.ALL;
 use ieee.numeric_std.ALL;
 entity mainBus is
 	port(
-		clk: in std_logic;
-		sim: in  std_logic;
-		inputSwitch: in std_logic_vector(15 downto 0);
-		outputLed:out std_logic_vector(15 downto 0);
+		clk : in std_logic;
+		sim : in  std_logic;
+		inputSwitch : in std_logic_vector(15 downto 0);
+		resetReg : in std_logic;
+		ActivateLed : in std_logic;
+		startProc : in std_logic;
+		
+		outputLed : out std_logic_vector(15 downto 0);
 		anode         : out std_logic_vector(3 downto 0);
 		cathode       : out std_logic_vector(6 downto 0)
+	   
 	);
 end mainBus;
 architecture main of mainBus is
+	
+	
 	signal slaveReady: std_logic:='1';
 	signal slaveReadData: std_logic_vector(31 downto 0);
 	signal masterWriteData: std_logic_vector(15 downto 0);
@@ -289,21 +567,28 @@ architecture main of mainBus is
 	signal masterSize: std_logic_vector(2 downto 0);
 	signal masterTrans: std_logic:='0';
 	
-	signal a         : integer := 0;
-	signal b         : integer := 1;
-	signal c         : integer := 2;
-	signal d         : integer := 3;
 	signal counter   : integer  := 0;
 	signal clockDisp : std_logic:= '0';
 	signal tmpDispClk: std_logic:= '0';
 
-begin
-    a<=to_integer(unsigned(inputSwitch(15 downto 12)));
-	b<=to_integer(unsigned(inputSwitch(11 downto 8)));
-    c<=to_integer(unsigned(inputSwitch(7 downto 4)));
-    d<=to_integer(unsigned(inputSwitch(3 downto 0)));
+    signal memInputData : std_logic_vector (31 downto 0);
+    signal memData : std_logic_vector (31 downto 0);
+    signal memreset : std_logic;
+    signal memtrans : std_logic;
+    signal memhWrite : std_logic;
+    signal memhsize : std_logic_vector (2 downto 0);
+    signal memAddr : std_logic_vector (15 downto 0);
+    signal memReady : std_logic;
 
---    outputLed<=inputSwitch;
+    signal fromProcWriteData : std_logic_vector (31 downto 0);
+    signal fromProcTrans : std_logic;
+    signal fromProcresetMem : std_logic;
+    signal fromProcWrite : std_logic;
+    signal fromProcsize : std_logic_vector (2 downto 0);
+    signal fromProcAddr : std_logic_vector (15 downto 0);
+    signal readyForProc : std_logic;
+
+begin
 
 	process(clk)
 	  begin
@@ -318,31 +603,45 @@ begin
 	end process;
 	clockDisp <= (tmpDispClk and not(sim)) or (clk and sim); 
 
-	--Displaying: entity work.Display(segment) port map(
-	--	int1    => a,
-	--	int2    => b,
-	--	int3    => c,
-	--	int4    => d,
-	--  	clock2  => clockDisp,
-	--    anode   => anode, 
-	--  	cathode => cathode
-	--	);
+    readyForProc <= memReady when (startProc = '1') else '0';
+    ProcessorMaster: entity work.MasterInterfaceProc(masterProc) port map(
+        hready => readyForProc,
+        hclk => clk,
+        enable => startProc,
+        resetReg => resetReg,
+        hrdata => memData,
+        haddr => FromProcAddr,
+        hwrite => FromProcWrite,
+        hsize => fromProcSize,
+        htrans => fromProctrans,  -- '0' idle | '1' nonseq
+        hwdata => FromProcWriteData,
+        resetMem => FromProcResetMem
+    );
+    
+    memInputData <= masterWriteData when (masterTrans = '1') else FromProcWriteData;
+    memHWrite <= masterWriteBool when (masterTrans = '1') else FromProcWrite;
+    memHSize <= masterSize when (masterTrans = '1') else FromProcSize;
+    memTrans <= masterTrans when (masterTrans = '1') else FromProcTrans;
+    memreset <= '0' when (masterTrans = '1') else FromProcResetMem;
+    memAddr <= masterAddress when (masterTrans = '1') else FromProcAddr;
+ 
+    MemorySlave: entity work.SlaveInterfaceMemory(slavememory) port map(
+        haddr => memAddr,
+        hwrite => memHwrite,
+        hsize => memHsize,
+        htrans => memTrans,
+        hreset => memReset,
+        hwdata => memInputData,
+        hclk => clk,
+    
+        hreadyout => memReady,
+        dataToReturn => memData
+    );
 
 	MasterInterfaceSwitch: entity work.MasterInterfaceSwitch(masterSwitch) port map(
---	hready: in std_logic;
---            hclk : in std_logic;
---            enable: in std_logic;
---    --        hrdata : in std_logic_vector(31 downto 0);
---            dataToWrite: in std_logic_vector(15 downto 0);
---            haddr: out std_logic_vector(15 downto 0);
---            hwrite: out std_logic;
---            hsize: out std_logic_vector(2 downto 0);
---            htrans: out std_logic;  -- '0' idle | '1' nonseq
---            hwdata: out std_logic_vector(31 downto 0)
 		hready => slaveReady,
         hclk => clk,
         enable => '1',
---        hrdata => slaveReadData,
         dataToWrite => inputSwitch,
         haddr => masterAddress,
         hwrite => masterWriteBool,
@@ -351,31 +650,25 @@ begin
         hwdata => masterWriteData 
 	);	
 	SlaveInterfaceLed: entity work.SlaveInterfaceLed(slaveLed) port map(
---	  enable: in std_logic_vector;
---          haddr: in std_logic_vector(15 downto 0);
---          hwrite: in std_logic;
---          hsize: in std_logic_vector(2 downto 0);
---          htrans: in std_logic;
---          --hselx: in std_logic;
---          --hready: in std_logic; --let's forget this one, shall we?
---          hwdata: in std_logic_vector(31 downto 0);
---          hclk : in std_logic;
-  
---          hreadyout: out std_logic;
---          --hrdata: out
---          dataToReturn: out std_logic_vector(15 downto 0)
         enable => '1',
 		haddr => masterAddress,
         hwrite => masterWriteBool,
         hsize => masterSize,
         htrans => masterTrans,
-        --hselx =>,
-        --hready =>,
         hwdata => masterWriteData,
         hclk => clk,
-
         hreadyout => slaveReady,
---       --hrdata        
         datatoReturn => outputLed
-	);	
+	);
+    
+    SSDSLave: entity work.SlaveInterfaceSSD(slaveSSD) port map(
+        enable => '1',
+        htrans => fromProcTrans,
+        hwdata => memData,
+        
+        hclk => clockDisp,
+        hreadyout => slaveReady,
+        anode => anode,
+        cathode => cathode
+    );    	
 end main;

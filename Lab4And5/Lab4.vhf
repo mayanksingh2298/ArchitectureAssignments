@@ -347,8 +347,6 @@ use ieee.numeric_std.ALL;
 entity MainDataPath is
     port(
         IorD: in std_logic;
-        MR: in std_logic_vector(2 downto 0);
-        MW: in std_logic_vector(2 downto 0);
         IW: in std_logic;
         DW: in std_logic;
         Rsrc: in std_logic;
@@ -369,7 +367,6 @@ entity MainDataPath is
         shiftHoldSig: in std_logic;
         mulHoldSig: in std_logic;
         
-        Memrst : in std_logic;
         resetReg : in std_logic;
         
         MemResult : in std_logic_vector(31 downto 0);
@@ -437,18 +434,6 @@ begin
 -----------------------------Port Mappings-------------------------------
 -------------------------------------------------------------------------
     
-    -- Memory Port Mapping. For now I have put B into Write Data. Maybe ShiftResultHolder is also a possibility.    
---    Memory: entity work.MemoryModule(func0) port map(
---        address => MemInputAd,
---        WriteData =>  B,
---        clk => clk,
---        MR =>  MR,
---        MW =>  MW,
---        rst => Memrst,
-        
---        RD =>  MemResult
---    );
-
     --IorD mux
     MemInputAd <= PCresult when IorD = '0' ELSE
                RESresult;
@@ -490,8 +475,6 @@ begin
         o1 => read1RegVal,
         o2 => read2RegVal 
     );
-
-    
 
     --EX : THIS IS THE SHIFTED CONSTANT
     EXResult <= "00000000000000000000"&IR(11 downto 0);

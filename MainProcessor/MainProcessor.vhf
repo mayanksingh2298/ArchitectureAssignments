@@ -5,7 +5,14 @@ use work.Global.all;
 entity MainProcessor is
     port(
         clk : in std_logic;
-        resetReg : in std_logic
+        resetReg : in std_logic;
+        MemResult : in std_logic_vector(31 downto 0);
+        
+        MemInputAd : out std_logic_vector(31 downto 0);
+        B : out std_logic_vector(31 downto 0);
+        MR : out std_logic_vector(2 downto 0);
+        MW : out std_logic_vector(2 downto 0);
+        Memrst : out std_logic
     );
 end MainProcessor;
 
@@ -14,8 +21,6 @@ signal IR : std_logic_vector(31 downto 0);
 signal flags : std_logic_vector(3 downto 0) := "0000";
 
 signal IorD : std_logic;
-signal MR : std_logic_vector(2 downto 0);
-signal MW : std_logic_vector(2 downto 0);
 signal IW : std_logic;
 signal DW : std_logic;
 signal Rsrc : std_logic;
@@ -34,11 +39,6 @@ signal shiftAmtSig : std_logic;
 signal shiftHoldSig : std_logic;
 signal mulHoldSig : std_logic;
 signal opShift : std_logic_vector(1 downto 0);
-signal Memrst : std_logic;
-
-signal B : std_logic_vector(31 downto 0);
-signal MemInputAd : std_logic_vector(31 downto 0);
-signal MemResult : std_logic_vector(31 downto 0);
 
 begin
 
@@ -76,8 +76,6 @@ CONTROL: entity work.MasterController(MasterControl) port map(
 
 Data: entity work.MainDataPath(DataPath) port map(
     IorD => IorD,
-    MR => MR,
-    MW => MW,
     IW => IW,
     DW => DW,
     Rsrc => Rsrc,
@@ -97,7 +95,6 @@ Data: entity work.MainDataPath(DataPath) port map(
     shiftHoldSig => shiftHoldSig,
     mulHoldSig => mulHoldSig,
     opShift => opShift,
-    Memrst => Memrst,
     resetReg => resetReg,
     
     IR_out => IR,
@@ -108,15 +105,15 @@ Data: entity work.MainDataPath(DataPath) port map(
     MemInputAd => MemInputAd
 );
 
-Memory: entity work.MemoryModule(func0) port map(
-    address => MemInputAd,
-    WriteData =>  B,
-    clk => clk,
-    MR =>  MR,
-    MW =>  MW,
-    rst => Memrst,
+--Memory: entity work.MemoryModule(func0) port map(
+--    address => MemInputAd,
+--    WriteData =>  B,
+--    clk => clk,
+--    MR =>  MR,
+--    MW =>  MW,
+--    rst => Memrst,
     
-    RD =>  MemResult
-);
+--    RD =>  MemResult
+--);
 
 end MasterProcessor;
