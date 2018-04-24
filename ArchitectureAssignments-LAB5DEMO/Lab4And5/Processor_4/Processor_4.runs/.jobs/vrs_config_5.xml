@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="0">
+	<Run Id="BRAM_blk_mem_gen_0_0_synth_1" LaunchDir="/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/ArchitectureAssignments-LAB5DEMO/Lab4And5/Processor_4/Processor_4.runs/BRAM_blk_mem_gen_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="synth_1" LaunchDir="/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/ArchitectureAssignments-LAB5DEMO/Lab4And5/Processor_4/Processor_4.runs/synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado">
+		<Parent Id="BRAM_blk_mem_gen_0_0_synth_1"/>
+	</Run>
+</Runs>
+
