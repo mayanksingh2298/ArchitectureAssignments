@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2016.4 (lin64) Build 1756540 Mon Jan 23 19:11:19 MST 2017
-| Date             : Wed Apr 25 14:59:53 2018
+| Date             : Wed Apr 25 15:47:09 2018
 | Host             : atishya-HP-Pavilion-Notebook running 64-bit Ubuntu 16.04.4 LTS
 | Command          : report_power -file mainBus_power_routed.rpt -pb mainBus_power_summary_routed.pb -rpx mainBus_power_routed.rpx
 | Design           : mainBus
@@ -30,8 +30,8 @@ Table of Contents
 ----------
 
 +--------------------------+-------+
-| Total On-Chip Power (W)  | 0.119 |
-| Dynamic (W)              | 0.047 |
+| Total On-Chip Power (W)  | 0.121 |
+| Dynamic (W)              | 0.049 |
 | Device Static (W)        | 0.072 |
 | Effective TJA (C/W)      | 5.0   |
 | Max Ambient (C)          | 84.4  |
@@ -49,20 +49,20 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Clocks         |     0.004 |        3 |       --- |             --- |
-| Slice Logic    |     0.010 |     3598 |       --- |             --- |
-|   LUT as Logic |     0.010 |     2008 |     20800 |            9.65 |
+| Clocks         |     0.005 |        3 |       --- |             --- |
+| Slice Logic    |     0.011 |     3602 |       --- |             --- |
+|   LUT as Logic |     0.010 |     2011 |     20800 |            9.67 |
 |   CARRY4       |    <0.001 |      131 |      8150 |            1.61 |
 |   F7/F8 Muxes  |    <0.001 |      200 |     32600 |            0.61 |
-|   Register     |    <0.001 |     1040 |     41600 |            2.50 |
+|   Register     |    <0.001 |     1041 |     41600 |            2.50 |
 |   BUFG         |    <0.001 |        8 |        32 |           25.00 |
 |   Others       |     0.000 |       38 |       --- |             --- |
-| Signals        |     0.012 |     2974 |       --- |             --- |
+| Signals        |     0.013 |     2950 |       --- |             --- |
 | Block RAM      |     0.003 |        2 |        50 |            4.00 |
 | DSPs           |     0.002 |        3 |        90 |            3.33 |
-| I/O            |     0.015 |       48 |       106 |           45.28 |
+| I/O            |     0.016 |       48 |       106 |           45.28 |
 | Static Power   |     0.072 |          |           |                 |
-| Total          |     0.119 |          |           |                 |
+| Total          |     0.121 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -72,7 +72,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.041 |       0.032 |      0.010 |
+| Vccint    |       1.000 |     0.043 |       0.034 |      0.010 |
 | Vccaux    |       1.800 |     0.013 |       0.001 |      0.013 |
 | Vcco33    |       3.300 |     0.005 |       0.004 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -141,11 +141,11 @@ Table of Contents
 +-----------------------------------------------------------------------+-----------+
 | Name                                                                  | Power (W) |
 +-----------------------------------------------------------------------+-----------+
-| mainBus                                                               |     0.047 |
+| mainBus                                                               |     0.049 |
 |   MasterInterfaceSwitch                                               |    <0.001 |
 |   MemorySlave                                                         |     0.005 |
-|     Memory                                                            |     0.004 |
-|       BRAM                                                            |     0.004 |
+|     Memory                                                            |     0.005 |
+|       BRAM                                                            |     0.005 |
 |         BRAM_i                                                        |     0.004 |
 |           blk_mem_gen_0                                               |     0.004 |
 |             U0                                                        |     0.004 |
@@ -156,14 +156,14 @@ Table of Contents
 |                       prim_init.ram                                   |     0.002 |
 |                     ramloop[1].ram.r                                  |     0.002 |
 |                       prim_init.ram                                   |     0.002 |
-|   ProcessorMaster                                                     |     0.016 |
-|     Processor                                                         |     0.016 |
+|   ProcessorMaster                                                     |     0.017 |
+|     Processor                                                         |     0.017 |
 |       CONTROL                                                         |     0.003 |
 |         CONTROL                                                       |    <0.001 |
 |         FSM                                                           |    <0.001 |
 |         OPCODESET                                                     |     0.002 |
-|       Data                                                            |     0.013 |
-|         ALU_unit                                                      |    <0.001 |
+|       Data                                                            |     0.014 |
+|         ALU_unit                                                      |     0.001 |
 |         Mul                                                           |     0.002 |
 |         RFile                                                         |     0.003 |
 |   SSDSLave                                                            |     0.001 |

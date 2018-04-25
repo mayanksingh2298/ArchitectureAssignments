@@ -46,7 +46,7 @@ signal MWTemp : std_logic_vector(2 downto 0);
 begin
 MR <= MRTemp;
 MW <= MWTemp;
-enableMasterProc <= '1' when ((MRTemp /= "000") and (MWTemp /= "000")) else '0';
+enableMasterProc <= '1' when ((MRTemp /= "000") or (MWTemp /= "000")) else '0';
 --------------------------------------------------
 ------------------Port Mappings ------------------
 --------------------------------------------------

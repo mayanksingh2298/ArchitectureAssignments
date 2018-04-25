@@ -63,6 +63,7 @@ entity StateController is --takes current state and clock and returns next state
     );
 end StateController;
 architecture StateFSM of StateController is
+signal count0: integer := 0;
 signal count1: integer := 0;
 signal count2: integer := 0;
 signal count3: integer := 0;
@@ -71,13 +72,17 @@ begin
     begin
         if (clk = '1' and clk'EVENT) then
         
-            if (Currstate = InitialState) then
+            if ((Currstate = InitialState)) then
+--                count0 <= count0 + 1;
+--            elsif((Currstate = InitialState) and (count0 = 0)) then    
+--                count0 <= 0;
                 state <= fetch;         
                 -- IR = mem(PC)
                 -- Pc = Pc+4
-            elsif ((Currstate = fetch) and (count1 /= 2)) then
+            elsif ((Currstate = fetch) and (count1 /= 1)) then
                     count1 <= count1 + 1;
-            elsif ((Currstate = fetch) and (count1 = 2)) then
+            elsif ((Currstate = fetch) and (count1 = 1)) then
+--            elsif (Currstate = fetch) then
                 count1 <= 0;
                 state <= rdAB;
                 -- A = IR(19-16)
@@ -153,9 +158,10 @@ begin
                 else state <= wrF;
                     -- write in reg file
                 end if ;    
-            elsif ((Currstate = WriteMem) and (count2 /= 2)) then
+            elsif ((Currstate = WriteMem) and (count2 /= 1)) then
                     count2 <= count2 + 1;
-            elsif ((Currstate = WriteMem) and (count2 = 2)) then
+            elsif ((Currstate = WriteMem) and (count2 = 1)) then
+--            elsif (Currstate = WriteMem) then
                 count2 <= 0;
                 if (IR(24) = '0') then
                     state <= Post1;
@@ -165,9 +171,10 @@ begin
                     -- write offset i.e Resresult(ALUresult) in reg file
                 else state <= InitialState;
                 end if ;
-            elsif ((Currstate = ReadMem) and (count3 /= 2)) then
+            elsif ((Currstate = ReadMem) and (count3 /= 1)) then
                     count3 <= count3 + 1;
-            elsif ((Currstate = ReadMem) and (count3 = 2)) then
+            elsif ((Currstate = ReadMem) and (count3 = 1)) then
+--            elsif (Currstate = ReadMem) then
                 count3 <= 0;
                 if (IR(24) = '0') then
                     state <= post2;
@@ -263,6 +270,7 @@ begin
             DW<='0';
             IW<='0';
             MW<="000";
+            MR<="000";
 		case state is
 			when InitialState =>
 			 --do nothing

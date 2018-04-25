@@ -17,9 +17,9 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 9255 
+INFO: Helper process launched with PID 16779 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1067.566 ; gain = 137.098 ; free physical = 1558 ; free virtual = 11951
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1067.562 ; gain = 137.098 ; free physical = 1326 ; free virtual = 11588
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'mainBus' [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab6/lab6bus.vhf:560]
 INFO: [Synth 8-638] synthesizing module 'MasterInterfaceProc' [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab6/lab6bus.vhf:154]
@@ -56,8 +56,8 @@ INFO: [Synth 8-256] done synthesizing module 'ProcessorMemoryPath' (13#1) [/medi
 INFO: [Synth 8-638] synthesizing module 'BRAM_wrapper' [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Processor_4/Processor_4.srcs/sources_1/imports/hdl/BRAM_wrapper.vhd:26]
 INFO: [Synth 8-3491] module 'BRAM' declared at '/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Processor_4/Processor_4.srcs/sources_1/bd/BRAM/hdl/BRAM.vhd:14' bound to instance 'BRAM_i' of component 'BRAM' [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Processor_4/Processor_4.srcs/sources_1/imports/hdl/BRAM_wrapper.vhd:39]
 INFO: [Synth 8-638] synthesizing module 'BRAM' [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Processor_4/Processor_4.srcs/sources_1/bd/BRAM/hdl/BRAM.vhd:30]
-INFO: [Synth 8-3491] module 'BRAM_blk_mem_gen_0_0' declared at '/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Processor_4/Processor_4.runs/synth_1/.Xil/Vivado-9250-atishya-HP-Pavilion-Notebook/realtime/BRAM_blk_mem_gen_0_0_stub.vhdl:5' bound to instance 'blk_mem_gen_0' of component 'BRAM_blk_mem_gen_0_0' [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Processor_4/Processor_4.srcs/sources_1/bd/BRAM/hdl/BRAM.vhd:57]
-INFO: [Synth 8-638] synthesizing module 'BRAM_blk_mem_gen_0_0' [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Processor_4/Processor_4.runs/synth_1/.Xil/Vivado-9250-atishya-HP-Pavilion-Notebook/realtime/BRAM_blk_mem_gen_0_0_stub.vhdl:18]
+INFO: [Synth 8-3491] module 'BRAM_blk_mem_gen_0_0' declared at '/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Processor_4/Processor_4.runs/synth_1/.Xil/Vivado-16769-atishya-HP-Pavilion-Notebook/realtime/BRAM_blk_mem_gen_0_0_stub.vhdl:5' bound to instance 'blk_mem_gen_0' of component 'BRAM_blk_mem_gen_0_0' [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Processor_4/Processor_4.srcs/sources_1/bd/BRAM/hdl/BRAM.vhd:57]
+INFO: [Synth 8-638] synthesizing module 'BRAM_blk_mem_gen_0_0' [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Processor_4/Processor_4.runs/synth_1/.Xil/Vivado-16769-atishya-HP-Pavilion-Notebook/realtime/BRAM_blk_mem_gen_0_0_stub.vhdl:18]
 INFO: [Synth 8-256] done synthesizing module 'BRAM' (14#1) [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Processor_4/Processor_4.srcs/sources_1/bd/BRAM/hdl/BRAM.vhd:30]
 INFO: [Synth 8-256] done synthesizing module 'BRAM_wrapper' (15#1) [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Processor_4/Processor_4.srcs/sources_1/imports/hdl/BRAM_wrapper.vhd:26]
 INFO: [Synth 8-256] done synthesizing module 'MemoryModule' (16#1) [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Lab4.vhf:123]
@@ -174,7 +174,7 @@ WARNING: [Synth 8-3331] design Display has unconnected port int4[17]
 WARNING: [Synth 8-3331] design Display has unconnected port int4[16]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1114.035 ; gain = 183.566 ; free physical = 1507 ; free virtual = 11904
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1114.031 ; gain = 183.566 ; free physical = 1276 ; free virtual = 11541
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -184,7 +184,7 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1114.035 ; gain = 183.566 ; free physical = 1505 ; free virtual = 11904
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1114.031 ; gain = 183.566 ; free physical = 1273 ; free virtual = 11541
 ---------------------------------------------------------------------------------
 WARNING: [Project 1-486] Could not resolve non-primitive black box cell 'BRAM_blk_mem_gen_0_0' instantiated as 'MemorySlave/Memory/BRAM/BRAM_i/blk_mem_gen_0' [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Processor_4/Processor_4.srcs/sources_1/bd/BRAM/hdl/BRAM.vhd:57]
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
@@ -192,8 +192,8 @@ INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Processor_4/Processor_4.runs/synth_1/.Xil/Vivado-9250-atishya-HP-Pavilion-Notebook/dcp/BRAM_blk_mem_gen_0_0_in_context.xdc] for cell 'MemorySlave/Memory/BRAM/BRAM_i/blk_mem_gen_0'
-Finished Parsing XDC File [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Processor_4/Processor_4.runs/synth_1/.Xil/Vivado-9250-atishya-HP-Pavilion-Notebook/dcp/BRAM_blk_mem_gen_0_0_in_context.xdc] for cell 'MemorySlave/Memory/BRAM/BRAM_i/blk_mem_gen_0'
+Parsing XDC File [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Processor_4/Processor_4.runs/synth_1/.Xil/Vivado-16769-atishya-HP-Pavilion-Notebook/dcp/BRAM_blk_mem_gen_0_0_in_context.xdc] for cell 'MemorySlave/Memory/BRAM/BRAM_i/blk_mem_gen_0'
+Finished Parsing XDC File [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Processor_4/Processor_4.runs/synth_1/.Xil/Vivado-16769-atishya-HP-Pavilion-Notebook/dcp/BRAM_blk_mem_gen_0_0_in_context.xdc] for cell 'MemorySlave/Memory/BRAM/BRAM_i/blk_mem_gen_0'
 Parsing XDC File [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/MainProcessor/Bus.xdc]
 CRITICAL WARNING: [Designutils 20-1307] Command 'Bank' is not supported in the xdc constraint file. [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/MainProcessor/Bus.xdc:7]
 WARNING: [Vivado 12-507] No nets matched 'startProc_IBUF'. [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/MainProcessor/Bus.xdc:10]
@@ -208,17 +208,17 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1453.535 ; gain = 0.000 ; free physical = 1326 ; free virtual = 11731
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1449.484 ; gain = 0.000 ; free physical = 1094 ; free virtual = 11367
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'MemorySlave/Memory/BRAM/BRAM_i/blk_mem_gen_0' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 1453.535 ; gain = 523.066 ; free physical = 1321 ; free virtual = 11729
+Finished Constraint Validation : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1449.484 ; gain = 519.020 ; free physical = 1090 ; free virtual = 11366
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 1453.535 ; gain = 523.066 ; free physical = 1321 ; free virtual = 11729
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1449.484 ; gain = 519.020 ; free physical = 1090 ; free virtual = 11366
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -226,7 +226,7 @@ Start Applying 'set_property' XDC Constraints
 Applied set_property DONT_TOUCH = true for MemorySlave/Memory/BRAM/BRAM_i. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for MemorySlave/Memory/BRAM/BRAM_i/blk_mem_gen_0. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 1453.535 ; gain = 523.066 ; free physical = 1321 ; free virtual = 11729
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1449.484 ; gain = 519.020 ; free physical = 1090 ; free virtual = 11366
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5544] ROM "Asrc2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5546] ROM "op" won't be mapped to RAM because it is too sparse
@@ -311,14 +311,15 @@ INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
-                 waiting |                              000 |                             0000
-                  rdaddr |                              001 |                             0001
-                     rd1 |                              010 |                             0010
-                     rd3 |                              011 |                             0100
-                  wraddr |                              100 |                             0101
-                     wr1 |                              101 |                             0110
-                     wr2 |                              110 |                             0111
-                     wr3 |                              111 |                             1000
+                 waiting |                             0000 |                             0000
+                  rdaddr |                             0001 |                             0001
+                     rd1 |                             0010 |                             0010
+                     rd2 |                             0011 |                             0011
+                     rd3 |                             0100 |                             0100
+                  wraddr |                             0101 |                             0101
+                     wr1 |                             0110 |                             0110
+                     wr2 |                             0111 |                             0111
+                     wr3 |                             1000 |                             1000
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'SlaveInterfaceMemory'
 ---------------------------------------------------------------------------------------------------
@@ -344,7 +345,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'SlaveInterfaceSSD'
 WARNING: [Synth 8-327] inferring latch for variable 'flagStart_reg' [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab6/lab6bus.vhf:596]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1453.535 ; gain = 523.066 ; free physical = 1306 ; free virtual = 11714
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1449.484 ; gain = 519.020 ; free physical = 1066 ; free virtual = 11343
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -402,13 +403,15 @@ Detailed RTL Component Info :
 	   2 Input      4 Bit        Muxes := 7     
 	   4 Input      4 Bit        Muxes := 2     
 	   8 Input      4 Bit        Muxes := 1     
+	  12 Input      4 Bit        Muxes := 1     
 	  26 Input      3 Bit        Muxes := 2     
 	   5 Input      3 Bit        Muxes := 2     
 	   4 Input      3 Bit        Muxes := 2     
 	   6 Input      3 Bit        Muxes := 4     
 	   2 Input      3 Bit        Muxes := 7     
-	  11 Input      3 Bit        Muxes := 2     
-	   8 Input      3 Bit        Muxes := 6     
+	  11 Input      3 Bit        Muxes := 1     
+	   8 Input      3 Bit        Muxes := 4     
+	   9 Input      3 Bit        Muxes := 2     
 	  28 Input      2 Bit        Muxes := 1     
 	  26 Input      2 Bit        Muxes := 2     
 	  27 Input      2 Bit        Muxes := 1     
@@ -421,7 +424,7 @@ Detailed RTL Component Info :
 	   6 Input      1 Bit        Muxes := 8     
 	   4 Input      1 Bit        Muxes := 11    
 	   5 Input      1 Bit        Muxes := 11    
-	   8 Input      1 Bit        Muxes := 2     
+	   9 Input      1 Bit        Muxes := 4     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -557,12 +560,12 @@ Detailed RTL Component Info :
 	                3 Bit    Registers := 2     
 	                1 Bit    Registers := 1     
 +---Muxes : 
+	  12 Input      4 Bit        Muxes := 1     
 	   6 Input      3 Bit        Muxes := 1     
-	   8 Input      3 Bit        Muxes := 2     
-	  11 Input      3 Bit        Muxes := 1     
+	   9 Input      3 Bit        Muxes := 2     
 	   2 Input      2 Bit        Muxes := 1     
 	   4 Input      2 Bit        Muxes := 1     
-	   8 Input      1 Bit        Muxes := 2     
+	   9 Input      1 Bit        Muxes := 4     
 Module MasterInterfaceSwitch 
 Detailed RTL Component Info : 
 +---Registers : 
@@ -760,7 +763,7 @@ WARNING: [Synth 8-264] enable of latch ProcessorMaster/\Processor/Data /\flags_r
 WARNING: [Synth 8-264] enable of latch ProcessorMaster/\Processor/Data /\flags_reg[3]  is always disabled
 WARNING: [Synth 8-264] enable of latch ProcessorMaster/\Processor/Data /\flags_reg[3]  is always disabled
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 1454.535 ; gain = 524.066 ; free physical = 1224 ; free virtual = 11632
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1451.484 ; gain = 521.020 ; free physical = 989 ; free virtual = 11267
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -804,7 +807,7 @@ Start Timing Optimization
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1491.535 ; gain = 561.066 ; free physical = 1184 ; free virtual = 11592
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:41 ; elapsed = 00:00:43 . Memory (MB): peak = 1488.484 ; gain = 558.020 ; free physical = 951 ; free virtual = 11229
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-264] enable of latch ProcessorMaster/\Processor/Data /overflow_reg is always disabled
 WARNING: [Synth 8-264] enable of latch ProcessorMaster/\Processor/Data /overflow_reg is always disabled
@@ -812,7 +815,7 @@ WARNING: [Synth 8-264] enable of latch ProcessorMaster/\Processor/Data /carry_re
 WARNING: [Synth 8-264] enable of latch ProcessorMaster/\Processor/Data /carry_reg is always disabled
 INFO: [Common 17-14] Message 'Synth 8-264' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:43 ; elapsed = 00:00:46 . Memory (MB): peak = 1549.512 ; gain = 619.043 ; free physical = 1126 ; free virtual = 11535
+Finished Timing Optimization : Time (s): cpu = 00:00:45 ; elapsed = 00:00:46 . Memory (MB): peak = 1545.461 ; gain = 614.996 ; free physical = 894 ; free virtual = 11172
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -858,7 +861,7 @@ WARNING: [Synth 8-3332] Sequential element (SSDSLave/Displaying/counter3_reg[29]
 WARNING: [Synth 8-3332] Sequential element (SSDSLave/Displaying/counter3_reg[30]) is unused and will be removed from module mainBus.
 WARNING: [Synth 8-3332] Sequential element (SSDSLave/Displaying/counter3_reg[31]) is unused and will be removed from module mainBus.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:45 ; elapsed = 00:00:47 . Memory (MB): peak = 1583.535 ; gain = 653.066 ; free physical = 1091 ; free virtual = 11500
+Finished Technology Mapping : Time (s): cpu = 00:00:46 ; elapsed = 00:00:48 . Memory (MB): peak = 1579.484 ; gain = 649.020 ; free physical = 860 ; free virtual = 11138
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -882,7 +885,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:45 ; elapsed = 00:00:48 . Memory (MB): peak = 1583.535 ; gain = 653.066 ; free physical = 1091 ; free virtual = 11500
+Finished IO Insertion : Time (s): cpu = 00:00:47 ; elapsed = 00:00:49 . Memory (MB): peak = 1579.484 ; gain = 649.020 ; free physical = 860 ; free virtual = 11138
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -895,7 +898,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:45 ; elapsed = 00:00:48 . Memory (MB): peak = 1583.535 ; gain = 653.066 ; free physical = 1091 ; free virtual = 11500
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:47 ; elapsed = 00:00:49 . Memory (MB): peak = 1579.484 ; gain = 649.020 ; free physical = 860 ; free virtual = 11138
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -907,25 +910,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:46 ; elapsed = 00:00:48 . Memory (MB): peak = 1583.535 ; gain = 653.066 ; free physical = 1091 ; free virtual = 11500
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:47 ; elapsed = 00:00:49 . Memory (MB): peak = 1579.484 ; gain = 649.020 ; free physical = 860 ; free virtual = 11138
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:46 ; elapsed = 00:00:48 . Memory (MB): peak = 1583.535 ; gain = 653.066 ; free physical = 1091 ; free virtual = 11500
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:47 ; elapsed = 00:00:49 . Memory (MB): peak = 1579.484 ; gain = 649.020 ; free physical = 860 ; free virtual = 11138
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:46 ; elapsed = 00:00:48 . Memory (MB): peak = 1583.535 ; gain = 653.066 ; free physical = 1091 ; free virtual = 11500
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:48 ; elapsed = 00:00:49 . Memory (MB): peak = 1579.484 ; gain = 649.020 ; free physical = 860 ; free virtual = 11138
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:46 ; elapsed = 00:00:48 . Memory (MB): peak = 1583.535 ; gain = 653.066 ; free physical = 1091 ; free virtual = 11500
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:48 ; elapsed = 00:00:49 . Memory (MB): peak = 1579.484 ; gain = 649.020 ; free physical = 860 ; free virtual = 11138
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -948,13 +951,13 @@ Report Cell Usage:
 |4     |DSP48E1                   |     3|
 |5     |LUT1                      |   187|
 |6     |LUT2                      |   137|
-|7     |LUT3                      |   280|
+|7     |LUT3                      |   281|
 |8     |LUT4                      |    93|
 |9     |LUT5                      |   511|
-|10    |LUT6                      |  1111|
+|10    |LUT6                      |  1113|
 |11    |MUXF7                     |   136|
 |12    |MUXF8                     |    64|
-|13    |FDRE                      |   781|
+|13    |FDRE                      |   782|
 |14    |FDSE                      |    15|
 |15    |LD                        |   246|
 |16    |IBUF                      |    21|
@@ -965,13 +968,13 @@ Report Instance Areas:
 +------+------------------------+----------------------+------+
 |      |Instance                |Module                |Cells |
 +------+------------------------+----------------------+------+
-|1     |top                     |                      |  3786|
+|1     |top                     |                      |  3790|
 |2     |  MasterInterfaceSwitch |MasterInterfaceSwitch |    37|
-|3     |  MemorySlave           |SlaveInterfaceMemory  |   213|
+|3     |  MemorySlave           |SlaveInterfaceMemory  |   220|
 |4     |    Memory              |MemoryModule          |   169|
 |5     |      BRAM              |BRAM_wrapper          |   169|
 |6     |        BRAM_i          |BRAM                  |    32|
-|7     |  ProcessorMaster       |MasterInterfaceProc   |  2713|
+|7     |  ProcessorMaster       |MasterInterfaceProc   |  2710|
 |8     |    Processor           |MainProcessor         |  2651|
 |9     |      CONTROL           |MasterController      |   730|
 |10    |        CONTROL         |MainController        |    70|
@@ -986,11 +989,11 @@ Report Instance Areas:
 |19    |  SlaveInterfaceLed     |SlaveInterfaceLed     |    25|
 +------+------------------------+----------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:46 ; elapsed = 00:00:48 . Memory (MB): peak = 1583.535 ; gain = 653.066 ; free physical = 1091 ; free virtual = 11500
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:48 ; elapsed = 00:00:49 . Memory (MB): peak = 1579.484 ; gain = 649.020 ; free physical = 860 ; free virtual = 11138
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 221 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:39 ; elapsed = 00:00:40 . Memory (MB): peak = 1583.535 ; gain = 231.465 ; free physical = 1091 ; free virtual = 11500
-Synthesis Optimization Complete : Time (s): cpu = 00:00:46 ; elapsed = 00:00:48 . Memory (MB): peak = 1583.543 ; gain = 653.074 ; free physical = 1093 ; free virtual = 11501
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 1579.484 ; gain = 231.465 ; free physical = 860 ; free virtual = 11138
+Synthesis Optimization Complete : Time (s): cpu = 00:00:48 ; elapsed = 00:00:49 . Memory (MB): peak = 1579.492 ; gain = 649.027 ; free physical = 861 ; free virtual = 11139
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 401 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -1003,7 +1006,7 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 INFO: [Common 17-83] Releasing license: Synthesis
 150 Infos, 266 Warnings, 1 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:46 ; elapsed = 00:00:48 . Memory (MB): peak = 1583.543 ; gain = 583.559 ; free physical = 1093 ; free virtual = 11502
+synth_design: Time (s): cpu = 00:00:48 ; elapsed = 00:00:49 . Memory (MB): peak = 1579.492 ; gain = 579.512 ; free physical = 862 ; free virtual = 11140
 INFO: [Common 17-1381] The checkpoint '/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Processor_4/Processor_4.runs/synth_1/mainBus.dcp' has been generated.
-report_utilization: Time (s): cpu = 00:00:00.09 ; elapsed = 00:00:00.11 . Memory (MB): peak = 1607.547 ; gain = 0.000 ; free physical = 1088 ; free virtual = 11501
-INFO: [Common 17-206] Exiting Vivado at Wed Apr 25 14:57:56 2018...
+report_utilization: Time (s): cpu = 00:00:00.10 ; elapsed = 00:00:00.12 . Memory (MB): peak = 1603.496 ; gain = 0.000 ; free physical = 857 ; free virtual = 11139
+INFO: [Common 17-206] Exiting Vivado at Wed Apr 25 15:45:37 2018...

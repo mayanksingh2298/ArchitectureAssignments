@@ -159,7 +159,11 @@ architecture masterProc of MasterInterfaceProc is
     signal haddrTemp: std_logic_vector(31 downto 0);
     signal dataToWrite: std_logic_vector(31 downto 0);
     signal start2: std_logic := '0';
+    signal masterClkProc: std_logic:='0'; 
+    signal dataout: std_logic_vector(31 downto 0);
 begin
+     masterClkProc <= hclk when(state = idle) else '0';
+--     hwdata <= dataout;
      process(hclk)
      begin
      	if(hclk='1' and hclk'event) then
@@ -182,7 +186,6 @@ begin
      			--get the address which the processor has to read and save it in haddr
      			state <= rdDat;
      		when rdDat=>
-     			htrans<='0';
 				 if(tempMR = "101") then
                      hsize <= "000"; --ldrb
                  elsif(tempMR = "001") then
@@ -199,7 +202,8 @@ begin
 
      			if(hready='1') then
      				--store hrdata at its appropriate location
-     				
+                    htrans<='0';
+                    dataout <= hrdata;
      				state <= idle;
      			else
      				state <= rdDat;
@@ -212,7 +216,6 @@ begin
           		hwdata <= dataToWrite;
      			state <= wrDat;
      		when wrDat=>
-     			htrans<='0';
                  if(tempMW = "001") then
                      hsize <= "000"; --strb
                  elsif(tempMW = "010") then
@@ -224,6 +227,8 @@ begin
                  end if;
 
      			if(hready='1') then
+         			htrans<='0';
+     			    
      				--when the slave has successfully written the data in the memory
      				state <= idle;
      			else
@@ -236,9 +241,9 @@ begin
      end process; 
      
 Processor: entity work.MainProcessor(MasterProcessor) port map(
-        clk => hclk,
+        clk => masterClkProc,
         resetReg => resetReg,
-        MemResult => hrdata,
+        MemResult => dataout,
         
         MemInputAd => haddrTemp,
         B => dataToWrite,
@@ -455,6 +460,9 @@ architecture slaveMemory of SlaveInterfaceMemory is
     signal MemInputAd: std_logic_vector(31 downto 0);
     signal MW: std_logic_vector(2 downto 0);
     signal MR: std_logic_vector(2 downto 0);
+    signal tempHrdata: std_logic_vector(31 downto 0);
+    signal tempHwdata: std_logic_vector(31 downto 0);
+    signal tempDataToReturn: std_logic_vector(31 downto 0);
 begin
 	process(hclk)
 	begin
@@ -491,15 +499,17 @@ begin
 				--begin fetching from the memory using haddr
 				state<=rd1;
 			when rd1=>
-				state<=rd3;
+				state<=rd2;
 			when rd2=>
 				state<=rd3;
 			when rd3=>
 				hreadyout<='1'; --assumed that by the time control reaches here, hrdata is set correctly
+				dataToReturn <= tempdataToReturn;
 				state<=waiting;
 			when wraddr=>
 				hreadyout<='0';
 				--begin writing the memory using haddr and hwdata
+				tempHwData <= hwData;
 				MemInputAd <= "000000000000000000" & haddr(13 downto 0);
                 MR <= "000";
                 if(hsize = "000") then
@@ -527,13 +537,13 @@ begin
 
 Memory: entity work.MemoryModule(func0) port map(
     address => MemInputAd,
-    WriteData =>  hwdata,
+    WriteData =>  temphwdata,
     clk => hclk,
     MR =>  MR,
     MW =>  MW,
     rst => hreset,
     
-    RD =>  dataToReturn
+    RD =>  tempdataToReturn
 );
 
 end slaveMemory;
