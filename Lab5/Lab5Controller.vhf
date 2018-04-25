@@ -359,15 +359,15 @@ begin
 				    Rsrc <= '1';
 				    BW <= '1';
 				end if;
---				if(IR(27 downto 25)="001" and Ir(20)='1') then
---				    fset<='1'; 
---				elsif((IR(27 downto 25) = "000") and (IR(20) = '1') and (IR(4) = '0')) then 
---				    fset <= '1';
+				if(IR(27 downto 25)="001" and Ir(20)='1') then
+				    fset<='1'; 
+				elsif((IR(27 downto 25) = "000") and (IR(20) = '1') and (IR(4) = '0')) then 
+				    fset <= '1';
 --                elsif((IR(27 downto 25) = "000") and (IR(20) = '1') and (IR(11 downto 8) /= "1111") and (IR(7) = '0') and (IR(4) = '1')) then 
 --                    fset <= '1';
 --                elsif((IR(27 downto 23) = "00000") and (IR(20) = '1') and (IR(7 downto 4) = "1001")) then
 --                    fset <= '1';
---				end if;
+				end if;
 				ReW <= '1';
 				
 				--atishya wrote somethings

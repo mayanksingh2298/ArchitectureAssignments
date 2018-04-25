@@ -373,7 +373,7 @@ entity MainDataPath is
         MemResult : in std_logic_vector(31 downto 0);
         
         IR_out: out std_logic_vector(31 downto 0);
-        flags: out std_logic_vector(3 downto 0):="0000";
+        flags: out std_logic_vector(3 downto 0);
         MemInputAd: out std_logic_vector(31 downto 0);
         BOut : out std_logic_vector(31 downto 0);
         
@@ -462,7 +462,7 @@ begin
     read1 <= "1110" when (push = '1')    ELSE
                 IR(19 downto 16) when (read1Sig = '0') else
              IR(11 downto 8);
-    ssdout <= read1 when (push = '1');
+    ssdout <= read1regval when (push = '1');
     --NEW CONTROL SIGNAL writeAddSig is 00 when input is ins[15-12], 01 when input is 14, 10 when input is 15  
     writeReg <= IR(15 downto 12) when writeAddSig = "00" ELSE
                 "1110" when writeAddSig = "01" ELSE    --for LR

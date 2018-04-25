@@ -704,7 +704,7 @@ begin
         enable => '1',
         htrans => fromProcTrans,
 --        hwdata => memData(15 downto 0),
-        hwdata => ssdout,
+        hwdata => ssdout(15 downto 0),
         
         hclk => clockDisp,
         hreadyout => slaveReadySSD,
