@@ -278,13 +278,13 @@ begin
              
 				
 			when rdAB =>
+				RW <= '1';
 				read1Sig <= '0';
 				Rsrc <= '0';
 				AW <= '1';
 				BW <= '1';
 				M2R <= "01";
 				writeAddSig <= "11";
-				RW <= '1';
 
 			when Branch =>
 				Asrc1 <= "00";
@@ -351,15 +351,15 @@ begin
 				    Rsrc <= '1';
 				    BW <= '1';
 				end if;
---				if(IR(27 downto 25)="001" and Ir(20)='1') then
---				    fset<='1'; 
---				elsif((IR(27 downto 25) = "000") and (IR(20) = '1') and (IR(4) = '0')) then 
---				    fset <= '1';
+				if(IR(27 downto 25)="001" and Ir(20)='1') then
+				    fset<='1'; 
+				elsif((IR(27 downto 25) = "000") and (IR(20) = '1') and (IR(4) = '0')) then 
+				    fset <= '1';
 --                elsif((IR(27 downto 25) = "000") and (IR(20) = '1') and (IR(11 downto 8) /= "1111") and (IR(7) = '0') and (IR(4) = '1')) then 
 --                    fset <= '1';
 --                elsif((IR(27 downto 23) = "00000") and (IR(20) = '1') and (IR(7 downto 4) = "1001")) then
 --                    fset <= '1';
---				end if;
+				end if;
 				ReW <= '1';
 				
 				--atishya wrote somethings
@@ -586,7 +586,7 @@ signal MWTemp: std_logic_vector(2 downto 0);
 begin
 
 Fset <= predicate and FsetTemp;
-RW <= predicate and RWTemp;
+RW <= RWTemp when (Currstate = rdAB) else predicate and RWTemp;
 MW <= MWTemp when (predicate = '1') else "000";
 Currstate <= Nextstate;
 --PW <= p and PWTemp;

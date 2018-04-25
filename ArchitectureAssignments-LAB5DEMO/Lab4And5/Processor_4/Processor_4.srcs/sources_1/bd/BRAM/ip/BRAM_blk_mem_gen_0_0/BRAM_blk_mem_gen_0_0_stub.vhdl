@@ -1,7 +1,7 @@
 -- Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2016.4 (lin64) Build 1756540 Mon Jan 23 19:11:19 MST 2017
--- Date        : Tue Apr 24 13:54:00 2018
+-- Date        : Thu Apr 26 01:36:58 2018
 -- Host        : Archer-PC running 64-bit Ubuntu 16.04.3 LTS
 -- Command     : write_vhdl -force -mode synth_stub
 --               /home/mayanksingh2298/IIT_Course/sem4/col216/Labs/ArchitectureAssignments-LAB5DEMO/Lab4And5/Processor_4/Processor_4.srcs/sources_1/bd/BRAM/ip/BRAM_blk_mem_gen_0_0/BRAM_blk_mem_gen_0_0_stub.vhdl

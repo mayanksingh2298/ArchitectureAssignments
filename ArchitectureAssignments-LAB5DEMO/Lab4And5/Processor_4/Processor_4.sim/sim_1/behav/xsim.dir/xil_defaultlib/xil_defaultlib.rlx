@@ -2,10 +2,10 @@
 2016.4
 Jan 23 2017
 19:19:20
-/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/ArchitectureAssignments-LAB5DEMO/Lab4And5/Lab4.vhf,1524556112,vhdl,/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/ArchitectureAssignments-LAB5DEMO/MainProcessor/MainProcessor.vhf,,,alu;maindatapath;memorymodule;multiplier;processormemorypath;registerfile;shifter,,,,,,,,
-/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/ArchitectureAssignments-LAB5DEMO/Lab4And5/Processor_4/Processor_4.ip_user_files/bd/BRAM/hdl/BRAM.vhd,1524558151,vhdl,,,,bram,,,,,,,,
-/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/ArchitectureAssignments-LAB5DEMO/Lab4And5/Processor_4/Processor_4.ip_user_files/bd/BRAM/ip/BRAM_blk_mem_gen_0_0/sim/BRAM_blk_mem_gen_0_0.v,1524558152,verilog,,,,BRAM_blk_mem_gen_0_0,,,,,,,,
+/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/ArchitectureAssignments-LAB5DEMO/Lab4And5/Lab4.vhf,1524671070,vhdl,/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/ArchitectureAssignments-LAB5DEMO/MainProcessor/MainProcessor.vhf,,,alu;maindatapath;memorymodule;multiplier;processormemorypath;registerfile;shifter,,,,,,,,
+/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/ArchitectureAssignments-LAB5DEMO/Lab4And5/Processor_4/Processor_4.ip_user_files/bd/BRAM/hdl/BRAM.vhd,1524684430,vhdl,,,,bram,,,,,,,,
+/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/ArchitectureAssignments-LAB5DEMO/Lab4And5/Processor_4/Processor_4.ip_user_files/bd/BRAM/ip/BRAM_blk_mem_gen_0_0/sim/BRAM_blk_mem_gen_0_0.v,1524684430,verilog,,,,BRAM_blk_mem_gen_0_0,,,,,,,,
 /home/mayanksingh2298/IIT_Course/sem4/col216/Labs/ArchitectureAssignments-LAB5DEMO/Lab4And5/Processor_4/Processor_4.sim/sim_1/behav/glbl.v,1485222234,verilog,,,,glbl,,,,,,,,
-/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/ArchitectureAssignments-LAB5DEMO/Lab4And5/Processor_4/Processor_4.srcs/sources_1/imports/hdl/BRAM_wrapper.vhd,1523960445,vhdl,/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/ArchitectureAssignments-LAB5DEMO/Lab4And5/Lab4.vhf,,,bram_wrapper,,,,,,,,
-/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/ArchitectureAssignments-LAB5DEMO/Lab5/Lab5Controller.vhf,1523960445,vhdl,/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/ArchitectureAssignments-LAB5DEMO/MainProcessor/MainProcessor.vhf,,,flagctrl;global;maincontroller;mastercontroller;opcodegen;statecontroller,,,,,,,,
-/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/ArchitectureAssignments-LAB5DEMO/MainProcessor/MainProcessor.vhf,1524556481,vhdl,,,,display;mainprocessor,,,,,,,,
+/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/ArchitectureAssignments-LAB5DEMO/Lab4And5/Processor_4/Processor_4.srcs/sources_1/imports/hdl/BRAM_wrapper.vhd,1524669901,vhdl,/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/ArchitectureAssignments-LAB5DEMO/Lab4And5/Lab4.vhf,,,bram_wrapper,,,,,,,,
+/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/ArchitectureAssignments-LAB5DEMO/Lab5/Lab5Controller.vhf,1524686642,vhdl,/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/ArchitectureAssignments-LAB5DEMO/MainProcessor/MainProcessor.vhf,,,flagctrl;global;maincontroller;mastercontroller;opcodegen;statecontroller,,,,,,,,
+/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/ArchitectureAssignments-LAB5DEMO/MainProcessor/MainProcessor.vhf,1524669901,vhdl,,,,display;mainprocessor,,,,,,,,

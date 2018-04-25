@@ -375,7 +375,7 @@ entity MainDataPath is
         MemResult : in std_logic_vector(31 downto 0);
         
         IR_out: out std_logic_vector(31 downto 0);
-        flags: out std_logic_vector(3 downto 0):="0000";
+        flags: out std_logic_vector(3 downto 0);
         MemInputAd: out std_logic_vector(31 downto 0);
         BOut : out std_logic_vector(31 downto 0);
         

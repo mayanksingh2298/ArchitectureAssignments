@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.4 (lin64) Build 1756540 Mon Jan 23 19:11:19 MST 2017
-| Date         : Tue Apr 24 13:55:46 2018
+| Date         : Thu Apr 26 01:38:35 2018
 | Host         : Archer-PC running 64-bit Ubuntu 16.04.3 LTS
 | Command      : report_control_sets -verbose -file MainProcessor_control_sets_placed.rpt
 | Design       : MainProcessor
@@ -22,8 +22,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |    36 |
-| Unused register locations in slices containing registers |    53 |
+| Number of unique control sets                            |    37 |
+| Unused register locations in slices containing registers |    58 |
 +----------------------------------------------------------+-------+
 
 
@@ -33,58 +33,59 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |             276 |          170 |
+| No           | No                    | No                     |             279 |          179 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |              39 |           17 |
-| Yes          | No                    | No                     |             480 |          226 |
+| No           | Yes                   | No                     |              39 |           14 |
+| Yes          | No                    | No                     |             480 |          234 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |             128 |           33 |
+| Yes          | Yes                   | No                     |             128 |           31 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 3. Detailed Control Set Information
 -----------------------------------
 
-+-----------------------------------------+------------------------------------------+--------------------------------------+------------------+----------------+
-|               Clock Signal              |               Enable Signal              |           Set/Reset Signal           | Slice Load Count | Bel Load Count |
-+-----------------------------------------+------------------------------------------+--------------------------------------+------------------+----------------+
-|  tmpDispClk_reg_n_0                     |                                          | Data/cathode_reg[1]                  |                1 |              1 |
-|  tmpDispClk_reg_n_0                     |                                          | Data/cathode_reg[2]                  |                2 |              2 |
-|  CONTROL/FSM/registers_reg[15][15]_0[0] |                                          |                                      |                1 |              4 |
-|  CONTROL/FSM/registers_reg[13][0][0]    |                                          |                                      |                2 |              4 |
-|  tmpDispClk_reg_n_0                     |                                          | Data/cathode_reg[0]                  |                3 |              4 |
-|  CONTROL/FSM/E[0]                       |                                          |                                      |                2 |              6 |
-|  clk_IBUF_BUFG                          |                                          |                                      |                3 |              6 |
-|  tmpDispClk_reg_n_0                     |                                          |                                      |                2 |              8 |
-|  push_IBUF_BUFG                         |                                          |                                      |                5 |             16 |
-|  clk_IBUF_BUFG                          | Data/RFile/registers[10]_3               |                                      |               10 |             32 |
-|  mulHoldSig_BUFG                        |                                          |                                      |                8 |             32 |
-|  clk_IBUF_BUFG                          | Data/RFile/registers[0]_5                |                                      |                9 |             32 |
-|  clk_IBUF_BUFG                          | CONTROL/CONTROL/registers_reg[7][0]_0[0] |                                      |               19 |             32 |
-|  clk_IBUF_BUFG                          | CONTROL/CONTROL/registers_reg[11][0][0]  |                                      |               21 |             32 |
-|  clk_IBUF_BUFG                          | CONTROL/FSM/count1[0]_i_2_n_0            | CONTROL/FSM/count1[0]_i_1_n_0        |                8 |             32 |
-|  clk_IBUF_BUFG                          | CONTROL/FSM/count3[0]_i_2_n_0            | CONTROL/FSM/count3[0]_i_1_n_0        |                8 |             32 |
-|  clk_IBUF_BUFG                          | CONTROL/FSM/count2[0]_i_2_n_0            | CONTROL/FSM/count2[0]_i_1_n_0        |                8 |             32 |
-|  IW_BUFG                                |                                          |                                      |               18 |             32 |
-|  DW_BUFG                                |                                          |                                      |               18 |             32 |
-|  clk_IBUF_BUFG                          | Data/RFile/registers[12]_8               |                                      |               15 |             32 |
-|  clk_IBUF_BUFG                          |                                          | tmpDispClk                           |               11 |             32 |
-|  clk_IBUF_BUFG                          | Data/RFile/registers[9]_11               |                                      |               21 |             32 |
-|  clk_IBUF_BUFG                          | Data/RFile/registers[8]_7                |                                      |               20 |             32 |
-|  clk_IBUF_BUFG                          | Data/RFile/registers[6]_2                |                                      |               21 |             32 |
-|  clk_IBUF_BUFG                          | Data/RFile/registers[5]_10               |                                      |               17 |             32 |
-|  clk_IBUF_BUFG                          | Data/RFile/registers[4]_6                |                                      |               15 |             32 |
-|  clk_IBUF_BUFG                          | Data/RFile/registers[3]_0                |                                      |               14 |             32 |
-|  clk_IBUF_BUFG                          | Data/RFile/registers[2]_1                |                                      |               11 |             32 |
-|  clk_IBUF_BUFG                          | Data/RFile/registers[15][31]_i_2_n_0     | Data/RFile/registers[15][31]_i_1_n_0 |                9 |             32 |
-|  clk_IBUF_BUFG                          | Data/RFile/registers[1]_9                |                                      |                8 |             32 |
-|  clk_IBUF_BUFG                          | Data/RFile/registers[14]_4               |                                      |               11 |             32 |
-|  clk_IBUF_BUFG                          | Data/RFile/registers[13]_12              |                                      |               14 |             32 |
-|  shiftHoldSig_BUFG                      |                                          |                                      |               32 |             33 |
-|  AW_BUFG                                |                                          |                                      |               22 |             33 |
-|  BW_BUFG                                |                                          |                                      |               33 |             33 |
-|  ReW_BUFG                               |                                          |                                      |               24 |             37 |
-+-----------------------------------------+------------------------------------------+--------------------------------------+------------------+----------------+
++---------------------------------------+--------------------------------------+--------------------------------------+------------------+----------------+
+|              Clock Signal             |             Enable Signal            |           Set/Reset Signal           | Slice Load Count | Bel Load Count |
++---------------------------------------+--------------------------------------+--------------------------------------+------------------+----------------+
+|  tmpDispClk_reg_n_0                   |                                      | Data/cathode_reg[1]                  |                1 |              1 |
+|  tmpDispClk_reg_n_0                   |                                      | Data/cathode_reg[2]                  |                2 |              2 |
+|  CONTROL/FSM/registers_reg[4][0][0]   |                                      |                                      |                2 |              4 |
+|  CONTROL/FSM/registers_reg[15][15][0] |                                      |                                      |                2 |              4 |
+|  Data/Fset                            |                                      |                                      |                1 |              4 |
+|  tmpDispClk_reg_n_0                   |                                      | Data/cathode_reg[0]                  |                3 |              4 |
+|  CONTROL/FSM/E[0]                     |                                      |                                      |                3 |              5 |
+|  clk_IBUF_BUFG                        |                                      |                                      |                6 |              6 |
+|  tmpDispClk_reg_n_0                   |                                      |                                      |                2 |              8 |
+|  push_IBUF_BUFG                       |                                      |                                      |                6 |             16 |
+|  clk_IBUF_BUFG                        | CONTROL/FSM/count2[0]_i_2_n_0        | CONTROL/FSM/count2[0]_i_1_n_0        |                8 |             32 |
+|  mulHoldSig_BUFG                      |                                      |                                      |               10 |             32 |
+|  clk_IBUF_BUFG                        | CONTROL/FSM/count3[0]_i_2_n_0        | CONTROL/FSM/count3[0]_i_1_n_0        |                8 |             32 |
+|  clk_IBUF_BUFG                        | CONTROL/FSM/registers_reg[8][0][0]   |                                      |               17 |             32 |
+|  clk_IBUF_BUFG                        | CONTROL/FSM/registers_reg[6][0][0]   |                                      |               16 |             32 |
+|  clk_IBUF_BUFG                        | CONTROL/FSM/registers_reg[4][0]_3[0] |                                      |               18 |             32 |
+|  clk_IBUF_BUFG                        | CONTROL/FSM/registers_reg[14][0][0]  |                                      |               10 |             32 |
+|  clk_IBUF_BUFG                        | CONTROL/FSM/registers_reg[10][0][0]  |                                      |               18 |             32 |
+|  clk_IBUF_BUFG                        | CONTROL/FSM/registers_reg[12][0][0]  |                                      |                9 |             32 |
+|  IW_BUFG                              |                                      |                                      |               21 |             32 |
+|  clk_IBUF_BUFG                        | CONTROL/FSM/count1[0]_i_2_n_0        | CONTROL/FSM/count1[0]_i_1_n_0        |                8 |             32 |
+|  DW_BUFG                              |                                      |                                      |               18 |             32 |
+|  clk_IBUF_BUFG                        |                                      | tmpDispClk                           |                8 |             32 |
+|  clk_IBUF_BUFG                        | Data/RFile/registers[9]_6            |                                      |               25 |             32 |
+|  clk_IBUF_BUFG                        | Data/RFile/registers[7]_3            |                                      |               14 |             32 |
+|  clk_IBUF_BUFG                        | Data/RFile/registers[5]_7            |                                      |               15 |             32 |
+|  clk_IBUF_BUFG                        | Data/RFile/registers[3]_4            |                                      |               15 |             32 |
+|  clk_IBUF_BUFG                        | Data/RFile/registers[2]_0            |                                      |               19 |             32 |
+|  clk_IBUF_BUFG                        | Data/RFile/registers[15][31]_i_2_n_0 | Data/RFile/registers[15][31]_i_1_n_0 |                7 |             32 |
+|  clk_IBUF_BUFG                        | Data/RFile/registers[1]_8            |                                      |               15 |             32 |
+|  clk_IBUF_BUFG                        | Data/RFile/registers[13]_5           |                                      |               12 |             32 |
+|  clk_IBUF_BUFG                        | Data/RFile/registers[11]_2           |                                      |               12 |             32 |
+|  clk_IBUF_BUFG                        | Data/RFile/registers[0]_1            |                                      |               19 |             32 |
+|  AW_BUFG                              |                                      |                                      |               24 |             33 |
+|  shiftHoldSig_BUFG                    |                                      |                                      |               29 |             33 |
+|  BW_BUFG                              |                                      |                                      |               33 |             33 |
+|  ReW_BUFG                             |                                      |                                      |               22 |             37 |
++---------------------------------------+--------------------------------------+--------------------------------------+------------------+----------------+
 
 
 +--------+-----------------------+
@@ -92,8 +93,9 @@ Table of Contents
 +--------+-----------------------+
 | 1      |                     1 |
 | 2      |                     1 |
-| 4      |                     3 |
-| 6      |                     2 |
+| 4      |                     4 |
+| 5      |                     1 |
+| 6      |                     1 |
 | 8      |                     1 |
 | 16+    |                    28 |
 +--------+-----------------------+

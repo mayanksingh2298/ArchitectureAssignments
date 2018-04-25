@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2016.4 (lin64) Build 1756540 Mon Jan 23 19:11:19 MST 2017
-| Date             : Tue Apr 24 13:56:12 2018
+| Date             : Thu Apr 26 01:39:02 2018
 | Host             : Archer-PC running 64-bit Ubuntu 16.04.3 LTS
 | Command          : report_power -file MainProcessor_power_routed.rpt -pb MainProcessor_power_summary_routed.pb -rpx MainProcessor_power_routed.rpx
 | Design           : MainProcessor
@@ -30,8 +30,8 @@ Table of Contents
 ----------
 
 +--------------------------+-------+
-| Total On-Chip Power (W)  | 0.097 |
-| Dynamic (W)              | 0.026 |
+| Total On-Chip Power (W)  | 0.093 |
+| Dynamic (W)              | 0.021 |
 | Device Static (W)        | 0.072 |
 | Effective TJA (C/W)      | 5.0   |
 | Max Ambient (C)          | 84.5  |
@@ -50,19 +50,19 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |     0.002 |        3 |       --- |             --- |
-| Slice Logic    |     0.009 |     3326 |       --- |             --- |
-|   LUT as Logic |     0.009 |     1864 |     20800 |            8.96 |
-|   CARRY4       |    <0.001 |      131 |      8150 |            1.61 |
-|   F7/F8 Muxes  |    <0.001 |      203 |     32600 |            0.62 |
+| Slice Logic    |     0.008 |     3424 |       --- |             --- |
+|   LUT as Logic |     0.007 |     1933 |     20800 |            9.29 |
+|   CARRY4       |    <0.001 |      133 |      8150 |            1.63 |
+|   F7/F8 Muxes  |    <0.001 |      207 |     32600 |            0.63 |
 |   BUFG         |    <0.001 |        8 |        32 |           25.00 |
-|   Register     |    <0.001 |      923 |     41600 |            2.22 |
-|   Others       |     0.000 |       26 |       --- |             --- |
-| Signals        |     0.011 |     2759 |       --- |             --- |
+|   Register     |    <0.001 |      926 |     41600 |            2.23 |
+|   Others       |     0.000 |       27 |       --- |             --- |
+| Signals        |     0.009 |     2824 |       --- |             --- |
 | Block RAM      |     0.001 |        2 |        50 |            4.00 |
-| DSPs           |     0.002 |        3 |        90 |            3.33 |
+| DSPs           |     0.001 |        3 |        90 |            3.33 |
 | I/O            |    <0.001 |       18 |       106 |           16.98 |
 | Static Power   |     0.072 |          |           |                 |
-| Total          |     0.097 |          |           |                 |
+| Total          |     0.093 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -72,7 +72,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.035 |       0.025 |      0.010 |
+| Vccint    |       1.000 |     0.031 |       0.021 |      0.010 |
 | Vccaux    |       1.800 |     0.013 |       0.000 |      0.013 |
 | Vcco33    |       3.300 |     0.001 |       0.000 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -141,18 +141,18 @@ Table of Contents
 +---------------------------------------------------------------------+-----------+
 | Name                                                                | Power (W) |
 +---------------------------------------------------------------------+-----------+
-| MainProcessor                                                       |     0.026 |
-|   CONTROL                                                           |     0.004 |
+| MainProcessor                                                       |     0.021 |
+|   CONTROL                                                           |     0.003 |
 |     CONTROL                                                         |    <0.001 |
 |     FSM                                                             |    <0.001 |
-|     OPCODESET                                                       |     0.002 |
-|   Data                                                              |     0.013 |
+|     OPCODESET                                                       |     0.001 |
+|   Data                                                              |     0.009 |
 |     ALU_unit                                                        |    <0.001 |
-|     Mul                                                             |     0.002 |
-|     RFile                                                           |     0.004 |
+|     Mul                                                             |     0.001 |
+|     RFile                                                           |     0.003 |
 |   Displaying                                                        |     0.000 |
-|   Memory                                                            |     0.001 |
-|     BRAM                                                            |     0.001 |
+|   Memory                                                            |     0.002 |
+|     BRAM                                                            |     0.002 |
 |       BRAM_i                                                        |     0.001 |
 |         blk_mem_gen_0                                               |     0.001 |
 |           U0                                                        |     0.001 |

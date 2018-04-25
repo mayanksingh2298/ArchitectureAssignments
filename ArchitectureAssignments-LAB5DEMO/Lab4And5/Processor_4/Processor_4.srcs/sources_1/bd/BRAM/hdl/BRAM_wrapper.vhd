@@ -1,7 +1,7 @@
 --Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2016.4 (lin64) Build 1756540 Mon Jan 23 19:11:19 MST 2017
---Date        : Tue Apr 24 13:52:31 2018
+--Date        : Thu Apr 26 01:35:36 2018
 --Host        : Archer-PC running 64-bit Ubuntu 16.04.3 LTS
 --Command     : generate_target BRAM_wrapper.bd
 --Design      : BRAM_wrapper

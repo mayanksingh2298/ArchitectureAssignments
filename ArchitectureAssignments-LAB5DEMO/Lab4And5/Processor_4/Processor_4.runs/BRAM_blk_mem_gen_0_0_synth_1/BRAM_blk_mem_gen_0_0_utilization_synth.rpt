@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.4 (lin64) Build 1756540 Mon Jan 23 19:11:19 MST 2017
-| Date         : Tue Apr 24 13:54:00 2018
+| Date         : Thu Apr 26 01:36:58 2018
 | Host         : Archer-PC running 64-bit Ubuntu 16.04.3 LTS
 | Command      : report_utilization -file BRAM_blk_mem_gen_0_0_utilization_synth.rpt -pb BRAM_blk_mem_gen_0_0_utilization_synth.pb
 | Design       : BRAM_blk_mem_gen_0_0

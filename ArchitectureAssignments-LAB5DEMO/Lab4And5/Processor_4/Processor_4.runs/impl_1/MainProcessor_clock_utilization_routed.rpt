@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.4 (lin64) Build 1756540 Mon Jan 23 19:11:19 MST 2017
-| Date         : Tue Apr 24 13:56:13 2018
+| Date         : Thu Apr 26 01:39:02 2018
 | Host         : Archer-PC running 64-bit Ubuntu 16.04.3 LTS
 | Command      : report_clock_utilization -file MainProcessor_clock_utilization_routed.rpt
 | Design       : MainProcessor
@@ -74,13 +74,13 @@ Table of Contents
 | Source Id | Global Id | Driver Type/Pin | Constraint | Site         | Clock Region | Clock Loads | Non-Clock Loads | Source Clock Period | Source Clock | Driver Pin                               | Net                      |
 +-----------+-----------+-----------------+------------+--------------+--------------+-------------+-----------------+---------------------+--------------+------------------------------------------+--------------------------+
 | src0      | g0        | IBUF/O          | IOB_X1Y26  | IOB_X1Y26    | X1Y0         |           1 |               0 |              10.000 | sys_clk_pin  | clk_IBUF_inst/O                          | clk_IBUF                 |
-| src1      | g1        | LUT5/O          | None       | SLICE_X36Y43 | X1Y0         |           1 |               0 |                     |              | CONTROL/FSM/g0_b0__0/O                   | CONTROL/FSM/ReW          |
+| src1      | g1        | LUT5/O          | None       | SLICE_X38Y40 | X1Y0         |           1 |               0 |                     |              | CONTROL/FSM/g0_b0__0/O                   | CONTROL/FSM/ReW          |
 | src2      | g2        | LUT5/O          | None       | SLICE_X36Y45 | X1Y0         |           1 |               0 |                     |              | CONTROL/FSM/AW_BUFG_inst_i_1/O           | CONTROL/FSM/AW           |
 | src3      | g3        | LUT6/O          | None       | SLICE_X36Y45 | X1Y0         |           1 |               0 |                     |              | CONTROL/FSM/BW_BUFG_inst_i_1/O           | CONTROL/FSM/BW           |
-| src4      | g4        | LUT5/O          | None       | SLICE_X36Y45 | X1Y0         |           1 |               0 |                     |              | CONTROL/FSM/shiftHoldSig_BUFG_inst_i_1/O | CONTROL/FSM/shiftHoldSig |
-| src5      | g5        | LUT5/O          | None       | SLICE_X36Y45 | X1Y0         |           1 |               1 |                     |              | CONTROL/FSM/DW_BUFG_inst_i_1/O           | CONTROL/FSM/DW           |
-| src6      | g6        | LUT5/O          | None       | SLICE_X36Y45 | X1Y0         |           1 |               1 |                     |              | CONTROL/FSM/IW_BUFG_inst_i_1/O           | CONTROL/FSM/IW           |
-| src7      | g7        | LUT5/O          | None       | SLICE_X36Y41 | X1Y0         |           1 |               0 |                     |              | CONTROL/FSM/mulHoldSig_BUFG_inst_i_1/O   | CONTROL/FSM/mulHoldSig   |
+| src4      | g4        | LUT5/O          | None       | SLICE_X38Y40 | X1Y0         |           1 |               0 |                     |              | CONTROL/FSM/shiftHoldSig_BUFG_inst_i_1/O | CONTROL/FSM/shiftHoldSig |
+| src5      | g5        | LUT5/O          | None       | SLICE_X36Y24 | X1Y0         |           1 |               1 |                     |              | CONTROL/FSM/DW_BUFG_inst_i_1/O           | CONTROL/FSM/DW           |
+| src6      | g6        | LUT5/O          | None       | SLICE_X36Y24 | X1Y0         |           1 |               1 |                     |              | CONTROL/FSM/IW_BUFG_inst_i_1/O           | CONTROL/FSM/IW           |
+| src7      | g7        | LUT5/O          | None       | SLICE_X36Y45 | X1Y0         |           1 |               0 |                     |              | CONTROL/FSM/mulHoldSig_BUFG_inst_i_1/O   | CONTROL/FSM/mulHoldSig   |
 | src8      | g8        | IBUF/O          | IOB_X0Y16  | IOB_X0Y16    | X0Y0         |           1 |               4 |                     |              | push_IBUF_inst/O                         | push_IBUF                |
 +-----------+-----------+-----------------+------------+--------------+--------------+-------------+-----------------+---------------------+--------------+------------------------------------------+--------------------------+
 * Clock Loads column represents the clock pin loads (pin count)
@@ -93,7 +93,7 @@ Table of Contents
 +----------+-----------------+------------+------------------+--------------+-------------+-----------------+--------------+-------+------------------+--------------------+
 | Local Id | Driver Type/Pin | Constraint | Site/BEL         | Clock Region | Clock Loads | Non-Clock Loads | Clock Period | Clock | Driver Pin       | Net                |
 +----------+-----------------+------------+------------------+--------------+-------------+-----------------+--------------+-------+------------------+--------------------+
-| 0        | FDRE/Q          | None       | SLICE_X40Y25/AFF | X1Y0         |          15 |               1 |              |       | tmpDispClk_reg/Q | tmpDispClk_reg_n_0 |
+| 0        | FDRE/Q          | None       | SLICE_X46Y35/BFF | X1Y0         |          15 |               1 |              |       | tmpDispClk_reg/Q | tmpDispClk_reg_n_0 |
 +----------+-----------------+------------+------------------+--------------+-------------+-----------------+--------------+-------+------------------+--------------------+
 * Local Clocks in this context represents only clocks driven by non-global buffers
 ** Clock Loads column represents the clock pin loads (pin count)
@@ -108,8 +108,8 @@ Table of Contents
 +-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
 | Clock Region Name | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail |
 +-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
-| X0Y0              |    1 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 |  1200 |    9 |   400 |    0 |    20 |    0 |    10 |    0 |    20 |
-| X1Y0              |    9 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |  661 |  1500 |  273 |   450 |    0 |    40 |    2 |    20 |    0 |    20 |
+| X0Y0              |    1 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 |  1200 |   12 |   400 |    0 |    20 |    0 |    10 |    0 |    20 |
+| X1Y0              |    9 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |  661 |  1500 |  286 |   450 |    0 |    40 |    2 |    20 |    0 |    20 |
 | X0Y1              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 |  1200 |    0 |   400 |    0 |    20 |    0 |    10 |    0 |    20 |
 | X1Y1              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 |  1500 |    0 |   450 |    0 |    40 |    0 |    20 |    0 |    20 |
 | X0Y2              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 |  1800 |    0 |   400 |    0 |    20 |    0 |    10 |    0 |    20 |
@@ -136,7 +136,7 @@ Table of Contents
 +-----------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+-------------------+
 | Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net               |
 +-----------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+-------------------+
-| g4        | n/a   | BUFG/O          | None       |          25 |               0 |  0 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | shiftHoldSig_BUFG |
+| g4        | n/a   | BUFG/O          | None       |          21 |               0 |  0 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | shiftHoldSig_BUFG |
 +-----------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+-------------------+
 * Clock Loads column represents the clock pin loads (pin count)
 ** Non-Clock Loads column represents the non-clock pin loads (pin count)
@@ -153,7 +153,7 @@ Table of Contents
 | g1        | n/a   | BUFG/O          | None       |          37 |               0 |   0 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | ReW_BUFG          |
 | g2        | n/a   | BUFG/O          | None       |          33 |               0 |   0 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | AW_BUFG           |
 | g3        | n/a   | BUFG/O          | None       |          33 |               0 |   0 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | BW_BUFG           |
-| g4        | n/a   | BUFG/O          | None       |           8 |               0 |   0 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | shiftHoldSig_BUFG |
+| g4        | n/a   | BUFG/O          | None       |          12 |               0 |   0 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | shiftHoldSig_BUFG |
 | g5        | n/a   | BUFG/O          | None       |          32 |               0 |   0 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | DW_BUFG           |
 | g6        | n/a   | BUFG/O          | None       |          32 |               0 |   0 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | IW_BUFG           |
 | g7        | n/a   | BUFG/O          | None       |          32 |               0 |   0 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | mulHoldSig_BUFG   |
@@ -270,13 +270,13 @@ Table of Contents
 **** GT Loads column represents load cell count of GT types
 
 
-+----+-----+----+
-|    | X0  | X1 |
-+----+-----+----+
-| Y2 |   0 |  0 |
-| Y1 |   0 |  0 |
-| Y0 |  25 |  8 |
-+----+-----+----+
++----+-----+-----+
+|    | X0  | X1  |
++----+-----+-----+
+| Y2 |   0 |   0 |
+| Y1 |   0 |   0 |
+| Y0 |  21 |  12 |
++----+-----+-----+
 
 
 14. Load Cell Placement Summary for Global Clock g5
