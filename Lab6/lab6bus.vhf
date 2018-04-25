@@ -154,10 +154,11 @@ end MasterInterfaceProc;
 architecture masterProc of MasterInterfaceProc is
     TYPE mystateProc IS (idle,rdAddr,rdDat,wrAddr,wrDat);
     signal state: mystateProc:= idle;
-    signal tempMR: std_logic_vector(2 downto 0);
-    signal tempMW: std_logic_vector(2 downto 0);
+    signal tempMR: std_logic_vector(2 downto 0) := "000";
+    signal tempMW: std_logic_vector(2 downto 0) := "000";
     signal haddrTemp: std_logic_vector(31 downto 0);
     signal dataToWrite: std_logic_vector(31 downto 0);
+    signal start2: std_logic := '0';
 begin
      process(hclk)
      begin
@@ -165,12 +166,14 @@ begin
      	case state is
      		when idle=>
      			htrans<='0';
-     			if(enable='0') then --neither reading nor writing
+     			if((enable or start2)='0') then --neither reading nor writing
      				state <= idle;
      			elsif(tempMR /= "000") then
      			    state <= rdAddr;
-     			else --writing
+     			elsif(tempMW /= "000") then  --writing
      				state <= wrAddr;
+     			else
+     			    state <= idle;
      			end if;
      		when rdAddr=>
                 haddr <=  "00" & haddrTemp(13 downto 0);
@@ -186,9 +189,9 @@ begin
                      hsize <= "100"; -- ldrb signed
                  elsif(tempMR = "010") then
                      hsize <= "001";
-                 elsif(tempMR = "010") then
+                 elsif(tempMR = "011") then
                      hsize <= "101";
-                 elsif(tempMR = "010") then
+                 elsif(tempMR = "100") then
                      hsize <= "010";
                  else
                      hsize <= "111"; -- disable memory
@@ -241,7 +244,8 @@ Processor: entity work.MainProcessor(MasterProcessor) port map(
         B => dataToWrite,
         MR => tempMR,
         MW => tempMW,
-        Memrst => resetMem
+        Memrst => resetMem,
+        enableMasterProc => start2
      );         
 end masterProc;
 
@@ -264,8 +268,8 @@ entity MasterInterfaceSwitch is
     );
 end MasterInterfaceSwitch;
 architecture masterSwitch of MasterInterfaceSwitch is
-    TYPE mystate IS (idle,rdAddr,rdDat,wrAddr,wrDat);
-    signal state: mystate:= idle;
+    TYPE mystateSwitch IS (idle,wrAddr,wrDat);
+    signal state: mystateSwitch:= idle;
 begin
      process(hclk)
      begin
@@ -381,8 +385,8 @@ architecture slaveSSD of SlaveInterfaceSSD is
     signal b         : integer := 0;
     signal c         : integer := 0;
     signal d         : integer := 0;
-    signal anodeTemp : std_logic_vector(3 downto 0);
-    signal cathodeTemp : std_logic_vector(6 downto 0);
+--    signal anodeTemp : std_logic_vector(3 downto 0);
+--    signal cathodeTemp : std_logic_vector(6 downto 0);
 begin
 
 	process(hclk)
@@ -408,8 +412,6 @@ begin
 				state<=wr3;
 			when wr3=>
 				hreadyout<='1'; --assumed that by the time control reaches here, hwdata is set correctly
-        		anode <= anodeTemp;
-        		cathode <= cathodeTemp;
         		state<=waiting;
 			when others=>
                                   
@@ -423,8 +425,8 @@ begin
         int3    => c,
         int4    => d,
         clock2  => hclk,
-        anode   => anodeTemp, 
-        cathode => cathodeTemp
+        anode   => anode, 
+        cathode => cathode
     );   
 end slaveSSD;
 
@@ -440,11 +442,11 @@ entity SlaveInterfaceMemory is
         hsize: in std_logic_vector(2 downto 0);
         htrans: in std_logic;
         hreset: in std_logic;
-        hwdata: in std_logic_vector(15 downto 0);
+        hwdata: in std_logic_vector(31 downto 0);
         hclk : in std_logic;
 
         hreadyout: out std_logic;
-        dataToReturn: out std_logic_vector(15 downto 0)
+        dataToReturn: out std_logic_vector(31 downto 0)
     );
 end SlaveInterfaceMemory;
 architecture slaveMemory of SlaveInterfaceMemory is
@@ -489,7 +491,7 @@ begin
 				--begin fetching from the memory using haddr
 				state<=rd1;
 			when rd1=>
-				state<=rd2;
+				state<=rd3;
 			when rd2=>
 				state<=rd3;
 			when rd3=>
@@ -547,19 +549,18 @@ entity mainBus is
 		sim : in  std_logic;
 		inputSwitch : in std_logic_vector(15 downto 0);
 		resetReg : in std_logic;
-		ActivateLed : in std_logic;
 		startProc : in std_logic;
+		SwitchEnable : in std_logic;
 		
 		outputLed : out std_logic_vector(15 downto 0);
 		anode         : out std_logic_vector(3 downto 0);
 		cathode       : out std_logic_vector(6 downto 0)
-	   
 	);
 end mainBus;
 architecture main of mainBus is
 	
-	
 	signal slaveReady: std_logic:='1';
+	signal slaveReadySSD: std_logic:='1';
 	signal slaveReadData: std_logic_vector(31 downto 0);
 	signal masterWriteData: std_logic_vector(15 downto 0);
 	signal masterAddress: std_logic_vector(15 downto 0);
@@ -587,12 +588,16 @@ architecture main of mainBus is
     signal fromProcsize : std_logic_vector (2 downto 0);
     signal fromProcAddr : std_logic_vector (15 downto 0);
     signal readyForProc : std_logic;
+    signal procClk : std_logic;
+    signal flagStart : std_logic:= '0';
 
+    signal tempStartProc : std_logic;
 begin
-
+    flagStart <= '1' when startProc = '1';
 	process(clk)
 	  begin
 	    if (clk = '1' and clk'EVENT) then
+--	      tempStartProc <= StartProc;
 	      if (counter mod 100000 = 0) then
 	        tmpDispClk <= not(tmpDispClk);
 	        counter <= 1;
@@ -602,11 +607,13 @@ begin
 	    end if;
 	end process;
 	clockDisp <= (tmpDispClk and not(sim)) or (clk and sim); 
-
-    readyForProc <= memReady when (startProc = '1') else '0';
+    
+    Procclk <= clk when (flagStart = '1') else '0';
+    
+    readyForProc <= memReady; -------------------------------------------------------------------------
     ProcessorMaster: entity work.MasterInterfaceProc(masterProc) port map(
         hready => readyForProc,
-        hclk => clk,
+        hclk => Procclk,
         enable => startProc,
         resetReg => resetReg,
         hrdata => memData,
@@ -618,12 +625,12 @@ begin
         resetMem => FromProcResetMem
     );
     
-    memInputData <= masterWriteData when (masterTrans = '1') else FromProcWriteData;
-    memHWrite <= masterWriteBool when (masterTrans = '1') else FromProcWrite;
-    memHSize <= masterSize when (masterTrans = '1') else FromProcSize;
-    memTrans <= masterTrans when (masterTrans = '1') else FromProcTrans;
-    memreset <= '0' when (masterTrans = '1') else FromProcResetMem;
-    memAddr <= masterAddress when (masterTrans = '1') else FromProcAddr;
+    memInputData <= ("0000000000000000"&masterWriteData) when (flagStart = '0' or masterTrans = '1') else FromProcWriteData;
+    memHWrite <= masterWriteBool when (flagStart = '0' or masterTrans = '1') else FromProcWrite;
+    memHSize <= masterSize when (flagStart = '0' or masterTrans = '1') else FromProcSize;
+    memTrans <= masterTrans when (flagStart = '0' or masterTrans = '1') else FromProcTrans;
+    memreset <= '0' when (flagStart = '0' or masterTrans = '1') else FromProcResetMem;
+    memAddr <= masterAddress when (flagStart = '0' or masterTrans = '1') else FromProcAddr;
  
     MemorySlave: entity work.SlaveInterfaceMemory(slavememory) port map(
         haddr => memAddr,
@@ -641,7 +648,7 @@ begin
 	MasterInterfaceSwitch: entity work.MasterInterfaceSwitch(masterSwitch) port map(
 		hready => slaveReady,
         hclk => clk,
-        enable => '1',
+        enable => switchEnable,
         dataToWrite => inputSwitch,
         haddr => masterAddress,
         hwrite => masterWriteBool,
@@ -664,10 +671,10 @@ begin
     SSDSLave: entity work.SlaveInterfaceSSD(slaveSSD) port map(
         enable => '1',
         htrans => fromProcTrans,
-        hwdata => memData,
+        hwdata => memData(15 downto 0),
         
         hclk => clockDisp,
-        hreadyout => slaveReady,
+        hreadyout => slaveReadySSD,
         anode => anode,
         cathode => cathode
     );    	

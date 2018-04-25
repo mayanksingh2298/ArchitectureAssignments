@@ -320,7 +320,8 @@ end RegisterFile;
 architecture func4 of RegisterFile is
 --Registers
 type arraytype is array (0 to 15) of std_logic_vector(31 downto 0);
-signal registers : arraytype;
+
+signal registers : arraytype:=(( others => ( others => '0')));
 --signal registers : array (0 to 15) of std_logic_vector(31 downto 0);
 begin
     

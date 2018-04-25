@@ -12,7 +12,8 @@ entity MainProcessor is
         B : out std_logic_vector(31 downto 0);
         MR : out std_logic_vector(2 downto 0);
         MW : out std_logic_vector(2 downto 0);
-        Memrst : out std_logic
+        Memrst : out std_logic;
+        EnableMasterProc : out std_logic
     );
 end MainProcessor;
 
@@ -39,9 +40,13 @@ signal shiftAmtSig : std_logic;
 signal shiftHoldSig : std_logic;
 signal mulHoldSig : std_logic;
 signal opShift : std_logic_vector(1 downto 0);
+signal MRTemp : std_logic_vector(2 downto 0);
+signal MWTemp : std_logic_vector(2 downto 0);
 
 begin
-
+MR <= MRTemp;
+MW <= MWTemp;
+enableMasterProc <= '1' when ((MRTemp /= "000") and (MWTemp /= "000")) else '0';
 --------------------------------------------------
 ------------------Port Mappings ------------------
 --------------------------------------------------
@@ -51,8 +56,8 @@ CONTROL: entity work.MasterController(MasterControl) port map(
     flags => flags,
 
     IorD => IorD, 
-    MR => MR,
-    MW => MW,
+    MR => MRTemp,
+    MW => MWTemp,
     IW => IW, 
     DW => DW, 
     Rsrc => Rsrc, 

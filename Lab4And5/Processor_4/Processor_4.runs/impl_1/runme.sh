@@ -20,7 +20,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4And5/Processor_4/Processor_4.runs/impl_1'
+HD_PWD='/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Processor_4/Processor_4.runs/impl_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
@@ -38,6 +38,6 @@ EAStep()
 
 # pre-commands:
 /bin/touch .init_design.begin.rst
-EAStep vivado -log MasterController.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source MasterController.tcl -notrace
+EAStep vivado -log mainBus.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source mainBus.tcl -notrace
 
 

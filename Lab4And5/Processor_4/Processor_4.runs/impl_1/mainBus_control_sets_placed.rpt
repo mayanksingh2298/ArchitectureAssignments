@@ -1,0 +1,117 @@
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.4 (lin64) Build 1756540 Mon Jan 23 19:11:19 MST 2017
+| Date         : Wed Apr 25 14:59:01 2018
+| Host         : atishya-HP-Pavilion-Notebook running 64-bit Ubuntu 16.04.4 LTS
+| Command      : report_control_sets -verbose -file mainBus_control_sets_placed.rpt
+| Design       : mainBus
+| Device       : xc7a35t
+------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Flip-Flop Distribution
+3. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Number of unique control sets                            |    46 |
+| Unused register locations in slices containing registers |    88 |
++----------------------------------------------------------+-------+
+
+
+2. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |             277 |          180 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |              39 |           14 |
+| Yes          | No                    | No                     |             576 |          260 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |             148 |           42 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+3. Detailed Control Set Information
+-----------------------------------
+
++----------------------------------------------------------------+--------------------------------------------------------------------+----------------------------------------------------------------+------------------+----------------+
+|                          Clock Signal                          |                            Enable Signal                           |                        Set/Reset Signal                        | Slice Load Count | Bel Load Count |
++----------------------------------------------------------------+--------------------------------------------------------------------+----------------------------------------------------------------+------------------+----------------+
+|  startProc_IBUF_BUFG                                           |                                                                    |                                                                |                1 |              1 |
+|  clockDisp_BUFG                                                |                                                                    | SSDSLave/Displaying/cathode[1]_i_1_n_1                         |                1 |              1 |
+|  clockDisp_BUFG                                                |                                                                    | SSDSLave/Displaying/cathode[6]_i_1_n_1                         |                2 |              2 |
+|  procClk_BUFG                                                  | ProcessorMaster/FSM_sequential_state[2]_i_1_n_1                    |                                                                |                2 |              4 |
+|  ProcessorMaster/Processor/CONTROL/FSM/haddr_reg[0][0]         |                                                                    |                                                                |                1 |              4 |
+|  clockDisp_BUFG                                                |                                                                    | SSDSLave/Displaying/cathode[5]_i_1_n_1                         |                2 |              4 |
+|  ProcessorMaster/Processor/CONTROL/FSM/registers_reg[13][0][0] |                                                                    |                                                                |                1 |              4 |
+|  clk_IBUF_BUFG                                                 | MemorySlave/MR[2]_i_1_n_1                                          |                                                                |                4 |              5 |
+|  ProcessorMaster/Processor/CONTROL/FSM/E[0]                    |                                                                    |                                                                |                2 |              5 |
+|  clockDisp_BUFG                                                | SSDSLave/a                                                         | SSDSLave/a[2]_i_1_n_1                                          |                6 |              7 |
+|  procClk_BUFG                                                  |                                                                    |                                                                |                6 |              8 |
+|  clockDisp_BUFG                                                | SSDSLave/a                                                         |                                                                |                3 |              9 |
+|  clockDisp_BUFG                                                |                                                                    |                                                                |                5 |             11 |
+|  clk_IBUF_BUFG                                                 |                                                                    |                                                                |                5 |             12 |
+|  clk_IBUF_BUFG                                                 | MemorySlave/MR[2]_i_1_n_1                                          | MemorySlave/MemInputAd[13]_i_1_n_1                             |                3 |             13 |
+|  procClk_BUFG                                                  | ProcessorMaster/haddr[13]_i_1_n_1                                  |                                                                |                6 |             14 |
+|  clk_IBUF_BUFG                                                 | MasterInterfaceSwitch/hwdata[15]_i_1_n_1                           |                                                                |                8 |             16 |
+|  clk_IBUF_BUFG                                                 | SlaveInterfaceLed/dataToReturn_n_1                                 |                                                                |                6 |             16 |
+|  procClk_BUFG                                                  | ProcessorMaster/Processor/Data/RFile/registers[14]_7               |                                                                |               14 |             32 |
+|  procClk_BUFG                                                  | ProcessorMaster/Processor/Data/RFile/registers[4]_9                |                                                                |               13 |             32 |
+|  procClk_BUFG                                                  | ProcessorMaster/Processor/Data/RFile/registers[1]_0                |                                                                |               15 |             32 |
+|  procClk_BUFG                                                  | ProcessorMaster/Processor/Data/RFile/registers[15][31]_i_2_n_1     | ProcessorMaster/Processor/Data/RFile/registers[15][31]_i_1_n_1 |                9 |             32 |
+|  procClk_BUFG                                                  | ProcessorMaster/Processor/Data/RFile/registers[2]_4                |                                                                |               15 |             32 |
+|  procClk_BUFG                                                  | ProcessorMaster/Processor/Data/RFile/registers[3]_29               |                                                                |               15 |             32 |
+|  procClk_BUFG                                                  | ProcessorMaster/Processor/Data/RFile/registers[13]_3               |                                                                |               14 |             32 |
+|  procClk_BUFG                                                  | ProcessorMaster/Processor/CONTROL/CONTROL/registers_reg[7][0]_0[0] |                                                                |               18 |             32 |
+|  procClk_BUFG                                                  | ProcessorMaster/Processor/CONTROL/CONTROL/registers_reg[11][0][0]  |                                                                |               14 |             32 |
+|  procClk_BUFG                                                  | ProcessorMaster/Processor/CONTROL/FSM/count2[0]_i_2_n_1            | ProcessorMaster/Processor/CONTROL/FSM/count2[0]_i_1_n_1        |                8 |             32 |
+|  procClk_BUFG                                                  | ProcessorMaster/Processor/CONTROL/FSM/count1[0]_i_2_n_1            | ProcessorMaster/Processor/CONTROL/FSM/count1[0]_i_1_n_1        |                8 |             32 |
+|  procClk_BUFG                                                  | ProcessorMaster/Processor/CONTROL/FSM/count3[0]_i_2_n_1            | ProcessorMaster/Processor/CONTROL/FSM/count3[0]_i_1_n_1        |                8 |             32 |
+|  procClk_BUFG                                                  | ProcessorMaster/hwdata[31]_i_1_n_1                                 |                                                                |               12 |             32 |
+|  procClk_BUFG                                                  | ProcessorMaster/Processor/Data/RFile/registers[5]_1                |                                                                |               10 |             32 |
+|  procClk_BUFG                                                  | ProcessorMaster/Processor/Data/RFile/registers[6]_5                |                                                                |               12 |             32 |
+|  procClk_BUFG                                                  | ProcessorMaster/Processor/Data/RFile/registers[8]_10               |                                                                |               16 |             32 |
+|  procClk_BUFG                                                  | ProcessorMaster/Processor/Data/RFile/registers[9]_2                |                                                                |               17 |             32 |
+|  procClk_BUFG                                                  | ProcessorMaster/Processor/Data/RFile/registers[0]_8                |                                                                |               13 |             32 |
+|  procClk_BUFG                                                  | ProcessorMaster/Processor/Data/RFile/registers[10]_6               |                                                                |               17 |             32 |
+|  procClk_BUFG                                                  | ProcessorMaster/Processor/Data/RFile/registers[12]_11              |                                                                |               16 |             32 |
+|  Processor/DW                                                  |                                                                    |                                                                |               12 |             32 |
+|  Processor/IW                                                  |                                                                    |                                                                |               15 |             32 |
+|  Processor/mulHoldSig                                          |                                                                    |                                                                |               10 |             32 |
+|  clk_IBUF_BUFG                                                 |                                                                    | tmpDispClk                                                     |                9 |             32 |
+|  Processor/BW                                                  |                                                                    |                                                                |               33 |             33 |
+|  Processor/shiftHoldSig                                        |                                                                    |                                                                |               30 |             33 |
+|  n_0_2383_BUFG                                                 |                                                                    |                                                                |               33 |             33 |
+|  Processor/ReW                                                 |                                                                    |                                                                |               26 |             37 |
++----------------------------------------------------------------+--------------------------------------------------------------------+----------------------------------------------------------------+------------------+----------------+
+
+
++--------+-----------------------+
+| Fanout | Number of ControlSets |
++--------+-----------------------+
+| 1      |                     2 |
+| 2      |                     1 |
+| 4      |                     4 |
+| 5      |                     2 |
+| 7      |                     1 |
+| 8      |                     1 |
+| 9      |                     1 |
+| 11     |                     1 |
+| 12     |                     1 |
+| 13     |                     1 |
+| 14     |                     1 |
+| 16+    |                    30 |
++--------+-----------------------+
+
+

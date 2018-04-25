@@ -20,7 +20,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/home/mayanksingh2298/IIT_Course/sem4/col216/Labs/Lab4And5/Processor_4/Processor_4.runs/synth_1'
+HD_PWD='/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Processor_4/Processor_4.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
@@ -36,4 +36,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log MasterController.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source MasterController.tcl
+EAStep vivado -log mainBus.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source mainBus.tcl
