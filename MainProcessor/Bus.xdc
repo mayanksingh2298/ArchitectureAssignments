@@ -71,6 +71,9 @@ set_property IOSTANDARD LVCMOS33 [get_ports resetReg]
 set_property PACKAGE_PIN T17 [get_ports sim]
 set_property IOSTANDARD LVCMOS33 [get_ports sim]
 
+set_property PACKAGE_PIN V18 [get_ports push]
+set_property IOSTANDARD LVCMOS33 [get_ports push]
+
 # Cathodes
 set_property PACKAGE_PIN W7 [get_ports cathode[0]]
 set_property IOSTANDARD LVCMOS33 [get_ports cathode[0]]

@@ -148,7 +148,10 @@ entity MasterInterfaceProc is
         hsize: out std_logic_vector(2 downto 0);
         htrans: out std_logic;  -- '0' idle | '1' nonseq
         hwdata: out std_logic_vector(31 downto 0);
-        resetMem: out std_logic
+        resetMem: out std_logic;
+        
+        push: in std_logic;
+        ssdout: out std_logic_vector(31 downto 0)
     );
 end MasterInterfaceProc;
 architecture masterProc of MasterInterfaceProc is
@@ -161,9 +164,17 @@ architecture masterProc of MasterInterfaceProc is
     signal start2: std_logic := '0';
     signal masterClkProc: std_logic:='0'; 
     signal dataout: std_logic_vector(31 downto 0);
+    signal tempclk: std_logic;
 begin
-     masterClkProc <= hclk when(state = idle) else '0';
+--     masterClkProc <= '0' when(hready = '0') else hclk;
+--     masterClkProc <= hclk when((start2 = '1') and hready = '1') else '0';
+--     tempclk <= hclk when ((enable or start2) = '0') else '0';
+    
+--    tempClk <= '0' when ((enable or start2) = '1') else hclk; 
+--    masterClkproc <= tempClk when ()
+--     when (hready = '0') else hclk;
 --     hwdata <= dataout;
+    masterClkProc <= '0' when (tempClk = '1') else hclk;
      process(hclk)
      begin
      	if(hclk='1' and hclk'event) then
@@ -173,9 +184,11 @@ begin
      			if((enable or start2)='0') then --neither reading nor writing
      				state <= idle;
      			elsif(tempMR /= "000") then
+     			    tempClk <= '1';
      			    state <= rdAddr;
      			elsif(tempMW /= "000") then  --writing
      				state <= wrAddr;
+     				tempClk <= '1';
      			else
      			    state <= idle;
      			end if;
@@ -204,6 +217,7 @@ begin
      				--store hrdata at its appropriate location
                     htrans<='0';
                     dataout <= hrdata;
+                    tempClk <= '0';
      				state <= idle;
      			else
      				state <= rdDat;
@@ -228,7 +242,7 @@ begin
 
      			if(hready='1') then
          			htrans<='0';
-     			    
+     			    tempClk <= '0';
      				--when the slave has successfully written the data in the memory
      				state <= idle;
      			else
@@ -250,7 +264,10 @@ Processor: entity work.MainProcessor(MasterProcessor) port map(
         MR => tempMR,
         MW => tempMW,
         Memrst => resetMem,
-        enableMasterProc => start2
+        enableMasterProc => start2,
+        
+        push => push,
+        ssdout => ssdout
      );         
 end masterProc;
 
@@ -472,6 +489,7 @@ begin
 				if(htrans='0') then
 					state<=waiting;
 				else
+    				hreadyout<='0';
 					if(hwrite='0') then
 						state<=rdAddr;
 					else
@@ -479,7 +497,6 @@ begin
 					end if;
 				end if;
 			when rdaddr=>
-				hreadyout<='0';
 				MemInputAd <= "000000000000000000" & haddr(13 downto 0);
 				MW <= "000";
 				if(hsize = "000") then
@@ -561,6 +578,7 @@ entity mainBus is
 		resetReg : in std_logic;
 		startProc : in std_logic;
 		SwitchEnable : in std_logic;
+		push : in std_logic;
 		
 		outputLed : out std_logic_vector(15 downto 0);
 		anode         : out std_logic_vector(3 downto 0);
@@ -600,7 +618,8 @@ architecture main of mainBus is
     signal readyForProc : std_logic;
     signal procClk : std_logic;
     signal flagStart : std_logic:= '0';
-
+    
+    signal ssdout: std_logic_vector(31 downto 0);
     signal tempStartProc : std_logic;
 begin
     flagStart <= '1' when startProc = '1';
@@ -632,7 +651,10 @@ begin
         hsize => fromProcSize,
         htrans => fromProctrans,  -- '0' idle | '1' nonseq
         hwdata => FromProcWriteData,
-        resetMem => FromProcResetMem
+        resetMem => FromProcResetMem,
+        
+        push => push,
+        ssdout => ssdout
     );
     
     memInputData <= ("0000000000000000"&masterWriteData) when (flagStart = '0' or masterTrans = '1') else FromProcWriteData;
@@ -681,7 +703,8 @@ begin
     SSDSLave: entity work.SlaveInterfaceSSD(slaveSSD) port map(
         enable => '1',
         htrans => fromProcTrans,
-        hwdata => memData(15 downto 0),
+--        hwdata => memData(15 downto 0),
+        hwdata => ssdout,
         
         hclk => clockDisp,
         hreadyout => slaveReadySSD,

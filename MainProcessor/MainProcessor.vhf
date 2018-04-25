@@ -7,13 +7,15 @@ entity MainProcessor is
         clk : in std_logic;
         resetReg : in std_logic;
         MemResult : in std_logic_vector(31 downto 0);
+        push : in std_logic;
         
         MemInputAd : out std_logic_vector(31 downto 0);
         B : out std_logic_vector(31 downto 0);
         MR : out std_logic_vector(2 downto 0);
         MW : out std_logic_vector(2 downto 0);
         Memrst : out std_logic;
-        EnableMasterProc : out std_logic
+        EnableMasterProc : out std_logic;
+        ssdout : out std_logic_vector(31 downto 0)
     );
 end MainProcessor;
 
@@ -42,6 +44,7 @@ signal mulHoldSig : std_logic;
 signal opShift : std_logic_vector(1 downto 0);
 signal MRTemp : std_logic_vector(2 downto 0);
 signal MWTemp : std_logic_vector(2 downto 0);
+--signal ssdout : std_logic_vector(31 downto 0);
 
 begin
 MR <= MRTemp;
@@ -77,6 +80,7 @@ CONTROL: entity work.MasterController(MasterControl) port map(
     mulHoldSig => mulHoldSig, 
     opShift => opShift,
     Memrst => Memrst
+    
 );
 
 Data: entity work.MainDataPath(DataPath) port map(
@@ -107,7 +111,10 @@ Data: entity work.MainDataPath(DataPath) port map(
     
     MemResult => MemResult,
     BOut => B,
-    MemInputAd => MemInputAd
+    MemInputAd => MemInputAd,
+    
+        push => push,
+        ssdout => ssdout
 );
 
 --Memory: entity work.MemoryModule(func0) port map(
