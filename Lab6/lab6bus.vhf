@@ -184,18 +184,22 @@ begin
      			if((enable or start2)='0') then --neither reading nor writing
      				state <= idle;
      			elsif(tempMR /= "000") then
+                    htrans <= '1';
      			    tempClk <= '1';
      			    state <= rdAddr;
+                    hwrite <= '0';
      			elsif(tempMW /= "000") then  --writing
+                    htrans <= '1';
      				state <= wrAddr;
      				tempClk <= '1';
+     				hwrite <= '1';
      			else
      			    state <= idle;
      			end if;
      		when rdAddr=>
                 haddr <=  "00" & haddrTemp(13 downto 0);
-     			htrans <= '1';
-     			hwrite <= '0';
+--     			htrans <= '1';
+--     			hwrite <= '0';
      			--get the address which the processor has to read and save it in haddr
      			state <= rdDat;
      		when rdDat=>
@@ -224,8 +228,8 @@ begin
      			end if;
      		when wrAddr=>
                 haddr <=  "00" & haddrTemp(13 downto 0);
-     			htrans<='1';
-		  		hwrite <= '1';
+--     			htrans<='1';
+--		  		hwrite <= '1';
 --     			--get the address/data where/which the processor has to write and save them in haddr/hwdata
           		hwdata <= dataToWrite;
      			state <= wrDat;
@@ -242,6 +246,7 @@ begin
 
      			if(hready='1') then
          			htrans<='0';
+         			hwrite <= '0';
      			    tempClk <= '0';
      				--when the slave has successfully written the data in the memory
      				state <= idle;
@@ -302,11 +307,13 @@ begin
      			if(enable='0') then --neither reading nor writing
      				state <= idle;
      			else --writing
+    		  		hwrite <= '1';
+     			    htrans <= '1';
      				state <= wrAddr;
      			end if;
      		when wrAddr=>
-     			htrans<='1';
-		  		hwrite <= '1';
+--     			htrans<='1';
+--		  		hwrite <= '1';
 --     			--get the address/data where/which the processor has to write and save them in haddr/hwdata
                 haddr<= std_logic_vector(to_unsigned(4000, 16));
           		hwdata <= dataToWrite;
@@ -492,8 +499,10 @@ begin
     				hreadyout<='0';
 					if(hwrite='0') then
 						state<=rdAddr;
-					else
+					elsif(hwrite = '1') then
 						state<=wrAddr;
+					else
+					   state <= waiting;	
 					end if;
 				end if;
 			when rdaddr=>

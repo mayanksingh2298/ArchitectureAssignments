@@ -596,7 +596,7 @@ signal MWTemp: std_logic_vector(2 downto 0);
 begin
 
 Fset <= predicate and FsetTemp;
-RW <= predicate and RWTemp;
+RW <= RWtemp when (currstate = rdab) else predicate and RWTemp;
 MW <= MWTemp when (predicate = '1') else "000";
 Currstate <= Nextstate;
 --PW <= p and PWTemp;
