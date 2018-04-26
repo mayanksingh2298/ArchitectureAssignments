@@ -198,7 +198,7 @@ begin
      			end if;
      		when rdAddr=>
                 haddr <=  "00" & haddrTemp(13 downto 0);
---     			htrans <= '1';
+     			htrans <= '0';
 --     			hwrite <= '0';
      			--get the address which the processor has to read and save it in haddr
      			state <= rdDat;
@@ -219,7 +219,7 @@ begin
 
      			if(hready='1') then
      				--store hrdata at its appropriate location
-                    htrans<='0';
+--                    htrans<='0';
                     dataout <= hrdata;
                     tempClk <= '0';
      				state <= idle;
@@ -228,7 +228,7 @@ begin
      			end if;
      		when wrAddr=>
                 haddr <=  "00" & haddrTemp(13 downto 0);
---     			htrans<='1';
+     			htrans<='0';
 --		  		hwrite <= '1';
 --     			--get the address/data where/which the processor has to write and save them in haddr/hwdata
           		hwdata <= dataToWrite;
@@ -245,7 +245,7 @@ begin
                  end if;
 
      			if(hready='1') then
-         			htrans<='0';
+--         			htrans<='0';
          			hwrite <= '0';
      			    tempClk <= '0';
      				--when the slave has successfully written the data in the memory
@@ -312,7 +312,7 @@ begin
      				state <= wrAddr;
      			end if;
      		when wrAddr=>
---     			htrans<='1';
+     			htrans<='0';
 --		  		hwrite <= '1';
 --     			--get the address/data where/which the processor has to write and save them in haddr/hwdata
                 haddr<= std_logic_vector(to_unsigned(4000, 16));
@@ -320,7 +320,7 @@ begin
           		hsize <= ("010");
      			state <= wrDat;
      		when wrDat=>
-     			htrans<='0';
+--     			htrans<='0';
      			if(hready='1') then
      				--when the slave has successfully written the data in the memory
      				state <= idle;
