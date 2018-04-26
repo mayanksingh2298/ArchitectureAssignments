@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1524651276">
-  <File Type="PA-TCL" Name="mainBus.tcl"/>
-  <File Type="RDS-RDS" Name="mainBus.vds"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="mainBus_timing_summary_synth.rpt"/>
+<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1524740385">
   <File Type="VDS-TIMING-PB" Name="mainBus_timing_summary_synth.pb"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="mainBus_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="mainBus.dcp"/>
   <File Type="RDS-UTIL-PB" Name="mainBus_utilization_synth.pb"/>
   <File Type="RDS-UTIL" Name="mainBus_utilization_synth.rpt"/>
   <File Type="RDS-PROPCONSTRS" Name="mainBus_drc_synth.rpt"/>
+  <File Type="RDS-RDS" Name="mainBus.vds"/>
+  <File Type="PA-TCL" Name="mainBus.tcl"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/bd/BRAM/BRAM.bd">
@@ -25,13 +25,13 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../Lab4.vhf">
+    <File Path="$PPRDIR/../../Lab5/Lab5Controller.vhf">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../Lab5/Lab5Controller.vhf">
+    <File Path="$PPRDIR/../Lab4.vhf">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
