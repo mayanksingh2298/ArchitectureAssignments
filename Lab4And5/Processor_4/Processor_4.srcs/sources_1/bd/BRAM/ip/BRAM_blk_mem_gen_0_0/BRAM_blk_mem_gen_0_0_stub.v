@@ -1,10 +1,10 @@
 // Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2016.4 (lin64) Build 1756540 Mon Jan 23 19:11:19 MST 2017
-// Date        : Thu Apr 26 16:31:16 2018
+// Date        : Thu Apr 26 19:07:19 2018
 // Host        : atishya-HP-Pavilion-Notebook running 64-bit Ubuntu 16.04.4 LTS
-// Command     : write_verilog -force -mode synth_stub
-//               /media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Processor_4/Processor_4.srcs/sources_1/bd/BRAM/ip/BRAM_blk_mem_gen_0_0/BRAM_blk_mem_gen_0_0_stub.v
+// Command     : write_verilog -force -mode synth_stub -rename_top BRAM_blk_mem_gen_0_0 -prefix
+//               BRAM_blk_mem_gen_0_0_ BRAM_blk_mem_gen_0_0_stub.v
 // Design      : BRAM_blk_mem_gen_0_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7a35tcpg236-1

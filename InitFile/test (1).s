@@ -1,0 +1,80 @@
+mov r0, #0
+mov r2, #0
+ldr r1, [r2, #4000]
+mov r6, #0
+mov r7, #0
+mov r9, #1000
+mov r10, #100
+mov r11, #10
+mov r12, #1
+cmp r1, r9
+subge r1, r1, r9
+movge r5, r12
+cmp r1, r10
+subge r1, r1, r10
+addge r6, r6, r12
+cmp r1, r10
+subge r1, r1, r10
+addge r6, r6, r12
+cmp r1, r10
+subge r1, r1, r10
+addge r6, r6, r12
+cmp r1, r10
+subge r1, r1, r10
+addge r6, r6, r12
+cmp r1, r10
+subge r1, r1, r10
+addge r6, r6, r12
+cmp r1, r10
+subge r1, r1, r10
+addge r6, r6, r12
+cmp r1, r10
+subge r1, r1, r10
+addge r6, r6, r12
+cmp r1, r10
+subge r1, r1, r10
+addge r6, r6, r12
+cmp r1, r10
+subge r1, r1, r10
+addge r6, r6, r12
+cmp r1, r11
+subge r1, r1, r11
+addge r7, r7, r12
+cmp r1, r11
+subge r1, r1, r11
+addge r7, r7, r12
+cmp r1, r11
+subge r1, r1, r11
+addge r7, r7, r12
+cmp r1, r11
+subge r1, r1, r11
+addge r7, r7, r12
+cmp r1, r11
+subge r1, r1, r11
+addge r7, r7, r12
+cmp r1, r11
+subge r1, r1, r11
+addge r7, r7,r12
+cmp r1, r11
+subge r1, r1, r11
+addge r7, r7, r12
+cmp r1, r11
+subge r1, r1, r11
+addge r7, r7, r12
+cmp r1, r11
+subge r1, r1, r11
+addge r7, r7, r12
+mov r8, r1
+mov r8, r8, LSL #28
+mov r14, r8, LSR #28
+mov r7, r7, LSL #28
+orr r14, r14, r7, LSR #24
+mov r6, r6, LSL #28
+orr r14, r14, r6, LSR #20
+mov r5, r5, LSL #28
+orr r14, r14, r5, LSR #16
+
+; memory_initialization_radix=16;
+; memory_initialization_vector=e3a00000, e3a02000, e5921fa0, e3a06000,e3a07000,e3a09ffa,e3a0a064,e3a0b00a,e3a0c001,e1510009,a0411009,a1a0500c,e151000a,a041100a,a086600c,e151000a,a041100a,a086600c,e151000a,a041100a,a086600c,e151000a,a041100a,a086600c,e151000a,a041100a,a086600c,e151000a,a041100a,a086600c,e151000a,a041100a,a086600c,e151000a,a041100a,a086600c,e151000a,a041100a,a086600c,e151000b,a041100b,a087700c,e151000b,a041100b,a087700c,e151000b,a041100b,a087700c,e151000b,a041100b,a087700c,e151000b,a041100b,a087700c,e151000b,a041100b,a087700c,e151000b,a041100b,a087700c,e151000b,a041100b,a087700c,e151000b,a041100b,a087700c,e1a08001, e1a08001, e1a0ee28, e1a07e07, e18eec27, e1a06e06, e18eea26, e1a05e05, e18ee825;
+
+; memory_initialization_vector=E3A00000,E3A02000,E5921FA0,E3A06000,E3A07000,E3A09FFA,E3A0A064,E3A0B00A,E3A0C001,E1510009,A0411009,A1A0500C,E151000A,A041100A,A086600C,E151000A,A041100A,A086600C,E151000A,A041100A,A086600C,E151000A,A041100A,A086600C,E151000A,A041100A,A086600C,E151000A,A041100A,A086600C,E151000A,A041100A,A086600C,E151000A,A041100A,A086600C,E151000A,A041100A,A086600C,E151000B,A041100B,A087700C,E151000B,A041100B,A087700C,E151000B,A041100B,A087700C,E151000B,A041100B,A087700C,E151000B,A041100B,A087700C,E151000B,A041100B,A087700C,E151000B,A041100B,A087700C,E151000B,A041100B,A087700C,E151000B,A041100B,A087700C,E1A08001,E1A08E08,E1A0EE28,E1A07E07,E18EEC27,E1A06E06,E18EEA26,E1A05E05,E18EE825;

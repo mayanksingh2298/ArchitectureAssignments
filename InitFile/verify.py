@@ -1,0 +1,1 @@
+file = open("bram.coe", r)

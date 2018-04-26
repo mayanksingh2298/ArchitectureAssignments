@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2016.4 (lin64) Build 1756540 Mon Jan 23 19:11:19 MST 2017
-| Date             : Thu Apr 26 16:35:14 2018
+| Date             : Thu Apr 26 19:40:42 2018
 | Host             : atishya-HP-Pavilion-Notebook running 64-bit Ubuntu 16.04.4 LTS
 | Command          : report_power -file mainBus_power_routed.rpt -pb mainBus_power_summary_routed.pb -rpx mainBus_power_routed.rpx
 | Design           : mainBus
@@ -30,8 +30,8 @@ Table of Contents
 ----------
 
 +--------------------------+-------+
-| Total On-Chip Power (W)  | 0.115 |
-| Dynamic (W)              | 0.044 |
+| Total On-Chip Power (W)  | 0.126 |
+| Dynamic (W)              | 0.054 |
 | Device Static (W)        | 0.072 |
 | Effective TJA (C/W)      | 5.0   |
 | Max Ambient (C)          | 84.4  |
@@ -49,20 +49,20 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Clocks         |     0.006 |        3 |       --- |             --- |
-| Slice Logic    |     0.009 |     3698 |       --- |             --- |
-|   LUT as Logic |     0.008 |     1963 |     20800 |            9.44 |
-|   CARRY4       |    <0.001 |      133 |      8150 |            1.63 |
-|   F7/F8 Muxes  |    <0.001 |      208 |     32600 |            0.64 |
-|   Register     |    <0.001 |     1157 |     41600 |            2.78 |
+| Clocks         |     0.007 |        3 |       --- |             --- |
+| Slice Logic    |     0.012 |     3578 |       --- |             --- |
+|   LUT as Logic |     0.011 |     1914 |     20800 |            9.20 |
+|   CARRY4       |    <0.001 |      151 |      8150 |            1.85 |
+|   F7/F8 Muxes  |    <0.001 |      133 |     32600 |            0.41 |
 |   BUFG         |    <0.001 |        8 |        32 |           25.00 |
-|   Others       |     0.000 |       39 |       --- |             --- |
-| Signals        |     0.011 |     3042 |       --- |             --- |
+|   Register     |    <0.001 |     1139 |     41600 |            2.74 |
+|   Others       |     0.000 |       38 |       --- |             --- |
+| Signals        |     0.014 |     3072 |       --- |             --- |
 | Block RAM      |     0.003 |        2 |        50 |            4.00 |
 | DSPs           |     0.002 |        3 |        90 |            3.33 |
-| I/O            |     0.013 |       49 |       106 |           46.23 |
+| I/O            |     0.017 |       48 |       106 |           45.28 |
 | Static Power   |     0.072 |          |           |                 |
-| Total          |     0.115 |          |           |                 |
+| Total          |     0.126 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -72,9 +72,9 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.040 |       0.031 |      0.010 |
-| Vccaux    |       1.800 |     0.013 |       0.000 |      0.013 |
-| Vcco33    |       3.300 |     0.005 |       0.004 |      0.001 |
+| Vccint    |       1.000 |     0.047 |       0.037 |      0.010 |
+| Vccaux    |       1.800 |     0.013 |       0.001 |      0.013 |
+| Vcco33    |       3.300 |     0.006 |       0.005 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
@@ -141,9 +141,9 @@ Table of Contents
 +-----------------------------------------------------------------------+-----------+
 | Name                                                                  | Power (W) |
 +-----------------------------------------------------------------------+-----------+
-| mainBus                                                               |     0.044 |
+| mainBus                                                               |     0.054 |
 |   MasterInterfaceSwitch                                               |    <0.001 |
-|   MemorySlave                                                         |     0.005 |
+|   MemorySlave                                                         |     0.006 |
 |     Memory                                                            |     0.004 |
 |       BRAM                                                            |     0.004 |
 |         BRAM_i                                                        |     0.004 |
@@ -156,16 +156,16 @@ Table of Contents
 |                       prim_init.ram                                   |     0.002 |
 |                     ramloop[1].ram.r                                  |     0.002 |
 |                       prim_init.ram                                   |     0.002 |
-|   ProcessorMaster                                                     |     0.015 |
-|     Processor                                                         |     0.014 |
-|       CONTROL                                                         |     0.003 |
+|   ProcessorMaster                                                     |     0.020 |
+|     Processor                                                         |     0.018 |
+|       CONTROL                                                         |     0.005 |
 |         CONTROL                                                       |    <0.001 |
-|         FSM                                                           |    <0.001 |
-|         OPCODESET                                                     |     0.002 |
-|       Data                                                            |     0.011 |
+|         FSM                                                           |     0.002 |
+|         OPCODESET                                                     |     0.003 |
+|       Data                                                            |     0.013 |
 |         ALU_unit                                                      |    <0.001 |
 |         Mul                                                           |     0.002 |
-|         RFile                                                         |     0.003 |
+|         RFile                                                         |     0.004 |
 |   SSDSLave                                                            |     0.001 |
 |     Displaying                                                        |    <0.001 |
 |   SlaveInterfaceLed                                                   |    <0.001 |

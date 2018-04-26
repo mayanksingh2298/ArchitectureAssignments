@@ -607,8 +607,11 @@ architecture main of mainBus is
 	signal masterTrans: std_logic:='0';
 	
 	signal counter   : integer  := 0;
+	signal counter2   : integer  := 0;
 	signal clockDisp : std_logic:= '0';
+	signal clock2 : std_logic:= '0';
 	signal tmpDispClk: std_logic:= '0';
+	signal tmpClk2: std_logic:= '0';
 
     signal memInputData : std_logic_vector (31 downto 0);
     signal memData : std_logic_vector (31 downto 0);
@@ -631,23 +634,39 @@ architecture main of mainBus is
     
     signal ssdout: std_logic_vector(31 downto 0);
     signal tempStartProc : std_logic;
+    signal push1: std_logic:='1';
+    
+    signal a : integer:=0;
+    signal b : integer:=0;
+    signal c : integer:=0;
+    signal d : integer:=0;
 begin
     flagStart <= '1' when startProc = '1';
 	process(clk)
 	  begin
 	    if (clk = '1' and clk'EVENT) then
 --	      tempStartProc <= StartProc;
-	      if (counter mod 100000 = 0) then
+	      if (counter mod 70000 = 0) then
 	        tmpDispClk <= not(tmpDispClk);
 	        counter <= 1;
 	      else
 	      	counter <= counter + 1;
 	      end if;
+	      
+	      if (counter2 mod 80000 = 0) then
+            tmpclk2 <= not(tmpclk2);
+            counter2 <= 1;
+          else
+              counter2 <= counter2 + 1;
+          end if;
 	    end if;
 	end process;
 	clockDisp <= (tmpDispClk and not(sim)) or (clk and sim); 
+    clock2 <= (tmpClk2 and not(sim)) or (clk and sim);
     
     Procclk <= clk when (flagStart = '1') else '0';
+--    Procclk <= clockDisp when (flagStart = '1') else '0';
+--    Procclk <= clock2 when (flagStart = '1') else '0';
     
     readyForProc <= memReady; -------------------------------------------------------------------------
     ProcessorMaster: entity work.MasterInterfaceProc(masterProc) port map(
@@ -663,7 +682,7 @@ begin
         hwdata => FromProcWriteData,
         resetMem => FromProcResetMem,
         
-        push => push,
+        push => push1,
         ssdout => ssdout
     );
     
@@ -681,6 +700,8 @@ begin
         htrans => memTrans,
         hreset => memReset,
         hwdata => memInputData,
+--        hclk => clock2,
+--        hclk => clockdisp,
         hclk => clk,
     
         hreadyout => memReady,
@@ -689,6 +710,8 @@ begin
 
 	MasterInterfaceSwitch: entity work.MasterInterfaceSwitch(masterSwitch) port map(
 		hready => slaveReady,
+--        hclk => clockdisp,
+--        hclk => clock2,
         hclk => clk,
         enable => switchEnable,
         dataToWrite => inputSwitch,
@@ -705,17 +728,34 @@ begin
         hsize => masterSize,
         htrans => masterTrans,
         hwdata => masterWriteData,
+--        hclk => clock2,
+--        hclk => clockdisp,
         hclk => clk,
         hreadyout => slaveReady,
         datatoReturn => outputLed
 	);
     
+--    a<=to_integer(unsigned(ssdout(15 downto 12)));
+--    b<=to_integer(unsigned(ssdout(11 downto 8)));
+--    c<=to_integer(unsigned(ssdout(7 downto 4)));
+--    d<=to_integer(unsigned(ssdout(3 downto 0)));
+
+--    Displaying: entity work.Display(segment) port map(
+--        int1    => a,
+--        int2    => b,
+--        int3    => c,
+--        int4    => d,
+--        clock2  => clockdisp,
+--        anode   => anode, 
+--        cathode => cathode
+--    ); 
+
     SSDSLave: entity work.SlaveInterfaceSSD(slaveSSD) port map(
         enable => '1',
-        htrans => fromProcTrans,
---        hwdata => memData(15 downto 0),
-        hwdata => ssdout(15 downto 0),
-        
+        htrans => '1',
+        hwdata => memData(15 downto 0),
+ --        hwdata => ssdout(15 downto 0),
+       
         hclk => clockDisp,
         hreadyout => slaveReadySSD,
         anode => anode,

@@ -1,10 +1,10 @@
 -- Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2016.4 (lin64) Build 1756540 Mon Jan 23 19:11:19 MST 2017
--- Date        : Thu Apr 26 16:31:16 2018
+-- Date        : Thu Apr 26 19:07:19 2018
 -- Host        : atishya-HP-Pavilion-Notebook running 64-bit Ubuntu 16.04.4 LTS
--- Command     : write_vhdl -force -mode funcsim
---               /media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Processor_4/Processor_4.srcs/sources_1/bd/BRAM/ip/BRAM_blk_mem_gen_0_0/BRAM_blk_mem_gen_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top BRAM_blk_mem_gen_0_0 -prefix
+--               BRAM_blk_mem_gen_0_0_ BRAM_blk_mem_gen_0_0_sim_netlist.vhdl
 -- Design      : BRAM_blk_mem_gen_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -24,8 +24,6 @@ entity BRAM_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init is
     dina : in STD_LOGIC_VECTOR ( 15 downto 0 );
     wea : in STD_LOGIC_VECTOR ( 1 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of BRAM_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init : entity is "blk_mem_gen_prim_wrapper_init";
 end BRAM_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init;
 
 architecture STRUCTURE of BRAM_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init is
@@ -70,11 +68,11 @@ begin
       INITP_0D => X"0000000000000000000000000000000000000000000000000000000000000000",
       INITP_0E => X"0000000000000000000000000000000000000000000000000000000000000000",
       INITP_0F => X"0000000000000000000000000000000000000000000000000000000000000000",
-      INIT_00 => X"600C100A000A500C10090009C001B00AA0649FFA700060001FA02000E0160000",
-      INIT_01 => X"000A600C100A000A600C100A000A600C100A000A600C100A000A600C100A000A",
-      INIT_02 => X"100B000B700C100B000B700C100B000B600C100A000A600C100A000A600C100A",
-      INIT_03 => X"700C100B000B700C100B000B700C100B000B700C100B000B700C100B000B700C",
-      INIT_04 => X"0000000000000000E8255E05EA266E06EC277E07EE2880018001700C100B000B",
+      INIT_00 => X"000A600C100A000A500C10090009C001B00AA0649FFA700060001FA020000000",
+      INIT_01 => X"100A000A600C100A000A600C100A000A600C100A000A600C100A000A600C100A",
+      INIT_02 => X"700C100B000B700C100B000B700C100B000B600C100A000A600C100A000A600C",
+      INIT_03 => X"000B700C100B000B700C100B000B700C100B000B700C100B000B700C100B000B",
+      INIT_04 => X"00000000000000000000E8255E05EA266E06EC277E07EE288E088001700C100B",
       INIT_05 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INIT_06 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INIT_07 => X"0000000000000000000000000000000000000000000000000000000000000000",
@@ -328,11 +326,11 @@ begin
       INITP_0D => X"0000000000000000000000000000000000000000000000000000000000000000",
       INITP_0E => X"0000000000000000000000000000000000000000000000000000000000000000",
       INITP_0F => X"0000000000000000000000000000000000000000000000000000000000000000",
-      INIT_00 => X"C086C041E151C1A0C041E151E3A0E3A0E3A0E3A0E3A0E3A0E592E3A0E3A0E3A0",
-      INIT_01 => X"E151C086C041E151C086C041E151C086C041E151C086C041E151C086C041E151",
-      INIT_02 => X"C041E151C087C041E151C087C041E151C086C041E151C086C041E151C086C041",
-      INIT_03 => X"C087C041E151C087C041E151C087C041E151C087C041E151C087C041E151C087",
-      INIT_04 => X"0000000000000000E18EE1A0E18EE1A0E18EE1A0E1A0E1A0E1A0C087C041E151",
+      INIT_00 => X"E151A086A041E151A1A0A041E151E3A0E3A0E3A0E3A0E3A0E3A0E592E3A0E3A0",
+      INIT_01 => X"A041E151A086A041E151A086A041E151A086A041E151A086A041E151A086A041",
+      INIT_02 => X"A087A041E151A087A041E151A087A041E151A086A041E151A086A041E151A086",
+      INIT_03 => X"E151A087A041E151A087A041E151A087A041E151A087A041E151A087A041E151",
+      INIT_04 => X"00000000000000000000E18EE1A0E18EE1A0E18EE1A0E1A0E1A0E1A0A087A041",
       INIT_05 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INIT_06 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INIT_07 => X"0000000000000000000000000000000000000000000000000000000000000000",
@@ -540,8 +538,6 @@ entity BRAM_blk_mem_gen_0_0_blk_mem_gen_prim_width is
     dina : in STD_LOGIC_VECTOR ( 15 downto 0 );
     wea : in STD_LOGIC_VECTOR ( 1 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of BRAM_blk_mem_gen_0_0_blk_mem_gen_prim_width : entity is "blk_mem_gen_prim_width";
 end BRAM_blk_mem_gen_0_0_blk_mem_gen_prim_width;
 
 architecture STRUCTURE of BRAM_blk_mem_gen_0_0_blk_mem_gen_prim_width is
@@ -602,8 +598,6 @@ entity BRAM_blk_mem_gen_0_0_blk_mem_gen_generic_cstr is
     dina : in STD_LOGIC_VECTOR ( 31 downto 0 );
     wea : in STD_LOGIC_VECTOR ( 3 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of BRAM_blk_mem_gen_0_0_blk_mem_gen_generic_cstr : entity is "blk_mem_gen_generic_cstr";
 end BRAM_blk_mem_gen_0_0_blk_mem_gen_generic_cstr;
 
 architecture STRUCTURE of BRAM_blk_mem_gen_0_0_blk_mem_gen_generic_cstr is
@@ -643,8 +637,6 @@ entity BRAM_blk_mem_gen_0_0_blk_mem_gen_top is
     dina : in STD_LOGIC_VECTOR ( 31 downto 0 );
     wea : in STD_LOGIC_VECTOR ( 3 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of BRAM_blk_mem_gen_0_0_blk_mem_gen_top : entity is "blk_mem_gen_top";
 end BRAM_blk_mem_gen_0_0_blk_mem_gen_top;
 
 architecture STRUCTURE of BRAM_blk_mem_gen_0_0_blk_mem_gen_top is
@@ -674,8 +666,6 @@ entity BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5_synth is
     dina : in STD_LOGIC_VECTOR ( 31 downto 0 );
     wea : in STD_LOGIC_VECTOR ( 3 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5_synth : entity is "blk_mem_gen_v8_3_5_synth";
 end BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5_synth;
 
 architecture STRUCTURE of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5_synth is
@@ -907,8 +897,6 @@ entity BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 is
   attribute C_WRITE_WIDTH_B of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 32;
   attribute C_XDEVICEFAMILY : string;
   attribute C_XDEVICEFAMILY of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is "artix7";
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is "blk_mem_gen_v8_3_5";
   attribute downgradeipidentifiedwarnings : string;
   attribute downgradeipidentifiedwarnings of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is "yes";
 end BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5;

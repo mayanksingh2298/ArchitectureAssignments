@@ -57,7 +57,8 @@ CONTROL: entity work.MasterController(MasterControl) port map(
     clk => clk,
     IR => IR,
     flags => flags,
-
+    reset => resetReg,
+    
     IorD => IorD, 
     MR => MRTemp,
     MW => MWTemp,

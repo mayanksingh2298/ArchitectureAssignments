@@ -58,7 +58,8 @@ entity StateController is --takes current state and clock and returns next state
         clk : in std_logic;
         IR : in std_logic_vector(31 downto 0);
         Currstate: in mystate;
-
+        reset : in std_logic;
+        
         state: out mystate
     );
 end StateController;
@@ -68,8 +69,11 @@ signal count1: integer := 0;
 signal count2: integer := 0;
 signal count3: integer := 0;
 begin
-    process(clk)
+    process(clk, reset)
     begin
+    if(reset = '1') then
+        state <= InitialState;
+    else
         if (clk = '1' and clk'EVENT) then
         
             if ((Currstate = InitialState)) then
@@ -195,6 +199,7 @@ begin
                 -- store in reg file the DR or loaded memory value
             end if;
         end if;
+    end if;
     end process;
 end StateFSM; -- MasterControl
 
@@ -561,6 +566,7 @@ entity MasterController is
         clk : in std_logic;
         IR : in std_logic_vector(31 downto 0);
         flags : in std_logic_vector(3 downto 0);
+        reset : in std_logic;
 
         IorD : out std_logic;
         MR : out std_logic_vector(2 downto 0);
@@ -650,7 +656,8 @@ FSM: entity work.StateController(StateFSM) port map(
     clk => clk,
     IR => IR,
     Currstate => Currstate,
-
+    reset => reset,
+    
     state => Nextstate
 );
 
