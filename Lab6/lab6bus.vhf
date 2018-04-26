@@ -322,6 +322,7 @@ begin
      		when wrDat=>
 --     			htrans<='0';
      			if(hready='1') then
+     			    hwrite <= '0';
      				--when the slave has successfully written the data in the memory
      				state <= idle;
      			else
@@ -366,6 +367,7 @@ begin
 				if(htrans='0') then
 					state<=waiting;
 				else
+    				hreadyout<='0';
 					if(hwrite='0') then
 						state<=rdAddr;
 					else
@@ -373,7 +375,6 @@ begin
 					end if;
 				end if;
 			when wraddr=>
-				hreadyout<='0';
 				--begin writing the memory using haddr and hwdata
 				state<=wr1;
 			when wr1=>
@@ -426,10 +427,10 @@ begin
 				if(htrans='0') then
 					state <= waiting;
 				else
+                    hreadyout<='0';
                     state <= wrAddr;
 				end if;
 			when wraddr=>
-				hreadyout<='0';
                 a<=to_integer(unsigned(hwdata(15 downto 12)));
                 b<=to_integer(unsigned(hwdata(11 downto 8)));
                 c<=to_integer(unsigned(hwdata(7 downto 4)));
