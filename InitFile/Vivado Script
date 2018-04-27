@@ -21,7 +21,7 @@ add_wave {{/mainBus/ProcessorMaster/Processor/CONTROL/OPCODESET}}
 add_wave {{/mainBus/ProcessorMaster/Processor/CONTROL/FLAGSET}} 
 add_force {/mainBus/clk} -radix hex {1 0ns} {0 5000ps} -repeat_every 10000ps
 add_force {/mainBus/sim} -radix hex {1 0ns}
-add_force {/mainBus/inputSwitch} -radix dec {24 0ns}
+add_force {/mainBus/inputSwitch} -radix dec {5 0ns}
 add_force {/mainBus/resetReg} -radix hex {0 0ns}
 add_force {/mainBus/startProc} -radix hex {0 0ns}
 add_force {/mainBus/SwitchEnable} -radix hex {1 0ns}

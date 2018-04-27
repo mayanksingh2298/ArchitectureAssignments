@@ -1,7 +1,7 @@
 --Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2016.4 (lin64) Build 1756540 Mon Jan 23 19:11:19 MST 2017
---Date        : Fri Apr 27 22:53:33 2018
+--Date        : Sat Apr 28 00:51:22 2018
 --Host        : atishya-HP-Pavilion-Notebook running 64-bit Ubuntu 16.04.4 LTS
 --Command     : generate_target BRAM.bd
 --Design      : BRAM
