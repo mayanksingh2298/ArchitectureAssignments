@@ -200,6 +200,7 @@ entity MasterInterfaceProc is
         resetReg : in std_logic;
         hrdata : in std_logic_vector(31 downto 0);
 --        dataToWrite: in std_logic_vector(15 downto 0);
+        hselect: out std_logic_vector(1 downto 0);
         haddr: out std_logic_vector(15 downto 0);
         hwrite: out std_logic;
         hsize: out std_logic_vector(2 downto 0);
@@ -245,16 +246,32 @@ begin
      			    tempClk <= '1';
      			    state <= rdAddr;
                     hwrite <= '0';
+                    if(haddrtemp(15 downto 0) = "0000111110100000")then 
+                        hselect <= "10";
+     			    else
+     			        hselect <= "00";
+     			    end if;
      			elsif(tempMW /= "000") then  --writing
                     htrans <= '1';
      				state <= wrAddr;
      				tempClk <= '1';
      				hwrite <= '1';
+                    if(haddrtemp(15 downto 0) = "0000101110111000")then 
+                       hselect <= "01";
+                    else
+                       hselect <= "00";
+                    end if;
      			else
      			    state <= idle;
      			end if;
      		when rdAddr=>
-                haddr <=  "00" & haddrTemp(13 downto 0);
+                
+--                if (haddrtemp(15 downto 0) = "0000111110100000")then --switch
+--                  haddr <= "10" & haddrTemp(13 downto 0);
+--                else
+                  haddr <=  "00" & haddrTemp(13 downto 0);
+--                end if;
+                  
      			htrans <= '0';
 --     			hwrite <= '0';
      			--get the address which the processor has to read and save it in haddr
@@ -284,13 +301,13 @@ begin
      				state <= rdDat;
      			end if;
      		when wrAddr=>
-     		    if(haddrtemp(15 downto 0) = "0000101110111000")then -- led
-     		         haddr <= "01" & haddrTemp(13 downto 0);
-     		    elsif (haddrtemp(15 downto 0) = "0000111000010000")then --ssd
-                     haddr <= "10" & haddrTemp(13 downto 0);
-     		    else     
+--     		    if(haddrtemp(15 downto 0) = "0000101110111000")then -- led
+--     		         haddr <= "01" & haddrTemp(13 downto 0);
+--     		    elsif (haddrtemp(15 downto 0) = "0000111000010000")then --ssd
+--                     haddr <= "10" & haddrTemp(13 downto 0);
+--     		    else     
      		         haddr <= "00" & haddrTemp(13 downto 0);
-     		    end if;
+--     		    end if;
 --     		    haddr <= "01" & haddrTemp(13 downto 0) when (haddrtemp = "0000101110111000") else "00" & haddrTemp(13 downto 0);
 --                haddr <=  "00" & haddrTemp(13 downto 0);
      			htrans<='0';
@@ -762,6 +779,12 @@ architecture main of mainBus is
     signal ledtrans: std_logic:='0';
     signal leddata: std_logic_vector(31 downto 0):="00000000000000000000000000000000";
     signal outdatassd: std_logic_vector(15 downto 0):="0000000000000000";
+    
+    signal slavetrans: std_logic:='0';
+    signal switch: std_logic_vector(31 downto 0):="00000000000000000000000000000000";
+    signal slavereadyswitch:std_logic:='0';
+    signal procselect: std_logic_vector(1 downto 0):="00";
+    signal toProcData: std_logic_vector(31 downto 0):="00000000000000000000000000000000";
 begin
     staticAddr <= "0000101110111000";
     flagStart <= '1' when startProc = '1';
@@ -790,36 +813,40 @@ begin
 --    readyForProc <= memReady when (fromProcAddr(15 downto 14) = "00") else slaveready when (fromProcAddr(15 downto 14) = "01") else slavereadyssd; -------------------------------------------------------------------------
 --    readyForProc <= memReady when (fromProcAddr(15 downto 14) = "00") else slaveready when (fromprocaddr(15 downto 14) = "01") else '0'; -------------------------------------------------------------------------
 --    readyForProc <= memReady when (fromProcAddr(15 downto 14) = "00") else slaveready; -------------------------------------------------------------------------
-    readyForProc <= memReady; -------------------------------------------------------------------------
+    readyForProc <= memReady when (procselect = "00") else slavereadyswitch when (procselect = "10") else slaveready; -------------------------------------------------------------------------
+    toprocdata <= memdata when (procselect = "00") else Switch;
     ProcessorMaster: entity work.MasterInterfaceProc(masterProc) port map(
         hready => readyForProc,
         hclk => Procclk,
         enable => startProc,
         resetReg => resetReg,
-        hrdata => memData,
+        hrdata => toprocdata,
         haddr => FromProcAddr,
         hwrite => FromProcWrite,
         hsize => fromProcSize,
         htrans => fromProctrans,  -- '0' idle | '1' nonseq
         hwdata => FromProcWriteData,
         resetMem => FromProcResetMem,
-        
+        hselect =>procselect,
 --        push => push1,   ----------------------------------- Change this to push and then test on board
         push => '0',
         ssdout => ssdout
     );
     
-    memInputData <= ("0000000000000000"&masterWriteData) when (flagStart = '0' or masterTrans = '1') else FromProcWriteData;
-    memHWrite <= masterWriteBool when (flagStart = '0' or masterTrans = '1') else FromProcWrite;
-    memHSize <= masterSize when (flagStart = '0' or masterTrans = '1') else FromProcSize;
-    memTrans <= masterTrans when (flagStart = '0' or masterTrans = '1') else FromProcTrans;
-    memreset <= '0' when (flagStart = '0' or masterTrans = '1') else FromProcResetMem;
-    memAddr <= masterAddress when (flagStart = '0' or masterTrans = '1') else FromProcAddr;
+--    memInputData <= ("0000000000000000"&masterWriteData) when (flagStart = '0' or masterTrans = '1') else FromProcWriteData;
+--    memHWrite <= masterWriteBool when (flagStart = '0' or masterTrans = '1') else FromProcWrite;
+--    memHSize <= masterSize when (flagStart = '0' or masterTrans = '1') else FromProcSize;
+--    memTrans <= masterTrans when (flagStart = '0' or masterTrans = '1') else FromProcTrans;
+--    memreset <= '0' when (flagStart = '0' or masterTrans = '1') else FromProcResetMem;
+--    memAddr <= masterAddress when (flagStart = '0' or masterTrans = '1') else FromProcAddr;
     
-    ToMem <= '1' when fromprocaddr(15 downto 14) = "00" else '0';
-    ToLED <= '1' when fromprocaddr(15 downto 14) = "01" else '0';
-    ToSSD <= '1' when fromprocaddr(15 downto 14) = "01" else '0';
-        
+    memInputData <= FromProcWriteData;
+    memHWrite <= FromProcWrite;
+    memHSize <= FromProcSize;
+    memTrans <= FromProcTrans when (procselect = "00") else '0';
+    memreset <= FromProcResetMem;
+    memAddr <= FromProcAddr;
+
     MemorySlave: entity work.SlaveInterfaceMemory(slavememory) port map(
         haddr => memAddr,
         hwrite => memHwrite,
@@ -835,29 +862,29 @@ begin
         dataToReturn => memData
     );
 
-	MasterInterfaceSwitch: entity work.MasterInterfaceSwitch(masterSwitch) port map(
-		hready => slaveReady,
---        hclk => clockdisp,
---        hclk => clock2,
-        hclk => clk,
-        enable => switchEnable,
-        dataToWrite => inputSwitch,
-        haddr => masterAddress,
-        hwrite => masterWriteBool,
-        hsize => masterSize,
-        htrans => masterTrans,
-        hwdata => masterWriteData 
-	);	
---/	/
+--	MasterInterfaceSwitch: entity work.MasterInterfaceSwitch(masterSwitch) port map(
+--		hready => slaveReady,
+----        hclk => clockdisp,
+----        hclk => clock2,
+--        hclk => clk,
+--        enable => switchEnable,
+--        dataToWrite => inputSwitch,
+--        haddr => masterAddress,
+--        hwrite => masterWriteBool,
+--        hsize => masterSize,
+--        htrans => masterTrans,
+--        hwdata => masterWriteData 
+--	);	
+--/	///
 --	outputled <= fromprocwritedata(15 downto 0) when (ssd = '1') else "0000000000000000";
-	ledtrans <= '1' when (fromprocaddr(15 downto 14) = "01") else '0';
+	ledtrans <= '1' when (fromproctrans = '1' and procselect = "01") else '0';
 --    leddata <= fromprocwritedata when (fromprocaddr(15 downto 14) = "01")else "00000000000000000000000000000000";
     leddata <= fromprocwritedata;
 	SlaveInterfaceLed: entity work.SlaveInterfaceLed(slaveLed) port map(
         enable => '1',
-		haddr => masterAddress,
-        hwrite => masterWriteBool,
-        hsize => masterSize,
+		haddr => fromprocaddr,
+        hwrite => fromprocwrite,
+        hsize => fromprocsize,
         htrans => ledtrans,
         hwdata => leddata(15 downto 0),
 --        hclk => clock2,
@@ -895,5 +922,15 @@ begin
         hrdata => outdatassd,     
         hclk => clk,
         hreadyout => slaveReadySSD
+    ); 
+    
+    slavetrans <= '1' when (fromproctrans = '1' and procselect = "10") else '0';
+    SwitchSLave: entity work.SlaveInterfaceSwitch(slaveSwitch) port map(
+        enable => '1',
+        htrans => slavetrans,
+        hwdata => inputswitch,
+        hrdata => Switch(15 downto 0),     
+        hclk => clk,
+        hreadyout => slaveReadySwitch
     );    	
 end main;

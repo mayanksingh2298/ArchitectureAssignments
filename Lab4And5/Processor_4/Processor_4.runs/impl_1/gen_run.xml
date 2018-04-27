@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1524847611">
+<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1524851270">
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <File Type="BG-DRC" Name="mainBus.drc"/>
   <File Type="BG-BGN" Name="mainBus.bgn"/>
@@ -77,13 +77,13 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../Lab5/Lab5Controller.vhf">
+    <File Path="$PPRDIR/../Lab4.vhf">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../Lab4.vhf">
+    <File Path="$PPRDIR/../../Lab5/Lab5Controller.vhf">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>

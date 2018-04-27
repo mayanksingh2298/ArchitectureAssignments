@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.4 (lin64) Build 1756540 Mon Jan 23 19:11:19 MST 2017
-| Date         : Fri Apr 27 22:21:09 2018
+| Date         : Fri Apr 27 23:21:52 2018
 | Host         : atishya-HP-Pavilion-Notebook running 64-bit Ubuntu 16.04.4 LTS
 | Command      : report_methodology -file mainBus_methodology_drc_routed.rpt -rpx mainBus_methodology_drc_routed.rpx
 | Design       : mainBus
@@ -39,7 +39,7 @@ Table of Contents
 -----------------
 TIMING-23#1 Critical Warning
 Combinatorial loop found  
-A timing loop has been detected on a combinational path. A timing arc has been disabled between ProcessorMaster/Processor/Data/flags_reg[3]_i_2/I0 and ProcessorMaster/Processor/Data/flags_reg[3]_i_2/O to disable the timing loop
+A timing loop has been detected on a combinational path. A timing arc has been disabled between ProcessorMaster/Processor/Data/flags_reg[3]_i_2/I5 and ProcessorMaster/Processor/Data/flags_reg[3]_i_2/O to disable the timing loop
 Related violations: <none>
 
 SYNTH-10#1 Warning
@@ -64,7 +64,7 @@ Related violations: <none>
 
 TIMING-14#2 Warning
 LUT on the clock tree  
-The LUT ProcessorMaster/registers[15][31]_i_10 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+The LUT ProcessorMaster/n_0_2559_BUFG_inst_i_1 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
 Related violations: <none>
 
 TIMING-14#3 Warning
@@ -74,257 +74,257 @@ Related violations: <none>
 
 TIMING-16#1 Warning
 Large setup violation  
-There is a large setup violation of -11.304 ns between counter_reg[1]/C (clocked by sys_clk_pin) and tmpDispClk_reg/D (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -11.068 ns between counter_reg[1]/C (clocked by sys_clk_pin) and tmpDispClk_reg/D (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#2 Warning
 Large setup violation  
-There is a large setup violation of -11.547 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[23]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -11.137 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[20]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#3 Warning
 Large setup violation  
-There is a large setup violation of -11.780 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[10]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -11.137 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[21]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#4 Warning
 Large setup violation  
-There is a large setup violation of -11.780 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[2]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -11.137 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[22]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#5 Warning
 Large setup violation  
-There is a large setup violation of -11.780 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[7]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -11.137 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[23]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#6 Warning
 Large setup violation  
-There is a large setup violation of -11.780 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[9]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -11.268 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[24]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#7 Warning
 Large setup violation  
-There is a large setup violation of -11.795 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[4]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -11.268 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[25]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#8 Warning
 Large setup violation  
-There is a large setup violation of -11.795 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[6]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -11.268 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[26]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#9 Warning
 Large setup violation  
-There is a large setup violation of -11.840 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[11]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -11.268 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[27]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#10 Warning
 Large setup violation  
-There is a large setup violation of -11.840 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[5]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -11.268 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[28]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#11 Warning
 Large setup violation  
-There is a large setup violation of -11.866 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[8]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -11.268 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[29]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#12 Warning
 Large setup violation  
-There is a large setup violation of -11.875 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[16]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -11.268 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[30]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#13 Warning
 Large setup violation  
-There is a large setup violation of -11.875 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[17]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -11.268 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[31]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#14 Warning
 Large setup violation  
-There is a large setup violation of -11.875 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[18]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -11.284 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[16]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#15 Warning
 Large setup violation  
-There is a large setup violation of -11.875 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[19]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -11.284 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[17]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#16 Warning
 Large setup violation  
-There is a large setup violation of -11.923 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[12]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -11.284 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[18]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#17 Warning
 Large setup violation  
-There is a large setup violation of -11.941 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[3]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -11.284 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[19]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#18 Warning
 Large setup violation  
-There is a large setup violation of -11.945 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[24]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -11.297 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[12]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#19 Warning
 Large setup violation  
-There is a large setup violation of -11.945 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[25]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -11.297 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[13]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#20 Warning
 Large setup violation  
-There is a large setup violation of -11.945 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[26]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -11.297 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[14]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#21 Warning
 Large setup violation  
-There is a large setup violation of -11.945 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[27]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -11.297 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[15]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#22 Warning
 Large setup violation  
-There is a large setup violation of -11.969 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[28]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -11.345 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[4]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#23 Warning
 Large setup violation  
-There is a large setup violation of -11.969 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[29]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -11.345 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[5]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#24 Warning
 Large setup violation  
-There is a large setup violation of -11.969 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[30]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -11.345 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[6]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#25 Warning
 Large setup violation  
-There is a large setup violation of -11.969 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[31]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -11.345 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[7]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#26 Warning
 Large setup violation  
-There is a large setup violation of -12.010 ns between counter_reg[2]/C (clocked by sys_clk_pin) and counter_reg[13]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -11.439 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[10]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#27 Warning
 Large setup violation  
-There is a large setup violation of -12.010 ns between counter_reg[2]/C (clocked by sys_clk_pin) and counter_reg[14]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -11.439 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[11]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#28 Warning
 Large setup violation  
-There is a large setup violation of -12.010 ns between counter_reg[2]/C (clocked by sys_clk_pin) and counter_reg[15]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -11.439 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[8]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#29 Warning
 Large setup violation  
-There is a large setup violation of -12.010 ns between counter_reg[2]/C (clocked by sys_clk_pin) and counter_reg[1]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -11.439 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[9]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#30 Warning
 Large setup violation  
-There is a large setup violation of -12.086 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[20]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -11.461 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[0]/S (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#31 Warning
 Large setup violation  
-There is a large setup violation of -12.086 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[21]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -11.461 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[1]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#32 Warning
 Large setup violation  
-There is a large setup violation of -12.086 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[22]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -11.461 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[2]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#33 Warning
 Large setup violation  
-There is a large setup violation of -12.098 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[0]/S (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -11.461 ns between counter_reg[1]/C (clocked by sys_clk_pin) and counter_reg[3]/R (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-18#1 Warning
 Missing input or output delay  
-An input delay is missing on SwitchEnable relative to clock(s) sys_clk_pin 
+An input delay is missing on inputSwitch[0] relative to clock(s) sys_clk_pin 
 Related violations: <none>
 
 TIMING-18#2 Warning
 Missing input or output delay  
-An input delay is missing on inputSwitch[0] relative to clock(s) sys_clk_pin 
+An input delay is missing on inputSwitch[10] relative to clock(s) sys_clk_pin 
 Related violations: <none>
 
 TIMING-18#3 Warning
 Missing input or output delay  
-An input delay is missing on inputSwitch[10] relative to clock(s) sys_clk_pin 
+An input delay is missing on inputSwitch[11] relative to clock(s) sys_clk_pin 
 Related violations: <none>
 
 TIMING-18#4 Warning
 Missing input or output delay  
-An input delay is missing on inputSwitch[11] relative to clock(s) sys_clk_pin 
+An input delay is missing on inputSwitch[12] relative to clock(s) sys_clk_pin 
 Related violations: <none>
 
 TIMING-18#5 Warning
 Missing input or output delay  
-An input delay is missing on inputSwitch[12] relative to clock(s) sys_clk_pin 
+An input delay is missing on inputSwitch[13] relative to clock(s) sys_clk_pin 
 Related violations: <none>
 
 TIMING-18#6 Warning
 Missing input or output delay  
-An input delay is missing on inputSwitch[13] relative to clock(s) sys_clk_pin 
+An input delay is missing on inputSwitch[14] relative to clock(s) sys_clk_pin 
 Related violations: <none>
 
 TIMING-18#7 Warning
 Missing input or output delay  
-An input delay is missing on inputSwitch[14] relative to clock(s) sys_clk_pin 
+An input delay is missing on inputSwitch[15] relative to clock(s) sys_clk_pin 
 Related violations: <none>
 
 TIMING-18#8 Warning
 Missing input or output delay  
-An input delay is missing on inputSwitch[15] relative to clock(s) sys_clk_pin 
+An input delay is missing on inputSwitch[1] relative to clock(s) sys_clk_pin 
 Related violations: <none>
 
 TIMING-18#9 Warning
 Missing input or output delay  
-An input delay is missing on inputSwitch[1] relative to clock(s) sys_clk_pin 
+An input delay is missing on inputSwitch[2] relative to clock(s) sys_clk_pin 
 Related violations: <none>
 
 TIMING-18#10 Warning
 Missing input or output delay  
-An input delay is missing on inputSwitch[2] relative to clock(s) sys_clk_pin 
+An input delay is missing on inputSwitch[3] relative to clock(s) sys_clk_pin 
 Related violations: <none>
 
 TIMING-18#11 Warning
 Missing input or output delay  
-An input delay is missing on inputSwitch[3] relative to clock(s) sys_clk_pin 
+An input delay is missing on inputSwitch[4] relative to clock(s) sys_clk_pin 
 Related violations: <none>
 
 TIMING-18#12 Warning
 Missing input or output delay  
-An input delay is missing on inputSwitch[4] relative to clock(s) sys_clk_pin 
+An input delay is missing on inputSwitch[5] relative to clock(s) sys_clk_pin 
 Related violations: <none>
 
 TIMING-18#13 Warning
 Missing input or output delay  
-An input delay is missing on inputSwitch[5] relative to clock(s) sys_clk_pin 
+An input delay is missing on inputSwitch[6] relative to clock(s) sys_clk_pin 
 Related violations: <none>
 
 TIMING-18#14 Warning
 Missing input or output delay  
-An input delay is missing on inputSwitch[6] relative to clock(s) sys_clk_pin 
+An input delay is missing on inputSwitch[7] relative to clock(s) sys_clk_pin 
 Related violations: <none>
 
 TIMING-18#15 Warning
 Missing input or output delay  
-An input delay is missing on inputSwitch[7] relative to clock(s) sys_clk_pin 
+An input delay is missing on inputSwitch[8] relative to clock(s) sys_clk_pin 
 Related violations: <none>
 
 TIMING-18#16 Warning
 Missing input or output delay  
-An input delay is missing on inputSwitch[8] relative to clock(s) sys_clk_pin 
+An input delay is missing on inputSwitch[9] relative to clock(s) sys_clk_pin 
 Related violations: <none>
 
 TIMING-18#17 Warning
 Missing input or output delay  
-An input delay is missing on inputSwitch[9] relative to clock(s) sys_clk_pin 
+An input delay is missing on resetReg relative to clock(s) sys_clk_pin 
 Related violations: <none>
 
 TIMING-18#18 Warning
 Missing input or output delay  
-An input delay is missing on resetReg relative to clock(s) sys_clk_pin 
+An input delay is missing on startProc relative to clock(s) sys_clk_pin 
 Related violations: <none>
 
 TIMING-18#19 Warning

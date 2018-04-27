@@ -29,7 +29,7 @@
     <Option Name="IPStaticSourceDir" Val="$PPRDIR/Processor_4.ip_user_files/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
     <Option Name="DSANumComputeUnits" Val="16"/>
-    <Option Name="WTXSimLaunchSim" Val="217"/>
+    <Option Name="WTXSimLaunchSim" Val="223"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
@@ -61,10 +61,10 @@
         <CompFileExtendedInfo CompFileName="BRAM.bd" FileRelPathName="ip/BRAM_blk_mem_gen_0_0/BRAM_blk_mem_gen_0_0.xci">
           <Proxy FileSetName="BRAM_blk_mem_gen_0_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="BRAM.bd" FileRelPathName="BRAM_ooc.xdc"/>
         <CompFileExtendedInfo CompFileName="BRAM.bd" FileRelPathName="hw_handoff/BRAM.hwh"/>
-        <CompFileExtendedInfo CompFileName="BRAM.bd" FileRelPathName="hw_handoff/BRAM_bd.tcl"/>
+        <CompFileExtendedInfo CompFileName="BRAM.bd" FileRelPathName="BRAM_ooc.xdc"/>
         <CompFileExtendedInfo CompFileName="BRAM.bd" FileRelPathName="hdl/BRAM.hwdef"/>
+        <CompFileExtendedInfo CompFileName="BRAM.bd" FileRelPathName="hw_handoff/BRAM_bd.tcl"/>
         <CompFileExtendedInfo CompFileName="BRAM.bd" FileRelPathName="hdl/BRAM.vhd"/>
       </File>
       <File Path="$PSRCDIR/sources_1/imports/hdl/BRAM_wrapper.vhd">
@@ -75,13 +75,13 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../../Lab5/Lab5Controller.vhf">
+      <File Path="$PPRDIR/../Lab4.vhf">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../Lab4.vhf">
+      <File Path="$PPRDIR/../../Lab5/Lab5Controller.vhf">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>

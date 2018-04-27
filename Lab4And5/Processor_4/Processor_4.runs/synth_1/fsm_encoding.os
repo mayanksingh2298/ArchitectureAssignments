@@ -18,3 +18,8 @@
        {SlaveInterfaceSSD.state} \
        { }  \
        {{0000 000} {0101 001} {0110 010} {0111 011} {1000 100} }
+
+ add_fsm_encoding \
+       {SlaveInterfaceSwitch.state} \
+       { }  \
+       {{000 000} {001 001} {010 010} {011 011} {100 100} }
