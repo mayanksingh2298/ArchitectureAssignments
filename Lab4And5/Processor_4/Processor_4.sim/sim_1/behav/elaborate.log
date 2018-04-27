@@ -40,8 +40,6 @@ Compiling architecture structure of entity xil_defaultlib.BRAM_wrapper [bram_wra
 Compiling architecture func0 of entity xil_defaultlib.MemoryModule [memorymodule_default]
 Compiling architecture slavememory of entity xil_defaultlib.SlaveInterfaceMemory [slaveinterfacememory_default]
 Compiling architecture masterswitch of entity xil_defaultlib.MasterInterfaceSwitch [masterinterfaceswitch_default]
-Compiling architecture slaveled of entity xil_defaultlib.SlaveInterfaceLed [slaveinterfaceled_default]
 Compiling architecture segment of entity xil_defaultlib.Display [display_default]
-Compiling architecture slavessd of entity xil_defaultlib.SlaveInterfaceSSD [slaveinterfacessd_default]
 Compiling architecture main of entity xil_defaultlib.mainbus
 Built simulation snapshot mainBus_behav

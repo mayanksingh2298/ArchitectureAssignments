@@ -9,6 +9,7 @@ Bank = 34, Pin name = ,	Sch name = CLK50MHZ
 	set_property IOSTANDARD LVCMOS33 [get_ports clk]
     set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets startProc_IBUF]  
     set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets push_IBUF]  
+    set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets resetReg_IBUF]  
     create_clock -period 10.000 -name sys_clk_pin -waveform {0.000 5.000} -add [get_ports clk]
 # Switches
 set_property PACKAGE_PIN R2 [get_ports inputSwitch[15]]

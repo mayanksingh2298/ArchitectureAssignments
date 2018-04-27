@@ -1,7 +1,8 @@
 library ieee;
 use ieee.std_logic_1164.ALL;
 use ieee.numeric_std.ALL;
-
+library UNISIM;
+use UNISIM.Vcomponents.ALL;
 entity Display is
   port(   int1 : in integer;
           int2 : in integer;
@@ -51,6 +52,20 @@ process(clock2)
             cathode <= "1111000";
         elsif(reg_sm1(3 downto 0) = "1000")then 
             cathode <= "0000000";
+        elsif(reg_sm1(3 downto 0) = "1001")then 
+            cathode <= "0010000";
+        elsif(reg_sm1(3 downto 0) = "1010")then 
+            cathode <= "0001000";
+        elsif(reg_sm1(3 downto 0) = "1011")then 
+            cathode <= "0000011";
+        elsif(reg_sm1(3 downto 0) = "1100")then 
+            cathode <= "1000110";
+        elsif(reg_sm1(3 downto 0) = "1101")then 
+            cathode <= "0100001";
+        elsif(reg_sm1(3 downto 0) = "1110")then 
+            cathode <= "0000110";
+        elsif(reg_sm1(3 downto 0) = "1111")then 
+            cathode <= "0001110";
         else 
             cathode <= "0010000";
         end if;      
@@ -74,6 +89,20 @@ process(clock2)
             cathode <= "1111000";
         elsif(reg_sm2(3 downto 0) = "1000")then 
             cathode <= "0000000";
+        elsif(reg_sm2(3 downto 0) = "1001")then 
+            cathode <= "0010000";
+        elsif(reg_sm2(3 downto 0) = "1010")then 
+            cathode <= "0001000";
+        elsif(reg_sm2(3 downto 0) = "1011")then 
+            cathode <= "0000011";
+        elsif(reg_sm2(3 downto 0) = "1100")then 
+            cathode <= "1000110";
+        elsif(reg_sm2(3 downto 0) = "1101")then 
+            cathode <= "0100001";
+        elsif(reg_sm2(3 downto 0) = "1110")then 
+            cathode <= "0000110";
+        elsif(reg_sm2(3 downto 0) = "1111")then 
+            cathode <= "0001110";
         else 
             cathode <= "0010000";
         end if;
@@ -97,6 +126,20 @@ process(clock2)
             cathode <= "1111000";
         elsif(reg_sm3(3 downto 0) = "1000")then 
             cathode <= "0000000";
+        elsif(reg_sm3(3 downto 0) = "1001")then 
+            cathode <= "0010000";
+        elsif(reg_sm3(3 downto 0) = "1010")then 
+            cathode <= "0001000";
+        elsif(reg_sm3(3 downto 0) = "1011")then 
+            cathode <= "0000011";
+        elsif(reg_sm3(3 downto 0) = "1100")then 
+            cathode <= "1000110";
+        elsif(reg_sm3(3 downto 0) = "1101")then 
+            cathode <= "0100001";
+        elsif(reg_sm3(3 downto 0) = "1110")then 
+            cathode <= "0000110";
+        elsif(reg_sm3(3 downto 0) = "1111")then 
+            cathode <= "0001110";
         else 
             cathode <= "0010000";
         end if;
@@ -120,6 +163,20 @@ process(clock2)
             cathode <= "1111000";
         elsif(reg_sm4(3 downto 0) = "1000")then 
             cathode <= "0000000";
+        elsif(reg_sm4(3 downto 0) = "1001")then 
+            cathode <= "0010000";
+        elsif(reg_sm4(3 downto 0) = "1010")then 
+            cathode <= "0001000";
+        elsif(reg_sm4(3 downto 0) = "1011")then 
+            cathode <= "0000011";
+        elsif(reg_sm4(3 downto 0) = "1100")then 
+            cathode <= "1000110";
+        elsif(reg_sm4(3 downto 0) = "1101")then 
+            cathode <= "0100001";
+        elsif(reg_sm4(3 downto 0) = "1110")then 
+            cathode <= "0000110";
+        elsif(reg_sm4(3 downto 0) = "1111")then 
+            cathode <= "0001110";
         else 
             cathode <= "0010000";
         end if;
@@ -227,7 +284,13 @@ begin
      				state <= rdDat;
      			end if;
      		when wrAddr=>
-                haddr <=  "00" & haddrTemp(13 downto 0);
+     		    if(haddrtemp(15 downto 0) = "0000101110111000")then
+     		         haddr <= "01" & haddrTemp(13 downto 0);
+     		    else
+     		         haddr <= "00" & haddrTemp(13 downto 0);
+     		    end if;
+--     		    haddr <= "01" & haddrTemp(13 downto 0) when (haddrtemp = "0000101110111000") else "00" & haddrTemp(13 downto 0);
+--                haddr <=  "00" & haddrTemp(13 downto 0);
      			htrans<='0';
 --		  		hwrite <= '1';
 --     			--get the address/data where/which the processor has to write and save them in haddr/hwdata
@@ -636,12 +699,23 @@ architecture main of mainBus is
     signal tempStartProc : std_logic;
     signal push1: std_logic:='1';
     
+    signal ssd: std_logic:='0';
+    signal Myssdout: std_logic_vector(31 downto 0);
+    signal MyMyssdout: std_logic_vector(31 downto 0);
+    signal staticAddr: std_logic_vector(15 downto 0);
+    
     signal a : integer:=0;
     signal b : integer:=0;
     signal c : integer:=0;
     signal d : integer:=0;
+    
+    signal ledtrans: std_logic:='0';
+    signal leddata: std_logic_vector(31 downto 0);
 begin
+    staticAddr <= "0000101110111000";
     flagStart <= '1' when startProc = '1';
+    ssd <= '1' when fromprocaddr(15 downto 14) = "01";
+--    Mymyssdout <= fromprocwritedata when (fromprocaddr(15 downto 14) = "01");
 	process(clk)
 	  begin
 	    if (clk = '1' and clk'EVENT) then
@@ -659,6 +733,7 @@ begin
           else
               counter2 <= counter2 + 1;
           end if;
+        
 	    end if;
 	end process;
 	clockDisp <= (tmpDispClk and not(sim)) or (clk and sim); 
@@ -668,7 +743,7 @@ begin
 --    Procclk <= clockDisp when (flagStart = '1') else '0';
 --    Procclk <= clock2 when (flagStart = '1') else '0';
     
-    readyForProc <= memReady; -------------------------------------------------------------------------
+    readyForProc <= memReady when (fromProcAddr(15 downto 14) = "00") else slavereadyssd; -------------------------------------------------------------------------
     ProcessorMaster: entity work.MasterInterfaceProc(masterProc) port map(
         hready => readyForProc,
         hclk => Procclk,
@@ -682,14 +757,15 @@ begin
         hwdata => FromProcWriteData,
         resetMem => FromProcResetMem,
         
-        push => push1,
+--        push => push1,   ----------------------------------- Change this to push and then test on board
+        push => '0',
         ssdout => ssdout
     );
     
     memInputData <= ("0000000000000000"&masterWriteData) when (flagStart = '0' or masterTrans = '1') else FromProcWriteData;
     memHWrite <= masterWriteBool when (flagStart = '0' or masterTrans = '1') else FromProcWrite;
     memHSize <= masterSize when (flagStart = '0' or masterTrans = '1') else FromProcSize;
-    memTrans <= masterTrans when (flagStart = '0' or masterTrans = '1') else FromProcTrans;
+    memTrans <= masterTrans when (flagStart = '0' or masterTrans = '1') else FromProcTrans when (FromProcAddr(15 downto 14) = "00");
     memreset <= '0' when (flagStart = '0' or masterTrans = '1') else FromProcResetMem;
     memAddr <= masterAddress when (flagStart = '0' or masterTrans = '1') else FromProcAddr;
  
@@ -721,13 +797,17 @@ begin
         htrans => masterTrans,
         hwdata => masterWriteData 
 	);	
+--/	/
+--	outputled <= fromprocwritedata(15 downto 0) when (ssd = '1') else "0000000000000000";
+--	ledtrans <= ssd;
+--    leddata <= ;
 	SlaveInterfaceLed: entity work.SlaveInterfaceLed(slaveLed) port map(
         enable => '1',
 		haddr => masterAddress,
         hwrite => masterWriteBool,
         hsize => masterSize,
-        htrans => masterTrans,
-        hwdata => masterWriteData,
+        htrans => mastertrans,
+        hwdata => masterwritedata(15 downto 0),
 --        hclk => clock2,
 --        hclk => clockdisp,
         hclk => clk,
@@ -735,11 +815,11 @@ begin
         datatoReturn => outputLed
 	);
     
---    a<=to_integer(unsigned(ssdout(15 downto 12)));
---    b<=to_integer(unsigned(ssdout(11 downto 8)));
---    c<=to_integer(unsigned(ssdout(7 downto 4)));
---    d<=to_integer(unsigned(ssdout(3 downto 0)));
-
+--    a<=to_integer(unsigned(fromprocwritedata(15 downto 12))) when (ssd = '1') else 0;
+--    b<=to_integer(unsigned(fromprocwritedata(11 downto 8))) when (ssd = '1') else 0;
+--    c<=to_integer(unsigned(fromprocwritedata(7 downto 4))) when (ssd = '1') else 0;
+--    d<=to_integer(unsigned(fromprocwritedata(3 downto 0))) when (ssd = '1') else 0;
+    
 --    Displaying: entity work.Display(segment) port map(
 --        int1    => a,
 --        int2    => b,
@@ -749,12 +829,15 @@ begin
 --        anode   => anode, 
 --        cathode => cathode
 --    ); 
-
+    
+--    myssdout <= memData when (push = '1');
+    myssdout <= fromprocwritedata when (ssd = '1') else "00000000000000000000000000000000";   
     SSDSLave: entity work.SlaveInterfaceSSD(slaveSSD) port map(
         enable => '1',
         htrans => '1',
-        hwdata => memData(15 downto 0),
- --        hwdata => ssdout(15 downto 0),
+--        hwdata => memData(15 downto 0),
+--         hwdata => ssdout(15 downto 0),
+         hwdata => myssdout(15 downto 0),
        
         hclk => clockDisp,
         hreadyout => slaveReadySSD,

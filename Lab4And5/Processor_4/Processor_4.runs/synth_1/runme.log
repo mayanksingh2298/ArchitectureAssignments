@@ -17,12 +17,12 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 20517 
+INFO: Helper process launched with PID 32567 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1067.566 ; gain = 137.098 ; free physical = 1170 ; free virtual = 9309
+Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1067.559 ; gain = 137.098 ; free physical = 1642 ; free virtual = 9840
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'mainBus' [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab6/lab6bus.vhf:598]
-INFO: [Synth 8-638] synthesizing module 'MasterInterfaceProc' [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab6/lab6bus.vhf:157]
+INFO: [Synth 8-638] synthesizing module 'mainBus' [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab6/lab6bus.vhf:661]
+INFO: [Synth 8-638] synthesizing module 'MasterInterfaceProc' [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab6/lab6bus.vhf:214]
 INFO: [Synth 8-638] synthesizing module 'MainProcessor' [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/MainProcessor/MainProcessor.vhf:22]
 INFO: [Synth 8-638] synthesizing module 'MasterController' [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab5/Lab5Controller.vhf:595]
 INFO: [Synth 8-638] synthesizing module 'MainController' [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab5/Lab5Controller.vhf:239]
@@ -48,30 +48,30 @@ INFO: [Synth 8-638] synthesizing module 'ALU' [/media/atishya/New_Volume1/books_
 INFO: [Synth 8-256] done synthesizing module 'ALU' (9#1) [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Lab4.vhf:235]
 INFO: [Synth 8-256] done synthesizing module 'MainDataPath' (10#1) [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Lab4.vhf:385]
 INFO: [Synth 8-256] done synthesizing module 'MainProcessor' (11#1) [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/MainProcessor/MainProcessor.vhf:22]
-INFO: [Synth 8-256] done synthesizing module 'MasterInterfaceProc' (12#1) [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab6/lab6bus.vhf:157]
-INFO: [Synth 8-638] synthesizing module 'SlaveInterfaceMemory' [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab6/lab6bus.vhf:482]
+INFO: [Synth 8-256] done synthesizing module 'MasterInterfaceProc' (12#1) [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab6/lab6bus.vhf:214]
+INFO: [Synth 8-638] synthesizing module 'SlaveInterfaceMemory' [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab6/lab6bus.vhf:545]
 INFO: [Synth 8-638] synthesizing module 'MemoryModule' [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Lab4.vhf:123]
 INFO: [Synth 8-638] synthesizing module 'ProcessorMemoryPath' [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Lab4.vhf:26]
 INFO: [Synth 8-256] done synthesizing module 'ProcessorMemoryPath' (13#1) [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Lab4.vhf:26]
 INFO: [Synth 8-638] synthesizing module 'BRAM_wrapper' [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Processor_4/Processor_4.srcs/sources_1/imports/hdl/BRAM_wrapper.vhd:26]
 INFO: [Synth 8-3491] module 'BRAM' declared at '/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Processor_4/Processor_4.srcs/sources_1/bd/BRAM/hdl/BRAM.vhd:14' bound to instance 'BRAM_i' of component 'BRAM' [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Processor_4/Processor_4.srcs/sources_1/imports/hdl/BRAM_wrapper.vhd:39]
 INFO: [Synth 8-638] synthesizing module 'BRAM' [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Processor_4/Processor_4.srcs/sources_1/bd/BRAM/hdl/BRAM.vhd:30]
-INFO: [Synth 8-3491] module 'BRAM_blk_mem_gen_0_0' declared at '/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Processor_4/Processor_4.runs/synth_1/.Xil/Vivado-20510-atishya-HP-Pavilion-Notebook/realtime/BRAM_blk_mem_gen_0_0_stub.vhdl:5' bound to instance 'blk_mem_gen_0' of component 'BRAM_blk_mem_gen_0_0' [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Processor_4/Processor_4.srcs/sources_1/bd/BRAM/hdl/BRAM.vhd:57]
-INFO: [Synth 8-638] synthesizing module 'BRAM_blk_mem_gen_0_0' [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Processor_4/Processor_4.runs/synth_1/.Xil/Vivado-20510-atishya-HP-Pavilion-Notebook/realtime/BRAM_blk_mem_gen_0_0_stub.vhdl:18]
+INFO: [Synth 8-3491] module 'BRAM_blk_mem_gen_0_0' declared at '/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Processor_4/Processor_4.runs/synth_1/.Xil/Vivado-32556-atishya-HP-Pavilion-Notebook/realtime/BRAM_blk_mem_gen_0_0_stub.vhdl:5' bound to instance 'blk_mem_gen_0' of component 'BRAM_blk_mem_gen_0_0' [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Processor_4/Processor_4.srcs/sources_1/bd/BRAM/hdl/BRAM.vhd:57]
+INFO: [Synth 8-638] synthesizing module 'BRAM_blk_mem_gen_0_0' [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Processor_4/Processor_4.runs/synth_1/.Xil/Vivado-32556-atishya-HP-Pavilion-Notebook/realtime/BRAM_blk_mem_gen_0_0_stub.vhdl:18]
 INFO: [Synth 8-256] done synthesizing module 'BRAM' (14#1) [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Processor_4/Processor_4.srcs/sources_1/bd/BRAM/hdl/BRAM.vhd:30]
 INFO: [Synth 8-256] done synthesizing module 'BRAM_wrapper' (15#1) [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Processor_4/Processor_4.srcs/sources_1/imports/hdl/BRAM_wrapper.vhd:26]
 INFO: [Synth 8-256] done synthesizing module 'MemoryModule' (16#1) [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Lab4.vhf:123]
-INFO: [Synth 8-256] done synthesizing module 'SlaveInterfaceMemory' (17#1) [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab6/lab6bus.vhf:482]
-INFO: [Synth 8-638] synthesizing module 'MasterInterfaceSwitch' [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab6/lab6bus.vhf:297]
-INFO: [Synth 8-256] done synthesizing module 'MasterInterfaceSwitch' (18#1) [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab6/lab6bus.vhf:297]
-INFO: [Synth 8-638] synthesizing module 'SlaveInterfaceLed' [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab6/lab6bus.vhf:358]
-INFO: [Synth 8-256] done synthesizing module 'SlaveInterfaceLed' (19#1) [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab6/lab6bus.vhf:358]
-INFO: [Synth 8-638] synthesizing module 'SlaveInterfaceSSD' [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab6/lab6bus.vhf:411]
-INFO: [Synth 8-638] synthesizing module 'Display' [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab6/lab6bus.vhf:16]
-WARNING: [Synth 8-5863] Implementing Library version of Mod/Rem due to signed path. This typically leads to poor QOR. Check RTL to see if unsigned path for the operator is possible  [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab6/lab6bus.vhf:34]
-INFO: [Synth 8-256] done synthesizing module 'Display' (20#1) [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab6/lab6bus.vhf:16]
-INFO: [Synth 8-256] done synthesizing module 'SlaveInterfaceSSD' (21#1) [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab6/lab6bus.vhf:411]
-INFO: [Synth 8-256] done synthesizing module 'mainBus' (22#1) [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab6/lab6bus.vhf:598]
+INFO: [Synth 8-256] done synthesizing module 'SlaveInterfaceMemory' (17#1) [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab6/lab6bus.vhf:545]
+INFO: [Synth 8-638] synthesizing module 'MasterInterfaceSwitch' [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab6/lab6bus.vhf:360]
+INFO: [Synth 8-256] done synthesizing module 'MasterInterfaceSwitch' (18#1) [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab6/lab6bus.vhf:360]
+INFO: [Synth 8-638] synthesizing module 'SlaveInterfaceLed' [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab6/lab6bus.vhf:421]
+INFO: [Synth 8-256] done synthesizing module 'SlaveInterfaceLed' (19#1) [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab6/lab6bus.vhf:421]
+INFO: [Synth 8-638] synthesizing module 'SlaveInterfaceSSD' [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab6/lab6bus.vhf:474]
+INFO: [Synth 8-638] synthesizing module 'Display' [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab6/lab6bus.vhf:17]
+WARNING: [Synth 8-5863] Implementing Library version of Mod/Rem due to signed path. This typically leads to poor QOR. Check RTL to see if unsigned path for the operator is possible  [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab6/lab6bus.vhf:35]
+INFO: [Synth 8-256] done synthesizing module 'Display' (20#1) [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab6/lab6bus.vhf:17]
+INFO: [Synth 8-256] done synthesizing module 'SlaveInterfaceSSD' (21#1) [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab6/lab6bus.vhf:474]
+INFO: [Synth 8-256] done synthesizing module 'mainBus' (22#1) [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab6/lab6bus.vhf:661]
 WARNING: [Synth 8-3331] design Display has unconnected port int1[31]
 WARNING: [Synth 8-3331] design Display has unconnected port int1[30]
 WARNING: [Synth 8-3331] design Display has unconnected port int1[29]
@@ -174,7 +174,7 @@ WARNING: [Synth 8-3331] design Display has unconnected port int4[17]
 WARNING: [Synth 8-3331] design Display has unconnected port int4[16]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1115.035 ; gain = 184.566 ; free physical = 1119 ; free virtual = 9261
+Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1116.027 ; gain = 185.566 ; free physical = 1591 ; free virtual = 9793
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -184,7 +184,7 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1115.035 ; gain = 184.566 ; free physical = 1116 ; free virtual = 9261
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1116.027 ; gain = 185.566 ; free physical = 1587 ; free virtual = 9793
 ---------------------------------------------------------------------------------
 WARNING: [Project 1-486] Could not resolve non-primitive black box cell 'BRAM_blk_mem_gen_0_0' instantiated as 'MemorySlave/Memory/BRAM/BRAM_i/blk_mem_gen_0' [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Processor_4/Processor_4.srcs/sources_1/bd/BRAM/hdl/BRAM.vhd:57]
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
@@ -192,12 +192,13 @@ INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Processor_4/Processor_4.runs/synth_1/.Xil/Vivado-20510-atishya-HP-Pavilion-Notebook/dcp/BRAM_blk_mem_gen_0_0_in_context.xdc] for cell 'MemorySlave/Memory/BRAM/BRAM_i/blk_mem_gen_0'
-Finished Parsing XDC File [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Processor_4/Processor_4.runs/synth_1/.Xil/Vivado-20510-atishya-HP-Pavilion-Notebook/dcp/BRAM_blk_mem_gen_0_0_in_context.xdc] for cell 'MemorySlave/Memory/BRAM/BRAM_i/blk_mem_gen_0'
+Parsing XDC File [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Processor_4/Processor_4.runs/synth_1/.Xil/Vivado-32556-atishya-HP-Pavilion-Notebook/dcp/BRAM_blk_mem_gen_0_0_in_context.xdc] for cell 'MemorySlave/Memory/BRAM/BRAM_i/blk_mem_gen_0'
+Finished Parsing XDC File [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Processor_4/Processor_4.runs/synth_1/.Xil/Vivado-32556-atishya-HP-Pavilion-Notebook/dcp/BRAM_blk_mem_gen_0_0_in_context.xdc] for cell 'MemorySlave/Memory/BRAM/BRAM_i/blk_mem_gen_0'
 Parsing XDC File [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/MainProcessor/Bus.xdc]
 CRITICAL WARNING: [Designutils 20-1307] Command 'Bank' is not supported in the xdc constraint file. [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/MainProcessor/Bus.xdc:7]
 WARNING: [Vivado 12-507] No nets matched 'startProc_IBUF'. [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/MainProcessor/Bus.xdc:10]
 WARNING: [Vivado 12-507] No nets matched 'push_IBUF'. [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/MainProcessor/Bus.xdc:11]
+WARNING: [Vivado 12-507] No nets matched 'resetReg_IBUF'. [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/MainProcessor/Bus.xdc:12]
 Finished Parsing XDC File [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/MainProcessor/Bus.xdc]
 WARNING: [Project 1-498] One or more constraints failed evaluation while reading constraint file [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/MainProcessor/Bus.xdc] and the design contains unresolved black boxes. These constraints will be read post-synthesis (as long as their source constraint file is marked as used_in_implementation) and should be applied correctly then. You should review the constraints listed in the file [.Xil/mainBus_propImpl.xdc] and check the run log file to verify that these constraints were correctly applied.
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/MainProcessor/Bus.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/mainBus_propImpl.xdc].
@@ -209,17 +210,17 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1454.535 ; gain = 0.000 ; free physical = 937 ; free virtual = 9087
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1450.480 ; gain = 0.000 ; free physical = 1410 ; free virtual = 9620
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'MemorySlave/Memory/BRAM/BRAM_i/blk_mem_gen_0' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 1454.535 ; gain = 524.066 ; free physical = 933 ; free virtual = 9086
+Finished Constraint Validation : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1450.480 ; gain = 520.020 ; free physical = 1406 ; free virtual = 9620
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 1454.535 ; gain = 524.066 ; free physical = 933 ; free virtual = 9086
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1450.480 ; gain = 520.020 ; free physical = 1406 ; free virtual = 9619
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -227,7 +228,7 @@ Start Applying 'set_property' XDC Constraints
 Applied set_property DONT_TOUCH = true for MemorySlave/Memory/BRAM/BRAM_i. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for MemorySlave/Memory/BRAM/BRAM_i/blk_mem_gen_0. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 1454.535 ; gain = 524.066 ; free physical = 933 ; free virtual = 9086
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1450.480 ; gain = 520.020 ; free physical = 1406 ; free virtual = 9620
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5544] ROM "Asrc2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5546] ROM "op" won't be mapped to RAM because it is too sparse
@@ -267,14 +268,12 @@ INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'Slave
 INFO: [Synth 8-5544] ROM "dataToReturn" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "cathode" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "cathode" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "cathode" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "cathode" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'SlaveInterfaceSSD'
 INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "a" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ssd" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "memtrans" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
 INFO: [Synth 8-5546] ROM "tmpDispClk" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5545] ROM "tmpDispClk2" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5546] ROM "counter" won't be mapped to RAM because it is too sparse
@@ -343,9 +342,11 @@ INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 
                      wr3 |                              100 |                             1000
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'SlaveInterfaceSSD'
-WARNING: [Synth 8-327] inferring latch for variable 'flagStart_reg' [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab6/lab6bus.vhf:639]
+WARNING: [Synth 8-327] inferring latch for variable 'ssd_reg' [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab6/lab6bus.vhf:717]
+WARNING: [Synth 8-327] inferring latch for variable 'flagStart_reg' [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab6/lab6bus.vhf:716]
+WARNING: [Synth 8-327] inferring latch for variable 'memtrans_reg' [/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab6/lab6bus.vhf:768]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 1454.535 ; gain = 524.066 ; free physical = 902 ; free virtual = 9056
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1450.480 ; gain = 520.020 ; free physical = 1384 ; free virtual = 9597
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -370,8 +371,8 @@ Detailed RTL Component Info :
 	   4 Input      1 Bit         XORs := 1     
 +---Registers : 
 	               32 Bit    Registers := 20    
-	               16 Bit    Registers := 3     
-	               14 Bit    Registers := 2     
+	               16 Bit    Registers := 4     
+	               14 Bit    Registers := 1     
 	                7 Bit    Registers := 1     
 	                5 Bit    Registers := 1     
 	                4 Bit    Registers := 5     
@@ -388,15 +389,15 @@ Detailed RTL Component Info :
 	   8 Input     32 Bit        Muxes := 1     
 	   2 Input     31 Bit        Muxes := 1     
 	   2 Input     18 Bit        Muxes := 2     
-	   2 Input     16 Bit        Muxes := 1     
+	   2 Input     16 Bit        Muxes := 3     
+	   5 Input     16 Bit        Muxes := 1     
 	   7 Input      7 Bit        Muxes := 1     
-	   2 Input      7 Bit        Muxes := 4     
-	   8 Input      7 Bit        Muxes := 4     
 	   4 Input      7 Bit        Muxes := 1     
+	   2 Input      6 Bit        Muxes := 4     
 	   6 Input      5 Bit        Muxes := 2     
 	   3 Input      5 Bit        Muxes := 2     
 	   4 Input      5 Bit        Muxes := 3     
-	   2 Input      5 Bit        Muxes := 10    
+	   2 Input      5 Bit        Muxes := 14    
 	   6 Input      4 Bit        Muxes := 1     
 	   2 Input      4 Bit        Muxes := 8     
 	   4 Input      4 Bit        Muxes := 2     
@@ -418,11 +419,12 @@ Detailed RTL Component Info :
 	   4 Input      2 Bit        Muxes := 2     
 	   5 Input      2 Bit        Muxes := 1     
 	  26 Input      1 Bit        Muxes := 11    
-	   2 Input      1 Bit        Muxes := 47    
+	   2 Input      1 Bit        Muxes := 51    
 	   6 Input      1 Bit        Muxes := 9     
 	   4 Input      1 Bit        Muxes := 17    
 	   5 Input      1 Bit        Muxes := 17    
 	   9 Input      1 Bit        Muxes := 6     
+	   3 Input      1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -441,9 +443,10 @@ Detailed RTL Component Info :
 	   2 Input     32 Bit        Muxes := 1     
 	   2 Input     31 Bit        Muxes := 1     
 	   2 Input     18 Bit        Muxes := 2     
-	   2 Input     16 Bit        Muxes := 1     
+	   2 Input     16 Bit        Muxes := 2     
 	   2 Input      3 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 4     
+	   2 Input      1 Bit        Muxes := 6     
+	   3 Input      1 Bit        Muxes := 1     
 Module MainController 
 Detailed RTL Component Info : 
 +---Muxes : 
@@ -454,7 +457,7 @@ Detailed RTL Component Info :
 	  26 Input      2 Bit        Muxes := 2     
 	  27 Input      2 Bit        Muxes := 1     
 	  26 Input      1 Bit        Muxes := 11    
-	   2 Input      1 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 4     
 Module OpcodeGen 
 Detailed RTL Component Info : 
 +---Muxes : 
@@ -524,10 +527,12 @@ Module MasterInterfaceProc
 Detailed RTL Component Info : 
 +---Registers : 
 	               32 Bit    Registers := 2     
-	               14 Bit    Registers := 1     
+	               16 Bit    Registers := 1     
 	                3 Bit    Registers := 1     
 	                1 Bit    Registers := 3     
 +---Muxes : 
+	   2 Input     16 Bit        Muxes := 1     
+	   5 Input     16 Bit        Muxes := 1     
 	   6 Input      3 Bit        Muxes := 1     
 	   2 Input      3 Bit        Muxes := 1     
 	   4 Input      3 Bit        Muxes := 1     
@@ -594,10 +599,9 @@ Detailed RTL Component Info :
 	                4 Bit    Registers := 1     
 +---Muxes : 
 	   7 Input      7 Bit        Muxes := 1     
-	   2 Input      7 Bit        Muxes := 4     
-	   8 Input      7 Bit        Muxes := 4     
 	   4 Input      7 Bit        Muxes := 1     
-	   2 Input      5 Bit        Muxes := 4     
+	   2 Input      6 Bit        Muxes := 4     
+	   2 Input      5 Bit        Muxes := 8     
 	   4 Input      4 Bit        Muxes := 1     
 	   2 Input      3 Bit        Muxes := 4     
 	   4 Input      2 Bit        Muxes := 1     
@@ -664,7 +668,6 @@ INFO: [Synth 8-3886] merging instance 'MasterInterfaceSwitch/hsize_reg[2]' (FDE)
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\MasterInterfaceSwitch/hsize_reg[0] )
 INFO: [Synth 8-3886] merging instance 'ProcessorMaster/Processor/Data/overflow_reg' (LD) to 'ProcessorMaster/Processor/Data/flags_reg[0]'
 INFO: [Synth 8-3886] merging instance 'ProcessorMaster/Processor/Data/carry_reg' (LD) to 'ProcessorMaster/Processor/Data/flags_reg[1]'
-WARNING: [Synth 8-3332] Sequential element (Processor/CONTROL/CONTROL/read1Sig_reg) is unused and will be removed from module MasterInterfaceProc.
 WARNING: [Synth 8-3332] Sequential element (ssdout_reg[31]) is unused and will be removed from module MainDataPath.
 WARNING: [Synth 8-3332] Sequential element (ssdout_reg[30]) is unused and will be removed from module MainDataPath.
 WARNING: [Synth 8-3332] Sequential element (ssdout_reg[29]) is unused and will be removed from module MainDataPath.
@@ -697,11 +700,10 @@ WARNING: [Synth 8-3332] Sequential element (ssdout_reg[3]) is unused and will be
 WARNING: [Synth 8-3332] Sequential element (ssdout_reg[2]) is unused and will be removed from module MainDataPath.
 WARNING: [Synth 8-3332] Sequential element (ssdout_reg[1]) is unused and will be removed from module MainDataPath.
 WARNING: [Synth 8-3332] Sequential element (ssdout_reg[0]) is unused and will be removed from module MainDataPath.
-WARNING: [Synth 8-3332] Sequential element (SSDSLave/hreadyout_reg) is unused and will be removed from module mainBus.
 WARNING: [Synth 8-3332] Sequential element (MasterInterfaceSwitch/hsize_reg[1]) is unused and will be removed from module mainBus.
 WARNING: [Synth 8-3332] Sequential element (MasterInterfaceSwitch/hsize_reg[0]) is unused and will be removed from module mainBus.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:33 ; elapsed = 00:00:36 . Memory (MB): peak = 1459.535 ; gain = 529.066 ; free physical = 827 ; free virtual = 8982
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 1468.480 ; gain = 538.020 ; free physical = 1292 ; free virtual = 9505
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -745,7 +747,7 @@ Start Timing Optimization
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:44 ; elapsed = 00:00:47 . Memory (MB): peak = 1490.535 ; gain = 560.066 ; free physical = 796 ; free virtual = 8950
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:50 ; elapsed = 00:00:51 . Memory (MB): peak = 1489.480 ; gain = 559.020 ; free physical = 1269 ; free virtual = 9483
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-3332] Sequential element (SSDSLave/Displaying/counter3_reg[4]) is unused and will be removed from module mainBus.
 WARNING: [Synth 8-3332] Sequential element (SSDSLave/Displaying/counter3_reg[5]) is unused and will be removed from module mainBus.
@@ -776,7 +778,7 @@ WARNING: [Synth 8-3332] Sequential element (SSDSLave/Displaying/counter3_reg[29]
 WARNING: [Synth 8-3332] Sequential element (SSDSLave/Displaying/counter3_reg[30]) is unused and will be removed from module mainBus.
 WARNING: [Synth 8-3332] Sequential element (SSDSLave/Displaying/counter3_reg[31]) is unused and will be removed from module mainBus.
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:46 ; elapsed = 00:00:49 . Memory (MB): peak = 1517.988 ; gain = 587.520 ; free physical = 767 ; free virtual = 8922
+Finished Timing Optimization : Time (s): cpu = 00:00:52 ; elapsed = 00:00:54 . Memory (MB): peak = 1516.980 ; gain = 586.520 ; free physical = 1244 ; free virtual = 9457
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -788,7 +790,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:48 ; elapsed = 00:00:51 . Memory (MB): peak = 1552.434 ; gain = 621.965 ; free physical = 731 ; free virtual = 8885
+Finished Technology Mapping : Time (s): cpu = 00:00:54 ; elapsed = 00:00:56 . Memory (MB): peak = 1553.527 ; gain = 623.066 ; free physical = 1206 ; free virtual = 9419
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -812,7 +814,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:49 ; elapsed = 00:00:52 . Memory (MB): peak = 1552.434 ; gain = 621.965 ; free physical = 734 ; free virtual = 8888
+Finished IO Insertion : Time (s): cpu = 00:00:55 ; elapsed = 00:00:56 . Memory (MB): peak = 1553.527 ; gain = 623.066 ; free physical = 1206 ; free virtual = 9419
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -825,7 +827,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:49 ; elapsed = 00:00:52 . Memory (MB): peak = 1552.434 ; gain = 621.965 ; free physical = 734 ; free virtual = 8888
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:55 ; elapsed = 00:00:56 . Memory (MB): peak = 1553.527 ; gain = 623.066 ; free physical = 1206 ; free virtual = 9419
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -837,25 +839,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:49 ; elapsed = 00:00:52 . Memory (MB): peak = 1552.434 ; gain = 621.965 ; free physical = 711 ; free virtual = 8865
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:55 ; elapsed = 00:00:57 . Memory (MB): peak = 1553.527 ; gain = 623.066 ; free physical = 1206 ; free virtual = 9419
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:49 ; elapsed = 00:00:52 . Memory (MB): peak = 1552.434 ; gain = 621.965 ; free physical = 711 ; free virtual = 8865
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:55 ; elapsed = 00:00:57 . Memory (MB): peak = 1553.527 ; gain = 623.066 ; free physical = 1206 ; free virtual = 9419
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:49 ; elapsed = 00:00:52 . Memory (MB): peak = 1552.434 ; gain = 621.965 ; free physical = 709 ; free virtual = 8864
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:55 ; elapsed = 00:00:57 . Memory (MB): peak = 1553.527 ; gain = 623.066 ; free physical = 1206 ; free virtual = 9419
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:49 ; elapsed = 00:00:52 . Memory (MB): peak = 1552.434 ; gain = 621.965 ; free physical = 709 ; free virtual = 8863
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:55 ; elapsed = 00:00:57 . Memory (MB): peak = 1553.527 ; gain = 623.066 ; free physical = 1206 ; free virtual = 9419
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -877,17 +879,17 @@ Report Cell Usage:
 |3     |CARRY4                    |   151|
 |4     |DSP48E1                   |     3|
 |5     |LUT1                      |   191|
-|6     |LUT2                      |   111|
-|7     |LUT3                      |   355|
-|8     |LUT4                      |   120|
-|9     |LUT5                      |   483|
-|10    |LUT6                      |   989|
-|11    |MUXF7                     |   101|
-|12    |MUXF8                     |    32|
+|6     |LUT2                      |    97|
+|7     |LUT3                      |   363|
+|8     |LUT4                      |   132|
+|9     |LUT5                      |   491|
+|10    |LUT6                      |  1111|
+|11    |MUXF7                     |   161|
+|12    |MUXF8                     |    64|
 |13    |FDCE                      |     5|
-|14    |FDRE                      |   875|
+|14    |FDRE                      |   877|
 |15    |FDSE                      |    15|
-|16    |LD                        |   246|
+|16    |LD                        |   249|
 |17    |IBUF                      |    21|
 |18    |OBUF                      |    27|
 +------+--------------------------+------+
@@ -896,45 +898,45 @@ Report Instance Areas:
 +------+------------------------+----------------------+------+
 |      |Instance                |Module                |Cells |
 +------+------------------------+----------------------+------+
-|1     |top                     |                      |  3769|
-|2     |  MasterInterfaceSwitch |MasterInterfaceSwitch |    43|
+|1     |top                     |                      |  4002|
+|2     |  MasterInterfaceSwitch |MasterInterfaceSwitch |    44|
 |3     |  MemorySlave           |SlaveInterfaceMemory  |   252|
 |4     |    Memory              |MemoryModule          |   137|
 |5     |      BRAM              |BRAM_wrapper          |   137|
 |6     |        BRAM_i          |BRAM                  |    32|
-|7     |  ProcessorMaster       |MasterInterfaceProc   |  2638|
-|8     |    Processor           |MainProcessor         |  2546|
-|9     |      CONTROL           |MasterController      |   730|
-|10    |        CONTROL         |MainController        |    32|
-|11    |        FSM             |StateController       |   392|
+|7     |  ProcessorMaster       |MasterInterfaceProc   |  2863|
+|8     |    Processor           |MainProcessor         |  2766|
+|9     |      CONTROL           |MasterController      |   729|
+|10    |        CONTROL         |MainController        |    33|
+|11    |        FSM             |StateController       |   390|
 |12    |        OPCODESET       |OpcodeGen             |   306|
-|13    |      Data              |MainDataPath          |  1816|
+|13    |      Data              |MainDataPath          |  2037|
 |14    |        ALU_unit        |ALU                   |   137|
 |15    |        Mul             |multiplier            |    23|
-|16    |        RFile           |RegisterFile          |   889|
-|17    |  SSDSLave              |SlaveInterfaceSSD     |    84|
-|18    |    Displaying          |Display               |    61|
+|16    |        RFile           |RegisterFile          |  1123|
+|17    |  SSDSLave              |SlaveInterfaceSSD     |    89|
+|18    |    Displaying          |Display               |    62|
 |19    |  SlaveInterfaceLed     |SlaveInterfaceLed     |    25|
 +------+------------------------+----------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:49 ; elapsed = 00:00:52 . Memory (MB): peak = 1552.434 ; gain = 621.965 ; free physical = 708 ; free virtual = 8863
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:55 ; elapsed = 00:00:57 . Memory (MB): peak = 1553.527 ; gain = 623.066 ; free physical = 1206 ; free virtual = 9419
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 117 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:42 ; elapsed = 00:00:43 . Memory (MB): peak = 1552.434 ; gain = 200.363 ; free physical = 734 ; free virtual = 8888
-Synthesis Optimization Complete : Time (s): cpu = 00:00:50 ; elapsed = 00:00:53 . Memory (MB): peak = 1552.441 ; gain = 621.973 ; free physical = 734 ; free virtual = 8888
+Synthesis finished with 0 errors, 0 critical warnings and 118 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:48 ; elapsed = 00:00:48 . Memory (MB): peak = 1553.527 ; gain = 206.512 ; free physical = 1206 ; free virtual = 9419
+Synthesis Optimization Complete : Time (s): cpu = 00:00:55 ; elapsed = 00:00:57 . Memory (MB): peak = 1553.535 ; gain = 623.074 ; free physical = 1207 ; free virtual = 9420
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 421 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 424 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 246 instances were transformed.
-  LD => LDCE: 246 instances
+  A total of 249 instances were transformed.
+  LD => LDCE: 249 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-149 Infos, 194 Warnings, 1 Critical Warnings and 0 Errors encountered.
+147 Infos, 195 Warnings, 1 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:49 ; elapsed = 00:00:51 . Memory (MB): peak = 1552.441 ; gain = 552.457 ; free physical = 736 ; free virtual = 8891
+synth_design: Time (s): cpu = 00:00:55 ; elapsed = 00:00:56 . Memory (MB): peak = 1553.535 ; gain = 553.559 ; free physical = 1207 ; free virtual = 9421
 INFO: [Common 17-1381] The checkpoint '/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Processor_4/Processor_4.runs/synth_1/mainBus.dcp' has been generated.
-report_utilization: Time (s): cpu = 00:00:00.10 ; elapsed = 00:00:00.16 . Memory (MB): peak = 1576.445 ; gain = 0.000 ; free physical = 730 ; free virtual = 8889
-INFO: [Common 17-206] Exiting Vivado at Thu Apr 26 19:38:51 2018...
+report_utilization: Time (s): cpu = 00:00:00.11 ; elapsed = 00:00:00.14 . Memory (MB): peak = 1577.539 ; gain = 0.000 ; free physical = 1202 ; free virtual = 9421
+INFO: [Common 17-206] Exiting Vivado at Fri Apr 27 18:00:22 2018...

@@ -1,0 +1,35 @@
+memory_initialization_radix=16;
+memory_initialization_vector=e3a03002 , e3a01ffa, e3a0201c, e0830082, e58103e8, e59143e8;
+
+
+
+
+add_wave {{/mainBus/ProcessorMaster/Processor/CONTROL/FSM}} 
+add_wave {{/mainBus/ProcessorMaster/Processor/Data/RFile}} 
+add_wave {{/mainBus/ProcessorMaster/Processor}} 
+add_wave {{/mainBus/ProcessorMaster}} 
+add_wave {{/mainBus/MemorySlave}} 
+add_wave {{/mainBus/MemorySlave/Memory}} 
+add_wave {{/mainBus/MemorySlave/Memory/P2MPath}} 
+add_wave {{/mainBus/MemorySlave/Memory/BRAM}} 
+add_wave {{/mainBus/SSDSLave}}
+add_wave {{/mainBus/ProcessorMaster/Processor/Data/ALU_unit}} 
+add_wave {{/mainBus/ProcessorMaster/Processor/Data/Shifter}} 
+add_wave {{/mainBus/ProcessorMaster/Processor/CONTROL}} 
+add_wave {{/mainBus/ProcessorMaster/Processor/CONTROL/CONTROL}} 
+add_wave {{/mainBus/ProcessorMaster/Processor/CONTROL/OPCODESET}} 
+add_wave {{/mainBus/ProcessorMaster/Processor/CONTROL/FLAGSET}} 
+add_force {/mainBus/clk} -radix hex {1 0ns} {0 5000ps} -repeat_every 10000ps
+add_force {/mainBus/sim} -radix hex {1 0ns}
+add_force {/mainBus/inputSwitch} -radix dec {24 0ns}
+add_force {/mainBus/resetReg} -radix hex {0 0ns}
+add_force {/mainBus/startProc} -radix hex {0 0ns}
+add_force {/mainBus/SwitchEnable} -radix hex {1 0ns}
+add_force {/mainBus/push} -radix hex {0 0ns}
+run 200 ns
+add_force {/mainBus/SwitchEnable} -radix hex {0 0ns}
+run 200 ns
+add_force {/mainBus/startProc} -radix hex {1 0ns}
+run 200 ns
+add_force {/mainBus/startProc} -radix hex {0 0ns}
+run 11000 ns
