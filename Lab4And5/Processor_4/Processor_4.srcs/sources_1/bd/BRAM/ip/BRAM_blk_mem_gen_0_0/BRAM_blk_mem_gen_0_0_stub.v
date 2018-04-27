@@ -1,7 +1,7 @@
 // Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2016.4 (lin64) Build 1756540 Mon Jan 23 19:11:19 MST 2017
-// Date        : Fri Apr 27 14:10:16 2018
+// Date        : Fri Apr 27 21:29:08 2018
 // Host        : atishya-HP-Pavilion-Notebook running 64-bit Ubuntu 16.04.4 LTS
 // Command     : write_verilog -force -mode synth_stub -rename_top BRAM_blk_mem_gen_0_0 -prefix
 //               BRAM_blk_mem_gen_0_0_ BRAM_blk_mem_gen_0_0_stub.v

@@ -1,10 +1,10 @@
 -- Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2016.4 (lin64) Build 1756540 Mon Jan 23 19:11:19 MST 2017
--- Date        : Fri Apr 27 14:10:17 2018
+-- Date        : Fri Apr 27 21:38:14 2018
 -- Host        : atishya-HP-Pavilion-Notebook running 64-bit Ubuntu 16.04.4 LTS
--- Command     : write_vhdl -force -mode funcsim
---               /media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/Lab4And5/Processor_4/Processor_4.srcs/sources_1/bd/BRAM/ip/BRAM_blk_mem_gen_0_0/BRAM_blk_mem_gen_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
+--               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ BRAM_blk_mem_gen_0_0_sim_netlist.vhdl
 -- Design      : BRAM_blk_mem_gen_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -14,7 +14,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity BRAM_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init is
+entity decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_prim_wrapper_init is
   port (
     douta : out STD_LOGIC_VECTOR ( 15 downto 0 );
     clka : in STD_LOGIC;
@@ -24,11 +24,9 @@ entity BRAM_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init is
     dina : in STD_LOGIC_VECTOR ( 15 downto 0 );
     wea : in STD_LOGIC_VECTOR ( 1 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of BRAM_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init : entity is "blk_mem_gen_prim_wrapper_init";
-end BRAM_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init;
+end decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_prim_wrapper_init;
 
-architecture STRUCTURE of BRAM_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init is
+architecture STRUCTURE of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_prim_wrapper_init is
   signal \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_87\ : STD_LOGIC;
   signal \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED\ : STD_LOGIC;
@@ -272,7 +270,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity \BRAM_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized0\ is
+entity \decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_prim_wrapper_init__parameterized0\ is
   port (
     douta : out STD_LOGIC_VECTOR ( 15 downto 0 );
     clka : in STD_LOGIC;
@@ -283,10 +281,10 @@ entity \BRAM_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized0\ is
     wea : in STD_LOGIC_VECTOR ( 1 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of \BRAM_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized0\ : entity is "blk_mem_gen_prim_wrapper_init";
-end \BRAM_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized0\;
+  attribute ORIG_REF_NAME of \decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_prim_wrapper_init__parameterized0\ : entity is "blk_mem_gen_prim_wrapper_init";
+end \decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_prim_wrapper_init__parameterized0\;
 
-architecture STRUCTURE of \BRAM_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized0\ is
+architecture STRUCTURE of \decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_prim_wrapper_init__parameterized0\ is
   signal \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_87\ : STD_LOGIC;
   signal \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED\ : STD_LOGIC;
@@ -530,7 +528,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity BRAM_blk_mem_gen_0_0_blk_mem_gen_prim_width is
+entity decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_prim_width is
   port (
     douta : out STD_LOGIC_VECTOR ( 15 downto 0 );
     clka : in STD_LOGIC;
@@ -540,13 +538,11 @@ entity BRAM_blk_mem_gen_0_0_blk_mem_gen_prim_width is
     dina : in STD_LOGIC_VECTOR ( 15 downto 0 );
     wea : in STD_LOGIC_VECTOR ( 1 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of BRAM_blk_mem_gen_0_0_blk_mem_gen_prim_width : entity is "blk_mem_gen_prim_width";
-end BRAM_blk_mem_gen_0_0_blk_mem_gen_prim_width;
+end decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_prim_width;
 
-architecture STRUCTURE of BRAM_blk_mem_gen_0_0_blk_mem_gen_prim_width is
+architecture STRUCTURE of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_prim_width is
 begin
-\prim_init.ram\: entity work.BRAM_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init
+\prim_init.ram\: entity work.decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_prim_wrapper_init
      port map (
       addra(10 downto 0) => addra(10 downto 0),
       clka => clka,
@@ -561,7 +557,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity \BRAM_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized0\ is
+entity \decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_prim_width__parameterized0\ is
   port (
     douta : out STD_LOGIC_VECTOR ( 15 downto 0 );
     clka : in STD_LOGIC;
@@ -572,12 +568,12 @@ entity \BRAM_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized0\ is
     wea : in STD_LOGIC_VECTOR ( 1 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of \BRAM_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized0\ : entity is "blk_mem_gen_prim_width";
-end \BRAM_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized0\;
+  attribute ORIG_REF_NAME of \decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_prim_width__parameterized0\ : entity is "blk_mem_gen_prim_width";
+end \decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_prim_width__parameterized0\;
 
-architecture STRUCTURE of \BRAM_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized0\ is
+architecture STRUCTURE of \decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_prim_width__parameterized0\ is
 begin
-\prim_init.ram\: entity work.\BRAM_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized0\
+\prim_init.ram\: entity work.\decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_prim_wrapper_init__parameterized0\
      port map (
       addra(10 downto 0) => addra(10 downto 0),
       clka => clka,
@@ -592,7 +588,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity BRAM_blk_mem_gen_0_0_blk_mem_gen_generic_cstr is
+entity decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_generic_cstr is
   port (
     douta : out STD_LOGIC_VECTOR ( 31 downto 0 );
     clka : in STD_LOGIC;
@@ -602,13 +598,11 @@ entity BRAM_blk_mem_gen_0_0_blk_mem_gen_generic_cstr is
     dina : in STD_LOGIC_VECTOR ( 31 downto 0 );
     wea : in STD_LOGIC_VECTOR ( 3 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of BRAM_blk_mem_gen_0_0_blk_mem_gen_generic_cstr : entity is "blk_mem_gen_generic_cstr";
-end BRAM_blk_mem_gen_0_0_blk_mem_gen_generic_cstr;
+end decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_generic_cstr;
 
-architecture STRUCTURE of BRAM_blk_mem_gen_0_0_blk_mem_gen_generic_cstr is
+architecture STRUCTURE of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_generic_cstr is
 begin
-\ramloop[0].ram.r\: entity work.BRAM_blk_mem_gen_0_0_blk_mem_gen_prim_width
+\ramloop[0].ram.r\: entity work.decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_prim_width
      port map (
       addra(10 downto 0) => addra(10 downto 0),
       clka => clka,
@@ -618,7 +612,7 @@ begin
       rsta => rsta,
       wea(1 downto 0) => wea(1 downto 0)
     );
-\ramloop[1].ram.r\: entity work.\BRAM_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized0\
+\ramloop[1].ram.r\: entity work.\decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_prim_width__parameterized0\
      port map (
       addra(10 downto 0) => addra(10 downto 0),
       clka => clka,
@@ -633,7 +627,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity BRAM_blk_mem_gen_0_0_blk_mem_gen_top is
+entity decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_top is
   port (
     douta : out STD_LOGIC_VECTOR ( 31 downto 0 );
     clka : in STD_LOGIC;
@@ -643,13 +637,11 @@ entity BRAM_blk_mem_gen_0_0_blk_mem_gen_top is
     dina : in STD_LOGIC_VECTOR ( 31 downto 0 );
     wea : in STD_LOGIC_VECTOR ( 3 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of BRAM_blk_mem_gen_0_0_blk_mem_gen_top : entity is "blk_mem_gen_top";
-end BRAM_blk_mem_gen_0_0_blk_mem_gen_top;
+end decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_top;
 
-architecture STRUCTURE of BRAM_blk_mem_gen_0_0_blk_mem_gen_top is
+architecture STRUCTURE of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_top is
 begin
-\valid.cstr\: entity work.BRAM_blk_mem_gen_0_0_blk_mem_gen_generic_cstr
+\valid.cstr\: entity work.decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_generic_cstr
      port map (
       addra(10 downto 0) => addra(10 downto 0),
       clka => clka,
@@ -664,7 +656,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5_synth is
+entity decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5_synth is
   port (
     douta : out STD_LOGIC_VECTOR ( 31 downto 0 );
     clka : in STD_LOGIC;
@@ -674,13 +666,11 @@ entity BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5_synth is
     dina : in STD_LOGIC_VECTOR ( 31 downto 0 );
     wea : in STD_LOGIC_VECTOR ( 3 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5_synth : entity is "blk_mem_gen_v8_3_5_synth";
-end BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5_synth;
+end decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5_synth;
 
-architecture STRUCTURE of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5_synth is
+architecture STRUCTURE of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5_synth is
 begin
-\gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen\: entity work.BRAM_blk_mem_gen_0_0_blk_mem_gen_top
+\gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen\: entity work.decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_top
      port map (
       addra(10 downto 0) => addra(10 downto 0),
       clka => clka,
@@ -695,7 +685,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 is
+entity decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 is
   port (
     clka : in STD_LOGIC;
     rsta : in STD_LOGIC;
@@ -762,158 +752,156 @@ entity BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 is
     s_axi_rdaddrecc : out STD_LOGIC_VECTOR ( 31 downto 0 )
   );
   attribute C_ADDRA_WIDTH : integer;
-  attribute C_ADDRA_WIDTH of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 32;
+  attribute C_ADDRA_WIDTH of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 32;
   attribute C_ADDRB_WIDTH : integer;
-  attribute C_ADDRB_WIDTH of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 32;
+  attribute C_ADDRB_WIDTH of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 32;
   attribute C_ALGORITHM : integer;
-  attribute C_ALGORITHM of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 1;
+  attribute C_ALGORITHM of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 1;
   attribute C_AXI_ID_WIDTH : integer;
-  attribute C_AXI_ID_WIDTH of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 4;
+  attribute C_AXI_ID_WIDTH of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 4;
   attribute C_AXI_SLAVE_TYPE : integer;
-  attribute C_AXI_SLAVE_TYPE of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 0;
+  attribute C_AXI_SLAVE_TYPE of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 0;
   attribute C_AXI_TYPE : integer;
-  attribute C_AXI_TYPE of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 1;
+  attribute C_AXI_TYPE of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 1;
   attribute C_BYTE_SIZE : integer;
-  attribute C_BYTE_SIZE of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 8;
+  attribute C_BYTE_SIZE of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 8;
   attribute C_COMMON_CLK : integer;
-  attribute C_COMMON_CLK of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 0;
+  attribute C_COMMON_CLK of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 0;
   attribute C_COUNT_18K_BRAM : string;
-  attribute C_COUNT_18K_BRAM of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is "0";
+  attribute C_COUNT_18K_BRAM of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is "0";
   attribute C_COUNT_36K_BRAM : string;
-  attribute C_COUNT_36K_BRAM of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is "2";
+  attribute C_COUNT_36K_BRAM of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is "2";
   attribute C_CTRL_ECC_ALGO : string;
-  attribute C_CTRL_ECC_ALGO of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is "NONE";
+  attribute C_CTRL_ECC_ALGO of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is "NONE";
   attribute C_DEFAULT_DATA : string;
-  attribute C_DEFAULT_DATA of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is "0";
+  attribute C_DEFAULT_DATA of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is "0";
   attribute C_DISABLE_WARN_BHV_COLL : integer;
-  attribute C_DISABLE_WARN_BHV_COLL of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 0;
+  attribute C_DISABLE_WARN_BHV_COLL of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 0;
   attribute C_DISABLE_WARN_BHV_RANGE : integer;
-  attribute C_DISABLE_WARN_BHV_RANGE of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 0;
+  attribute C_DISABLE_WARN_BHV_RANGE of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 0;
   attribute C_ELABORATION_DIR : string;
-  attribute C_ELABORATION_DIR of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is "./";
+  attribute C_ELABORATION_DIR of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is "./";
   attribute C_ENABLE_32BIT_ADDRESS : integer;
-  attribute C_ENABLE_32BIT_ADDRESS of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 1;
+  attribute C_ENABLE_32BIT_ADDRESS of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 1;
   attribute C_EN_DEEPSLEEP_PIN : integer;
-  attribute C_EN_DEEPSLEEP_PIN of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 0;
+  attribute C_EN_DEEPSLEEP_PIN of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 0;
   attribute C_EN_ECC_PIPE : integer;
-  attribute C_EN_ECC_PIPE of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 0;
+  attribute C_EN_ECC_PIPE of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 0;
   attribute C_EN_RDADDRA_CHG : integer;
-  attribute C_EN_RDADDRA_CHG of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 0;
+  attribute C_EN_RDADDRA_CHG of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 0;
   attribute C_EN_RDADDRB_CHG : integer;
-  attribute C_EN_RDADDRB_CHG of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 0;
+  attribute C_EN_RDADDRB_CHG of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 0;
   attribute C_EN_SAFETY_CKT : integer;
-  attribute C_EN_SAFETY_CKT of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 0;
+  attribute C_EN_SAFETY_CKT of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 0;
   attribute C_EN_SHUTDOWN_PIN : integer;
-  attribute C_EN_SHUTDOWN_PIN of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 0;
+  attribute C_EN_SHUTDOWN_PIN of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 0;
   attribute C_EN_SLEEP_PIN : integer;
-  attribute C_EN_SLEEP_PIN of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 0;
+  attribute C_EN_SLEEP_PIN of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 0;
   attribute C_EST_POWER_SUMMARY : string;
-  attribute C_EST_POWER_SUMMARY of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is "Estimated Power for IP     :     5.3746 mW";
+  attribute C_EST_POWER_SUMMARY of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is "Estimated Power for IP     :     5.3746 mW";
   attribute C_FAMILY : string;
-  attribute C_FAMILY of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is "artix7";
+  attribute C_FAMILY of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is "artix7";
   attribute C_HAS_AXI_ID : integer;
-  attribute C_HAS_AXI_ID of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 0;
+  attribute C_HAS_AXI_ID of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 0;
   attribute C_HAS_ENA : integer;
-  attribute C_HAS_ENA of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 1;
+  attribute C_HAS_ENA of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 1;
   attribute C_HAS_ENB : integer;
-  attribute C_HAS_ENB of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 0;
+  attribute C_HAS_ENB of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 0;
   attribute C_HAS_INJECTERR : integer;
-  attribute C_HAS_INJECTERR of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 0;
+  attribute C_HAS_INJECTERR of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 0;
   attribute C_HAS_MEM_OUTPUT_REGS_A : integer;
-  attribute C_HAS_MEM_OUTPUT_REGS_A of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 1;
+  attribute C_HAS_MEM_OUTPUT_REGS_A of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 1;
   attribute C_HAS_MEM_OUTPUT_REGS_B : integer;
-  attribute C_HAS_MEM_OUTPUT_REGS_B of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 0;
+  attribute C_HAS_MEM_OUTPUT_REGS_B of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 0;
   attribute C_HAS_MUX_OUTPUT_REGS_A : integer;
-  attribute C_HAS_MUX_OUTPUT_REGS_A of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 0;
+  attribute C_HAS_MUX_OUTPUT_REGS_A of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 0;
   attribute C_HAS_MUX_OUTPUT_REGS_B : integer;
-  attribute C_HAS_MUX_OUTPUT_REGS_B of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 0;
+  attribute C_HAS_MUX_OUTPUT_REGS_B of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 0;
   attribute C_HAS_REGCEA : integer;
-  attribute C_HAS_REGCEA of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 0;
+  attribute C_HAS_REGCEA of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 0;
   attribute C_HAS_REGCEB : integer;
-  attribute C_HAS_REGCEB of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 0;
+  attribute C_HAS_REGCEB of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 0;
   attribute C_HAS_RSTA : integer;
-  attribute C_HAS_RSTA of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 1;
+  attribute C_HAS_RSTA of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 1;
   attribute C_HAS_RSTB : integer;
-  attribute C_HAS_RSTB of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 0;
+  attribute C_HAS_RSTB of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 0;
   attribute C_HAS_SOFTECC_INPUT_REGS_A : integer;
-  attribute C_HAS_SOFTECC_INPUT_REGS_A of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 0;
+  attribute C_HAS_SOFTECC_INPUT_REGS_A of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 0;
   attribute C_HAS_SOFTECC_OUTPUT_REGS_B : integer;
-  attribute C_HAS_SOFTECC_OUTPUT_REGS_B of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 0;
+  attribute C_HAS_SOFTECC_OUTPUT_REGS_B of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 0;
   attribute C_INITA_VAL : string;
-  attribute C_INITA_VAL of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is "0";
+  attribute C_INITA_VAL of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is "0";
   attribute C_INITB_VAL : string;
-  attribute C_INITB_VAL of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is "0";
+  attribute C_INITB_VAL of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is "0";
   attribute C_INIT_FILE : string;
-  attribute C_INIT_FILE of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is "NONE";
+  attribute C_INIT_FILE of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is "NONE";
   attribute C_INIT_FILE_NAME : string;
-  attribute C_INIT_FILE_NAME of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is "BRAM_blk_mem_gen_0_0.mif";
+  attribute C_INIT_FILE_NAME of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is "BRAM_blk_mem_gen_0_0.mif";
   attribute C_INTERFACE_TYPE : integer;
-  attribute C_INTERFACE_TYPE of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 0;
+  attribute C_INTERFACE_TYPE of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 0;
   attribute C_LOAD_INIT_FILE : integer;
-  attribute C_LOAD_INIT_FILE of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 1;
+  attribute C_LOAD_INIT_FILE of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 1;
   attribute C_MEM_TYPE : integer;
-  attribute C_MEM_TYPE of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 0;
+  attribute C_MEM_TYPE of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 0;
   attribute C_MUX_PIPELINE_STAGES : integer;
-  attribute C_MUX_PIPELINE_STAGES of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 0;
+  attribute C_MUX_PIPELINE_STAGES of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 0;
   attribute C_PRIM_TYPE : integer;
-  attribute C_PRIM_TYPE of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 1;
+  attribute C_PRIM_TYPE of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 1;
   attribute C_READ_DEPTH_A : integer;
-  attribute C_READ_DEPTH_A of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 2048;
+  attribute C_READ_DEPTH_A of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 2048;
   attribute C_READ_DEPTH_B : integer;
-  attribute C_READ_DEPTH_B of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 2048;
+  attribute C_READ_DEPTH_B of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 2048;
   attribute C_READ_WIDTH_A : integer;
-  attribute C_READ_WIDTH_A of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 32;
+  attribute C_READ_WIDTH_A of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 32;
   attribute C_READ_WIDTH_B : integer;
-  attribute C_READ_WIDTH_B of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 32;
+  attribute C_READ_WIDTH_B of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 32;
   attribute C_RSTRAM_A : integer;
-  attribute C_RSTRAM_A of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 0;
+  attribute C_RSTRAM_A of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 0;
   attribute C_RSTRAM_B : integer;
-  attribute C_RSTRAM_B of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 0;
+  attribute C_RSTRAM_B of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 0;
   attribute C_RST_PRIORITY_A : string;
-  attribute C_RST_PRIORITY_A of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is "CE";
+  attribute C_RST_PRIORITY_A of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is "CE";
   attribute C_RST_PRIORITY_B : string;
-  attribute C_RST_PRIORITY_B of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is "CE";
+  attribute C_RST_PRIORITY_B of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is "CE";
   attribute C_SIM_COLLISION_CHECK : string;
-  attribute C_SIM_COLLISION_CHECK of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is "ALL";
+  attribute C_SIM_COLLISION_CHECK of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is "ALL";
   attribute C_USE_BRAM_BLOCK : integer;
-  attribute C_USE_BRAM_BLOCK of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 0;
+  attribute C_USE_BRAM_BLOCK of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 0;
   attribute C_USE_BYTE_WEA : integer;
-  attribute C_USE_BYTE_WEA of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 1;
+  attribute C_USE_BYTE_WEA of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 1;
   attribute C_USE_BYTE_WEB : integer;
-  attribute C_USE_BYTE_WEB of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 1;
+  attribute C_USE_BYTE_WEB of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 1;
   attribute C_USE_DEFAULT_DATA : integer;
-  attribute C_USE_DEFAULT_DATA of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 1;
+  attribute C_USE_DEFAULT_DATA of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 1;
   attribute C_USE_ECC : integer;
-  attribute C_USE_ECC of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 0;
+  attribute C_USE_ECC of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 0;
   attribute C_USE_SOFTECC : integer;
-  attribute C_USE_SOFTECC of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 0;
+  attribute C_USE_SOFTECC of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 0;
   attribute C_USE_URAM : integer;
-  attribute C_USE_URAM of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 0;
+  attribute C_USE_URAM of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 0;
   attribute C_WEA_WIDTH : integer;
-  attribute C_WEA_WIDTH of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 4;
+  attribute C_WEA_WIDTH of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 4;
   attribute C_WEB_WIDTH : integer;
-  attribute C_WEB_WIDTH of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 4;
+  attribute C_WEB_WIDTH of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 4;
   attribute C_WRITE_DEPTH_A : integer;
-  attribute C_WRITE_DEPTH_A of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 2048;
+  attribute C_WRITE_DEPTH_A of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 2048;
   attribute C_WRITE_DEPTH_B : integer;
-  attribute C_WRITE_DEPTH_B of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 2048;
+  attribute C_WRITE_DEPTH_B of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 2048;
   attribute C_WRITE_MODE_A : string;
-  attribute C_WRITE_MODE_A of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is "WRITE_FIRST";
+  attribute C_WRITE_MODE_A of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is "WRITE_FIRST";
   attribute C_WRITE_MODE_B : string;
-  attribute C_WRITE_MODE_B of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is "WRITE_FIRST";
+  attribute C_WRITE_MODE_B of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is "WRITE_FIRST";
   attribute C_WRITE_WIDTH_A : integer;
-  attribute C_WRITE_WIDTH_A of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 32;
+  attribute C_WRITE_WIDTH_A of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 32;
   attribute C_WRITE_WIDTH_B : integer;
-  attribute C_WRITE_WIDTH_B of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is 32;
+  attribute C_WRITE_WIDTH_B of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is 32;
   attribute C_XDEVICEFAMILY : string;
-  attribute C_XDEVICEFAMILY of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is "artix7";
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is "blk_mem_gen_v8_3_5";
+  attribute C_XDEVICEFAMILY of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is "artix7";
   attribute downgradeipidentifiedwarnings : string;
-  attribute downgradeipidentifiedwarnings of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 : entity is "yes";
-end BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5;
+  attribute downgradeipidentifiedwarnings of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 : entity is "yes";
+end decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5;
 
-architecture STRUCTURE of BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5 is
+architecture STRUCTURE of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5 is
   signal \<const0>\ : STD_LOGIC;
 begin
   dbiterr <= \<const0>\;
@@ -1072,7 +1060,7 @@ GND: unisim.vcomponents.GND
      port map (
       G => \<const0>\
     );
-inst_blk_mem_gen: entity work.BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5_synth
+inst_blk_mem_gen: entity work.decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5_synth
      port map (
       addra(10 downto 0) => addra(12 downto 2),
       clka => clka,
@@ -1087,7 +1075,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity BRAM_blk_mem_gen_0_0 is
+entity decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix is
   port (
     clka : in STD_LOGIC;
     rsta : in STD_LOGIC;
@@ -1098,16 +1086,16 @@ entity BRAM_blk_mem_gen_0_0 is
     douta : out STD_LOGIC_VECTOR ( 31 downto 0 )
   );
   attribute NotValidForBitStream : boolean;
-  attribute NotValidForBitStream of BRAM_blk_mem_gen_0_0 : entity is true;
+  attribute NotValidForBitStream of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix : entity is true;
   attribute CHECK_LICENSE_TYPE : string;
-  attribute CHECK_LICENSE_TYPE of BRAM_blk_mem_gen_0_0 : entity is "BRAM_blk_mem_gen_0_0,blk_mem_gen_v8_3_5,{}";
+  attribute CHECK_LICENSE_TYPE of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix : entity is "BRAM_blk_mem_gen_0_0,blk_mem_gen_v8_3_5,{}";
   attribute downgradeipidentifiedwarnings : string;
-  attribute downgradeipidentifiedwarnings of BRAM_blk_mem_gen_0_0 : entity is "yes";
+  attribute downgradeipidentifiedwarnings of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix : entity is "yes";
   attribute x_core_info : string;
-  attribute x_core_info of BRAM_blk_mem_gen_0_0 : entity is "blk_mem_gen_v8_3_5,Vivado 2016.4";
-end BRAM_blk_mem_gen_0_0;
+  attribute x_core_info of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix : entity is "blk_mem_gen_v8_3_5,Vivado 2016.4";
+end decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix;
 
-architecture STRUCTURE of BRAM_blk_mem_gen_0_0 is
+architecture STRUCTURE of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix is
   signal NLW_U0_dbiterr_UNCONNECTED : STD_LOGIC;
   signal NLW_U0_rsta_busy_UNCONNECTED : STD_LOGIC;
   signal NLW_U0_rstb_busy_UNCONNECTED : STD_LOGIC;
@@ -1276,7 +1264,7 @@ architecture STRUCTURE of BRAM_blk_mem_gen_0_0 is
   attribute C_XDEVICEFAMILY of U0 : label is "artix7";
   attribute downgradeipidentifiedwarnings of U0 : label is "yes";
 begin
-U0: entity work.BRAM_blk_mem_gen_0_0_blk_mem_gen_v8_3_5
+U0: entity work.decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_blk_mem_gen_v8_3_5
      port map (
       addra(31 downto 0) => addra(31 downto 0),
       addrb(31 downto 0) => B"00000000000000000000000000000000",

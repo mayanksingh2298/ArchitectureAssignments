@@ -12,7 +12,7 @@
  add_fsm_encoding \
        {SlaveInterfaceLed.state} \
        { }  \
-       {{0000 000} {0001 001} {0101 010} {0110 011} {0111 100} {1000 101} }
+       {{000 000} {001 001} {010 010} {011 011} {100 100} }
 
  add_fsm_encoding \
        {SlaveInterfaceSSD.state} \

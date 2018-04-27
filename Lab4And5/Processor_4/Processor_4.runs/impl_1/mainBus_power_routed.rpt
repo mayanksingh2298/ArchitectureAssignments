@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2016.4 (lin64) Build 1756540 Mon Jan 23 19:11:19 MST 2017
-| Date             : Fri Apr 27 18:01:53 2018
+| Date             : Fri Apr 27 22:21:12 2018
 | Host             : atishya-HP-Pavilion-Notebook running 64-bit Ubuntu 16.04.4 LTS
 | Command          : report_power -file mainBus_power_routed.rpt -pb mainBus_power_summary_routed.pb -rpx mainBus_power_routed.rpx
 | Design           : mainBus
@@ -30,8 +30,8 @@ Table of Contents
 ----------
 
 +--------------------------+-------+
-| Total On-Chip Power (W)  | 0.125 |
-| Dynamic (W)              | 0.053 |
+| Total On-Chip Power (W)  | 0.121 |
+| Dynamic (W)              | 0.049 |
 | Device Static (W)        | 0.072 |
 | Effective TJA (C/W)      | 5.0   |
 | Max Ambient (C)          | 84.4  |
@@ -50,19 +50,19 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |     0.005 |        3 |       --- |             --- |
-| Slice Logic    |     0.013 |     3811 |       --- |             --- |
-|   LUT as Logic |     0.012 |     2050 |     20800 |            9.86 |
+| Slice Logic    |     0.012 |     3825 |       --- |             --- |
+|   LUT as Logic |     0.012 |     2052 |     20800 |            9.87 |
 |   CARRY4       |    <0.001 |      151 |      8150 |            1.85 |
 |   F7/F8 Muxes  |    <0.001 |      225 |     32600 |            0.69 |
 |   BUFG         |    <0.001 |        8 |        32 |           25.00 |
-|   Register     |    <0.001 |     1144 |     41600 |            2.75 |
+|   Register     |    <0.001 |     1159 |     41600 |            2.79 |
 |   Others       |     0.000 |       38 |       --- |             --- |
-| Signals        |     0.015 |     3100 |       --- |             --- |
+| Signals        |     0.014 |     3097 |       --- |             --- |
 | Block RAM      |     0.003 |        2 |        50 |            4.00 |
-| DSPs           |     0.002 |        3 |        90 |            3.33 |
-| I/O            |     0.016 |       48 |       106 |           45.28 |
+| DSPs           |     0.001 |        3 |        90 |            3.33 |
+| I/O            |     0.012 |       48 |       106 |           45.28 |
 | Static Power   |     0.072 |          |           |                 |
-| Total          |     0.125 |          |           |                 |
+| Total          |     0.121 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -72,9 +72,9 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.046 |       0.037 |      0.010 |
-| Vccaux    |       1.800 |     0.013 |       0.001 |      0.013 |
-| Vcco33    |       3.300 |     0.006 |       0.005 |      0.001 |
+| Vccint    |       1.000 |     0.046 |       0.036 |      0.010 |
+| Vccaux    |       1.800 |     0.013 |       0.000 |      0.013 |
+| Vcco33    |       3.300 |     0.004 |       0.003 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
@@ -141,33 +141,33 @@ Table of Contents
 +-----------------------------------------------------------------------+-----------+
 | Name                                                                  | Power (W) |
 +-----------------------------------------------------------------------+-----------+
-| mainBus                                                               |     0.053 |
+| mainBus                                                               |     0.049 |
+|   Displaying                                                          |    <0.001 |
 |   MasterInterfaceSwitch                                               |    <0.001 |
 |   MemorySlave                                                         |     0.005 |
 |     Memory                                                            |     0.004 |
 |       BRAM                                                            |     0.004 |
-|         BRAM_i                                                        |     0.003 |
-|           blk_mem_gen_0                                               |     0.003 |
-|             U0                                                        |     0.003 |
-|               inst_blk_mem_gen                                        |     0.003 |
-|                 gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen |     0.003 |
-|                   valid.cstr                                          |     0.003 |
+|         BRAM_i                                                        |     0.004 |
+|           blk_mem_gen_0                                               |     0.004 |
+|             U0                                                        |     0.004 |
+|               inst_blk_mem_gen                                        |     0.004 |
+|                 gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen |     0.004 |
+|                   valid.cstr                                          |     0.004 |
 |                     ramloop[0].ram.r                                  |     0.002 |
 |                       prim_init.ram                                   |     0.002 |
 |                     ramloop[1].ram.r                                  |     0.002 |
 |                       prim_init.ram                                   |     0.002 |
-|   ProcessorMaster                                                     |     0.021 |
-|     Processor                                                         |     0.020 |
+|   ProcessorMaster                                                     |     0.020 |
+|     Processor                                                         |     0.019 |
 |       CONTROL                                                         |     0.005 |
 |         CONTROL                                                       |    <0.001 |
 |         FSM                                                           |     0.001 |
 |         OPCODESET                                                     |     0.003 |
-|       Data                                                            |     0.015 |
+|       Data                                                            |     0.014 |
 |         ALU_unit                                                      |    <0.001 |
 |         Mul                                                           |     0.002 |
 |         RFile                                                         |     0.004 |
-|   SSDSLave                                                            |     0.001 |
-|     Displaying                                                        |    <0.001 |
+|   SSDSLave                                                            |    <0.001 |
 |   SlaveInterfaceLed                                                   |    <0.001 |
 +-----------------------------------------------------------------------+-----------+
 

@@ -1,6 +1,6 @@
 set_property SRC_FILE_INFO {cfile:/media/atishya/New_Volume1/books_and_papers/Iit/2nd_year/2nd_sem/COl216/Labs/ArchitectureAssignments/MainProcessor/Bus.xdc rfile:../../../../../MainProcessor/Bus.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:7 export:INPUT save:INPUT read:READ} [current_design]
-Bank = 34, Pin name = ,	Sch name = CLK50MHZ
+Bank = 34, Pin name = ,	Sch name = CLK100MHZ
 set_property src_info {type:XDC file:1 line:8 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN W5 [get_ports clk]
 set_property src_info {type:XDC file:1 line:10 export:INPUT save:INPUT read:READ} [current_design]

@@ -284,9 +284,11 @@ begin
      				state <= rdDat;
      			end if;
      		when wrAddr=>
-     		    if(haddrtemp(15 downto 0) = "0000101110111000")then
+     		    if(haddrtemp(15 downto 0) = "0000101110111000")then -- led
      		         haddr <= "01" & haddrTemp(13 downto 0);
-     		    else
+     		    elsif (haddrtemp(15 downto 0) = "0000111000010000")then --ssd
+                     haddr <= "10" & haddrTemp(13 downto 0);
+     		    else     
      		         haddr <= "00" & haddrTemp(13 downto 0);
      		    end if;
 --     		    haddr <= "01" & haddrTemp(13 downto 0) when (haddrtemp = "0000101110111000") else "00" & haddrTemp(13 downto 0);
@@ -419,7 +421,7 @@ entity SlaveInterfaceLed is
     );
 end SlaveInterfaceLed;
 architecture slaveLed of SlaveInterfaceLed is
-	TYPE mystate IS (waiting,rdAddr,rd1,rd2,rd3,wrAddr,wr1,wr2,wr3);
+	TYPE mystate IS (waiting,wrAddr,wr1,wr2,wr3);
     signal state: mystate:= waiting;
 begin
 	process(hclk)
@@ -431,11 +433,7 @@ begin
 					state<=waiting;
 				else
     				hreadyout<='0';
-					if(hwrite='0') then
-						state<=rdAddr;
-					else
-						state<=wrAddr;
-					end if;
+                    state<=wrAddr;
 				end if;
 			when wraddr=>
 				--begin writing the memory using haddr and hwdata
@@ -459,16 +457,63 @@ library ieee;
 use ieee.std_logic_1164.ALL;
 use ieee.numeric_std.ALL;
 --use work.Global.all;
+entity SlaveInterfaceSwitch is
+    port(
+        enable: in std_logic;
+        htrans: in std_logic;
+        hrdata: out std_logic_vector(15 downto 0);
+        hwdata: in std_logic_vector(15 downto 0);
+        hclk : in std_logic;
+
+        hreadyout: out std_logic
+    );
+end SlaveInterfaceSwitch;
+architecture slaveSwitch of SlaveInterfaceSwitch is
+	TYPE mystateSSD IS (waiting,wrAddr,wr1,wr2,wr3);
+    signal state: mystateSSD:= waiting;
+begin
+
+	process(hclk)
+	begin
+		if (hclk='1' and hclk'event) then
+		case state is
+			when waiting=>
+				if(htrans='0') then
+					state <= waiting;
+				else
+                    hreadyout<='0';
+                    state <= wrAddr;
+				end if;
+			when wraddr=>
+				state<=wr1;
+			when wr1=>
+				state<=wr2;
+			when wr2=>
+				state<=wr3;
+			when wr3=>
+				hreadyout<='1'; --assumed that by the time control reaches here, hwdata is set correctly
+        		hrdata <= hwdata;
+        		state<=waiting;
+			when others=>
+                                  
+		end case;
+		end if;
+	end process; 
+end slaveswitch;
+
+library ieee;
+use ieee.std_logic_1164.ALL;
+use ieee.numeric_std.ALL;
+--use work.Global.all;
 entity SlaveInterfaceSSD is
     port(
         enable: in std_logic;
         htrans: in std_logic;
+        hrdata: out std_logic_vector(15 downto 0);
         hwdata: in std_logic_vector(15 downto 0);
         hclk : in std_logic;
 
-        hreadyout: out std_logic;
-        anode: out std_logic_vector(3 downto 0);
-        cathode: out std_logic_vector(6 downto 0)
+        hreadyout: out std_logic
     );
 end SlaveInterfaceSSD;
 architecture slaveSSD of SlaveInterfaceSSD is
@@ -494,10 +539,11 @@ begin
                     state <= wrAddr;
 				end if;
 			when wraddr=>
-                a<=to_integer(unsigned(hwdata(15 downto 12)));
-                b<=to_integer(unsigned(hwdata(11 downto 8)));
-                c<=to_integer(unsigned(hwdata(7 downto 4)));
-                d<=to_integer(unsigned(hwdata(3 downto 0)));
+--                a<=to_integer(unsigned(hwdata(15 downto 12)));
+--                b<=to_integer(unsigned(hwdata(11 downto 8)));
+--                c<=to_integer(unsigned(hwdata(7 downto 4)));
+--                d<=to_integer(unsigned(hwdata(3 downto 0)));
+				
 				state<=wr1;
 			when wr1=>
 				state<=wr2;
@@ -505,22 +551,23 @@ begin
 				state<=wr3;
 			when wr3=>
 				hreadyout<='1'; --assumed that by the time control reaches here, hwdata is set correctly
+        		hrdata <= hwdata;
         		state<=waiting;
 			when others=>
                                   
 		end case;
 		end if;
 	end process; 
-    
-    Displaying: entity work.Display(segment) port map(
-        int1    => a,
-        int2    => b,
-        int3    => c,
-        int4    => d,
-        clock2  => hclk,
-        anode   => anode, 
-        cathode => cathode
-    );   
+--   // 
+--    Displaying: entity work.Display(segment) port map(
+--        int1    => a,
+--        int2    => b,
+--        int3    => c,
+--        int4    => d,
+--        clock2  => hclk,
+--        anode   => anode, 
+--        cathode => cathode
+--    );   
 end slaveSSD;
 
 
@@ -653,7 +700,7 @@ entity mainBus is
 		SwitchEnable : in std_logic;
 		push : in std_logic;
 		
-		outputLed : out std_logic_vector(15 downto 0);
+		outputLed : out std_logic_vector(15 downto 0) := "0000000000000000";
 		anode         : out std_logic_vector(3 downto 0);
 		cathode       : out std_logic_vector(6 downto 0)
 	);
@@ -709,8 +756,12 @@ architecture main of mainBus is
     signal c : integer:=0;
     signal d : integer:=0;
     
+    signal Tomem : std_logic:='0';
+    signal ToSSD : std_logic:='0';
+    signal ToLed : std_logic:='0';
     signal ledtrans: std_logic:='0';
-    signal leddata: std_logic_vector(31 downto 0);
+    signal leddata: std_logic_vector(31 downto 0):="00000000000000000000000000000000";
+    signal outdatassd: std_logic_vector(15 downto 0):="0000000000000000";
 begin
     staticAddr <= "0000101110111000";
     flagStart <= '1' when startProc = '1';
@@ -726,13 +777,6 @@ begin
 	      else
 	      	counter <= counter + 1;
 	      end if;
-	      
-	      if (counter2 mod 80000 = 0) then
-            tmpclk2 <= not(tmpclk2);
-            counter2 <= 1;
-          else
-              counter2 <= counter2 + 1;
-          end if;
         
 	    end if;
 	end process;
@@ -743,7 +787,10 @@ begin
 --    Procclk <= clockDisp when (flagStart = '1') else '0';
 --    Procclk <= clock2 when (flagStart = '1') else '0';
     
-    readyForProc <= memReady when (fromProcAddr(15 downto 14) = "00") else slavereadyssd; -------------------------------------------------------------------------
+--    readyForProc <= memReady when (fromProcAddr(15 downto 14) = "00") else slaveready when (fromProcAddr(15 downto 14) = "01") else slavereadyssd; -------------------------------------------------------------------------
+--    readyForProc <= memReady when (fromProcAddr(15 downto 14) = "00") else slaveready when (fromprocaddr(15 downto 14) = "01") else '0'; -------------------------------------------------------------------------
+--    readyForProc <= memReady when (fromProcAddr(15 downto 14) = "00") else slaveready; -------------------------------------------------------------------------
+    readyForProc <= memReady; -------------------------------------------------------------------------
     ProcessorMaster: entity work.MasterInterfaceProc(masterProc) port map(
         hready => readyForProc,
         hclk => Procclk,
@@ -765,10 +812,14 @@ begin
     memInputData <= ("0000000000000000"&masterWriteData) when (flagStart = '0' or masterTrans = '1') else FromProcWriteData;
     memHWrite <= masterWriteBool when (flagStart = '0' or masterTrans = '1') else FromProcWrite;
     memHSize <= masterSize when (flagStart = '0' or masterTrans = '1') else FromProcSize;
-    memTrans <= masterTrans when (flagStart = '0' or masterTrans = '1') else FromProcTrans when (FromProcAddr(15 downto 14) = "00");
+    memTrans <= masterTrans when (flagStart = '0' or masterTrans = '1') else FromProcTrans;
     memreset <= '0' when (flagStart = '0' or masterTrans = '1') else FromProcResetMem;
     memAddr <= masterAddress when (flagStart = '0' or masterTrans = '1') else FromProcAddr;
- 
+    
+    ToMem <= '1' when fromprocaddr(15 downto 14) = "00" else '0';
+    ToLED <= '1' when fromprocaddr(15 downto 14) = "01" else '0';
+    ToSSD <= '1' when fromprocaddr(15 downto 14) = "01" else '0';
+        
     MemorySlave: entity work.SlaveInterfaceMemory(slavememory) port map(
         haddr => memAddr,
         hwrite => memHwrite,
@@ -799,15 +850,16 @@ begin
 	);	
 --/	/
 --	outputled <= fromprocwritedata(15 downto 0) when (ssd = '1') else "0000000000000000";
---	ledtrans <= ssd;
---    leddata <= ;
+	ledtrans <= '1' when (fromprocaddr(15 downto 14) = "01") else '0';
+--    leddata <= fromprocwritedata when (fromprocaddr(15 downto 14) = "01")else "00000000000000000000000000000000";
+    leddata <= fromprocwritedata;
 	SlaveInterfaceLed: entity work.SlaveInterfaceLed(slaveLed) port map(
         enable => '1',
 		haddr => masterAddress,
         hwrite => masterWriteBool,
         hsize => masterSize,
-        htrans => mastertrans,
-        hwdata => masterwritedata(15 downto 0),
+        htrans => ledtrans,
+        hwdata => leddata(15 downto 0),
 --        hclk => clock2,
 --        hclk => clockdisp,
         hclk => clk,
@@ -815,33 +867,33 @@ begin
         datatoReturn => outputLed
 	);
     
---    a<=to_integer(unsigned(fromprocwritedata(15 downto 12))) when (ssd = '1') else 0;
---    b<=to_integer(unsigned(fromprocwritedata(11 downto 8))) when (ssd = '1') else 0;
---    c<=to_integer(unsigned(fromprocwritedata(7 downto 4))) when (ssd = '1') else 0;
---    d<=to_integer(unsigned(fromprocwritedata(3 downto 0))) when (ssd = '1') else 0;
+    a<=to_integer(unsigned(outdataSSD(15 downto 12))) when (slavereadyssd = '1');
+    b<=to_integer(unsigned(outdataSSD(11 downto 8))) when (slavereadyssd = '1');
+    c<=to_integer(unsigned(outdataSSD(7 downto 4))) when (slavereadyssd = '1');
+    d<=to_integer(unsigned(outdataSSD(3 downto 0))) when (slavereadyssd = '1');
     
---    Displaying: entity work.Display(segment) port map(
---        int1    => a,
---        int2    => b,
---        int3    => c,
---        int4    => d,
---        clock2  => clockdisp,
---        anode   => anode, 
---        cathode => cathode
---    ); 
+    Displaying: entity work.Display(segment) port map(
+        int1    => a,
+        int2    => b,
+        int3    => c,
+        int4    => d,
+        clock2  => clockdisp,
+        anode   => anode, 
+        cathode => cathode
+    ); 
     
 --    myssdout <= memData when (push = '1');
-    myssdout <= fromprocwritedata when (ssd = '1') else "00000000000000000000000000000000";   
+--    myssdout <= fromprocwritedata when (fromprocaddr(15 downto 14) = "01" ) else "00000000000000000000000000000000";   
+    myssdout <= fromprocwritedata;   
     SSDSLave: entity work.SlaveInterfaceSSD(slaveSSD) port map(
         enable => '1',
-        htrans => '1',
+        htrans => ledtrans,
 --        hwdata => memData(15 downto 0),
 --         hwdata => ssdout(15 downto 0),
-         hwdata => myssdout(15 downto 0),
-       
-        hclk => clockDisp,
-        hreadyout => slaveReadySSD,
-        anode => anode,
-        cathode => cathode
+--        hwdata => myssdout(15 downto 0),
+        hwdata => myssdout(15 downto 0),
+        hrdata => outdatassd,     
+        hclk => clk,
+        hreadyout => slaveReadySSD
     );    	
 end main;
