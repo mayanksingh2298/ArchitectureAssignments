@@ -206,10 +206,10 @@ entity MasterInterfaceProc is
         hsize: out std_logic_vector(2 downto 0);
         htrans: out std_logic;  -- '0' idle | '1' nonseq
         hwdata: out std_logic_vector(31 downto 0);
-        resetMem: out std_logic;
+        resetMem: out std_logic
         
-        push: in std_logic;
-        ssdout: out std_logic_vector(31 downto 0)
+--        push: in std_logic;
+--        ssdout: out std_logic_vector(31 downto 0)
     );
 end MasterInterfaceProc;
 architecture masterProc of MasterInterfaceProc is
@@ -351,10 +351,10 @@ Processor: entity work.MainProcessor(MasterProcessor) port map(
         MR => tempMR,
         MW => tempMW,
         Memrst => resetMem,
-        enableMasterProc => start2,
+        enableMasterProc => start2
         
-        push => push,
-        ssdout => ssdout
+--        push => push,
+--        ssdout => ssdout
      );         
 end masterProc;
 
@@ -805,7 +805,7 @@ begin
 	end process;
 	clockDisp <= (tmpDispClk and not(sim)) or (clk and sim); 
     clock2 <= (tmpClk2 and not(sim)) or (clk and sim);
-    
+--//    /
     Procclk <= clk when (flagStart = '1') else '0';
 --    Procclk <= clockDisp when (flagStart = '1') else '0';
 --    Procclk <= clock2 when (flagStart = '1') else '0';
@@ -827,12 +827,12 @@ begin
         htrans => fromProctrans,  -- '0' idle | '1' nonseq
         hwdata => FromProcWriteData,
         resetMem => FromProcResetMem,
-        hselect =>procselect,
+        hselect =>procselect
 --        push => push1,   ----------------------------------- Change this to push and then test on board
-        push => '0',
-        ssdout => ssdout
+--        push => '0',
+--        ssdout => ssdout
     );
-    
+--/    
 --    memInputData <= ("0000000000000000"&masterWriteData) when (flagStart = '0' or masterTrans = '1') else FromProcWriteData;
 --    memHWrite <= masterWriteBool when (flagStart = '0' or masterTrans = '1') else FromProcWrite;
 --    memHSize <= masterSize when (flagStart = '0' or masterTrans = '1') else FromProcSize;
@@ -911,7 +911,7 @@ begin
     
 --    myssdout <= memData when (push = '1');
 --    myssdout <= fromprocwritedata when (fromprocaddr(15 downto 14) = "01" ) else "00000000000000000000000000000000";   
-    myssdout <= fromprocwritedata;   
+    myssdout <= fromprocwritedata;
     SSDSLave: entity work.SlaveInterfaceSSD(slaveSSD) port map(
         enable => '1',
         htrans => ledtrans,
@@ -921,6 +921,7 @@ begin
         hwdata => myssdout(15 downto 0),
         hrdata => outdatassd,     
         hclk => clk,
+--        hclk => clockdisp,
         hreadyout => slaveReadySSD
     ); 
     
@@ -930,6 +931,7 @@ begin
         htrans => slavetrans,
         hwdata => inputswitch,
         hrdata => Switch(15 downto 0),     
+--        hclk => clockdisp,
         hclk => clk,
         hreadyout => slaveReadySwitch
     );    	

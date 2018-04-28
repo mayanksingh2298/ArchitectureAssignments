@@ -375,11 +375,11 @@ entity MainDataPath is
         IR_out: out std_logic_vector(31 downto 0);
         flags: out std_logic_vector(3 downto 0);
         MemInputAd: out std_logic_vector(31 downto 0);
-        BOut : out std_logic_vector(31 downto 0);
+        BOut : out std_logic_vector(31 downto 0)
         
-        
-                push : in std_logic;
-                ssdout : out std_logic_vector(31 downto 0)
+--      /  
+--                push : in std_logic;
+--                ssdout : out std_logic_vector(31 downto 0)
 );
 end MainDataPath;
 architecture DataPath of MainDataPath is
@@ -428,8 +428,6 @@ signal WriteValMem: std_logic_vector(31 downto 0); -- contains value to be writt
 signal mwe: std_logic_vector(3 downto 0); -- contains memory write enables
 begin
 
-    carry <= flagstemp(1) when Fset = '1'; -- To give carry flag as an input to ALU
-    overflow <= flagstemp(0) when Fset = '1'; -- To give carry flag as an input to ALU
     
     BOut <= B;
     IR_out <= IR;
@@ -438,36 +436,178 @@ begin
 -------------------------------------------------------------------------
 -----------------------------Port Mappings-------------------------------
 -------------------------------------------------------------------------
+process(clk)
+begin
+    if(clk = '1' and clk'event) then    
+        if(Fset = '1') then
+            carry <= flagstemp(1);
+            overflow <= flagstemp(0);
+        end if;
+--        /
+--        carry <= flagstemp(1) when Fset = '1'; -- To give carry flag as an input to ALU
+--        overflow <= flagstemp(0) when Fset = '1'; -- To give carry flag as an input to ALU
+
+        if(IorD = '0')then
+            MemInputAd <= PCResult;
+        else
+            MemInputAd <= RESresult;
+        end if;  
+--        /      
+        --IorD mux
+--        MemInputAd <= PCresult when IorD = '0' ELSE
+--                   RESresult;
+        if(IW = '1')then
+            IR <= MemResult;
+        end if;  
     
-    --IorD mux
-    MemInputAd <= PCresult when IorD = '0' ELSE
-               RESresult;
+        --IR Register
+--        IR <= MemResult when IW = '1';
+        if(DW = '1')then
+            DR <= MemResult;
+        end if;  
+--    /
+        --DR Register
+--        DR <= MemResult when DW = '1';
+        if(M2R = "00")then
+            writevalreg <= DR;
+        elsif(M2R = "01") then
+            writevalReg <= RESResult;
+        else
+            writevalreg <= PCresult;    
+        end if;  
+    
+        --M2R Mux, originally 1 bit but now 2 bit, 00 when DR, 01 when RESresult, 10 when PC
+--        writeValReg <= DR when M2R = "00" ELSE
+--                    RESresult when M2R = "01" ELSE
+--                    PCresult;
+        if(rsrc = '0')then
+            read2 <= IR(3 downto 0);
+        else
+            read2 <= IR(15 downto 12);    
+        end if;  
+    
+--        /
+        --Rsrc Mux
+--        read2 <= IR(3 downto 0) when Rsrc = '0' ELSE
+--              IR(15 downto 12);
+        --other inputs to Register file
+        --NEW CONTROL SIGNAL read1Sig is 0 when ins[19-16], 1 when ins[11-8]
+        if(resetReg = '1')then
+            read1 <= "1110";
+        elsif(read1sig = '0') then
+            read1 <= IR(19 downto 16);
+        else
+            read1 <= IR(11 downto 8);    
+        end if;  
+--    /
+--        read1 <= "1110" when (resetreg = '1') ELSE
+--                    IR(19 downto 16) when (read1Sig = '0') else
+--                 IR(11 downto 8);
+        --ssdout <= read1regval when (resetreg = '1');
+        --NEW CONTROL SIGNAL writeAddSig is 00 when input is ins[15-12], 01 when input is 14, 10 when input is 15  
+        if(writeaddsig = "00")then
+            writereg <= IR(15 downto 12);
+        elsif(writeaddsig = "01") then
+            writeReg <= "1110";
+        elsif(writeaddsig = "10") then
+            writereg <= IR(19 downto 16);
+        else
+            writereg <= "1111";        
+        end if;  
+--/
+--        writeReg <= IR(15 downto 12) when writeAddSig = "00" ELSE
+--                    "1110" when writeAddSig = "01" ELSE    --for LR
+--                    IR(19 downto 16) when writeAddSig = "10" ELSE --for mul
+--                    "1111";  --for PC
+       if(AW = '1')then
+           A <= read1regval; 
+       end if;
 
-    --IR Register
-    IR <= MemResult when IW = '1';
+       if(BW = '1')then
+           B <= read2regval; 
+       end if;
+--       /
+       --A Register
+--                A <= read1RegVal when AW = '1';
+                --B Register
+--                B <= read2RegVal when BW = '1';
+        
+        if(mulholdsig = '1')then
+            Mulresultholder <= mulresult;
+        end if;
+--    /
+        --NEW CONTROL SIGNAL, which tells when to hold the value of mulResult
+--        MulresultHolder <= MulResult when mulHoldSig = '1';
+        if(shiftamtsig = '0')then
+            shiftamt <= A;
+        else
+            shiftamt <= "0000000"&EXResult(31 downto 7);    
+        end if;
+--/
+        --NEW CONTROL SIGNAL shiftAmtSig is 00 when read1, 01 when EXresult, 10 when no shift
+--        shiftAmt <= A when shiftAmtSig = '0' ELSE
+--                 "0000000"&EXResult(31 downto 7);
+    
+        if(shiftholdsig = '1') then
+            shiftresultholder <= shiftresult;
+        end if;
+--        /
+        --NEW CONTROL SIGNAL, which tells when to hold the value of shiftResult
+--        ShiftresultHolder <= shiftResult when shiftHoldSig = '1';
+        if(ASRC1 = "00") then
+            ALUInputA <= PCRESULT;
+        elsif(ASRC1 = "01") then
+            ALUInputA <= A;
+        else
+            ALUInputA <= MulRESULTholder;
+        end if;
+--        /
+        --Asrc1 mux NEW CONTROL SIGNAL 00 PCresult, 01 A, 10 MulResult
+--        ALUInputA <= PCresult when Asrc1 = "00" ELSE
+--                  A when Asrc1 = "01" ELSE
+--                  MulresultHolder ;
+        --Asrc2 mux NEW CONTROL SIGNAL Shiftresult when 000, 4 when 001, ExResult when 010, S2Result 011, 0 when others
 
-    --DR Register
-    DR <= MemResult when DW = '1';
-
-    --M2R Mux, originally 1 bit but now 2 bit, 00 when DR, 01 when RESresult, 10 when PC
-    writeValReg <= DR when M2R = "00" ELSE
-                RESresult when M2R = "01" ELSE
-                PCresult;
-
-    --Rsrc Mux
-    read2 <= IR(3 downto 0) when Rsrc = '0' ELSE
-          IR(15 downto 12);
-    --other inputs to Register file
-    --NEW CONTROL SIGNAL read1Sig is 0 when ins[19-16], 1 when ins[11-8]
-    read1 <= "1110" when (resetreg = '1') ELSE
-                IR(19 downto 16) when (read1Sig = '0') else
-             IR(11 downto 8);
-    ssdout <= read1regval when (resetreg = '1');
-    --NEW CONTROL SIGNAL writeAddSig is 00 when input is ins[15-12], 01 when input is 14, 10 when input is 15  
-    writeReg <= IR(15 downto 12) when writeAddSig = "00" ELSE
-                "1110" when writeAddSig = "01" ELSE    --for LR
-                IR(19 downto 16) when writeAddSig = "10" ELSE --for mul
-                "1111";  --for PC
+        if(ASRC2 = "000") then
+            ALUInputB <= shiftRESULTholder;
+        elsif(ASRC2 = "001") then
+            ALUInputB <= "00000000000000000000000000000100";
+        elsif(ASRC2 = "010") then
+            ALUInputB <= EXREsult;
+        elsif(ASRC2 = "011") then
+            ALUInputB <= S2result;
+        elsif(ASRC2 = "100") then
+            ALUInputB <= "00000000000000000000000000000000";
+        elsif(ASRC2 = "101") then
+            ALUInputB <= "000000000000000000000000"&IR(11 downto 8)&IR(3 downto 0);
+        elsif(ASRC2 = "110") then
+            ALUInputB <= specialDoubleRotate;
+        else
+            ALUInputB <= B;
+        end if;
+--/
+--        ALUInputB <= ShiftresultHolder when Asrc2 = "000" ELSE
+--                     "00000000000000000000000000000100" when Asrc2 = "001" ELSE
+--                     EXResult when Asrc2 = "010" ELSE
+--                     S2Result when Asrc2= "011" ELSE
+--                     "00000000000000000000000000000000" when Asrc2= "100" ELSE
+--                     "000000000000000000000000"&IR(11 downto 8)&IR(3 downto 0) when Asrc2="101" ELSE
+--                     specialDoubleRotate when Asrc2="110" ELSE
+--                     B;--111
+       
+        if (Fset = '1')then
+            flags <= flagstemp;
+        end if;
+        --F box
+--        /
+--             flags <= flagsTemp when Fset = '1'; 
+        if(ReW = '1')then
+            Resresult <= Aluresult;
+        end if;             
+--        /
+--             RESresult <= ALUresult when ReW = '1';
+    end if;
+end process;
     --Register File (RF)
     RFile: entity work.RegisterFile(func4) port map(
         a => writeValReg,
@@ -488,10 +628,6 @@ begin
     --S2
     S2Result <= IR(23)&IR(23)&IR(23)&IR(23)&IR(23)&IR(23)&IR(23 downto 0)&"00";
     
-    --A Register
-    A <= read1RegVal when AW = '1';
-    --B Register
-    B <= read2RegVal when BW = '1';
     
     Mul: entity work.multiplier(func3) port map(
         a => A,
@@ -499,11 +635,6 @@ begin
         c => Mulresult
     );
 
-    --NEW CONTROL SIGNAL, which tells when to hold the value of mulResult
-    MulresultHolder <= MulResult when mulHoldSig = '1';
-    --NEW CONTROL SIGNAL shiftAmtSig is 00 when read1, 01 when EXresult, 10 when no shift
-    shiftAmt <= A when shiftAmtSig = '0' ELSE
-             "0000000"&EXResult(31 downto 7);
     
     --Shifter NEW CONTROL SIGNAL shiftTypeSig
     Shifter: entity work.shifter(func2) port map(
@@ -515,23 +646,6 @@ begin
         result => Shiftresult,
         c => ShifterCarryOut
     );
-    --NEW CONTROL SIGNAL, which tells when to hold the value of shiftResult
-    ShiftresultHolder <= shiftResult when shiftHoldSig = '1';
-
-    --Asrc1 mux NEW CONTROL SIGNAL 00 PCresult, 01 A, 10 MulResult
-    ALUInputA <= PCresult when Asrc1 = "00" ELSE
-              A when Asrc1 = "01" ELSE
-              MulresultHolder ;
-    --Asrc2 mux NEW CONTROL SIGNAL Shiftresult when 000, 4 when 001, ExResult when 010, S2Result 011, 0 when others
-    ALUInputB <= ShiftresultHolder when Asrc2 = "000" ELSE
-                 "00000000000000000000000000000100" when Asrc2 = "001" ELSE
-                 EXResult when Asrc2 = "010" ELSE
-                 S2Result when Asrc2= "011" ELSE
-                 "00000000000000000000000000000000" when Asrc2= "100" ELSE
-                 "000000000000000000000000"&IR(11 downto 8)&IR(3 downto 0) when Asrc2="101" ELSE
-                 specialDoubleRotate when Asrc2="110" ELSE
-                 B;--111
-   
     --ALU Box
     ALU_unit: entity work.ALU(func1) port map(
         a => ALUInputA,
@@ -547,10 +661,6 @@ begin
         v => flagsTemp(0) 
     );   
 
-    --F box
-    flags <= flagsTemp when Fset = '1'; 
-
-    RESresult <= ALUresult when ReW = '1';
           
 end DataPath;
 
